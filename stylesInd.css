@@ -1,0 +1,46 @@
+html{
+  height: 100%; 
+}
+body{
+	background-color:black;
+  height: 100%;
+}
+ul.sig{
+	list-style: none;
+  padding-left: 0%;
+}
+.icon{
+	color:lightgreen;
+	font-size: 5vw;
+} 
+.rv:visited{
+  color: pink;
+}
+a:link{
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+}
+.rv:hover{
+  color: white;
+}
+.containerInRe{
+  width:100%;
+  height: 100%;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 80% 20%;
+  align-items: center;
+}
+.monitor{
+  display: grid;
+  grid-template-columns: auto 70% auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.volver{  
+  text-align: center;
+}
+.box{
+  width:60%;
+}
