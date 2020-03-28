@@ -234,6 +234,27 @@ z-index:1;
 .volver{  
   text-align: center;
 }
+.containerInRe{
+  width:100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 80% 20%;
+  align-items: center;
+}
+.monitor{
+  display: grid;
+  grid-template-columns: auto 70% auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.nextIcon{
+  z-index: 1;
+}
+.volver{  
+  text-align: center;
+}
 .frame{
   margin:0; padding:0; height:100%;
   width:100%; border:none;
