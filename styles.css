@@ -231,3 +231,13 @@ z-index:1;
 .ImgStat{
 	width:50%;
 }
+.frame{
+  margin:0; padding:0; height:100%;
+ width:100%; border:none;
+}
+.secciones{
+  height: 100%;
+}
+#Indagar{
+  height: 100%;
+}
