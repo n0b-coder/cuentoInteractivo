@@ -1,9 +1,6 @@
-html{
-	height: 100%;
-}
 body{
 	background-color:black;
-	height: 100%;
+	margin:0px;
 }
 @font-face{
 	font-family: modern;
