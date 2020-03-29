@@ -19,16 +19,17 @@
 	<section id="pag1" v-if="section == 'intro'">
 		<div class="bgImg1"></div>
 		<div class="containerP1">
+			<div class="nextPag">
+				<ul class="sig">
+					<li><a v-on:click="activar('intro2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+				</ul>
+			</div>
 			<div class="grad1">
 				<div class="parraf1">
 				<p id="parrafs">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</div>
 			</div>
-		<div class="nextPag">
-			<ul class="sig">
-				<li><a v-on:click="activar('intro2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
-			</ul>
-		</div>
+		
 		</div>
 	</section>
 
