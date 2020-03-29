@@ -7,21 +7,16 @@
 	<meta content="SalvandoElMundo">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<link rel="stylesheet" type="text/css" href="stylesInd.css">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
-	<!-- <script src="main.js"></script> -->
-
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
 <div id="app" class="secciones">
-	<section id="pag1" v-if="section == 'intro'">
+	<section id="pag1" v-if="section == 'page'">
 		<div class="bgImg1"></div>
 		<div class="containerP1">
 			<div class="nextPag">
 				<ul class="sig">
-					<li><a v-on:click="activar('intro2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+					<li><a v-on:click="activar('page2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 				</ul>
 			</div>
 			<div class="grad">
@@ -33,7 +28,7 @@
 		</div>
 	</section>
 
-	<section id="pag2" v-if="section == 'intro2'">
+	<section id="pag2" v-if="section == 'page2'">
 		<div class="bgImg2"></div>
 		<div class="containerP1">
 			<div class="grad2">
@@ -43,19 +38,19 @@
 			</div>
 		<div class="nextPag">
 			<ul class="sig">
-				<li><a v-on:click="activar('intro')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
-				<li><a v-on:click="activar('intro3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+				<li><a v-on:click="activar('page')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
+				<li><a v-on:click="activar('page3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 			</ul>
 		</div>
 		</div>
 	</section>
 
-	<section id="pag3"  v-if="section == 'intro3'">
+	<section id="pag3"  v-if="section == 'page3'">
 		<div class="bgImg3"></div>
 		<div class="containerP1">
 			<div class="nextPag">
 				<ul class="sig">
-					<li><a v-on:click="activar('intro2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
+					<li><a v-on:click="activar('page2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
 					<li><a v-on:click="activarPilar(0)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 				</ul>
 			</div>
@@ -71,19 +66,19 @@
 		<div class="bgImg4" :style="pilar.acertijoStyle"></div>
 		<div class="opcs">
 			<div class="indagar"><ul class="sig">
-				<li><a href="#Indagar" class="rv">
+				<li><a v-on:click="activar('indagar')" class="rv">
 				<h1 class="textA">INDAGAR</h1>
 			</a></li></ul>
 			</div>
 			<div class="resol"><ul class="sig">
-				<li><a href="#resolPag" class="rv">
+				<li><a v-on:click="activar('resolver')" class="rv">
 				<h1 class="textA">RESOLVER</h1>
 			</a></li></ul>
 			</div>
 		</div>
 	</section>
 
-	<section id="Indagar" v-if="section == 'indagar'">
+	<section id="indagar" v-if="section == 'indagar'">
 		<div class="containerInRe">
 			<div class="monitor">
 				<div>
@@ -107,61 +102,13 @@
 		</div>
 	</section>
 
+	<section id="resolver" v-if="section == resolver">
+		
+	</section>
 </div>
-<script type="text/javascript">
-
-function nextImg2(){
-	var num = app.idx;
-	num += 1;
-	if (num > 2) num = 2;
-	app.idx = num;
-}
-function prevImg2(){
-	var num = app.idx;
-	num -= 1;
-	if (num < 0) num = 0;
-	app.idx = num;
-}
-
-var back=true;
-function back2(){
-	app.pilar = pilar2
-};
-
-
-var pilar1 = {
-	indagacion: ['IMGS/I1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
-	textoIndagacion: "arofuitnaroifunt oiarufnt ioarunf toiarnf",
-	background: "url('IMGS/p4.jpg')"
-}
-
-var pilar2 = {
-	indagacion: ['IMGS/p1.jpg','IMGS/p2.jpg','IMGS/p3.jpg'],
-	textoIndagacion: "info del pilar 2",
-	acertijoStyle: {
-		background: "url('IMGS/p5.jpg')"
-	}
-}
-
-var pilares = [pilar1, pilar2];
-
-var app = new Vue({
-  el: '#app',
-  data: {
-  	pilar: pilar1,
-  	idx: 1,
-  	section: 'intro'
-  },
-  methods: {
-    activar: function (seccion) {
-      this.section = seccion;
-    },
-    activarPilar: function (numPilar) {
-      this.section = 'acertijo';
-      this.pilar = pilares[numPilar]
-    }
-  }
-});
-</script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
