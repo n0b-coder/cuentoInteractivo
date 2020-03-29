@@ -130,12 +130,11 @@ position: absolute;
 	height: 50%;
     text-align: center;
 }
-ul.sig{
+.nextPag ul{
 	list-style: none;
 }
-.icon{
-	color:white;
-	font-size: 5vw;
+.nextPag li{
+display:inline-block;
 }
 #parrafs{
 padding-top: 3%;
