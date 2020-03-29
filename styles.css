@@ -68,7 +68,7 @@ position: absolute;
     height: 100%;
     background-size: cover;
     background-color: black;
-	background: url('IMGS/His1.jpg') no-repeat center center fixed;
+	background: url('IMGS/p1.jpg') no-repeat center center fixed;
   -webkit-background-size:cover;
   -moz-background-size:cover;
   -o-background-size: cover;
@@ -102,14 +102,15 @@ position: absolute;
 .containerP1 {
 	display: flex;
     position: relative;
-    text-align: right;
+    text-align: center;
     flex-direction: column;
 }
 
 .grad1 {
     display: flex;
-    background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));
-    justify-content: flex-end;
+    background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+    justify-content: center;
+
 }
 .grad2 {
     display: flex;
@@ -122,9 +123,12 @@ position: absolute;
     justify-content: flex-end;
 }
 .parraf1 {
+  font-family: 'modern', sans-serif;
+	font-weight: lighter;
+	font-size: 200%;
 	width:70%;
 	height: 50%;
-    text-align: right;
+    text-align: center;
 }
 ul.sig{
 	list-style: none;
