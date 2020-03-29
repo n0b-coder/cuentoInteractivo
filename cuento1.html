@@ -6,63 +6,66 @@
 	<meta charset="utf-8">
 	<meta content="SalvandoElMundo">
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="stylesInd.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
-	<script src="main.js"></script>
+	<!-- <script src="main.js"></script> -->
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
-<div class="secciones">
-	<section id="pag1">
+<div id="app" class="secciones">
+	<section id="pag1" v-if="section == 'intro'">
 		<div class="bgImg1"></div>
 		<div class="containerP1">
 			<div class="grad1">
-				<div class="parraf1">		
+				<div class="parraf1">
 				<p id="parrafs">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</div>
 			</div>
 		<div class="nextPag">
 			<ul class="sig">
-				<li><a href="#pag2"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+				<li><a v-on:click="activar('intro2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 			</ul>
 		</div>
 		</div>
 	</section>
-	
-	<section id="pag2">
+
+	<section id="pag2" v-if="section == 'intro2'">
 		<div class="bgImg2"></div>
 		<div class="containerP1">
 			<div class="grad2">
-				<div class="parraf1">		
+				<div class="parraf1">
 				<p id="parrafs">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</div>
 			</div>
 		<div class="nextPag">
 			<ul class="sig">
-				<li><a href="#pag3"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+				<li><a v-on:click="activar('intro3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 			</ul>
 		</div>
 		</div>
 	</section>
 
-	<section id="pag3">
+	<section id="pag3"  v-if="section == 'intro3'">
 		<div class="bgImg3"></div>
 		<div class="containerP1">
 			<div class="grad3">
-				<div class="parraf1">		
+				<div class="parraf1">
 				<p id="parrafs">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
 				</div>
 			</div>
 		<div class="nextPag">
 			<ul class="sig">
-				<li><a href="#acertijo"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+				<li><a v-on:click="activarPilar(0)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 			</ul>
 		</div>
 		</div>
 	</section>
 
-	<section id="acertijo">
-		<div class="bgImg4"></div>
+	<section id="acertijo"  v-if="section == 'acertijo'">
+		<div class="bgImg4" :style="pilar.acertijoStyle"></div>
 		<div class="opcs">
 			<div class="indagar"><ul class="sig">
 				<li><a href="#Indagar" class="rv">
@@ -77,15 +80,35 @@
 		</div>
 	</section>
 
-	<section id="Indagar">
-			<iframe class="frame" scrolling="yes" src="IndagaResol.html"></iframe>
+	<section id="Indagar" v-if="section == 'indagar'">
+		<div class="containerInRe">
+			<div class="monitor">
+				<div>
+					<a class="prev icon fas fa-angle-left" href="#" onclick="prevImg2()"></a>
+				</div>
+				<div class="contenido">
+					<div id="box">
+						<img :src="pilar.indagacion[idx]" alt="contenido">
+						{{pilar.textoIndagacion}}
+					</div>
+				</div>
+				<div>
+					<a class="next icon fas fa-angle-right" href="#" onclick="nextImg2()"></a>
+				</div>
+			</div>
+			<div class="back">
+				<div class="volver">
+					<a class="next icon fas fa-angle-down" href="#" onclick="back2()"></a>
+				</div>
+			</div>
+		</div>
 	</section>
 
-	<section id="resolPag">
+	<section id="resolPag" v-if="section == 'resolver'">
 		<div class="bgImg5"></div>
 		<div class="containerP1">
 			<div class="grad3">
-				<div class="parraf1">		
+				<div class="parraf1">
 				<p id="parrafs"> Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
 				</div>
 			</div>
@@ -100,7 +123,7 @@
 		<section id="indPag">
 		<div class="bgImg5"></div>
 		<div class="containerP1">
-			<div class="grad3">		
+			<div class="grad3">
 				<p id="parrafs">Mortem Dolor</p>
 			</div>
 		<div class="nextPag">
@@ -111,5 +134,60 @@
 		</div>
 	</section>
 </div>
+<script type="text/javascript">
+
+function nextImg2(){
+	var num = app.idx;
+	num += 1;
+	if (num > 2) num = 2;
+	app.idx = num;
+}
+function prevImg2(){
+	var num = app.idx;
+	num -= 1;
+	if (num < 0) num = 0;
+	app.idx = num;
+}
+
+var back=true;
+function back2(){
+	app.pilar = pilar2
+};
+
+
+var pilar1 = {
+	indagacion: ['IMGS/I1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
+	textoIndagacion: "arofuitnaroifunt oiarufnt ioarunf toiarnf",
+	background: "url('IMGS/p4.jpg')"
+}
+
+var pilar2 = {
+	indagacion: ['IMGS/p1.jpg','IMGS/p2.jpg','IMGS/p3.jpg'],
+	textoIndagacion: "info del pilar 2",
+	acertijoStyle: {
+		background: "url('IMGS/p5.jpg')"
+	}
+}
+
+var pilares = [pilar1, pilar2];
+
+var app = new Vue({
+  el: '#app',
+  data: {
+  	pilar: pilar1,
+  	idx: 1,
+  	section: 'intro'
+  },
+  methods: {
+    activar: function (seccion) {
+      this.section = seccion;
+    },
+    activarPilar: function (numPilar) {
+      this.section = 'acertijo';
+      this.pilar = pilares[numPilar]
+    }
+  }
+});
+</script>
 </body>
 </html>
