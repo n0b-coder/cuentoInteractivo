@@ -16,7 +16,7 @@ var page3 = {
 	pageTxt: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
 }
 var vida={
-	stat:['IMGS/Vidas/full.jpg','IMGS/Vidas/bar2.jpg','IMGS/Vidas/bar1.jpg','IMGS/Vidas/dead.jpg']
+	stat:['IMGS/Vidas/full.png','IMGS/Vidas/bar2.png','IMGS/Vidas/bar1.png','IMGS/Vidas/dead.png']
 }
 var pilares = [pilar1, pilar2];
 var paginas = [page1, page2, page3];
