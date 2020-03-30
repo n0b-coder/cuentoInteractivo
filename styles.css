@@ -145,13 +145,12 @@ z-index:1;
 .indagar{
 	width: 50%;
 	border:10px;
-    margin-right: 5%;
-    padding-bottom: 45%;
+  margin-right: 5%;
 	background-color: rgba(250,0,0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
 }
 .textA{
 	position: absolute;
@@ -160,32 +159,28 @@ z-index:1;
 .resol{
 	width: 50%;
 	border:10px;
-    margin-right: 5%;
-    padding-bottom: 45%;
+  margin-right: 5%;
 	background-color: rgba(100,50,0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
 }
 .bgImg{
   display: flex;
   justify-content: center;
 	position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-color: purple;
-	background: url('IMGS/p4.jpg') no-repeat center center fixed;
-  	-webkit-background-size:cover;
-  	-moz-background-size:cover;
-  	-o-background-size: cover;
+  width: 100%;
+  height: 100%;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size: cover;
 }
 .bgImg5{
 	position: absolute;
     background-size: cover;
     background-color: purple;
-	background: url('IMGS/p5.jpg') no-repeat center center fixed;
+	 background: url('IMGS/p5.jpg') no-repeat center center fixed;
   	-webkit-background-size:cover;
   	-moz-background-size:cover;
   	-o-background-size: cover;
@@ -233,34 +228,23 @@ z-index:1;
 .volver{  
   text-align: center;
 }
-.frame{
-  margin:0; padding:0; height:100%;
-  width:100%; border:none;
-}
-.secciones{
-  height: 100%;
-}
 #indagar{
   height: 100%;
 }
 .opcs{
   width: 80%;
-  margin: auto;
-  padding: 20px;
   display: flex;
   position: relative;
-  align-items: flex-end;
 }
 #vidas{
   position: absolute;
   right:0%;
   width:20%;
-  z-index: 0;
+  align-self: flex-end;
 }
 
 #vidas img{
-  width:-moz-available;
-  max-width: -webkit-fill-available;
+  width: 25vw;
 }
 input[type=text], select {
   width: 70%;
@@ -270,4 +254,22 @@ input[type=text], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+.pass-enter-active, .pass-leave-active {
+  transition: opacity .8s;
+}
+.pass-enter, .pass-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.monitor-enter-active {
+  transition: all .3s ease;
+}
+.monitor-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.monitor-enter, .monitor-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }

@@ -11,6 +11,7 @@
 
 <body>
 <div id="app" class="secciones">
+
 	<section id="pag1" v-if="section == 'page1'">
 		<div class="bgImg1">
 			<div class="containerP1">
@@ -30,10 +31,9 @@
 
 
 
-
-
-	<transition name="pass">
+		<transition name="pass">
 		<section id="pag2" v-if="section == 'page2'">
+
 			<div class="bgImg2">
 				<div class="containerP1">
 					<div class="grad2">
@@ -49,73 +49,79 @@
 					</div>
 				</div>
 			</div>
+
+		</section>
+		</transition>
+
+	<transition name="pass">
+		<section id="pag3"  v-if="section == 'page3'">
+			<div class="bgImg3">
+				<div class="containerP1">
+					<div class="nextPag">
+						<ul class="sig">
+							<li><a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
+							<li><a v-on:click="activarPilar(0)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+						</ul>
+					</div>
+					<div class="grad">
+						<div class="parraf1">
+						<p id="parrafs">{{pagina.pageTxt}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 	</transition>
 
-	<section id="pag3"  v-if="section == 'page3'">
-		<div class="bgImg3">
-			<div class="containerP1">
-				<div class="nextPag">
-					<ul class="sig">
-						<li><a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
-						<li><a v-on:click="activarPilar(0)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
-					</ul>
-				</div>
-				<div class="grad">
-					<div class="parraf1">
-					<p id="parrafs">{{pagina.pageTxt}}</p>
+	<transition name="pass">
+		<section id="acertijo"  v-if="section == 'acertijo'">
+			<div class="bgImg" :style="pilar.pilarStyle">
+				<div class="opcs">
+					<div class="indagar"><ul class="sig">
+						<li><a v-on:click="activar(0,'indagar')" class="rv">
+						<h1 id="he1">INDAGAR</h1>
+					</a></li></ul>
+					</div>
+					<div class="resol"><ul class="sig">
+						<li><a v-on:click="activar(0,'resolver')" class="rv">
+						<h1 id="he1">RESOLVER</h1>
+					</a></li></ul>
+					</div>
+					<div id="vidas">
+						<img :src="vida.stat[estado]" alt="contenido">
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</transition>
 
-	<section id="acertijo"  v-if="section == 'acertijo'">
-		<div class="bgImg" :style="pilar.acertijoStyle">
-			<div class="opcs">
-				<div class="indagar"><ul class="sig">
-					<li><a v-on:click="activar(0,'indagar')" class="rv">
-					<h1 class="textA">INDAGAR</h1>
-				</a></li></ul>
-				</div>
-				<div class="resol"><ul class="sig">
-					<li><a v-on:click="activar(0,'resolver')" class="rv">
-					<h1 class="textA">RESOLVER</h1>
-				</a></li></ul>
-				</div>
-				<div id="vidas">
-					<img :src="vida.stat[idx]" alt="contenido">
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="indagar" v-if="section == 'indagar'">
-		<div class="containerInRe">
-			<div class="monitor">
-				<div>
-					<a class="prev icon fas fa-angle-left" href="#" onclick="prevImg2()"></a>
-				</div>
-				<div class="contenido">
-					<div id="box">
-						<img :src="pilar.indagacion[idx]" alt="contenido">
+		<section id="indagar" v-if="section == 'indagar'">
+			<div class="containerInRe">
+				<div class="monitor">
+					<div>
+						<a class="prev icon fas fa-angle-left" onclick="prevImg2()"></a>
+					</div>
+					<div class="contenido">
+						<div id="box">
+							<img :src="pilar.indagacion[idx]" alt="contenido">
+						</div>
+					</div>
+					<div>
+						<a class="next icon fas fa-angle-right" onclick="nextImg2()"></a>
 					</div>
 				</div>
-				<div>
-					<a class="next icon fas fa-angle-right" href="#" onclick="nextImg2()"></a>
+				<div class="back">
+					<div class="volver">
+						<a class="next icon fas fa-angle-down" onclick="back2()"></a>
+					</div>
 				</div>
 			</div>
-			<div class="back">
-				<div class="volver">
-					<a class="next icon fas fa-angle-down" href="#" onclick="back2()"></a>
-				</div>
-			</div>
-		</div>
-	</section>
+		</transition>
+		</section>
 
 	<section id="resolver" v-if="section == 'resolver'">
 		<div class="bgImg">
-			<div class="containerP1">
+			<div class="containerP1" :style="pilar.pilarStyle">
 				<div class="img">
 					<img :src="pilar.indagacion[idx]" alt="contenido">
 				</div>
@@ -123,15 +129,28 @@
 					<div>
 						<h1>Ingresar</h1>
 						<input type="text" name="nombre" size="100">
-						<input type="submit" value="Resolver" onclick="resolver()">
+						<input type="submit" value="Resolver" v-on:click="activar(0,'respuesta')">
 					</div>
 					<div id="vidas">
-						<img :src="vida.stat[idx]" alt="contenido">
+						<img :src="vida.stat[estado]" alt="contenido">
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<section id="respuesta" v-if="section == 'respuesta'">
+		<div class="container">
+			<div class="Main">
+				<div>
+					<img :src="vida.stat[estado]" alt="contenido">
+				</div>
+				<div id="btn1">
+				<a class="BtnHover BtnUser" onclick="back2()">REINTENTAR</a>
+				</div>
+			</div>
+		</div>
+</section>
 </div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
