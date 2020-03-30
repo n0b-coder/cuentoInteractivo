@@ -1,6 +1,6 @@
 var pilar1 = {
 	indagacion: ['IMGS/I1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
-	pilarStyle:	"background: url('IMGS/His2.jpg'); background-size: cover"
+	pilarStyle:	"background: url('IMGS/Tor1.png'); background-size: cover"
 }
 var pilar2 = {
 	indagacion: ['IMGS/p1.jpg','IMGS/p2.jpg','IMGS/p3.jpg'],

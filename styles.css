@@ -146,7 +146,6 @@ z-index:1;
 	width: 50%;
 	border:10px;
   margin-right: 5%;
-	background-color: rgba(250,0,0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,7 +159,6 @@ z-index:1;
 	width: 50%;
 	border:10px;
   margin-right: 5%;
-	background-color: rgba(100,50,0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,12 +176,12 @@ z-index:1;
 }
 .bgImg5{
 	position: absolute;
-    background-size: cover;
-    background-color: purple;
-	 background: url('IMGS/p5.jpg') no-repeat center center fixed;
-  	-webkit-background-size:cover;
-  	-moz-background-size:cover;
-  	-o-background-size: cover;
+  background-size: cover;
+  background-color: purple;
+	background: url('IMGS/p5.jpg') no-repeat center center fixed;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size: cover;
 }
 .rv:visited{
   color: pink;
