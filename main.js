@@ -45,18 +45,18 @@ var num = app.idx;
 function resolver(){
 	app.estado=3;
 }
-function nextImg2(){
+function nextImg(){
 	num += 1;
 	if (num > 2) num = 2;
 	app.idx = num;
 }
-function prevImg2(){
+function prevImg(){
 	num -= 1;
 	if (num < 0) num = 0;
 	app.idx = num;
 }
 
-function back2(){
+function back(){
 	this.section = 'acertijo';
 	app.section='acertijo'
 	app.idx=1;

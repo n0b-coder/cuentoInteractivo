@@ -78,17 +78,17 @@
 			<div class="bgImg" :style="pilar.pilarStyle">
 				<div class="opcs">
 					<div class="indagar"><ul class="sig">
-						<li><a v-on:click="activar(0,'indagar')" class="rv">
+						<li><a v-on:click="activar(0,'indagar')">
 						<h3 id="he2">INDAGAR</h3>
 					</a></li></ul>
 					</div>
 					<div class="resol"><ul class="sig">
-						<li><a v-on:click="activar(0,'resolver')" class="rv">
+						<li><a v-on:click="activar(0,'resolver')">
 						<h3 id="he2">RESOLVER</h3>
 					</a></li></ul>
 					</div>
 					<div id="vidas">
-						<img :src="vida.stat[estado]" alt="contenido">
+						<img class="forImg" :src="vida.stat[estado]" alt="contenido">
 					</div>
 				</div>
 			</div>
@@ -96,27 +96,28 @@
 	</transition>
 
 		<section id="indagar" v-if="section == 'indagar'">
-			<div class="containerInRe">
-				<div class="monitor">
-					<div>
-						<a class="prev icon fas fa-angle-left" onclick="prevImg2()"></a>
-					</div>
-					<div class="contenido">
-						<div id="box">
-							<img :src="pilar.indagacion[idx]" alt="contenido">
+			<div class="bgImg" :style="pilar.pilarStyle">
+				<div class="containerInRe">
+					<div class="monitor" >
+						<div>
+							<a v-if="idx>0" class="prev icon fas fa-angle-left" onclick="prevImg()"></a>
+						</div>
+						<div class="contenido">
+							<div id="box">
+								<img :src="pilar.indagacion[idx]" alt="contenido">
+							</div>
+						</div>
+						<div>
+							<a v-if="idx<2" class="next icon fas fa-angle-right" onclick="nextImg()"></a>
 						</div>
 					</div>
-					<div>
-						<a class="next icon fas fa-angle-right" onclick="nextImg2()"></a>
-					</div>
-				</div>
-				<div class="back">
-					<div class="volver">
-						<a class="next icon fas fa-angle-down" onclick="back2()"></a>
+					<div class="back">
+						<div class="volver">
+							<a class="next icon fas fa-angle-down" onclick="back()"></a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</transition>
 		</section>
 
 	<section id="resolver" v-if="section == 'resolver'">
@@ -146,7 +147,7 @@
 					<img :src="vida.stat[estado]" alt="contenido">
 				</div>
 				<div id="btn1">
-				<a class="BtnHover BtnUser" onclick="back2()">REINTENTAR</a>
+				<a class="BtnHover BtnUser" onclick="back()">REINTENTAR</a>
 				</div>
 			</div>
 		</div>

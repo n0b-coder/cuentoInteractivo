@@ -1,10 +1,10 @@
 body{
-	background-color:black;
-	margin:0px;
+  background-color:black;
+  margin:0px;
 }
 @font-face{
-	font-family: modern;
-	src: url('MODERN SPACE.ttf')
+  font-family: modern;
+  src: url('MODERN SPACE.ttf')
 }
 .container{
 position: absolute;
@@ -18,10 +18,10 @@ position: absolute;
   -o-background-size: cover;
 }
 #he1{
-	font-family: 'modern', sans-serif;
-	font-weight: lighter;
-	font-size: 100%;
-	text-shadow: 0 0 0.05em cyan;
+  font-family: 'modern', sans-serif;
+  font-weight: lighter;
+  font-size: 100%;
+  text-shadow: 0 0 0.05em cyan;
 }
 .Main{
   text-align: center;
@@ -32,65 +32,65 @@ position: absolute;
   transform: translate(-50%, -50%);
 }
 #Titulo{
-	margin:auto;
-	color: white;
-	font-size: 1200%;
+  margin:auto;
+  color: white;
+  font-size: 1200%;
 }
 
 .BtnUser{
-	font-family: 'modern', sans-serif;
-	font-weight: lighter;
-	font-size: 200%;
-	position: relative;
-	background: none;
-	color: white;
-	border:solid;
-	border-color: white;
-  	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-	
+  font-family: 'modern', sans-serif;
+  font-weight: lighter;
+  font-size: 200%;
+  position: relative;
+  background: none;
+  color: white;
+  border:solid;
+  border-color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  
 }
 .BtnHover:hover{
-	background-color: rgba(255, 255, 255);
-	opacity: 0.9;
+  background-color: rgba(255, 255, 255);
+  opacity: 0.9;
     color: rgba(0, 0, 0);
 }
 /*Páginas*/
 
 .bgImg1{
-	position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-color: black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-color: black;
   background: url('IMGS/His1.jpg') no-repeat center center fixed;
   -webkit-background-size:cover;
   -moz-background-size:cover;
   -o-background-size: cover;
 }
 .bgImg2{
-	position: absolute;
+  position: absolute;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-color: black;
-	background: url('IMGS/His2.jpg') no-repeat center center fixed;
+  background: url('IMGS/His2.jpg') no-repeat center center fixed;
   -webkit-background-size:cover;
   -moz-background-size:cover;
   -o-background-size: cover;
 }
 .bgImg3{
-	position: absolute;
+  position: absolute;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-color: purple;
-	background: url('IMGS/p3.jpg') no-repeat center center fixed;
-  	-webkit-background-size:cover;
-  	-moz-background-size:cover;
-  	-o-background-size: cover;
+  background: url('IMGS/p3.jpg') no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size: cover;
 }
 
 .containerP1 {
@@ -123,11 +123,11 @@ position: absolute;
   font-family: 'modern', sans-serif;
   font-weight: bold;
   text-align: justify;
-	font-size: 230%;
-	width:85%;
+  font-size: 230%;
+  width:85%;
 }
 .nextPag ul{
-	list-style: none;
+  list-style: none;
 }
 .nextPag li{
 display:inline-block;
@@ -143,8 +143,8 @@ color:white;
 z-index:1;
 }
 .indagar{
-	width: 50%;
-	border:10px;
+  width: 50%;
+  border:10px;
   margin-right: 5%;
   display: flex;
   justify-content: center;
@@ -152,51 +152,53 @@ z-index:1;
   position:relative;
 }
 .textA{
-	position: absolute;
-	top:40%;
+  position: absolute;
+  top:40%;
 }
 .resol{
-	width: 50%;
-	border:10px;
+  width: 50%;
+  border:10px;
   margin-right: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
   position:relative;
 }
+.bgImg5{
+  position: absolute;
+  background-size: cover;
+  background-color: purple;
+  background: url('IMGS/p5.jpg') no-repeat center center fixed;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size: cover;
+}
 .bgImg{
   display: flex;
   justify-content: center;
-	position: absolute;
+  position: absolute;
   width: 100%;
   height: 100%;
   -webkit-background-size:cover;
   -moz-background-size:cover;
   -o-background-size: cover;
 }
-.bgImg5{
-	position: absolute;
-  background-size: cover;
-  background-color: purple;
-	background: url('IMGS/p5.jpg') no-repeat center center fixed;
-  -webkit-background-size:cover;
-  -moz-background-size:cover;
-  -o-background-size: cover;
-}
-.rv:visited{
+a:visited{
   color: pink;
 }
-.rv:link{
+a:link{
   color: rgba(255,255,255,0.8);
 }
-.rv:hover{
+a:hover{
   color: white;
+  cursor:pointer;
 }
 .containerInRe{
-	display: grid;
-	grid-template-columns: auto;
-	grid-template-rows: auto auto;
-	height: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
 }
 .icon{
   color:white;
@@ -214,11 +216,7 @@ z-index:1;
   align-items: center;
 }
 .monitor{
-  display: grid;
-  grid-template-columns: auto 70% auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  padding-top: 10%;
 }
 .nextIcon{
   z-index: 1;
@@ -235,11 +233,11 @@ z-index:1;
   position: relative;
 }
 #he2{
-	font-family: 'modern', sans-serif;
+  font-family: 'modern', sans-serif;
   font-weight: bold;
   color:white;
-	font-size: 300%;
-	text-shadow: 0 0 0.05em cyan;
+  font-size: 300%;
+  text-shadow: 0 0 0.05em cyan;
 }
 #vidas{
   position: absolute;
@@ -247,9 +245,11 @@ z-index:1;
   width:20%;
   align-self: flex-end;
 }
-
 #vidas img{
   width: 25vw;
+}
+#box img{
+  width: 50vw;
 }
 input[type=text], select {
   width: 70%;
@@ -264,17 +264,5 @@ input[type=text], select {
   transition: opacity .8s;
 }
 .pass-enter, .pass-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-
-.monitor-enter-active {
-  transition: all .3s ease;
-}
-.monitor-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.monitor-enter, .monitor-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
   opacity: 0;
 }
