@@ -234,6 +234,13 @@ z-index:1;
   display: flex;
   position: relative;
 }
+#he2{
+	font-family: 'modern', sans-serif;
+  font-weight: bold;
+  color:white;
+	font-size: 300%;
+	text-shadow: 0 0 0.05em cyan;
+}
 #vidas{
   position: absolute;
   right:0%;
