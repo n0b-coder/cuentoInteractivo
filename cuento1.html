@@ -32,24 +32,25 @@
 
 
 
-
-	<section id="pag2" v-if="section == 'page2'">
-		<div class="bgImg2">
-			<div class="containerP1">
-				<div class="grad2">
-					<div class="parraf1">
-					<p id="parrafs">{{pagina.pageTxt}}</p>
+	<transition name="pass">
+		<section id="pag2" v-if="section == 'page2'">
+			<div class="bgImg2">
+				<div class="containerP1">
+					<div class="grad2">
+						<div class="parraf1">
+						<p id="parrafs">{{pagina.pageTxt}}</p>
+						</div>
+					</div>
+					<div class="nextPag">
+						<ul class="sig">
+							<li><a v-on:click="activar(0,'page1')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
+							<li><a v-on:click="activar(2,'page3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+						</ul>
 					</div>
 				</div>
-				<div class="nextPag">
-					<ul class="sig">
-						<li><a v-on:click="activar(0,'page1')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
-						<li><a v-on:click="activar(2,'page3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
-					</ul>
-				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</transition>
 
 	<section id="pag3"  v-if="section == 'page3'">
 		<div class="bgImg3">
@@ -57,7 +58,7 @@
 				<div class="nextPag">
 					<ul class="sig">
 						<li><a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
-						<li><a v-on:click="activarPilar(1)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+						<li><a v-on:click="activarPilar(0)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 					</ul>
 				</div>
 				<div class="grad">
@@ -83,7 +84,7 @@
 				</a></li></ul>
 				</div>
 				<div id="vidas">
-					<img src="IMGS/vida1.jpg" alt="contenido">
+					<img :src="vida.stat[idx]" alt="contenido">
 				</div>
 			</div>
 		</div>
@@ -122,10 +123,10 @@
 					<div>
 						<h1>Ingresar</h1>
 						<input type="text" name="nombre" size="100">
-						<input type="submit" value="Ingresar" onclick="resolver()">
+						<input type="submit" value="Resolver" onclick="resolver()">
 					</div>
 					<div id="vidas">
-						
+						<img :src="vida.stat[idx]" alt="contenido">
 					</div>
 				</div>
 			</div>
