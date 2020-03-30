@@ -11,7 +11,7 @@
 
 <body>
 <div id="app" class="secciones">
-	<section id="pag1" v-if="section == 'page'">
+	<section id="pag1" v-if="section == 'page1'">
 		<div class="bgImg1">
 			<div class="containerP1">
 				<div class="nextPag">
@@ -28,6 +28,11 @@
 		</div>
 	</section>
 
+
+
+
+
+
 	<section id="pag2" v-if="section == 'page2'">
 		<div class="bgImg2">
 			<div class="containerP1">
@@ -38,7 +43,7 @@
 				</div>
 				<div class="nextPag">
 					<ul class="sig">
-						<li><a v-on:click="activar('page')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
+						<li><a v-on:click="activar('page1')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
 						<li><a v-on:click="activar('page3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 					</ul>
 				</div>
@@ -108,8 +113,20 @@
 		</div>
 	</section>
 
-	<section id="resolver" v-if="section == resolver">
-
+	<section id="resolver" v-if="section == 'resolver'">
+		<div class="bgImg" :style="pilar.acertijoStyle">
+			<div class="containerP1">
+				<div class="img">
+					<img :src="pilar.indagacion[idx]" alt="contenido">
+				</div>
+				<div class="parrafs">
+					<h1>Ingresar</h1>
+					<div>
+						<input type="text" name="nombre" size="100"></p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 </div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

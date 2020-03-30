@@ -205,25 +205,6 @@ z-index:1;
 	grid-template-rows: auto auto;
 	height: 100%;
 }
-.estado{
-	display: grid;
-	grid-template-columns: 33.33%;
-	align-items: flex-end;
-	justify-content: flex-end;
-}
-.barra{
-	display: grid;
-	grid-template-rows: 60% 40%;
-	align-items: flex-end;
-}
-.carga{
-	height: 100%;
-	display: grid;
-	align-items: flex-end;
-}
-.ImgStat{
-	width:50%;
-}
 .icon{
   color:white;
   font-size: 5vw;
@@ -280,4 +261,13 @@ z-index:1;
 #vidas img{
   width:-moz-available;
   max-width: -webkit-fill-available;
+}
+input[type=text], select {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }

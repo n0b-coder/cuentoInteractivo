@@ -18,7 +18,7 @@ var app = new Vue({
   data: {
   	pilar: pilar1,
   	idx: 1,
-  	section: 'page'
+  	section: 'page1'
   },
   methods: {
     activar: function (seccion) {
@@ -51,6 +51,13 @@ function back2(){
 	app.idx=1;
 };
 /*
+var back=true;
+function back2(){
+	this.section = 'acertijo';
+	app.section='acertijo'
+	app.idx=1;
+};
+
 var images=['IMGS/I1','IMGS/I2','IMGS/I3'];
 var c=2;
 
