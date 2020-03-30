@@ -16,12 +16,12 @@
 			<div class="containerP1">
 				<div class="nextPag">
 					<ul class="sig">
-						<li><a v-on:click="activar('page2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+						<li><a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 					</ul>
 				</div>
 				<div class="grad">
 					<div class="parraf1">
-					<p id="parrafs">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p id="parrafs">{{pagina.pageTxt}}</p>
 					</div>
 				</div>
 			</div>
@@ -38,13 +38,13 @@
 			<div class="containerP1">
 				<div class="grad2">
 					<div class="parraf1">
-					<p id="parrafs">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
+					<p id="parrafs">{{pagina.pageTxt}}</p>
 					</div>
 				</div>
 				<div class="nextPag">
 					<ul class="sig">
-						<li><a v-on:click="activar('page1')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
-						<li><a v-on:click="activar('page3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+						<li><a v-on:click="activar(0,'page1')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
+						<li><a v-on:click="activar(2,'page3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -56,13 +56,13 @@
 			<div class="containerP1">
 				<div class="nextPag">
 					<ul class="sig">
-						<li><a v-on:click="activar('page2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
-						<li><a v-on:click="activarPilar(0)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+						<li><a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
+						<li><a v-on:click="activarPilar(1)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
 					</ul>
 				</div>
 				<div class="grad">
 					<div class="parraf1">
-					<p id="parrafs">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+					<p id="parrafs">{{pagina.pageTxt}}</p>
 					</div>
 				</div>
 			</div>
@@ -73,12 +73,12 @@
 		<div class="bgImg" :style="pilar.acertijoStyle">
 			<div class="opcs">
 				<div class="indagar"><ul class="sig">
-					<li><a v-on:click="activar('indagar')" class="rv">
+					<li><a v-on:click="activar(0,'indagar')" class="rv">
 					<h1 class="textA">INDAGAR</h1>
 				</a></li></ul>
 				</div>
 				<div class="resol"><ul class="sig">
-					<li><a v-on:click="activar('resolver')" class="rv">
+					<li><a v-on:click="activar(0,'resolver')" class="rv">
 					<h1 class="textA">RESOLVER</h1>
 				</a></li></ul>
 				</div>
@@ -98,7 +98,6 @@
 				<div class="contenido">
 					<div id="box">
 						<img :src="pilar.indagacion[idx]" alt="contenido">
-						{{pilar.textoIndagacion}}
 					</div>
 				</div>
 				<div>
@@ -114,20 +113,21 @@
 	</section>
 
 	<section id="resolver" v-if="section == 'resolver'">
-		<div class="bgImg" :style="pilar.acertijoStyle">
+		<div class="bgImg">
 			<div class="containerP1">
 				<div class="img">
 					<img :src="pilar.indagacion[idx]" alt="contenido">
 				</div>
-				<form action="loquesea.php">
-					<div class="Main">
+				<div class="opcs">
+					<div>
 						<h1>Ingresar</h1>
-						<div>
-							<input type="text" name="nombre" size="100">
-						</div>
-						<input type="submit" value="Ingresar">
+						<input type="text" name="nombre" size="100">
+						<input type="submit" value="Ingresar" onclick="resolver()">
 					</div>
-				</form>
+					<div id="vidas">
+						
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
