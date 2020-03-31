@@ -112,7 +112,7 @@
 						</div>
 					</div>
 					<div class="back">
-						<div class="volver">
+						<div class="inf">
 							<a class="next icon fas fa-angle-down" onclick="back()"></a>
 						</div>
 					</div>
@@ -121,20 +121,18 @@
 		</section>
 
 	<section id="resolver" v-if="section == 'resolver'">
-		<div class="bgImg">
-			<div class="containerP1" :style="pilar.pilarStyle">
-				<div class="img">
+		<div class="bgImg" :style="pilar.pilarStyle">
+			<div class="containerInRe">
+				<div id="box">
 					<img :src="pilar.indagacion[idx]" alt="contenido">
 				</div>
-				<div class="opcs">
-					<div>
-						<h1>Ingresar</h1>
-						<input type="text" name="nombre" size="100">
-						<input type="submit" value="Resolver" v-on:click="activar(0,'respuesta')">
-					</div>
-					<div id="vidas">
-						<img :src="vida.stat[estado]" alt="contenido">
-					</div>
+				<div class="inf">
+					<h3 id="he2">Ingresar</h3>
+					<input type="text" name="nombre" size="100">
+					<input class="BtnHover BtnUser" type="submit" value="Resolver" v-on:click="activar(0,'respuesta')">
+				</div>
+				<div id="vidas">
+					<img :src="vida.stat[estado]" alt="contenido">
 				</div>
 			</div>
 		</div>
@@ -143,11 +141,11 @@
 	<section id="respuesta" v-if="section == 'respuesta'">
 		<div class="container">
 			<div class="Main">
-				<div>
+				<div id="again">
 					<img :src="vida.stat[estado]" alt="contenido">
 				</div>
 				<div id="btn1">
-				<a class="BtnHover BtnUser" onclick="back()">REINTENTAR</a>
+					<a class="BtnHover BtnUser" onclick="back()">REINTENTAR</a>
 				</div>
 			</div>
 		</div>

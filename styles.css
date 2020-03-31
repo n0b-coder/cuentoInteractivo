@@ -40,7 +40,7 @@ position: absolute;
 .BtnUser{
   font-family: 'modern', sans-serif;
   font-weight: lighter;
-  font-size: 200%;
+  font-size: 100%;
   position: relative;
   background: none;
   color: white;
@@ -193,25 +193,17 @@ a:hover{
   color: white;
   cursor:pointer;
 }
-.containerInRe{
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-}
 .icon{
   color:white;
   font-size: 5vw;
 } 
-.volver{  
-  text-align: center;
-}
 .containerInRe{
-  width:100%;
-  height: 100%;
   display: grid;
   grid-template-columns: auto;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  position: relative;
+  width:100%;
   grid-template-rows: 80% 20%;
   align-items: center;
 }
@@ -221,8 +213,9 @@ a:hover{
 .nextIcon{
   z-index: 1;
 }
-.volver{  
+.inf{  
   text-align: center;
+  z-index: 1;
 }
 #indagar{
   height: 100%;
@@ -238,6 +231,8 @@ a:hover{
   color:white;
   font-size: 300%;
   text-shadow: 0 0 0.05em cyan;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 #vidas{
   position: absolute;
@@ -248,8 +243,15 @@ a:hover{
 #vidas img{
   width: 25vw;
 }
+#box{
+  text-align: center;
+}
 #box img{
   width: 50vw;
+}
+#again img{
+  width: 25vw;
+  padding-bottom: 8%;
 }
 input[type=text], select {
   width: 70%;
