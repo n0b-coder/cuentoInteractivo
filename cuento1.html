@@ -18,7 +18,7 @@
 			<div class="bgImg" :style="pagina.pageBg">
 				<div class="containerP1">
 					<div class="nextPag">
-						<a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a>
+						<span v-on:click="activar(1,'page2')"><i class="icon fas fa-arrow-circle-right"></i></span>
 					</div>
 					<div class="grad">
 						<div class="parraf1">
@@ -41,8 +41,8 @@
 						</div>
 					</div>
 					<div class="nextPag">
-						<a v-on:click="activar(0,'page1')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a>
-						<a v-on:click="activar(2,'page3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a>
+						<span v-on:click="activar(0,'page1')"><i class="icon fas fa-arrow-circle-left"></i></span>
+						<span v-on:click="activar(2,'page3')"><i class="icon fas fa-arrow-circle-right"></i></span>
 					</div>
 				</div>
 			</div>
@@ -54,8 +54,8 @@
 			<div class="bgImg" :style="pagina.pageBg">
 				<div class="containerP1">
 					<div class="nextPag">
-						<a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a>
-						<a v-on:click="activarPilar(0)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a>
+						<span v-on:click="activar(1,'page2')"><i class="icon fas fa-arrow-circle-left"></i></span>
+						<span v-on:click="activarPilar(0)"><i class="icon fas fa-arrow-circle-right"></i></span>
 					</div>
 					<div class="grad">
 						<div class="parraf1">
@@ -72,8 +72,8 @@
 			<div class="bgImg" :style="pilar.pilarStyle">
 				<div class="opcs">
 					<div class="opt">
-						<a v-on:click="activar(0,'indagar')">
-						<h3 id="he2">INDAGAR</h3></a>
+						<span v-on:click="activar(0,'indagar')">
+						<h3 id="he2">INDAGAR</h3></span>
 					</div>
 					<div class="opt">
 						<a v-on:click="activar(0,'resolver')">
@@ -117,7 +117,7 @@
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="resolver" v-if="section == 'resolver'">
 			<div class="bgImg" :style="pilar.pilarStyle">
-				<div class="containerInRe">
+				<div class="respuesta">
 					<div id="box">
 						<img :src="pilar.indagacion[idx]" alt="contenido">
 					</div>

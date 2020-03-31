@@ -125,15 +125,6 @@ position: absolute;
   -moz-background-size:cover;
   -o-background-size: cover;
 }
-.bgImg5{
-  position: absolute;
-    background-size: cover;
-    background-color: purple;
-  background: url('IMGS/p5.jpg') no-repeat center center fixed;
-    -webkit-background-size:cover;
-    -moz-background-size:cover;
-    -o-background-size: cover;
-}
 .a:visited{
   color: pink;
 }
@@ -170,12 +161,24 @@ position: absolute;
   text-align: center;
 }
 .containerInRe{
-  width:100%;
-  height: 100%;
   display: grid;
-  grid-template-columns: auto;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  position: relative;
+  width:100%;
   grid-template-rows: 80% 20%;
   align-items: center;
+}
+.respuesta{
+  display: flex;
+  background-color: rgba(0,0,0,0.5);
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+}
+.respuesta div{
+  padding-top:3%;
 }
 .monitor{
   display: grid;
@@ -212,7 +215,72 @@ position: absolute;
   right: 0;;
   align-self: flex-end;
 }
-
 #vidas img{
   width:20vw;
+}
+#box img{
+  width: 50vw;
+}
+.back{  
+  text-align: center;
+  z-index: 1;
+}
+input[type=text], select {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.inf{  
+  text-align: center;
+  z-index: 1;
+}
+/*admin*/
+.container_ad {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('IMGS/Fondo.png');
+  background-position: center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 90px;
+}
+input {
+  margin-bottom: 5px;
+  padding: 15px;
+  font-size: 200%;
+  background: none;
+  color: white;
+  justify-content: center;
+  text-align: center;
+}
+#he1_ad {
+  font-family: 'modern', sans-serif;
+  font-weight: lighter;
+  font-size: 100%;
+  text-shadow: 0 0 0.05em cyan;
+}
+.Main_AD {
+  text-align: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+#Titulo_AD {
+  margin: auto;
+  color: white;
+  font-size: 700%;
 }
