@@ -71,15 +71,13 @@
 		<section id="acertijo"  v-if="section == 'acertijo'">
 			<div class="bgImg" :style="pilar.pilarStyle">
 				<div class="opcs">
-					<div class="indagar"><ul class="sig">
-						<li><a v-on:click="activar(0,'indagar')">
-						<h3 id="he2">INDAGAR</h3>
-					</a></li></ul>
+					<div class="opt">
+						<a v-on:click="activar(0,'indagar')">
+						<h3 id="he2">INDAGAR</h3></a>
 					</div>
-					<div class="resol"><ul class="sig">
-						<li><a v-on:click="activar(0,'resolver')">
-						<h3 id="he2">RESOLVER</h3>
-					</a></li></ul>
+					<div class="opt">
+						<a v-on:click="activar(0,'resolver')">
+						<h3 id="he2">RESOLVER</h3></a>
 					</div>
 					<div id="vidas">
 						<img class="forImg" :src="vida.stat[estado]" alt="contenido">
