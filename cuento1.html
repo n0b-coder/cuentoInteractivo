@@ -15,16 +15,14 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="pag1" v-if="section == 'page1'">
-			<div class="bgImg1">
+			<div class="bgImg" :style="pagina.pageBg">
 				<div class="containerP1">
 					<div class="nextPag">
-						<ul class="sig">
-							<li><a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
-						</ul>
+						<a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a>
 					</div>
 					<div class="grad">
 						<div class="parraf1">
-						<p id="parrafs">{{pagina.pageTxt}}</p>
+							<p>{{pagina.pageTxt}}</p>
 						</div>
 					</div>
 				</div>
@@ -35,18 +33,16 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="pag2" v-if="section == 'page2'">
-			<div class="bgImg2">
+			<div class="bgImg" :style="pagina.pageBg">
 				<div class="containerP1">
 					<div class="grad2">
 						<div class="parraf1">
-						<p id="parrafs">{{pagina.pageTxt}}</p>
+							<p>{{pagina.pageTxt}}</p>
 						</div>
 					</div>
 					<div class="nextPag">
-						<ul class="sig">
-							<li><a v-on:click="activar(0,'page1')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
-							<li><a v-on:click="activar(2,'page3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
-						</ul>
+						<a v-on:click="activar(0,'page1')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a>
+						<a v-on:click="activar(2,'page3')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a>
 					</div>
 				</div>
 			</div>
@@ -55,17 +51,15 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="pag3"  v-if="section == 'page3'">
-			<div class="bgImg3">
+			<div class="bgImg" :style="pagina.pageBg">
 				<div class="containerP1">
 					<div class="nextPag">
-						<ul class="sig">
-							<li><a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a></li>
-							<li><a v-on:click="activarPilar(0)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
-						</ul>
+						<a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-left"></i></span></a>
+						<a v-on:click="activarPilar(0)"><span><i class="icon fas fa-arrow-circle-right"></i></span></a>
 					</div>
 					<div class="grad">
 						<div class="parraf1">
-						<p id="parrafs">{{pagina.pageTxt}}</p>
+							<p>{{pagina.pageTxt}}</p>
 						</div>
 					</div>
 				</div>
