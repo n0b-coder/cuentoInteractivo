@@ -89,27 +89,21 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="indagar" v-if="section == 'indagar'">
-			<div class="bgImg" :style="pilar.pilarStyle">
-				<div class="containerInRe">
-					<div class="monitor" >
-						<div>
-							<a v-if="idx>0" class="prev icon fas fa-angle-left" onclick="prevImg()"></a>
-						</div>
-						<div class="contenido">
-							<div id="box">
-								<img :src="pilar.indagacion[idx]" alt="contenido">
-							</div>
-						</div>
-						<div>
-							<a v-if="idx<2" class="next icon fas fa-angle-right" onclick="nextImg()"></a>
-						</div>
+			<div class="monitor">
+					<div>
+						<a v-if="idx>0" class="prev icon fas fa-angle-left" onclick="prevImg()"></a>
+					</div>
+					<div id="box">
+						<img :src="pilar.indagacion[idx]" alt="contenido">
+					</div>
+					<div>
+						<a v-if="idx<2" class="next icon fas fa-angle-right" onclick="nextImg()"></a>
 					</div>
 					<div class="back">
 						<div class="inf">
 							<a class="next icon fas fa-angle-down" onclick="back()"></a>
 						</div>
 					</div>
-				</div>
 			</div>
 		</section>
 	</transition>
