@@ -1,7 +1,6 @@
 var pilar1 = {
 	indagacion: ['IMGS/I1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
-	pilarStyle:	"background: url('IMGS/Tor1.png');",
-	mainStyle: "background: no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;"
+	pilarStyle:	"background: url('IMGS/Tor1.png') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;"
 }
 var pilar2 = {
 	indagacion: ['IMGS/p1.jpg','IMGS/p2.jpg','IMGS/p3.jpg'],
@@ -24,12 +23,13 @@ var vida={
 }
 var pilares = [pilar1, pilar2];
 var paginas = [page1, page2, page3];
+
 var app = new Vue({ 
   el: '#app',
   data: {
   	pilar: pilar1,
   	pagina:page1,
-  	vida,
+	vida,
   	estado:2,
   	idx: 1,
   	section:'page1',

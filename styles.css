@@ -188,10 +188,10 @@ html{
 }
 .monitor{
   background: url('IMGS/monitor/PlanM.png') no-repeat center center fixed;
-  position: relative;
-  height: 100%;
   display: grid;
   grid-template-columns: auto 80% auto;
+  position: inherit;
+  padding:5%;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -213,6 +213,7 @@ html{
   height: 100%;
 }
 #indagar{
+  position: relative;
   height: 100%;
 }
 .opcs{
@@ -231,14 +232,10 @@ html{
   width:20vw;
 }
 #box{
-  z-index: -1;
+  z-index: -2;
 }
 #box img{
   width: 100%;
-}
-.back{  
-  text-align: center;
-  z-index: 1;
 }
 input[type=text], select {
     width: 40%;
