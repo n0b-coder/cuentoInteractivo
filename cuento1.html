@@ -5,6 +5,7 @@
 	<title>Salvando el mundo</title>
 	<meta charset="utf-8">
 	<meta content="SalvandoElMundo">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<link rel="stylesheet" type="text/css" href="stylesInd.css">
 </head>
@@ -12,28 +13,28 @@
 <body>
 <div id="app" class="secciones">
 
-	<section id="pag1" v-if="section == 'page1'">
-		<div class="bgImg1">
-			<div class="containerP1">
-				<div class="nextPag">
-					<ul class="sig">
-						<li><a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
-					</ul>
-				</div>
-				<div class="grad">
-					<div class="parraf1">
-					<p id="parrafs">{{pagina.pageTxt}}</p>
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+		<section id="pag1" v-if="section == 'page1'">
+			<div class="bgImg1">
+				<div class="containerP1">
+					<div class="nextPag">
+						<ul class="sig">
+							<li><a v-on:click="activar(1,'page2')"><span><i class="icon fas fa-arrow-circle-right"></i></span></a></li>
+						</ul>
+					</div>
+					<div class="grad">
+						<div class="parraf1">
+						<p id="parrafs">{{pagina.pageTxt}}</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</transition>
 
 
-
-		<transition name="pass">
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="pag2" v-if="section == 'page2'">
-
 			<div class="bgImg2">
 				<div class="containerP1">
 					<div class="grad2">
@@ -49,11 +50,10 @@
 					</div>
 				</div>
 			</div>
-
 		</section>
-		</transition>
+	</transition>
 
-	<transition name="pass">
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="pag3"  v-if="section == 'page3'">
 			<div class="bgImg3">
 				<div class="containerP1">
@@ -73,7 +73,7 @@
 		</section>
 	</transition>
 
-	<transition name="pass">
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="acertijo"  v-if="section == 'acertijo'">
 			<div class="bgImg" :style="pilar.pilarStyle">
 				<div class="opcs">
@@ -95,6 +95,7 @@
 		</section>
 	</transition>
 
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="indagar" v-if="section == 'indagar'">
 			<div class="bgImg" :style="pilar.pilarStyle">
 				<div class="containerInRe">
@@ -119,30 +120,33 @@
 				</div>
 			</div>
 		</section>
+	</transition>
 
-	<section id="resolver" v-if="section == 'resolver'">
-		<div class="bgImg" :style="pilar.pilarStyle">
-			<div class="containerInRe">
-				<div id="box">
-					<img :src="pilar.indagacion[idx]" alt="contenido">
-				</div>
-				<div class="inf">
-					<h3 id="he2">Ingresar</h3>
-					<input type="text" name="nombre" size="100">
-					<input class="BtnHover BtnUser" type="submit" value="Resolver" v-on:click="activar(0,'respuesta')">
-				</div>
-				<div id="vidas">
-					<img :src="vida.stat[estado]" alt="contenido">
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+		<section id="resolver" v-if="section == 'resolver'">
+			<div class="bgImg" :style="pilar.pilarStyle">
+				<div class="containerInRe">
+					<div id="box">
+						<img :src="pilar.indagacion[idx]" alt="contenido">
+					</div>
+					<div class="inf">
+						<h3 id="he2">Ingresar</h3>
+						<input type="text" name="nombre" size="100">
+						<input class="BtnHover BtnUser" type="submit" value="Resolver" v-on:click="activar(0,'respuesta')">
+					</div>
+					<div id="vidas">
+						<img :src="vida.stat[estado]" alt="contenido">
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</transition>
 
 	<section id="respuesta" v-if="section == 'respuesta'">
 		<div class="container">
 			<div class="Main">
 				<div id="again">
-					<img :src="vida.stat[estado]" alt="contenido">
+					<img :src="vida.stat[2]" alt="contenido">
 				</div>
 				<div id="btn1">
 					<a class="BtnHover BtnUser" onclick="back()">REINTENTAR</a>
