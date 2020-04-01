@@ -250,7 +250,7 @@ input[type=text], select {
   z-index: 1;
 }
 /*admin*/
-.container_ad {
+.containerdeadmin {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -262,6 +262,7 @@ input[type=text], select {
   -o-background-size: cover;
   display: flex;
   justify-content: center;
+  
 }
 form {
   display: flex;
@@ -270,28 +271,45 @@ form {
   padding: 10px 90px;
 }
 input {
+  
+  font-family: 'modern', sans-serif; 
   margin-bottom: 5px;
   padding: 15px;
-  font-size: 200%;
+  font-size: 150%;
   background: none;
   color: white;
   justify-content: center;
   text-align: center;
 }
-#he1_ad {
+#he1deadmin {
   font-family: 'modern', sans-serif;
   font-weight: lighter;
   font-size: 100%;
   text-shadow: 0 0 0.05em cyan;
 }
-.Main_AD {
+#he1deadminP {
+  font-family: 'modern', sans-serif;
+  font-weight: lighter;
+  font-size: 50%;
+  text-shadow: 0 0 0.05em cyan;
+}
+.Maindeadmin {
   text-align: center;
   position: absolute;
   display: flex;
   flex-direction: column;
 }
-#Titulo_AD {
+#Titulodeadmin {
   margin: auto;
   color: white;
   font-size: 700%;
+}
+.error {
+  font-family: 'modern', sans-serif; 
+  font-weight: lighter;
+  margin-bottom: 5px;
+  padding: 15px;
+  font-size: 100%;
+  background: none;
+  color: white;
 }
