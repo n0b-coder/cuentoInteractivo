@@ -67,6 +67,7 @@ function resolver(){
 			app.alOrDe="REINTENTAR";
 		}
 	}
+	app.secret='';
 }
 function nextImg(){
 	num += 1;
