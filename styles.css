@@ -191,19 +191,12 @@ html{
   display: grid;
   grid-template-columns: auto 80% auto;
   position: inherit;
-  padding:5%;
   justify-content: center;
   align-items: center;
   text-align: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-}
-.nextIcon{
-  z-index: 1;
-}
-.volver{  
-  text-align: center;
 }
 .frame{
   margin:0; padding:0; height:100%;
@@ -235,7 +228,8 @@ html{
   z-index: -2;
 }
 #box img{
-  width: 100%;
+  width: 80vw;
+  height: 45vw;
 }
 input[type=text], select {
     width: 40%;
