@@ -1,4 +1,5 @@
 var pilar1 = {
+	runa:'IMGS/Res.png',
 	indagacion: ['IMGS/I1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
 	pilarStyle:	"background: url('IMGS/Tor1.png') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;"
 }
@@ -21,16 +22,22 @@ var page3 = {
 var vida={
 	stat:['IMGS/Vidas/full.png','IMGS/Vidas/bar2.png','IMGS/Vidas/bar1.png','IMGS/Vidas/dead.png']
 }
+var torre = {
+	torreBg:"background: url('IMGS/Fres.png') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;"
+}
 var pilares = [pilar1, pilar2];
 var paginas = [page1, page2, page3];
-
+var validos=['abcd',"efgh"]
 var app = new Vue({ 
   el: '#app',
   data: {
+	secret:'',
   	pilar: pilar1,
   	pagina:page1,
 	vida,
-  	estado:2,
+	torre,
+	alOrDe:"REINTENTAR",
+  	estado:1,
   	idx: 1,
   	section:'page1',
   },
@@ -42,12 +49,25 @@ var app = new Vue({
     activarPilar: function (numPilar) {
       this.section = 'acertijo';
       this.pilar = pilares[numPilar]
-    }
+	}
   }
 });
 var num = app.idx;
+
 function resolver(){
-	app.estado=3;
+	if(app.secret==validos[0]){
+			app.estado=0;
+			app.alOrDe="¡ENHORABUENA!";
+	}
+	else if(this.secret!=validos[0]){
+		app.estado++;
+		if(app.estado==3){
+			app.alOrDe="HAS FRACASADO";
+		}else{
+			app.alOrDe="REINTENTAR";
+		}
+	}
+	app.secret='';
 }
 function nextImg(){
 	num += 1;
@@ -64,4 +84,22 @@ function back(){
 	this.section = 'acertijo';
 	app.section='acertijo'
 	app.idx=1;
+};
+
+function again(){
+	this.section = 'acertijo';
+	app.section='acertijo'
+	app.idx=1;
+	if(app.estado==3){
+		this.section='page1';
+		app.section='page1'
+		app.idx=1;
+		app.estado=0;
+	}
+	if(app.estado==0){
+		this.section='page1';
+		app.section='page1'
+		app.idx=1;
+		app.estado=0;
+	}
 };

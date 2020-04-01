@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>Salvando el mundo</title>
+	<title>Juko History</title>
 	<meta charset="utf-8">
 	<meta content="SalvandoElMundo">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -111,19 +111,16 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="resolver" v-if="section == 'resolver'">
-			<div class="bgImg" :style="pilar.pilarStyle">
+			<div class="bgImg" :style="torre.torreBg">
 				<div class="respuesta">
-					<div id="runas">
-						<img :src="pilar.indagacion[idx]" alt="contenido">
+					<img :src="pilar.runa" alt="contenido">
+					<div class="resolver">
+						<input v-model="secret" type="text" size="100">
+						<input class="BtnHover BtnAct" type="submit" value="Resolver" v-on:click="activar(0,'respuesta')" onclick="resolver()">
 					</div>
-					<div class="inf">
-						<h3 id="he2">Ingresar</h3>
-						<input type="text" name="nombre" size="100">
-						<input class="BtnHover BtnUser" type="submit" value="Resolver" v-on:click="activar(0,'respuesta')">
-					</div>
-					<div id="vidas">
+				</div>
+				<div id="vidas">
 						<img :src="vida.stat[estado]" alt="contenido">
-					</div>
 				</div>
 			</div>
 		</section>
@@ -133,10 +130,10 @@
 		<div class="container">
 			<div class="Main">
 				<div id="again">
-					<img :src="vida.stat[2]" alt="contenido">
+					<img :src="vida.stat[estado]" alt="contenido">
 				</div>
 				<div id="btn1">
-					<a class="BtnHover BtnUser" onclick="back()">REINTENTAR</a>
+					<a class="BtnHover BtnUser" onclick="again()">{{alOrDe}}</a>
 				</div>
 			</div>
 		</div>
