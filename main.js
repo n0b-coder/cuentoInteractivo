@@ -63,6 +63,9 @@ function resolver(){
 		if(app.estado==3){
 			app.alOrDe="HAS FRACASADO";
 		}else{
+			if(app.estado==0){
+				app.alOrDe="¡ENHORABUENA!";
+			}
 			app.alOrDe="REINTENTAR";
 		}
 	}
@@ -89,6 +92,7 @@ function again(){
 	app.section='acertijo'
 	app.idx=1;
 	if(app.estado==3){
+		this.section='page1';
 		app.estado=0;
 	}
 	else{
