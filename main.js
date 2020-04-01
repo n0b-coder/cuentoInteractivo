@@ -67,6 +67,7 @@ function resolver(){
 			app.alOrDe="REINTENTAR";
 		}
 	}
+	app.secret='';
 }
 function nextImg(){
 	num += 1;
@@ -95,6 +96,8 @@ function again(){
 		app.estado=0;
 	}
 	else{
+		this.section='page1';
+		app.section='page1'
 		app.estado=app.estado;
 	}
 };
