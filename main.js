@@ -57,15 +57,13 @@ var num = app.idx;
 function resolver(){
 	if(app.secret==validos[0]){
 			app.estado=0;
+			app.alOrDe="¡ENHORABUENA!";
 	}
 	else if(this.secret!=validos[0]){
 		app.estado++;
 		if(app.estado==3){
 			app.alOrDe="HAS FRACASADO";
 		}else{
-			if(app.estado==0){
-				app.alOrDe="¡ENHORABUENA!";
-			}
 			app.alOrDe="REINTENTAR";
 		}
 	}
@@ -93,6 +91,7 @@ function again(){
 	app.idx=1;
 	if(app.estado==3){
 		this.section='page1';
+		app.section='page1'
 		app.estado=0;
 	}
 	else{
