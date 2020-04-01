@@ -29,6 +29,11 @@ html{
 #he2{
 	font-family: 'modern', sans-serif;
   font-weight: bold;
+  background: none;
+  color: white;
+  border:solid;
+  border-color: white;
+  padding: 15px 32px;
   color:white;
 	font-size: 3vw;
 	text-shadow: 0 0 0.05em cyan;
