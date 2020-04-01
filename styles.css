@@ -46,7 +46,19 @@ html{
   color: white;
   font-size: 1200%;
 }
-
+.BtnAct{
+  font-family: 'modern', sans-serif;
+  font-weight: lighter;
+  font-size: 200%;
+  position: relative;
+  background-color: rgba(0,0,0,0.5);
+  border-color: rgba(255,255,255,0.5);
+  box-shadow: 3px 3px 8px rgba(255,255,255,0.5);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;  
+}
 .BtnUser{
   font-family: 'modern', sans-serif;
   font-weight: lighter;
@@ -59,8 +71,7 @@ html{
     padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  cursor: pointer;
-  
+  cursor: pointer;  
 }
 .BtnHover:hover{
   background-color: rgba(255, 255, 255);
@@ -182,14 +193,16 @@ html{
 }
 .respuesta{
   display: flex;
-  background-color: rgba(0,0,0,0.5);
   position: relative;
-  flex-direction: column;
-  align-items: center;
-  width:100%;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8%;
 }
 .respuesta div{
-  padding-top:3%;
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+  padding-bottom: 2%;
 }
 .monitor{
   background: url('IMGS/monitor/PlanM.png') no-repeat center center fixed;
