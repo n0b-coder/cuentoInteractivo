@@ -91,19 +91,19 @@
 		<section id="indagar" v-if="section == 'indagar'">
 			<div class="monitor">
 				<div>
-					<a v-if="idx>0" class="prev icon fas fa-angle-left" onclick="prevImg()"></a>
+					<a v-if="idx>0" class="iconSc fas fa-angle-left" onclick="prevImg()"></a>
 				</div>
 				<div id="box">
 					<img :src="pilar.indagacion[idx]" alt="contenido">
 				</div>
 				<div>
-					<a v-if="idx<2" class="next icon fas fa-angle-right" onclick="nextImg()"></a>
+					<a v-if="idx<2" class="iconSc fas fa-angle-right" onclick="nextImg()"></a>
 				</div>
 				<div class="inf">
 					<a v-if="section=='page1'"></a>
 				</div>
 				<div class="inf">
-					<a class="next icon fas fa-angle-down" onclick="back()"></a>
+					<a class="iconSc fas fa-angle-down" onclick="back()"></a>
 				</div>
 			</div>				
 		</section>
@@ -113,7 +113,7 @@
 		<section id="resolver" v-if="section == 'resolver'">
 			<div class="bgImg" :style="pilar.pilarStyle">
 				<div class="respuesta">
-					<div id="box">
+					<div id="runas">
 						<img :src="pilar.indagacion[idx]" alt="contenido">
 					</div>
 					<div class="inf">

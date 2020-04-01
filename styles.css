@@ -160,6 +160,11 @@ html{
   color:white;
   font-size: 5vw;
 } 
+.iconSc{
+  color:green;
+  text-shadow: 0 0 0.05em greenyellow;
+  font-size: 5vw;
+} 
 .volver{  
   text-align: center;
 }
