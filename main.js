@@ -36,6 +36,7 @@ var app = new Vue({
   	pagina:page1,
 	vida,
 	torre,
+	alOrDe:"REINTENTAR",
   	estado:1,
   	idx: 1,
   	section:'page1',
@@ -55,14 +56,9 @@ var num = app.idx;
 
 function resolver(){
 	if(app.secret==validos[0]){
-		if(app.estado==0){
-			app.estado==0;
-		}
-		else{
-		app.estado--;
-		}
+			app.estado=0;
 	}
-	else if(this.secret!="validos[0]"){
+	else if(this.secret!=validos[0]){
 		app.estado++;
 	}
 }
@@ -81,4 +77,16 @@ function back(){
 	this.section = 'acertijo';
 	app.section='acertijo'
 	app.idx=1;
+};
+
+function again(){
+	this.section = 'acertijo';
+	app.section='acertijo'
+	app.idx=1;
+	if(app.estado==3){
+		app.estado=0;
+	}
+	else{
+		app.estado=app.estado;
+	}
 };
