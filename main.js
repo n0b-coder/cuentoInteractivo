@@ -100,4 +100,9 @@ function again(){
 		app.section='page1'
 		app.estado=app.estado;
 	}
+	if(app.estado==0){
+		this.section='page2';
+		app.section='page2'
+		app.estado=0;
+	}
 };
