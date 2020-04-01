@@ -60,6 +60,11 @@ function resolver(){
 	}
 	else if(this.secret!=validos[0]){
 		app.estado++;
+		if(app.estado==3){
+			app.alOrDe="HAS FRACASADO";
+		}else{
+			app.alOrDe="REINTENTAR";
+		}
 	}
 }
 function nextImg(){
