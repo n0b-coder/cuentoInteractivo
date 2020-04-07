@@ -32,7 +32,8 @@ var app = new Vue({
   el: '#app',
   data: {
 	secret:'',
-  	pilar: pilar1,
+	pilar: pilar1,
+	pilSect:0,
   	pagina:page1,
 	vida,
 	torre,
@@ -58,11 +59,13 @@ function resolver(){
 	if(app.secret==validos[0]){
 			app.estado=0;
 			app.alOrDe="¡ENHORABUENA!";
+			app.pilSect++;
 	}
 	else if(this.secret!=validos[0]){
 		app.estado++;
 		if(app.estado==3){
 			app.alOrDe="HAS FRACASADO";
+			app.pilSect=0;
 		}else{
 			app.alOrDe="REINTENTAR";
 		}
@@ -97,8 +100,14 @@ function again(){
 		app.estado=0;
 	}
 	if(app.estado==0){
+		if (app.pilSect==3){
+			alert('Final 1');
+			this.section='respuesta';
+			app.section='respuesta'
+		}else{
 		this.section='page1';
 		app.section='page1'
+		}
 		app.idx=1;
 		app.estado=0;
 	}
