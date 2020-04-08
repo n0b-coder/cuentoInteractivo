@@ -36,7 +36,8 @@ html{
   padding: 15px 32px;
   color:white;
 	font-size: 3vw;
-	text-shadow: 0 0 0.05em cyan;
+  text-shadow: 0 0 0.05em cyan;
+  cursor: pointer;
 }
 #he3{
 	font-family: 'modern', sans-serif;
@@ -185,8 +186,10 @@ html{
 .icon{
   color:white;
   font-size: 5vw;
+  cursor: pointer;
 } 
 .iconSc{
+  cursor: pointer;
   color:green;
   text-shadow: 0 0 0.05em greenyellow;
   font-size: 5vw;

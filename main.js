@@ -25,7 +25,7 @@ var pilar3 = {
 }
 //vidas
 var finales = {
-	finalTxt:["Final1: Ganaste super bien","Final 2: Ganaste pero pudo ser mejor","Todos tus intentos fueron fallidos, el mundo fue destruido"],
+	finalTxt:["Final 1: Ganaste de la mejor forma posible.","Final 2: Ganaste pero pudo ser mejor.","Todos tus intentos fueron fallidos, el mundo fue destruido."],
 	finalBg:["IMGS/p1.jpg","IMGS/p4.jpg","IMGS/p5.jpg"],
 	reset:["Has descubierto el mejor final posible","Has descubierto el final secundario de la historia", "Has fracasado"],
 	resetBg:["IMGS/p1.jpg", "IMGS/p4.jpg", "IMGS/Fail.png"],
