@@ -95,6 +95,7 @@
 				</div>
 				<div id="box">
 					<img :src="pilar.indagacion[idx]" alt="contenido">
+					<h4>{{pilar.indagaTxt[idx]}}</h4>
 				</div>
 				<div>
 					<a v-if="idx<2" class="iconSc fas fa-angle-right" onclick="nextImg()"></a>
@@ -116,7 +117,7 @@
 					<img :src="pilar.runa" alt="contenido">
 					<div class="resolver">
 						<input v-model="secret" type="text" size="100">
-						<input class="BtnHover BtnAct" type="submit" value="Resolver" v-on:click="activar(0,'respuesta',0)" onclick="resolver()">
+						<input class="BtnHover BtnAct" type="submit" value="Resolver" v-on:click="activar(0,section,0)" onclick="resolver()">
 					</div>
 				</div>
 				<div id="vidas">
@@ -126,7 +127,24 @@
 		</section>
 	</transition>
 
-	<section id="respuesta" v-if="section == 'respuesta'">
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+		<section id="final" v-if="section == 'final'">
+			<div class="bgImg" :style="backs">
+				<div class="containerP1">
+					<div class="grad2">
+						<div class="parraf1">
+							<p>{{final.finalTxt[counterf]}}</p>
+						</div>
+					</div>
+					<div class="nextPag">
+						<span v-on:click="activar(0,'reset',0)"><i class="icon fas fa-arrow-circle-right"></i></span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</transition>
+	
+	<section id="reintentar" v-if="section == 'reintentar'">
 		<div class="container">
 			<div class="Main">
 				<div id="again">
@@ -137,7 +155,21 @@
 				</div>
 			</div>
 		</div>
-</section>
+	</section>
+
+	<section id="reset" v-if="section == 'reset'">
+		<div class="container" :style="backs">
+			<div class="Main">
+				<div id="Titulo">
+					<h3 id="he3">{{final.reset[counterf]}}</h3>
+				</div>
+				<div id="btn1">
+					<a class="BtnHover BtnUser" href="index.html">{{resetBtn}}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
 </div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -38,6 +38,16 @@ html{
 	font-size: 3vw;
 	text-shadow: 0 0 0.05em cyan;
 }
+#he3{
+	font-family: 'modern', sans-serif;
+  font-weight: bold;
+  background: none;
+  color: white;
+  padding: 15px 32px;
+  color:white;
+	font-size: 3vw;
+	text-shadow: 0 0 0.05em cyan;
+}
 .Main{
   text-align: center;
   position: absolute;
