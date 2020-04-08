@@ -25,9 +25,9 @@ var pilar3 = {
 }
 //vidas
 var finales = {
-	finalTxt:["Ganaste Pro","Ganaste kk","La has cagado en todos los intentos, moriste"],
+	finalTxt:["Final1: Ganaste super bien","Final 2: Ganaste pero pudo ser mejor","Todos tus intentos fueron fallidos, el mundo fue destruido"],
 	finalBg:["IMGS/p1.jpg","IMGS/p4.jpg","IMGS/p5.jpg"],
-	reset:["Has desbloqueado uno de los finales posibles","Has desbloqueado el 2do de los finales posibles", "Has fracasado"],
+	reset:["Has descubierto el mejor final posible","Has descubierto el final secundario de la historia", "Has fracasado"],
 	resetBg:["IMGS/p1.jpg", "IMGS/p4.jpg", "IMGS/Fail.png"],
 }
 var vida={
@@ -42,6 +42,7 @@ var pilares = [pilar1, pilar2, pilar3];
 //Array de contraseñas
 var validos=['abcd',"efgh","ijkl"];
 //___
+//vue
 var app = new Vue({ 
   el: '#app',
   data: {
@@ -50,6 +51,7 @@ var app = new Vue({
 	pilSect:0,
 	pg:0,
 	backs:'background-image:url('+pilar1.bgs[0]+')',
+	total:pilares.length*3,
 	vida,
 	torre,
 	alOrDe:"REINTENTAR",
@@ -86,7 +88,12 @@ function resolver(){
 		app.pilSect++;
 		app.estado=0;
 		if(app.pilSect==3){
-			app.counterf=0;
+			if(app.total>=Math.round(3*pilares.length*0.6)){
+				app.counterf=0;
+			}
+			else{
+				app.counterf=1;
+			}
 			app.section='final';
 			app.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS";
 		}else{
@@ -107,6 +114,7 @@ function resolver(){
 		}else{
 			app.section='reintentar';
 			app.alOrDe="REINTENTAR";	
+			app.total--;
 		}
 	}
 	app.secret='';

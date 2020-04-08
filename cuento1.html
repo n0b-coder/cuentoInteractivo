@@ -7,10 +7,10 @@
 	<meta content="SalvandoElMundo">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="styles.css">
-	<link rel="stylesheet" type="text/css" href="stylesInd.css">
 </head>
 
 <body>
+<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 <div id="app" class="secciones">
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
@@ -144,33 +144,38 @@
 		</section>
 	</transition>
 	
-	<section id="reintentar" v-if="section == 'reintentar'">
-		<div class="container">
-			<div class="Main">
-				<div id="again">
-					<img :src="vida.stat[estado]" alt="contenido">
-				</div>
-				<div id="btn1">
-					<a class="BtnHover BtnUser" onclick="again()">{{alOrDe}}</a>
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+		<section id="reintentar" v-if="section == 'reintentar'">
+			<div class="container">
+				<div class="Main">
+					<div id="again">
+						<img :src="vida.stat[estado]" alt="contenido">
+					</div>
+					<div id="btn1">
+						<a class="BtnHover BtnUser" onclick="again()">{{alOrDe}}</a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</transition>
 
-	<section id="reset" v-if="section == 'reset'">
-		<div class="container" :style="backs">
-			<div class="Main">
-				<div id="Titulo">
-					<h3 id="he3">{{final.reset[counterf]}}</h3>
-				</div>
-				<div id="btn1">
-					<a class="BtnHover BtnUser" href="index.html">{{resetBtn}}</a>
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+		<section id="reset" v-if="section == 'reset'">
+			<div class="container" :style="backs">
+				<div class="Main">
+					<div id="Titulo">
+						<h3 id="he3">{{final.reset[counterf]}}</h3>
+					</div>
+					<div id="btn1">
+						<a class="BtnHover BtnUser" href="index.html">{{resetBtn}}</a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</transition>
 
 </div>
+</transition>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
