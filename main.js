@@ -40,9 +40,9 @@ var torre = {
 }
 //Array de pilares
 var pilares = [pilar1, pilar2, pilar3];
-//Array de contraseñas
-
-var _0xfd70=["\x61\x62\x63\x64","\x65\x66\x67\x68","\x69\x6A\x6B\x6C"];var validos=[_0xfd70[0],_0xfd70[1],_0xfd70[2]]
+//Contraseñas :O 
+var _0xfd70=["\x61\x62\x63\x64","\x65\x66\x67\x68","\x69\x6A\x6B\x6C"];
+eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('5 4=[3[0],3[1],3[2]]',6,6,'|||_0xfd70|validos|var'.split('|'),0,{}))
 //___
 //vue
 var app = new Vue({ 
