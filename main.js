@@ -1,11 +1,12 @@
+//__________
 //Info de cada pilar
 var pilar1 = {
 	bgs:['IMGS/His1.jpg','IMGS/His2.jpg','IMGS/p3.jpg'],
+	texto:["info 1","info 2","info 3"],
 	runa:'IMGS/Res.png',
 	indagacion: ['IMGS/I1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
 	indagaTxt:["Pasado","Presente","Futuro"],
-	pilarStyle:	"background: url('IMGS/Tor1.png') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;",
-	texto:["info 1","info 2","info 3"]
+	pilarStyle:	"background: url('IMGS/Tor1.png') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;"	
 }
 var pilar2 = {
 	bgs:['IMGS/p1.jpg','IMGS/p4.jpg','IMGS/p5.jpg'],
@@ -40,7 +41,8 @@ var torre = {
 //Array de pilares
 var pilares = [pilar1, pilar2, pilar3];
 //Array de contraseñas
-var validos=['abcd',"efgh","ijkl"];
+
+var _0xfd70=["\x61\x62\x63\x64","\x65\x66\x67\x68","\x69\x6A\x6B\x6C"];var validos=[_0xfd70[0],_0xfd70[1],_0xfd70[2]]
 //___
 //vue
 var app = new Vue({ 
