@@ -15,14 +15,14 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="pag1" v-if="section == 'page1'">
-			<div class="bgImg" :style="pagina.pageBg">
+			<div class="bgImg" :style="backs">
 				<div class="containerP1">
 					<div class="nextPag">
-						<span v-on:click="activar(1,'page2')"><i class="icon fas fa-arrow-circle-right"></i></span>
+						<span v-on:click="activar(pg,'page2',1)"><i class="icon fas fa-arrow-circle-right"></i></span>
 					</div>
 					<div class="grad">
 						<div class="parraf1">
-							<p>{{pagina.pageTxt}}</p>
+							<p>{{pilar.texto[pg]}}</p>
 						</div>
 					</div>
 				</div>
@@ -33,16 +33,16 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="pag2" v-if="section == 'page2'">
-			<div class="bgImg" :style="pagina.pageBg">
+			<div class="bgImg" :style="backs">
 				<div class="containerP1">
 					<div class="grad2">
 						<div class="parraf1">
-							<p>{{pagina.pageTxt}}</p>
+							<p>{{pilar.texto[pg]}}</p>
 						</div>
 					</div>
 					<div class="nextPag">
-						<span v-on:click="activar(0,'page1')"><i class="icon fas fa-arrow-circle-left"></i></span>
-						<span v-on:click="activar(2,'page3')"><i class="icon fas fa-arrow-circle-right"></i></span>
+						<span v-on:click="activar(pg-1,'page1',-1)"><i class="icon fas fa-arrow-circle-left"></i></span>
+						<span v-on:click="activar(pg+1,'page3',1)"><i class="icon fas fa-arrow-circle-right"></i></span>
 					</div>
 				</div>
 			</div>
@@ -51,15 +51,15 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="pag3"  v-if="section == 'page3'">
-			<div class="bgImg" :style="pagina.pageBg">
+			<div class="bgImg" :style="backs">
 				<div class="containerP1">
 					<div class="nextPag">
-						<span v-on:click="activar(1,'page2')"><i class="icon fas fa-arrow-circle-left"></i></span>
-						<span v-on:click="activarPilar(0)"><i class="icon fas fa-arrow-circle-right"></i></span>
+						<span v-on:click="activar(pg-1,'page2',-1)"><i class="icon fas fa-arrow-circle-left"></i></span>
+						<span v-on:click="activarPilar()"><i class="icon fas fa-arrow-circle-right"></i></span>
 					</div>
 					<div class="grad">
 						<div class="parraf1">
-							<p>{{pagina.pageTxt}}</p>
+							<p>{{pilar.texto[pg]}}</p>
 						</div>
 					</div>
 				</div>
@@ -72,11 +72,11 @@
 			<div class="bgImg" :style="pilar.pilarStyle">
 				<div class="opcs">
 					<div class="opt">
-						<span v-on:click="activar(0,'indagar')">
+						<span v-on:click="activar(0,'indagar',0)">
 						<h3 id="he2">INDAGAR</h3></span>
 					</div>
 					<div class="opt">
-						<a v-on:click="activar(0,'resolver')">
+						<a v-on:click="activar(0,'resolver',0)">
 						<h3 id="he2">RESOLVER</h3></a>
 					</div>
 					<div id="vidas">
@@ -116,7 +116,7 @@
 					<img :src="pilar.runa" alt="contenido">
 					<div class="resolver">
 						<input v-model="secret" type="text" size="100">
-						<input class="BtnHover BtnAct" type="submit" value="Resolver" v-on:click="activar(0,'respuesta')" onclick="resolver()">
+						<input class="BtnHover BtnAct" type="submit" value="Resolver" v-on:click="activar(0,'respuesta',0)" onclick="resolver()">
 					</div>
 				</div>
 				<div id="vidas">
