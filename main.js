@@ -1,12 +1,28 @@
-//__________
+/*<?php
+
+
+$consulta= "SELECT * FROM Administradores WHERE email ='$Email'";
+$result = mysqli_query( $conn,$consulta);//
+$filas = mysqli_num_rows($result);
+
+
+SELECT * FROM imagenes WHERE pilar='0'";
+$result = mysqli_query( $conn,$consulta);
+
+id 1= His1-kk
+
+end php
+?>*/
 //Info de cada pilar
 var pilar1 = {
-	bgs:['IMGS/His1.jpg','IMGS/His2.jpg','IMGS/p3.jpg'],
-	texto:["info 1","info 2","info 3"],
-	runa:'IMGS/Res.png',
-	indagacion: ['IMGS/I1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
-	indagaTxt:["Pasado","Presente","Futuro"],
+	bgs:['IMGS/His1.jpg','IMGS/His2.jpg','IMGS/p3.jpg','IMGS/His2.jpg','IMGS/p3.jpg'],//orden n pilar 0, fondo de cadapágina
+	texto:["info 1","info 2","info 3","info 4","info 5"],//narrativa de cada página
+	runa:'IMGS/Res.png',//imagen amarilla :v
+	indagacion: ['IMGS/I1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],//imágenes de monitor
+	indagaTxt:["Pasado","Presente","Futuro"],//texto del monitor
+	/*fondo de Indagar/resolver*/
 	pilarStyle:	"background: url('IMGS/Tor1.png') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;"	
+
 }
 var pilar2 = {
 	bgs:['IMGS/p1.jpg','IMGS/p4.jpg','IMGS/p5.jpg'],
@@ -14,7 +30,7 @@ var pilar2 = {
 	indagacion: ['IMGS/p1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
 	indagaTxt:["Pasado","Presente","Futuro"],
 	pilarStyle:	"background: url('IMGS/His1.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;",
-	texto:["info 4","info 5","info 6"]
+	texto:["info 6","info 7","info 8"]
 }
 var pilar3 = {
 	bgs:['IMGS/p5.jpg','IMGS/p2.jpg','IMGS/p3.jpg'],
@@ -22,7 +38,7 @@ var pilar3 = {
 	indagacion: ['IMGS/p2.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
 	indagaTxt:["Pasado","Presente","Futuro"],
 	pilarStyle:	"background: url('IMGS/His2.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;",
-	texto:["info 7","info 8","info 9"]
+	texto:["info 9","info 10","info 11"]
 }
 //vidas
 var finales = {
@@ -61,7 +77,7 @@ var app = new Vue({
 	final:finales,
 	estado:0,
   	idx: 1,
-	section:'page1',
+	section:'intro1',
 	counterf:0,
   },
   methods: {

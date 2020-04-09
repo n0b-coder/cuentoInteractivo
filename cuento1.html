@@ -14,11 +14,46 @@
 <div id="app" class="secciones">
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+		<section id="pag1" v-if="section == 'intro1'">
+			<div class="bgImg" :style="backs">
+				<div class="containerP1">
+					<div class="nextPag">
+						<span v-on:click="activar(pg,'intro2',1)"><i class="icon fas fa-arrow-circle-right"></i></span>
+					</div>
+					<div class="grad">
+						<div class="parraf1">
+							<p>{{pilar.texto[pg]}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</transition>
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+		<section id="pag2" v-if="section == 'intro2'">
+			<div class="bgImg" :style="backs">
+				<div class="containerP1">
+					<div class="grad2">
+						<div class="parraf1">
+							<p>{{pilar.texto[pg]}}</p>
+						</div>
+					</div>
+					<div class="nextPag">
+						<span v-on:click="activar(pg-1,'intro1',-1)"><i class="icon fas fa-arrow-circle-left"></i></span>
+						<span v-on:click="activar(pg+1,'page1',1)"><i class="icon fas fa-arrow-circle-right"></i></span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</transition>
+
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<section id="pag1" v-if="section == 'page1'">
 			<div class="bgImg" :style="backs">
 				<div class="containerP1">
 					<div class="nextPag">
-						<span v-on:click="activar(pg,'page2',1)"><i class="icon fas fa-arrow-circle-right"></i></span>
+						<span v-on:click="activar(pg-1,'intro2',-1)"><i class="icon fas fa-arrow-circle-left"></i></span>
+						<span v-on:click="activar(pg+1,'page2',1)"><i class="icon fas fa-arrow-circle-right"></i></span>
 					</div>
 					<div class="grad">
 						<div class="parraf1">
