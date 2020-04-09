@@ -1,6 +1,6 @@
 <?php
 require_once("Conexion.php");
-$db = "sql10330000";
+$db = "pgygjQvNGQ";
 
 if(isset($_POST['log_try']))
 {
@@ -41,7 +41,9 @@ $result = mysqli_query( $conn,$consulta);
 $filas = mysqli_num_rows($result);
 if($filas>0)
 {
-header("location:paneldeadministrador.php?u=$Email");
+    session_start();
+    $_SESSION['user'] = $Email; //inicia sesion con el usuario (email) asignado
+    header("location:paneldeadministrador.php");
 }
 else 
 echo "<p class='error'>- Contraseña Incorrecta </p>";
