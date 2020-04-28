@@ -147,12 +147,17 @@
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'resolver'">
 			<div class="bgImgAcer" :style="torre.torreBg">
-				<div class="bgImgRuna" :style="'background-image:url('+pilar.runa+')'"></div>
-				<div class="resolver containerP">
-					<input v-model="secret" type="text" size="100">
-					<input class="BtnHover BtnAct" type="submit" value="Resolver" v-on:click="activar(0,section,0)" onclick="resolver()">
+				<div class="bgImgRuna" :style="'background-image:url('+pilar.runa+')'">
 					<div id="vidas">
 						<img :src="vida.stat[estado]" alt="contenido">
+					</div>
+				</div>
+				<div class="resolver containerP">
+					<div class="input-group mb-3">
+						<input v-model="secret" type="text" class="form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
+						<div class="input-group-prepend">
+						  <span class="input-group-text" id="basic-addon1" v-on:click="activar(0,section,0)" onclick="resolver()">Resolver</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -179,7 +184,7 @@
 		<div class="pages" v-if="section == 'reintentar'">
 			<div class="Main" :style="backs">
 				<div id="again">
-					<img :src="vida.stat[estado]" alt="contenido">
+					<img class="img-fluid" :src="vida.stat[estado]" alt="contenido">
 					<div>
 						<a class="BtnHover BtnUser" onclick="again()">{{alOrDe}}</a>
 					</div>
