@@ -13,22 +13,34 @@ id 1= His1-kk
 
 end php
 ?>*/
+
+/**/
+var myInit={
+	method:'GET',
+	headers:{
+		'Content-Type':'text/plain'
+	},
+	mode:'cors',
+	cache:'default'
+};
+let request = new Request("pruebasjs.json", myInit);
+
+//const request = new Request('https://www.mozilla.org/datosCuento.php?id_pilar=5");
 //Info de cada pilar
 var pilar1 = {
-	bgs:['IMGS/His1.jpg','IMGS/His2.jpg','IMGS/p3.jpg','IMGS/His2.jpg','IMGS/p3.jpg'],//orden n pilar 0, fondo de cadapágina
-	texto:["info 1","info 2","info 3","info 4","info 5"],//narrativa de cada página
+	bgs:["IMGS/His1.jpg",'IMGS/His2.jpg','IMGS/p3.jpg','IMGS/His2.jpg','IMGS/p3.jpg'],//orden n pilar 0, fondo de cadapágina
+	texto:["info 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua","info 2","info 3","info 4","info 5"],//narrativa de cada página
 	runa:'IMGS/Res.png',//imagen amarilla :v
 	indagacion: ['IMGS/I1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],//imágenes de monitor
 	indagaTxt:["Pasado","Presente","Futuro"],//texto del monitor
-	/*fondo de Indagar/resolver*/
+	
 	pilarStyle:	"background: url('IMGS/Tor1.png') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;"	
-
 }
 var pilar2 = {
 	bgs:['IMGS/p1.jpg','IMGS/p4.jpg','IMGS/p5.jpg'],
 	runa:'IMGS/Res.png',
 	indagacion: ['IMGS/p1.jpg','IMGS/I2.jpg','IMGS/I3.jpg'],
-	indagaTxt:["Pasado","Presente","Futuro"],
+	indagaTxt:["Pasado","Presente","Futuro"],	
 	pilarStyle:	"background: url('IMGS/His1.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;",
 	texto:["info 6","info 7","info 8"]
 }
@@ -68,6 +80,8 @@ var app = new Vue({
 	pilar: pilar1,
 	pilSect:0,
 	pg:0,
+	//portada:'background-image:url('+portad.fondo+')',
+	portada:'',
 	backs:'background-image:url('+pilar1.bgs[0]+')',
 	total:pilares.length*3,
 	vida,
@@ -84,7 +98,7 @@ var app = new Vue({
     activar: function (numPag, seccion, s) {
       this.section = seccion;
 	  app.pg+=s;
-	  app.backs='background-image:url('+app.pilar.bgs[app.pg]+')'
+	  	app.backs='background-image:url('+app.pilar.bgs[app.pg]+')'
 	  this.pilar = pilares[app.pilSect]
 	  if(app.section=='final'){
 		app.backs='background-image:url('+app.final.finalBg[app.counterf]+')'
@@ -99,6 +113,23 @@ var app = new Vue({
   }
   
 });
+//
+
+fetch(request)
+  .then(function(response) {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error('Something went wrong on api server!');
+    }
+  })
+  .then(function(data) {
+		//console.log(data.pilares[0].imagen)
+		
+		app.portada=data.pilares[0];
+		//app.portada='background-image:url('+portad.fondo+')';
+	  });
+//
 var num = app.idx;
 
 function resolver(){
@@ -124,10 +155,7 @@ function resolver(){
 		if(app.estado==3){
 			app.counterf=2;
 			app.section='final';
-			/*app.pilSect=0;
-			app.estado=0;
-			app.pg=0;
-			s=0;	*/
+
 			app.resetBtn="INTENTAR DESDE EL PRINCIPIO";
 		}else{
 			app.section='reintentar';

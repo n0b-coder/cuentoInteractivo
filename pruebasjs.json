@@ -1,0 +1,34 @@
+{
+  "secciones": [
+    { "id_seccion": 1,
+      "paginas": [
+        {"id_pagina": 5, "texto":"1arstars"},
+        {"id_pagina": 6, "texto":"2arstars"},
+        {"id_pagina": 7, "texto":"3arstars"}
+      ]
+    },
+    { "id_seccion": 2,
+      "paginas": [
+        {"id_pagina": 8, "texto":"4arstars"},
+        {"id_pagina": 9, "texto":"5arstars"},
+        {"id_pagina": 10, "texto":"6arstars"}
+      ]
+    }
+  ],
+
+  "pilares": [
+    {
+      "id": 0,
+      "nombre":"dos",
+      "imagen": "https://robovent.com/es/wp-content/uploads/blue-AutomotiveCalc_2018-background.jpg",
+      "texto": "arstarstars",
+      "acertijo": [
+        {"escena": 0, "ruta": "media/img_pilar2_pasado.jpg" },
+        {"escena": 1, "ruta": "media/img_pilar2_presente.jpg" },
+        {"escena": 2, "ruta": "media/img_pilar2_futuro.jpg" }
+      ]
+    },
+    {"id": 3, "nombre":"tres"},
+    {"id": 5, "nombre":"cinco", "imagen": "media/imagen1.jpg"}
+  ]
+}
