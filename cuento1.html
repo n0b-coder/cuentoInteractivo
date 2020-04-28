@@ -24,9 +24,9 @@
 					<div class="parraf">
 						<p>{{pilar.texto[pg]}}</p>
 					</div>
-					<div class="nextPag">
-						<span v-on:click="activar(pg+1,'intro2',1)"><i class="icon far fa-caret-square-right"></i></span>
-					</div>
+				</div>
+				<div class="nextPag">
+					<span v-on:click="activar(pg+1,'intro2',1)"><i class="icon far fa-caret-square-right"></i></span>
 				</div>
 			</div>
 		</div>
@@ -40,10 +40,10 @@
 						<div class="parraf">
 							<p>{{pilar.texto[pg]}}</p>
 						</div>
-						<div class="nextPag">
-							<span v-on:click="activar(pg-1,'intro1',-1)"><i class="icon far fa-caret-square-left"></i></span>
-							<span v-on:click="activar(pg+1,'page1',1)"><i class="icon far fa-caret-square-right"></i></span>
-						</div>
+					</div>
+					<div class="nextPag">
+						<span v-on:click="activar(pg-1,'intro1',-1)"><i class="icon far fa-caret-square-left"></i></span>
+						<span v-on:click="activar(pg+1,'page1',1)"><i class="icon far fa-caret-square-right"></i></span>
 					</div>
 				</div>
 		</div>
@@ -57,10 +57,10 @@
 						<div class="parraf">
 							<p>{{pilar.texto[pg]}}</p>
 						</div>
-						<div class="nextPag">
-							<span v-on:click="activar(pg-1,'intro2',-1)"><i class="icon far fa-caret-square-left"></i></span>
-							<span v-on:click="activar(pg+1,'page2',1)"><i class="icon far fa-caret-square-right"></i></span>
-						</div>
+					</div>
+					<div class="nextPag">
+						<span v-on:click="activar(pg-1,'intro2',-1)"><i class="icon far fa-caret-square-left"></i></span>
+						<span v-on:click="activar(pg+1,'page2',1)"><i class="icon far fa-caret-square-right"></i></span>
 					</div>
 				</div>
 			</div>
@@ -76,11 +76,11 @@
 					<div class="parraf">
 						<p>{{pilar.texto[pg]}}</p>
 					</div>
-					<div class="nextPag">
-						<span v-on:click="activar(pg-1,'page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
-						<span v-on:click="activar(pg+1,'page3',1)"><i class="icon far fa-caret-square-right"></i></span>
-					</div>
-				</div>				
+				</div>	
+				<div class="nextPag">
+					<span v-on:click="activar(pg-1,'page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
+					<span v-on:click="activar(pg+1,'page3',1)"><i class="icon far fa-caret-square-right"></i></span>
+				</div>			
 			</div>
 		</div>
 	</transition>
@@ -93,11 +93,11 @@
 					<div class="parraf">
 						<p>{{pilar.texto[pg]}}</p>
 					</div>
-					<div class="nextPag">
-						<span v-on:click="activar(pg-1,'page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
-						<span v-on:click="activarPilar()"><i class="icon far fa-caret-square-right"></i></span>
-					</div>
-				</div>				
+				</div>		
+				<div class="nextPag">
+					<span v-on:click="activar(pg-1,'page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
+					<span v-on:click="activarPilar()"><i class="icon far fa-caret-square-right"></i></span>
+				</div>		
 			</div>
 		</div>
 	</transition>
@@ -122,26 +122,30 @@
 		</div>
 	</transition>
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<section id="indagar" v-if="section == 'indagar'">
-			<div class="monitor">
-				<div>
-					<a v-if="idx>0" class="iconSc fas fa-angle-left" onclick="prevImg()"></a>
+
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">		
+		<div class="pages" v-if="section == 'indagar'">
+			<div class="blur" :style="'background-image:url('+pilar.indagacion[idx]+')'"></div>
+			<div class="containerP1">
+				<div class="bgImgInd row card-img">					
+					<img class="img-fluid" :src="pilar.indagacion[idx]" alt="contenido">
+					<div class="bgImgMon card-img" :style="'background-image:url('+'IMGS/monitor/PlanM.png'+')'">
+						
+					</div>
+					<div class="row indArrows">
+						<div class="col indL">
+							<a v-if="idx>0" class="iconSc fas fa-angle-left" onclick="prevImg()"></a>
+						</div>
+						<div class="col indR">
+							<a v-if="idx<2" class="iconSc fas fa-angle-right" onclick="nextImg()"></a>
+						</div>
+					</div>
+					<div class="row inf">
+						<a class="iconSc fas fa-angle-down" onclick="back()"></a>
+					</div>
 				</div>
-				<div id="box">
-					<img :src="pilar.indagacion[idx]" alt="contenido">
-				</div>
-				<div>
-					<a v-if="idx<2" class="iconSc fas fa-angle-right" onclick="nextImg()"></a>
-				</div>
-				<div class="inf">
-					<a v-if="section=='page1'"></a>
-				</div>
-				<div class="inf">
-					<a class="iconSc fas fa-angle-down" onclick="back()"></a>
-				</div>
-			</div>				
-		</section>
+			</div>
+		</div>
 	</transition>
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
