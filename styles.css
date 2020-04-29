@@ -556,12 +556,7 @@ input[type=text], select {
   font-size: 80px;
   color: white;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px 90px;
-}
+
 a.fill-div {
   display: block;
   height: 100%;
