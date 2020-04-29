@@ -33,7 +33,7 @@
     padding-left: 0% !important;
   }
   .indR{
-    padding-left:70% !important;
+    padding-left:60% !important;
   }
   #again img{
     padding-bottom: 5%;
@@ -343,12 +343,14 @@ a:not([href]):not([tabindex]){
   justify-content: flex-end;
   padding-left:70% !important;
   height: 25%;
+  padding-right: 0 !important;
 }
 .indL{
   display: flex;
   justify-content: start;
   padding-left:7% !important;
   height: 25%;
+  padding-right: 0 !important;
 }
 .imgIdx{
   background-size: contain;
