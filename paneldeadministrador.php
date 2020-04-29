@@ -49,66 +49,69 @@ if($variable_S == null || $variable_S == '')
                 </div>
                 <input type="text" class="form-control" placeholder="JUKO">
             </div>
-            <div class="edit row">
-                <div class="opciones col">
-                    <div class= "EditText">
-                        <button class="row">
-                            Cambiar Fondo
+            <div class="EdRow">
+                
+                    <div class= "EdText">
+                        <button class="Btn">
+                            Actualizar Texto
                         </button>
-                        <input type="text" class="InpText" placeholder="JUKO">
+                        <textarea placeholder="Texto a editar" class="HisText" ></textarea>
                     </div>
-                    <button class="row">
-                        Cambiar Fondo
-                    </button>
-                    <div class="preview col">
-                    <img src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg">
+                    <div class="opcionesCol">
+                        <div class= "EdFondo">
+                            <button class="Btn">
+                                Cambiar Fondo
+                            </button>
+                            <div class="previewCol">
+                            <img class = "Prev" src="https://gameranx.com/wp-content/uploads/2016/05/DOOM4-2.jpg">
+                            </div>
+                        </div>
+                        <div class= "EdPersonaje">
+                            <button class="Btn">
+                                Cambiar Personaje
+                            </button>
+                            <div class="previewCol">
+                            <img class = "Prev" src="https://www.hyperhype.es/wp-content/uploads/2020/04/Doom-Eternal-Render-3.png">
+                            </div>
+                        </div>
                     </div>
-                    <button class="row">
-                        Cambiar Texto
-                    </button>
-                    <button class="row">
-                        Cambiar Personaje
-                    </button>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="checkboxrow">
+                    <label class="col">Historia
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Pilares
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Indagación
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Resolución
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Finales
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
-               
+            </div>
+            <div class="slider">
+                <div class="scrolling-wrapper">
+                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
+                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
+                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
+                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
+                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
+                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
+                </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="checkbox row">
-                <label class="col">
-                    <input type="radio" checked="checked" name="radio">One
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="col">
-                    <input type="radio" checked="checked" name="radio">One
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="col">
-                    <input type="radio" checked="checked" name="radio">One
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="ccol">
-                    <input type="radio" checked="checked" name="radio">One
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="col">
-                    <input type="radio" checked="checked" name="radio">One
-                    <span class="checkmark"></span>
-                  </label>
-            </div>
-        </div>
-        <div class="slider row">
-            <div class="scrolling-wrapper">
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                </div>
-        </div>
-       
 
 
     </div>

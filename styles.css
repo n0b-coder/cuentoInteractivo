@@ -48,10 +48,7 @@
   .bgImgMon{
     opacity: 1!important;
   }
-  input[type=text], select {
-    width: 10% !important;
-    height: 5vw !important;
-  }
+
   #vidas img{
     width:30vh !important;
   }
@@ -364,9 +361,7 @@ a:not([href]):not([tabindex]){
   filter: blur(80px);
   -webkit-filter: blur(8px);
 }
-.row{
-  margin: 0 !important;
-}
+
 .frame{
   margin:0; padding:0; height:100%;
   width:100%; border:none;
@@ -401,11 +396,8 @@ a:not([href]):not([tabindex]){
   height: 45vw;
 }
 input[type=text], select {
-    width: 40%;
-    margin: 10px;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
     box-sizing: border-box;
     color: white;
     font-family: 'modern', sans-serif !important; 
@@ -420,7 +412,18 @@ input[type=text], select {
 }
 
 
-/*VENTANA DE ADMINISTRADOR*/
+/*VENTANA DE ADMINISTRADOR - paneldeadministrador.php*/
+
+.container-fluid{
+  background-image: url('IMGS/Fondo.png');
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  width: 100%;
+  margin:0;
+
+}
 
 /*SESIÓN ADMINISTRADOR*/
 
@@ -428,11 +431,17 @@ input[type=text], select {
   margin: auto;
   color: white;
   font-size: 700%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 .cerrarS{
   margin-bottom: 30px;
   margin-top: 20px;
   max-height: 50px;
+  display: flex;
+  justify-content: center;
 
 }
 
@@ -453,8 +462,24 @@ input[type=text], select {
   color: rgb(0, 0, 0) !important;
 }
 
+/*EDICIÓN DE ELEMENTOS*/
+
+.container-2fluid{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+
+}
+
 /*CAMBIAR NOMBRE PERSONAJE*/
 
+.input-group{
+  display: flex;
+  justify-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
 .input-group-text{
   background-color: rgba(26, 35, 44, 0.52)!important;
   color: rgba(255, 255, 255) !important;
@@ -470,68 +495,171 @@ input[type=text], select {
   background-color: rgba(216, 216, 216, 0.52)!important;
   color: rgb(0, 0, 0) !important;
 }
-.input-group{
-  max-width: 80%;
-}
 .input-group>.form-control{
   margin: 0;
-  max-width: 1000px;
-  max-height: 40px;
 }
 .form-control{
   background-color: rgba(223, 240, 255, 0.836) !important;
-  box-shadow: 0 0 0.05em rgb(238, 1, 255) !important;
   color: rgb(0, 0, 0) !important;
   font-family: 'modern', sans-serif !important;
   font-size: 120% !important;
   font-weight:bolder !important;
+  max-width: 450px;
+  max-height: 40px;
 }
 
-.container-fluid{
-  background-image: url('IMGS/Fondo.png');
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  height: 100%;
-  width: 100%;
-  margin:0;
+/*CAMBIAR ELEMENTOS DEL CUENTO*/
+
+.EdRow{
   display: flex;
-  align-items: center;
   flex-direction: column;
-  text-align: center;
-}
-.container-2fluid{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-
-
-
-
-
-.input-group2{
-  width:40% !important;
   justify-content: center;
+  width: 80%;
+}
+.opcionesCol{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.Btn{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 120% !important;
+  font-weight:bolder !important;
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  border-color: rgb(255, 255, 255) !important;
+  margin: 0;
+  max-width: 300px;
+  max-height: 40px;
+  cursor: pointer;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+}
+.Btn:hover{
+  background-color: rgba(216, 216, 216, 0.52)!important;
+  color: rgb(0, 0, 0) !important;
+}
+
+/*EDICIÓN DEL TEXTO*/
+
+.EdText{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.HisText{
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  color: rgb(206, 206, 206) !important;
+  border-color: rgb(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-weight:bolder !important;
+  font-size: 100% !important;
+  max-width: 100%;
+  text-align: start !important;
+  padding: 5px;
+  height: 200px !important;
+  cursor: text;
+  resize: none !important;
+  box-sizing: border-box !important;
+}
+
+/*EDICIÓN DEL FONDO Y PERSONAJE*/
+
+.EdFondo{
+  width: 50%;
+  justify-content: start;
+}
+.EdPersonaje{
+  width: 50%;
+  justify-content: start;
+}
+.Prev{
+  max-height:300px ;
+  max-width: 75%;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+}
+
+/*SELECCIÓN DE CUADRO*/
+
+.row{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 120% !important;
+  font-weight:bolder !important;
+  margin: 0 !important;
+  justify-content: center;
+}
+.checkboxrow{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 10px;
+}
+.col{
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  padding-left: 30px !important;
+}
+.col input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255);
+  background: none;
+  border-radius: 6px;
+}
+.col:hover input ~ .checkmark {
+  background-color:rgba(226, 226, 226, 0.288) !important;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.col input:checked ~ .checkmark {
+  background-color:rgba(255, 255, 255);
+  border: none;
+}
+.slider{
+  display: flex;
+  justify-content: center!important;
 }
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
   margin-bottom: 50px;
+  width: 80%;
 }
+
+.input-group2{
+  width:40% !important;
+  justify-content: center;
+}
+
 .cards {
   display: inline-block;
 }
 .images{
   height: 10vw;
 }
-.slider{
-  width: 70%;
-}
+
 .img-thumbnail{
   width: 15vw;
   display: inline-block;
