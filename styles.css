@@ -487,6 +487,10 @@ input[type=text], select {
 .input-group{
   justify-content: center;
 }
+.input-group2{
+  width:40% !important;
+  justify-content: center;
+}
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
