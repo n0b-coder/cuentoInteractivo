@@ -131,18 +131,18 @@
 				<div class="bgImgMon card-img" :style="'background-image:url('+'IMGS/monitor/PlanM.png'+')'">
 					<div class="row arrows card-img">
 						<div class="row indArrows">
-							<div class="col indL">
-								<span v-if="idx>0" class="iconSc fas fa-angle-left" onclick="prevImg()"></span>
+							<div class="col indL" onclick="prevImg()">
+								<a v-if="idx>0" class="fill-div" >a</a>
 							</div>
-							<div class="col indR">
-								<span v-if="idx<2" class="iconSc fas fa-angle-right" onclick="nextImg()"></span>
+							<div class="col indR" onclick="nextImg()">
+								<a v-if="idx<2" class="fill-div" >a</a>
 							</div>
 						</div>
 					</div>
 					
 				</div>
-				<div class="row inf">
-					<span class="iconSc fas fa-angle-down" onclick="back()"></span>
+				<div class="row inf" onclick="back()">
+					<a class="fill-div">a</a>
 				</div>
 				
 			</div>	
