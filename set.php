@@ -96,8 +96,12 @@ if($result->num_rows>0)
     
   
 
-echo json_encode($data);
 
+
+$cosa=json_encode($data);
+
+$obj = json_decode($cosa);
+file_put_contents('info.json',$obj);
 
 mysqli_close($conn);
 
