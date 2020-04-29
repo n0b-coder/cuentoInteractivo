@@ -438,6 +438,9 @@ input[type=text], select {
   justify-content: center;
   align-items: center;
 }
+.IntLog{
+  padding: 10px!important; 
+}
 
 
 /*VENTANA DE ADMINISTRADOR - paneldeadministrador.php*/
@@ -450,10 +453,10 @@ input[type=text], select {
   -o-background-size: cover;
   width: 100%;
   margin:0;
-
 }
 
 /*SESIÓN ADMINISTRADOR*/
+
 #he1deadminP {
   font-family: 'modern', sans-serif;
   font-weight: lighter;
