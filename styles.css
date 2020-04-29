@@ -241,8 +241,8 @@ a:not([href]):not([tabindex]){
   height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 1;
-  opacity: 0;
+  z-index: 10;
+  opacity: 1;
 }
 .arrows{
   position: absolute;
@@ -291,7 +291,9 @@ a:not([href]):not([tabindex]){
   align-items: flex-end;
   justify-content: flex-end;
 }
-
+.as{
+  color: rgba(0,0,0,0) !important;
+}
 .barra{
   display: grid;
   grid-template-rows: 60% 40%;
@@ -416,14 +418,14 @@ input[type=text], select {
     font-family: 'modern', sans-serif !important; 
 }
 .inf{  
-  width: 10%;
-  height: 75vh;
+  width: 20%!important;
+  height:100%;
   align-items: flex-end;
   justify-content: flex-end;
   position: absolute;
   z-index: 5;
+  margin: auto!important;
 }
-
 
 /*VENTANA DE ADMINISTRADOR*/
 
@@ -556,7 +558,12 @@ input[type=text], select {
   font-size: 80px;
   color: white;
 }
-
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 90px;
+}
 a.fill-div {
   display: block;
   height: 100%;
