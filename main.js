@@ -24,7 +24,7 @@ var myInit={
 	mode:'cors',
 	cache:'default'
 };
-let request = new Request('info.json', myInit);
+let request = new Request('set.php', myInit);
 
 //const request = new Request('https://www.mozilla.org/datosCuento.php?id_pilar=5");
 //Info de cada pilar
