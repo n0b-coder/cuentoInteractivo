@@ -20,10 +20,8 @@ if(isset($_POST['log_try']))
 
 <body>
 
-    <div class="containerdeadmin">
-
-
-        <div class="Maindeadmin">
+    <div class="Maindeadmin">
+        <div class="ContAdmin">
             <div id="Titulodeadmin">
                 <h1 id="he1deadmin"> JUKO ADMIN</h1>
             </div>
@@ -40,6 +38,7 @@ if(isset($_POST['log_try']))
             </div>
         </div>
     </div>
+
 
 </body>
 
