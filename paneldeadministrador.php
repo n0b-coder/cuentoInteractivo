@@ -29,8 +29,7 @@
 
         <div class="card-header">
             <div id="Titulodeadmin">
-                <h1 id="he1deadminP"> Administrador </h1>;
-                <h2 id="he1deadminP"> Bienvenido <?php echo $_SESSION['user']?> </h1>
+                <h2 id="he1deadminP"> Administrador <?php echo $_SESSION['user']?> </h1>
              </div>
 
             <div class="cerrarS">
