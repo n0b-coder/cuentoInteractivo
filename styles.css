@@ -482,7 +482,11 @@ input[type=text], select {
   font-weight:bolder !important;
   margin: 0;
   max-height: 40px;
- 
+}
+.input-group-text:hover{
+  background-color: rgba(216, 216, 216, 0.52)!important;
+  color: rgb(0, 0, 0) !important;
+
 }
 .input-group{
   justify-content: center;

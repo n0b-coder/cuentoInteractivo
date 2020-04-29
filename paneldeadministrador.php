@@ -41,7 +41,8 @@ if($variable_S == null || $variable_S == '')
         <div class="container-2fluid">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Nombre</span>
+                  <button class="input-group-text">
+                        Actualizar Nombre
                 </div>
                 <input type="text" class="form-control" placeholder="Nombre del personaje" aria-label="Username" aria-describedby="basic-addon1">
             </div>
