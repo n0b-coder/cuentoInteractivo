@@ -2,6 +2,9 @@
   .bgImg, .blur{
     height: 100% !important;
   }
+  .icon{
+    font-size: 5vw !important;
+  }
   .grad{
     background-color: rgba(0,0,0,0) !important;
     background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1)) !important;
@@ -309,9 +312,10 @@ a:not([href]):not([tabindex]){
 }
 .icon{
   color:rgba(255,255,255,0.9);
-  font-size: 5vw;
+  font-size: 10vw;
   cursor: pointer;
   text-shadow: 0 0 0.05em cyan;
+  padding-left: 1vw;
 } 
 .nextPag{
   height:20%;  
