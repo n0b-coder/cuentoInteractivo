@@ -67,9 +67,7 @@ html,body{
   font-family: modern;
   src: url('MODERN SPACE.ttf')
 }
-.container{
 
-}
 .pages{
   height: 100%;
 }
@@ -425,8 +423,7 @@ input[type=text], select {
 /*VENTANA DE ADMINISTRADOR*/
 
 /*SESIÓN ADMINISTRADOR*/
-.card-header{
-}
+
 #Titulodeadmin {
   margin: auto;
   color: white;
@@ -553,6 +550,18 @@ input[type=text], select {
   line-height: 200px;
   font-size: 80px;
   color: white;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 90px;
+}
+a.fill-div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
 }
 input {  
   font-family: 'modern', sans-serif; 
