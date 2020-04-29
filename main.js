@@ -15,6 +15,7 @@ end php
 ?>*/
 
 /**/
+require_once("set.php");
 var myInit={
 	method:'GET',
 	headers:{
