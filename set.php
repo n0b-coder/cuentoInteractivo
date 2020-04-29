@@ -74,8 +74,6 @@ if($result->num_rows>0)
     {
       $numpil = $row['Num_pilar'];
       $pi = array( );
-      $pi['pilar_name'] = $row['Name'];
-      $pi['acertijo_name'] = $row['Name_acertijo'];
       $pi['imagen_acertijo'] = $row['Image_acertijo'];
       $f = $row['Fondo_acertijo'];
         $sql1 = "SELECT fondo_img FROM fondos WHERE Id_fondo = '$f'";
@@ -93,16 +91,10 @@ if($result->num_rows>0)
       } 
     $data["pilares"]= $pilar;
   }
-    
-  
 
-
-
-$cosa=json_encode($data);
-
-$obj = json_decode($cosa);
-file_put_contents('info.json',$obj);
+echo json_encode($data);
 
 mysqli_close($conn);
 
 ?>
+<script type="text/javascript" src="main.js"></script>

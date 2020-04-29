@@ -15,7 +15,6 @@ end php
 ?>*/
 
 /**/
-require_once("set.php");
 var myInit={
 	method:'GET',
 	headers:{
@@ -24,8 +23,22 @@ var myInit={
 	mode:'cors',
 	cache:'default'
 };
-let request = new Request('set.php', myInit);
+let request = new Request("info.json", myInit);
 
+fetch(request)
+  .then(function(response) {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error('Something went wrong on api server!');
+    }
+  })
+  .then(function(data) {
+		//console.log(data.pilares[0].imagen)
+		
+		app.portada=data.portada;
+		//app.portada='background-image:url('+portad.fondo+')';
+	  });
 //const request = new Request('https://www.mozilla.org/datosCuento.php?id_pilar=5");
 //Info de cada pilar
 var pilar1 = {
@@ -81,8 +94,7 @@ var app = new Vue({
 	pilar: pilar1,
 	pilSect:0,
 	pg:0,
-	//portada:'background-image:url('+portad.fondo+')',
-	portada:'',
+	portada:null,
 	backs:'background-image:url('+pilar1.bgs[0]+')',
 	total:pilares.length*3,
 	vida,
@@ -116,20 +128,10 @@ var app = new Vue({
 });
 //
 
-fetch(request)
-  .then(function(response) {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Something went wrong on api server!');
-    }
-  })
-  .then(function(data) {
-		//console.log(data.pilares[0].imagen)
-		
-		app.portada=data.portada;
-		//app.portada='background-image:url('+portad.fondo+')';
-	  });
+
+//
+
+
 //
 var num = app.idx;
 
