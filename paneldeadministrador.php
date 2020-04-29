@@ -34,7 +34,9 @@ if($variable_S == null || $variable_S == '')
             </div>
             <div class="cerrarS">
                 <form action="Cerrar_Sesion.php">
-                <input type="submit" value="Cerrar Sesión" class="BtnUser">
+                <button class="BtnUser">
+                            Cerrar Sesión
+                </button>
                 </form>
             </div>
         </div>
@@ -58,6 +60,9 @@ if($variable_S == null || $variable_S == '')
                     <button class="row">
                         Cambiar Fondo
                     </button>
+                    <div class="preview col">
+                    <img src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg">
+                    </div>
                     <button class="row">
                         Cambiar Texto
                     </button>
@@ -65,9 +70,7 @@ if($variable_S == null || $variable_S == '')
                         Cambiar Personaje
                     </button>
                 </div>
-                <div class="preview col">
-                    <img src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg">
-                </div>
+               
             </div>
         </div>
 
