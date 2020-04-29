@@ -15,6 +15,7 @@ end php
 ?>*/
 
 /**/
+require_once("set.php");
 var myInit={
 	method:'GET',
 	headers:{
@@ -23,7 +24,7 @@ var myInit={
 	mode:'cors',
 	cache:'default'
 };
-let request = new Request("pruebasjs.json", myInit);
+let request = new Request('set.php', myInit);
 
 //const request = new Request('https://www.mozilla.org/datosCuento.php?id_pilar=5");
 //Info de cada pilar
@@ -126,7 +127,7 @@ fetch(request)
   .then(function(data) {
 		//console.log(data.pilares[0].imagen)
 		
-		app.portada=data.pilares[0];
+		app.portada=data.portada;
 		//app.portada='background-image:url('+portad.fondo+')';
 	  });
 //

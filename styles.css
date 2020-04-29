@@ -2,6 +2,9 @@
   .bgImg, .blur{
     height: 100% !important;
   }
+  .icon{
+    font-size: 5vw !important;
+  }
   .grad{
     background-color: rgba(0,0,0,0) !important;
     background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1)) !important;
@@ -33,7 +36,7 @@
     padding-left: 0% !important;
   }
   .indR{
-    padding-left:70% !important;
+    padding-left:60% !important;
   }
   #again img{
     padding-bottom: 5%;
@@ -238,8 +241,8 @@ a:not([href]):not([tabindex]){
   height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 1;
-  opacity: 0;
+  z-index: 10;
+  opacity: 1;
 }
 .arrows{
   position: absolute;
@@ -260,7 +263,7 @@ a:not([href]):not([tabindex]){
 }
 .bgImgInd img{
   position: absolute;
-  width: 80vw;
+  width: 70vw;
 }
 .bgImgRuna{
   background-position: center;
@@ -288,7 +291,9 @@ a:not([href]):not([tabindex]){
   align-items: flex-end;
   justify-content: flex-end;
 }
-
+.as{
+  color: rgba(0,0,0,0) !important;
+}
 .barra{
   display: grid;
   grid-template-rows: 60% 40%;
@@ -304,9 +309,10 @@ a:not([href]):not([tabindex]){
 }
 .icon{
   color:rgba(255,255,255,0.9);
-  font-size: 5vw;
+  font-size: 10vw;
   cursor: pointer;
   text-shadow: 0 0 0.05em cyan;
+  padding-left: 1vw;
 } 
 .nextPag{
   height:20%;  
@@ -337,20 +343,29 @@ a:not([href]):not([tabindex]){
   display: flex;
   justify-content: flex-end;
   padding-left:70% !important;
+  height: 25%;
+  padding-right: 0 !important;
+  cursor: pointer;
 }
 .indL{
   display: flex;
   justify-content: start;
   padding-left:7% !important;
+  height: 25%;
+  padding-right: 0 !important;
+  cursor: pointer;
+}
+.imgIdx{
+  background-size: contain;
 }
 .indArrows{
   display: flex;
-  height: 51%;
+  height: 100%;
   padding: 0 5vw;
   position: absolute;
   z-index: 1;
   width: -webkit-fill-available;
-  align-items: flex-end;
+  align-items: center;
 }
 .blur{
   position: absolute;
@@ -403,12 +418,14 @@ input[type=text], select {
     font-family: 'modern', sans-serif !important; 
 }
 .inf{  
-  height: 75vw;
-  height: 75vh;
+  width: 20%!important;
+  height:100%;
   align-items: flex-end;
   justify-content: flex-end;
   position: absolute;
   z-index: 5;
+  margin: auto!important;
+  cursor: pointer;
 }
 
 
@@ -679,7 +696,12 @@ input[type=text], select {
   font-size: 80px;
   color: white;
 }
-
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 90px;
+}
 a.fill-div {
   display: block;
   height: 100%;

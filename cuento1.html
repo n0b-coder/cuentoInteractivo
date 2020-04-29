@@ -132,18 +132,18 @@
 					<div class="row arrows card-img">
 						<div class="row indArrows">
 							<div class="col indL" onclick="prevImg()">
-								<a v-if="idx>0" class="fill-div" >a</a>
+								<span v-if="idx>0" class="fill-div as" >a</span>
 							</div>
 							<div class="col indR" onclick="nextImg()">
-								<a v-if="idx<2" class="fill-div" >a</a>
+								<span v-if="idx<2" class="fill-div as" >a</span>
 							</div>
 						</div>
 					</div>
-					
+					<div class="col inf" onclick="back()">
+						<span class="fill-div as">a</span>
+					</div>
 				</div>
-				<div class="row inf" onclick="back()">
-					<a class="fill-div">a</a>
-				</div>
+				
 				
 			</div>	
 		</div>
