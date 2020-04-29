@@ -1,17 +1,19 @@
 @media only screen and (min-width: 768px){
-  .bgImg{
+  .bgImg, .blur{
     height: 100% !important;
   }
   .grad{
     background-color: rgba(0,0,0,0) !important;
     background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1)) !important;
     position: absolute !important;
-    height: 45%!important;
+    height: fit-content !important;
     width:100%;
   }
   .containerP1{
     position: absolute;
     top:0;
+    display:flex !important;
+    height: 100% !important;
   }
   .pages{
     position: relative !important;
@@ -19,7 +21,19 @@
   .parraf{
     font-size:1vw !important;
     overflow: hidden !important;
-    height: 80% !important;
+    height: fit-content !important;
+  }
+  .nextPag{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 95% !important;
+  }
+  .indArrows{
+    padding-left: 0% !important;
+  }
+  .indR{
+    padding-left:70% !important;
   }
   #again img{
     padding-bottom: 5%;
@@ -31,6 +45,9 @@
     height: 90% !important;
     background-size: 100vw !important;
   }
+  .bgImgMon{
+    opacity: 1!important;
+  }
   input[type=text], select {
     width: 10% !important;
     height: 5vw !important;
@@ -40,7 +57,7 @@
   }
 }
 body{
-  background-color:black;
+  background-color:black !important;
   margin:0px;
 }
 html,body{
@@ -173,7 +190,7 @@ a:not([href]):not([tabindex]){
   justify-content: space-between;
 }
 .grad {
-  height: 100%;
+  height: 80%;
   display: inline-block;
   background-color: black;
   justify-content: center;
@@ -190,7 +207,7 @@ a:not([href]):not([tabindex]){
 }
 .parraf {
   overflow: scroll;
-  height: 70%;
+  height: 90%;
   font-family: 'modern', sans-serif;
   font-weight: bold;
   text-align: justify;
@@ -236,6 +253,36 @@ a:not([href]):not([tabindex]){
   height: 50%;
   background-size: cover;
 }
+.bgImgMon{
+  background-position: center;
+  max-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0;
+}
+.arrows{
+  position: absolute;
+  background-position: center;
+  max-width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 5;
+  opacity: 1;
+}
+.bgImgInd{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.bgImgInd img{
+  position: absolute;
+  width: 80vw;
+}
 .bgImgRuna{
   background-position: center;
   height: 80%;
@@ -280,12 +327,13 @@ a:not([href]):not([tabindex]){
 }
 .icon{
   color:rgba(255,255,255,0.9);
-  font-size: 50px;
+  font-size: 5vw;
   cursor: pointer;
   text-shadow: 0 0 0.05em cyan;
 } 
 .nextPag{
-  height:20%;
+  height:20%;  
+  align-self: center;
 }
 .iconSc{
   cursor: pointer;
@@ -308,17 +356,36 @@ a:not([href]):not([tabindex]){
   -moz-background-size: cover;
   -o-background-size: cover;
 }
-.monitor{
-  background: url('IMGS/monitor/PlanM.png') no-repeat center center fixed;
-  display: grid;
-  grid-template-columns: auto 80% auto;
-  position: inherit;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+.indR{
+  display: flex;
+  justify-content: flex-end;
+  padding-left:70% !important;
+}
+.indL{
+  display: flex;
+  justify-content: start;
+  padding-left:7% !important;
+}
+.indArrows{
+  display: flex;
+  height: 51%;
+  padding: 0 5vw;
+  position: absolute;
+  z-index: 1;
+  width: -webkit-fill-available;
+  align-items: flex-end;
+}
+.blur{
+  position: absolute;
+  background-position: center;
+  max-width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: blur(80px);
+  -webkit-filter: blur(8px);
+}
+.row{
+  margin: 0 !important;
 }
 .frame{
   margin:0; padding:0; height:100%;
@@ -344,7 +411,7 @@ a:not([href]):not([tabindex]){
   align-self: flex-end;
 }
 #vidas img{
-  width:40vw;
+  width:20vw;
 }
 #box{
   z-index: -2;
@@ -364,8 +431,12 @@ input[type=text], select {
     font-family: 'modern', sans-serif !important; 
 }
 .inf{  
-  text-align: center;
-  z-index: 1;
+  height: 50%;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  z-index: 5;
+  padding-top: 78vh;
 }
 /*admin*/
 .container-fluid{
