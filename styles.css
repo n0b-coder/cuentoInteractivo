@@ -382,19 +382,35 @@ input[type=text], select {
   flex-direction: column;
   text-align: center;
 }
+.container-2fluid{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
 .input-group>.form-control{
   margin: 0;
-  max-width: 20vw;
+  max-height: 40px;
 }
+
 .form-control{
-  background-color: rgba(14, 21, 27, 0.7) !important;
+  background-color: rgba(223, 240, 255, 0.836) !important;
   box-shadow: 0 0 0.05em rgb(238, 1, 255) !important;
+  color: rgb(0, 0, 0) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 120% !important;
+  font-weight:bolder !important;
 }
 .input-group-text{
   background-color: rgba(26, 35, 44, 0.52)!important;
-  color: rgba(255, 255, 255,0.5) !important;
+  color: rgba(255, 255, 255) !important;
   border-color: rgb(255, 255, 255) !important;
-  font-family: 'modern', sans-serif !important; 
+  font-family: 'modern', sans-serif !important;
+  font-size: 120% !important;
+  font-weight:bolder !important;
+  margin: 0;
+  max-height: 40px;
+ 
 }
 .input-group{
   justify-content: center;
@@ -453,7 +469,7 @@ input {
   font-family: 'modern', sans-serif;
   font-weight: lighter;
   font-size: 100%;
-  text-shadow: 0 0 0.05em cyan;
+  text-shadow: 0 0 0.5em cyan;
 }
 #he1deadminP {
   font-family: 'modern', sans-serif;
