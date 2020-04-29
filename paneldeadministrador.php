@@ -29,11 +29,12 @@ if($variable_S == null || $variable_S == '')
 
         <div class="card-header">
             <div id="Titulodeadmin">
-                <h1 id="he1deadminP"> Administrador <?php echo $_SESSION['user']?> </h1>          
+                <h1 id="he1deadminP"> Administrador </h1>
+                <h2 id="he2deadminP"> <?php echo $_SESSION['user']?> </h2>               
             </div>
             <div class="cerrarS">
                 <form action="Cerrar_Sesion.php">
-                <input type="submit" value="Cerrar Sesion" class="BtnHover BtnUser">
+                <input type="submit" value="Cerrar Sesión" class="BtnUser">
                 </form>
             </div>
         </div>
@@ -44,10 +45,16 @@ if($variable_S == null || $variable_S == '')
                   <button class="input-group-text">
                         Actualizar Nombre
                 </div>
-                <input type="text" class="form-control" placeholder="Nombre del personaje" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="JUKO">
             </div>
             <div class="edit row">
                 <div class="opciones col">
+                    <div class= "EditText">
+                        <button class="row">
+                            Cambiar Fondo
+                        </button>
+                        <input type="text" class="InpText" placeholder="JUKO">
+                    </div>
                     <button class="row">
                         Cambiar Fondo
                     </button>
