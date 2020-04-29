@@ -127,21 +127,24 @@
 		<div class="pages" v-if="section == 'indagar'">
 			<div class="blur" :style="'background-image:url('+pilar.indagacion[idx]+')'"></div>	
 			<div class="bgImgInd row card-img">					
-				<img class="bgImgInd" :src="pilar.indagacion[idx]" alt="contenido">					
-				<div class="bgImgMon card-img" :style="'background-image:url('+'IMGS/monitor/PlanM.png'+')'"></div>
-				<div class="row arrows card-img">
-					<div class="row indArrows">
-						<div class="col indL">
-							<a v-if="idx>0" class="iconSc fas fa-angle-left" onclick="prevImg()"></a>
-						</div>
-						<div class="col indR">
-							<a v-if="idx<2" class="iconSc fas fa-angle-right" onclick="nextImg()"></a>
+				<img :src="pilar.indagacion[idx]" alt="contenido" class="img-fluid">					
+				<div class="bgImgMon card-img" :style="'background-image:url('+'IMGS/monitor/PlanM.png'+')'">
+					<div class="row arrows card-img">
+						<div class="row indArrows">
+							<div class="col indL">
+								<span v-if="idx>0" class="iconSc fas fa-angle-left" onclick="prevImg()"></span>
+							</div>
+							<div class="col indR">
+								<span v-if="idx<2" class="iconSc fas fa-angle-right" onclick="nextImg()"></span>
+							</div>
 						</div>
 					</div>
+					
 				</div>
-				<div class="row bgImgInd inf">
-					<a class="iconSc fas fa-angle-down" onclick="back()"></a>
+				<div class="row inf">
+					<span class="iconSc fas fa-angle-down" onclick="back()"></span>
 				</div>
+				
 			</div>	
 		</div>
 	</transition>
