@@ -344,20 +344,25 @@ a:not([href]):not([tabindex]){
   display: flex;
   justify-content: flex-end;
   padding-left:70% !important;
+  height: 25%;
 }
 .indL{
   display: flex;
   justify-content: start;
   padding-left:7% !important;
+  height: 25%;
+}
+.imgIdx{
+  background-size: contain;
 }
 .indArrows{
   display: flex;
-  height: 51%;
+  height: 100%;
   padding: 0 5vw;
   position: absolute;
   z-index: 1;
   width: -webkit-fill-available;
-  align-items: flex-end;
+  align-items: center;
 }
 .blur{
   position: absolute;
@@ -415,7 +420,7 @@ input[type=text], select {
     font-family: 'modern', sans-serif !important; 
 }
 .inf{  
-  height: 75vw;
+  width: 10%;
   height: 75vh;
   align-items: flex-end;
   justify-content: flex-end;
@@ -469,8 +474,6 @@ input[type=text], select {
   max-width: 1000px;
   max-height: 40px;
 }
-
-
 .form-control{
   background-color: rgba(223, 240, 255, 0.836) !important;
   box-shadow: 0 0 0.05em rgb(238, 1, 255) !important;
