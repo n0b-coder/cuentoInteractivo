@@ -348,6 +348,7 @@ a:not([href]):not([tabindex]){
   padding-left:70% !important;
   height: 25%;
   padding-right: 0 !important;
+  cursor: pointer;
 }
 .indL{
   display: flex;
@@ -355,6 +356,7 @@ a:not([href]):not([tabindex]){
   padding-left:7% !important;
   height: 25%;
   padding-right: 0 !important;
+  cursor: pointer;
 }
 .imgIdx{
   background-size: contain;
