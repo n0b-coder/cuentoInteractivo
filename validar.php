@@ -1,6 +1,6 @@
 <?php
 require_once("Conexion.php");
-$db = "pgygjQvNGQ";
+
 
 if(isset($_POST['log_try']))
 {
@@ -20,13 +20,6 @@ if(isset($_POST['log_try']))
     }
        
         
-
-if (!mysqli_select_db($conn,$db))
-{
-    echo "<p> class='error'>- La base de datos no existe </p>";
-    die("Connection failed: " . $conn->connect_error);
-}
-
 $consulta= "SELECT * FROM Administradores WHERE email ='$Email'";
 $result = mysqli_query( $conn,$consulta);
 $filas = mysqli_num_rows($result);
