@@ -163,23 +163,7 @@ html,body{
 a:not([href]):not([tabindex]){
   color: white !important;
 }
-.BtnUser{
-  font-family: 'modern', sans-serif;
-  font-weight: lighter;
-  position: relative;
-  background: none;
-  color: white;
-  border:solid;
-  border-color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-.BtnUser:hover{
-  background-color: rgba(255, 255, 255, 0.9);
-  color: white;
-}
+
 /*Páginas*/
 .containerP1 {
   width: 100%;
@@ -438,7 +422,64 @@ input[type=text], select {
   position: absolute;
   z-index: 5;
 }
-/*admin*/
+
+
+/*VENTANA DE ADMINISTRADOR*/
+
+/*SESIÓN ADMINISTRADOR*/
+
+.BtnUser{
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  color: rgba(255, 255, 255) !important;
+  border-color: rgb(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 120% !important;
+  font-weight:bolder !important;
+  margin: 0;
+  max-height: 50px;
+  cursor: pointer;
+}
+.BtnUser:hover{
+  background-color: rgba(255, 255, 255, 0.9);
+  color: white;
+}
+
+/*CAMBIAR NOMBRE PERSONAJE*/
+
+.input-group-text{
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  color: rgba(255, 255, 255) !important;
+  border-color: rgb(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 120% !important;
+  font-weight:bolder !important;
+  margin: 0;
+  max-height: 40px;
+  cursor: pointer;
+}
+.input-group-text:hover{
+  background-color: rgba(216, 216, 216, 0.52)!important;
+  color: rgb(0, 0, 0) !important;
+}
+.input-group{
+  justify-content: center;
+}
+.input-group>.form-control{
+  margin: 0;
+  max-width: 1000px;
+  max-height: 40px;
+}
+
+
+.form-control{
+  background-color: rgba(223, 240, 255, 0.836) !important;
+  box-shadow: 0 0 0.05em rgb(238, 1, 255) !important;
+  color: rgb(0, 0, 0) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 120% !important;
+  font-weight:bolder !important;
+}
+
 .container-fluid{
   background-image: url('IMGS/Fondo.png');
   background-size: cover;
@@ -459,38 +500,12 @@ input[type=text], select {
   flex-direction: column;
   text-align: center;
 }
-.input-group>.form-control{
-  margin: 0;
-  max-width: 1000px;
-  max-height: 40px;
-}
 
-.form-control{
-  background-color: rgba(223, 240, 255, 0.836) !important;
-  box-shadow: 0 0 0.05em rgb(238, 1, 255) !important;
-  color: rgb(0, 0, 0) !important;
-  font-family: 'modern', sans-serif !important;
-  font-size: 120% !important;
-  font-weight:bolder !important;
-}
-.input-group-text{
-  background-color: rgba(26, 35, 44, 0.52)!important;
-  color: rgba(255, 255, 255) !important;
-  border-color: rgb(255, 255, 255) !important;
-  font-family: 'modern', sans-serif !important;
-  font-size: 120% !important;
-  font-weight:bolder !important;
-  margin: 0;
-  max-height: 40px;
-}
-.input-group-text:hover{
-  background-color: rgba(216, 216, 216, 0.52)!important;
-  color: rgb(0, 0, 0) !important;
 
-}
-.input-group{
-  justify-content: center;
-}
+
+
+
+
 .input-group2{
   width:40% !important;
   justify-content: center;
@@ -544,7 +559,6 @@ a.fill-div {
 input {  
   font-family: 'modern', sans-serif; 
   margin-bottom: 5px;
-  padding: 15px;
   font-size: 150%;
   background: none;
   color: white;
@@ -561,7 +575,12 @@ input {
   font-family: 'modern', sans-serif;
   font-weight: lighter;
   font-size: 50%;
-  text-shadow: 0 0 0.05em cyan;
+  text-shadow: 0 0 0.1em cyan;
+}
+#he2deadminP {
+  font-family: 'modern', sans-serif;
+  font-weight: lighter;
+  font-size: 35%;
 }
 .Maindeadmin {
   text-align: center;
