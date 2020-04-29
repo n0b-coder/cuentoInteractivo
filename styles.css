@@ -67,9 +67,7 @@ html,body{
   font-family: modern;
   src: url('MODERN SPACE.ttf')
 }
-.container{
 
-}
 .pages{
   height: 100%;
 }
@@ -293,9 +291,7 @@ a:not([href]):not([tabindex]){
   align-items: flex-end;
   justify-content: flex-end;
 }
-.card-header{
-  width: 50%;
-}
+
 .barra{
   display: grid;
   grid-template-rows: 60% 40%;
@@ -433,6 +429,18 @@ input[type=text], select {
 
 /*SESIÓN ADMINISTRADOR*/
 
+#Titulodeadmin {
+  margin: auto;
+  color: white;
+  font-size: 700%;
+}
+.cerrarS{
+  margin-bottom: 30px;
+  margin-top: 20px;
+  max-height: 50px;
+
+}
+
 .BtnUser{
   background-color: rgba(26, 35, 44, 0.52)!important;
   color: rgba(255, 255, 255) !important;
@@ -442,11 +450,12 @@ input[type=text], select {
   font-weight:bolder !important;
   margin: 0;
   max-height: 50px;
+  padding:10px 100px;
   cursor: pointer;
 }
 .BtnUser:hover{
-  background-color: rgba(255, 255, 255, 0.9);
-  color: white;
+  background-color: rgba(216, 216, 216, 0.52)!important;
+  color: rgb(0, 0, 0) !important;
 }
 
 /*CAMBIAR NOMBRE PERSONAJE*/
@@ -467,7 +476,7 @@ input[type=text], select {
   color: rgb(0, 0, 0) !important;
 }
 .input-group{
-  justify-content: center;
+  max-width: 80%;
 }
 .input-group>.form-control{
   margin: 0;
@@ -591,11 +600,7 @@ input {
   display: flex;
   flex-direction: column;
 }
-#Titulodeadmin {
-  margin: auto;
-  color: white;
-  font-size: 700%;
-}
+
 .error {
   font-family: 'modern', sans-serif; 
   font-weight: lighter;
