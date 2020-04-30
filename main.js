@@ -36,7 +36,7 @@ fetch(request)
   .then(function(data) {
 		//console.log(data.pilares[0].imagen)
 		
-		app.portada=data.portada;
+		
 		//app.portada='background-image:url('+portad.fondo+')';
 	  });
 //const request = new Request('https://www.mozilla.org/datosCuento.php?id_pilar=5");
