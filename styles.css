@@ -442,6 +442,37 @@ input[type=text], select {
   padding: 10px!important; 
 }
 
+/*SELECTOR DE CUENTO Selector.php*/
+
+#H1Admin{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif;
+  font-weight: bolder;
+  font-size: 600%;
+}
+
+.Conte{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.NAddBtn{
+
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 500% !important;
+  font-weight:bolder !important;
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  border-color: rgb(255, 255, 255) !important;
+  cursor: pointer;
+  height: 30vw;
+  width: 40vw;
+}
+.NAddBtn:hover{
+  background-color: rgba(216, 216, 216, 0.52)!important;
+  color: rgb(0, 0, 0) !important;
+}
 
 /*VENTANA DE ADMINISTRADOR - paneldeadministrador.php*/
 
