@@ -29,7 +29,7 @@ if(isset($_POST['log_try']))
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
                     <input type="email" class="IntLog" name="user" placeholder="User Email"  value =  "  <?php if(isset($Email)) echo $Email ?> "required>
                     <input type="password" class="IntLog" name="password" placeholder="Password" required>
-                    <input type="submit" value="Log me in!" class="BtnUser" name= "log_try">
+                    <input type="submit" value="Log me in" class="BtnUser" name= "log_try">
                     <?php
                     include ("validar.php");
                     ?>
