@@ -15,30 +15,7 @@ end php
 ?>*/
 
 /**/
-var myInit={
-	method:'GET',
-	headers:{
-		'Content-Type':'text/plain'
-	},
-	mode:'cors',
-	cache:'default'
-};
-let request = new Request("info.json", myInit);
 
-fetch(request)
-  .then(function(response) {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Something went wrong on api server!');
-    }
-  })
-  .then(function(data) {
-		//console.log(data.pilares[0].imagen)
-		
-		
-		//app.portada='background-image:url('+portad.fondo+')';
-	  });
 //const request = new Request('https://www.mozilla.org/datosCuento.php?id_pilar=5");
 //Info de cada pilar
 var pilar1 = {
