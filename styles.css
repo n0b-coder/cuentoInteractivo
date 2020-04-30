@@ -442,6 +442,37 @@ input[type=text], select {
   padding: 10px!important; 
 }
 
+/*SELECTOR DE CUENTO Selector.php*/
+
+#H1Admin{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif;
+  font-weight: bolder;
+  font-size: 600%;
+}
+
+.Conte{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.NAddBtn{
+
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 500% !important;
+  font-weight:bolder !important;
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  border-color: rgb(255, 255, 255) !important;
+  cursor: pointer;
+  height: 30vw;
+  width: 40vw;
+}
+.NAddBtn:hover{
+  background-color: rgba(216, 216, 216, 0.52)!important;
+  color: rgb(0, 0, 0) !important;
+}
 
 /*VENTANA DE ADMINISTRADOR - paneldeadministrador.php*/
 
@@ -689,6 +720,127 @@ input[type=text], select {
   width: 80%;
 }
 
+/*ACTUALIZACIÓN DE IMAGEN ChangeImg.php*/
+
+.Window{
+  background-image: url('https://static.vecteezy.com/system/resources/previews/000/208/955/non_2x/vector-abstract-landscape-illustration.jpg');
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  width: 100%;
+  height: 100%;
+  margin:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 75%;
+  background-color:rgba(0, 0, 0, 0.774);
+  padding: 20px;
+}
+
+/*INFO DE IMAGEN*/
+
+.BlockImg{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 20px;
+}
+.ShowImg{
+  max-width: 60%;
+}
+.PreImg{
+  max-height: 100%;
+  width: 100%;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  margin-right: 30px;
+}
+.ShowDat{
+  color: rgb(255, 255, 255);
+  font-family: 'modern', sans-serif !important;
+  font-weight:bolder !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 35%;
+  margin-left: 30px;
+}
+.formuControl{
+  background-color: rgb(236, 236, 236) !important;
+  color: rgb(0, 0, 0) !important;
+  font-weight:bolder !important;
+  max-width: 100%;
+  height: 10%;
+  
+}
+.Datos{
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  padding: 20px;
+  height: 50%;  
+}
+.NBtn{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 130% !important;
+  font-weight:bolder !important;
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  border-color: rgb(255, 255, 255) !important;
+  max-width: 100%;
+  height: 13%;
+  cursor: pointer;
+}
+.NBtn:hover{
+  background-color: rgba(216, 216, 216, 0.52)!important;
+  color: rgb(0, 0, 0) !important;
+}
+#h1Bib{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 130% !important;
+  font-weight:bolder !important;
+}
+/*SCROLL DE IMAGENES*/
+
+.ScrollImg{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 95%;
+  margin: 20px;
+}
+.scrollingWrapper{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  max-width: 100%;
+  display: flex;
+  align-items: center ;
+}
+.AddBtn{
+
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 500% !important;
+  font-weight:bolder !important;
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  border-color: rgb(255, 255, 255) !important;
+  cursor: pointer;
+  height: 10vw;
+  width: 15vw;
+}
+.AddBtn:hover{
+  background-color: rgba(216, 216, 216, 0.52)!important;
+  color: rgb(0, 0, 0) !important;
+}
+
 .input-group2{
   width:40% !important;
   justify-content: center;
@@ -696,9 +848,11 @@ input[type=text], select {
 
 .cards {
   display: inline-block;
+  margin-left: 6px;
 }
 .images{
   height: 10vw;
+
 }
 
 .img-thumbnail{
