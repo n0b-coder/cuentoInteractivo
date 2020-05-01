@@ -97,4 +97,3 @@ echo json_encode($data,JSON_UNESCAPED_SLASHES);
 mysqli_close($conn);
 
 ?>
-<script type="text/javascript" src="main.js"></script>

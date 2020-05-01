@@ -115,6 +115,7 @@ var app = new Vue({
 		} else if(this.section=='reset'){
 			return 'background-image:url('+this.final.resetBg[this.counterf]+')';
 		} else {
+			
       		return 'background-image:url('+this.game_data.historia[this.pilSect][this.pg].imagen_fondo+')';
       	}
     },
