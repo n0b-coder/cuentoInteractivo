@@ -71,9 +71,9 @@ var _0xfd70=["\x61\x62\x63\x64","\x65\x66\x67\x68","\x69\x6A\x6B\x6C"];
 eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('5 4=[3[0],3[1],3[2]]',6,6,'|||_0xfd70|validos|var'.split('|'),0,{}))
 //___
 
-var portada = {"texto":"texto portada"}
+//var portada = {"texto":"texto portada"}
 
-
+/*
 var game_data = {
 	"historia": {
 		"1": {
@@ -84,17 +84,17 @@ var game_data = {
 			}
 		}
 	}
-}
+}*/
 //vue
 var app = new Vue({
   el: '#app',
   data: {
 	secret:'',
-	game_data: game_data,
+	game_data: '',
 	pilar: pilar1,
 	pilSect:1,
 	pg:1,
-	portada:portada,
+	//portada:portada,
 	total:pilares.length*3,
 	vida,
 	torre,
@@ -139,7 +139,7 @@ var app = new Vue({
 });
 
 
-const request = new Request('set.json');
+const request = new Request('set.php');
 
 fetch(request)
   .then(response => {

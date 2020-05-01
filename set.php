@@ -90,15 +90,9 @@ if($result->num_rows>0)
       $pilar[$numpil] = $pi;
       } 
     $data["pilares"]= $pilar;
-<<<<<<< HEAD
-  }
-
-echo json_encode($data);
-=======
   }    
-echo json_encode($data);
+echo json_encode($data,JSON_UNESCAPED_SLASHES);
 
->>>>>>> 2eb8f83f208254a439fd993b92a7f67fb8bce891
 
 mysqli_close($conn);
 
