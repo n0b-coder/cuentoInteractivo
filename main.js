@@ -73,28 +73,25 @@ eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){w
 
 //var portada = {"texto":"texto portada"}
 
-/*
+
 var game_data = {
-	"historia": {
-		"1": {
-			"1": {
-				"texto": "ESTA ES LA PAGINA #1",
-				"imagen_fondo": "IMG_NEW/historia/S1-H-p1.png",
-				"imagen_personaje": null
-			}
-		}
-	}
-}*/
+	"historia":[
+		[
+		   {
+			  
+		   }
+		]
+	 ],
+}
 //vue
 var app = new Vue({
   el: '#app',
   data: {
 	secret:'',
-	game_data: '',
+	game_data: game_data,
 	pilar: pilar1,
-	pilSect:1,
-	pg:1,
-	//portada:portada,
+	pilSect:0,
+	pg:0,
 	total:pilares.length*3,
 	vida,
 	torre,

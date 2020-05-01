@@ -2,9 +2,19 @@
 require_once("Conexion.php");
 $id_cuento; $id_personaje;
   $data =array();
-  $Seccion=array();
+  $Seccion1h=array();
+  $Seccion2h=array();
+  $Seccion3h=array();
+  $Seccion1f=array();
+  $Seccion2f=array();
+  $Seccion3f=array();
+  $Seccion1i=array();
+  $Seccion2i=array();
+  $Seccion3i=array();
   $pilar = array();
-
+  $data["historia"] = array();
+  $data["indagacion"]= array();
+  $data["finales"]= array();
 
 $sql= "SELECT * FROM settings";
 $result =  $conn->query($sql);
@@ -14,6 +24,7 @@ if($result->num_rows>0)
         $id_cuento = $row['Id_cuento'];
         $id_personaje = $row['Id_personaje'];    
 }
+
 
 $sql = "SELECT pestana.Id_Pestana, cuento.Cuento_Name , pestana.Seccion, pestana.Pagina , pestana.Name, pestana.Texto, fondos.fondo_img , personajes.image_personaje , pestana.Type
 FROM pestana 
@@ -42,19 +53,50 @@ if($result->num_rows>0)
         $p['texto'] = $row['Texto'];
         $p['imagen_fondo'] = $row['fondo_img'];
         $p['imagen_personaje'] = $row['image_personaje'];
-        $numpag = $row['Pagina'];
+        $p['pagina'] = $row['Pagina'];
+        $p['seccion'] = $row['Seccion'];
         $numsec = $row['Seccion'];
-        if($tipo == 'history')
-        $Seccion[1][$numsec][$numpag] = $p;
-        if($tipo == 'indaga')
-        $Seccion[2][$numsec][$numpag] = $p;
-        if($tipo == 'final')
-        $Seccion[3][$numsec][$numpag] = $p;
+        if($numsec== 1)
+        {
+          if($tipo == 'history')
+          array_push($Seccion1h, $p);
+          if($tipo == 'indaga')
+          array_push($Seccion1i, $p);
+          if($tipo == 'final')
+          array_push($Seccion1f, $p);
+        }
+        if($numsec== 2)
+        {
+          if($tipo == 'history')
+          array_push($Seccion2h, $p);
+          if($tipo == 'indaga')
+          array_push($Seccion2i, $p);
+          if($tipo == 'final')
+          array_push($Seccion2f, $p);
+        }
+        if($numsec== 3)
+        {
+          if($tipo == 'history')
+          array_push($Seccion3h, $p);
+          if($tipo == 'indaga')
+          array_push($Seccion3i, $p);
+          if($tipo == 'final')
+          array_push($Seccion3f, $p);
+        }
+     
       } 
     }
-    $data["historia"]= $Seccion[1];
-    $data["indagacion"]= $Seccion[2];
-    $data["finales"]= $Seccion[3];
+    array_push($data["historia"], $Seccion1h);
+    array_push($data["historia"], $Seccion2h);
+    array_push($data["historia"], $Seccion3h);
+    
+    array_push($data["indagacion"], $Seccion1i);
+    array_push($data["indagacion"], $Seccion2i);
+    array_push($data["indagacion"], $Seccion3i);
+
+    array_push($data["finales"], $Seccion1f);
+    array_push($data["finales"], $Seccion2f);
+    array_push($data["finales"], $Seccion3f);
 }
 
 
