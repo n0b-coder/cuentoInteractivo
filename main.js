@@ -75,13 +75,15 @@ var portada = {"texto":"texto portada"}
 
 
 var game_data = {
-	pilar: [
-			{
-				"texto": "LOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUMLOREM IPSUM",
-				"imagen_fondo": "IMG_NEW\\/historia\\/S1-H-p1.png",
+	"historia": {
+		"1": {
+			"1": {
+				"texto": "ESTA ES LA PAGINA #1",
+				"imagen_fondo": "IMG_NEW/historia/S1-H-p1.png",
 				"imagen_personaje": null
 			}
-		]
+		}
+	}
 }
 //vue
 var app = new Vue({
@@ -90,8 +92,8 @@ var app = new Vue({
 	secret:'',
 	game_data: game_data,
 	pilar: pilar1,
-	pilSect:0,
-	pg:0,
+	pilSect:1,
+	pg:1,
 	portada:portada,
 	total:pilares.length*3,
 	vida,
@@ -113,9 +115,15 @@ var app = new Vue({
 		} else if(this.section=='reset'){
 			return 'background-image:url('+this.final.resetBg[this.counterf]+')';
 		} else {
-      		return 'background-image:url('+this.game_data.pilar[this.pg].imagen_fondo+')';
+      		return 'background-image:url('+this.game_data.historia[this.pilSect][this.pg].imagen_fondo+')';
       	}
+    },
+    pilarStyle: function() {
+    	var game_data = this.game_data;
+    	var url = this.game_data.pilares[this.pilSect].torre;
+		return "background: url('" + url + "') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;"
     }
+
   },
   methods: {
     activar: function (numPag, seccion, s) {
@@ -143,13 +151,8 @@ fetch(request)
   })
   .then(response => {
 
-    var historia1 = response.historia_new["1"];
-    var pagina1 = historia1[0];
-    pilar1 = historia1;
-    game_data.pilar = historia1;
+    app.game_data = response;
 
-    console.debug(pagina1);
-    // ...
   }).catch(error => {
     console.error(error);
   });

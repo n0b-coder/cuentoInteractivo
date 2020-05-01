@@ -3,35 +3,6 @@
 		"texto": "JUKO Alcachofa",
 		"imagen_fondo": "IMG_NEW/portadas/Portada.png"
 	},
-	"historia_new": {
-		"1": [
-			{
-				"texto": "ESTA ES LA PAGINA #1",
-				"imagen_fondo": "IMG_NEW/historia/S1-H-p1.png",
-				"imagen_personaje": null
-			},
-			{
-				"texto": "ESTA ES LA PAGINA #2",
-				"imagen_fondo": "IMG_NEW/historia/S1-H-p2.png",
-				"imagen_personaje": null
-			},
-			{
-				"texto": "ESTA ES LA PAGINA #3",
-				"imagen_fondo": "IMG_NEW/historia/S1-H-p3.png",
-				"imagen_personaje": null
-			},
-			{
-				"texto": "ESTA ES LA PAGINA #4",
-				"imagen_fondo": "IMG_NEW/historia/S1-H-p4.png",
-				"imagen_personaje": null
-			},
-			{
-				"texto": "ESTA ES LA PAGINA #5",
-				"imagen_fondo": "IMG_NEW/historia/S1-H-p5.png",
-				"imagen_personaje": "IMG_NEW/personaje/Juko_4.png"
-			}
-		]
-	},
 	"historia": {
 		"1": {
 			"1": {

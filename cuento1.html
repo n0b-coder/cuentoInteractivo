@@ -22,7 +22,7 @@
 			<div class="containerP1">
 				<div class="grad">
 					<div class="parraf">
-						<p>{{game_data.pilar[pg].texto}}</p>
+						<p>{{game_data.historia[pilSect][pg].texto}}</p>
 					</div>
 				</div>
 				<div class="nextPag">
@@ -38,7 +38,7 @@
 				<div class="containerP1">
 					<div class="grad">
 						<div class="parraf">
-							<p>{{game_data.pilar[pg].texto}}</p>
+							<p>{{game_data.historia[pilSect][pg].texto}}</p>
 						</div>
 					</div>
 					<div class="nextPag">
@@ -55,7 +55,7 @@
 				<div class="containerP1">
 					<div class="grad">
 						<div class="parraf">
-							<p>{{game_data.pilar[pg].texto}}</p>
+							<p>{{game_data.historia[pilSect][pg].texto}}</p>
 						</div>
 					</div>
 					<div class="nextPag">
@@ -74,7 +74,7 @@
 			<div class="containerP1">
 				<div class="grad">
 					<div class="parraf">
-						<p>{{game_data.pilar[pg].texto}}</p>
+						<p>{{game_data.historia[pilSect][pg].texto}}</p>
 					</div>
 				</div>
 				<div class="nextPag">
@@ -91,7 +91,7 @@
 			<div class="containerP1">
 				<div class="grad">
 					<div class="parraf">
-						<p>{{game_data.pilar[pg].texto}}</p>
+						<p>{{game_data.historia[pilSect][pg].texto}}</p>
 					</div>
 				</div>
 				<div class="nextPag">
@@ -104,7 +104,7 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="acertijo" v-if="section == 'acertijo'">
-			<div class="bgImgAcer" :style="pilar.pilarStyle">
+			<div class="bgImgAcer" :style="pilarStyle">
 				<div class="opcs">
 					<div class="opt">
 						<span v-on:click="activar(0,'indagar',0)">
