@@ -16,13 +16,13 @@
 <transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 <div id="app" class="secciones">
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">		
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'intro1'">
 			<div class="bgImg card-img" :style="backs"></div>
 			<div class="containerP1">
 				<div class="grad">
 					<div class="parraf">
-						<p>{{pilar.texto[pg]}}</p>
+						<p>{{game_data.pilar[pg].texto}}</p>
 					</div>
 				</div>
 				<div class="nextPag">
@@ -33,12 +33,12 @@
 	</transition>
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'intro2'">	
+		<div class="pages" v-if="section == 'intro2'">
 			<div class="bgImg" :style="backs"></div>
 				<div class="containerP1">
 					<div class="grad">
 						<div class="parraf">
-							<p>{{pilar.texto[pg]}}</p>
+							<p>{{game_data.pilar[pg].texto}}</p>
 						</div>
 					</div>
 					<div class="nextPag">
@@ -50,12 +50,12 @@
 	</transition>
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'page1'">	
+		<div class="pages" v-if="section == 'page1'">
 			<div class="bgImg" :style="backs"></div>
 				<div class="containerP1">
 					<div class="grad">
 						<div class="parraf">
-							<p>{{pilar.texto[pg]}}</p>
+							<p>{{game_data.pilar[pg].texto}}</p>
 						</div>
 					</div>
 					<div class="nextPag">
@@ -74,13 +74,13 @@
 			<div class="containerP1">
 				<div class="grad">
 					<div class="parraf">
-						<p>{{pilar.texto[pg]}}</p>
+						<p>{{game_data.pilar[pg].texto}}</p>
 					</div>
-				</div>	
+				</div>
 				<div class="nextPag">
 					<span v-on:click="activar(pg-1,'page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
 					<span v-on:click="activar(pg+1,'page3',1)"><i class="icon far fa-caret-square-right"></i></span>
-				</div>			
+				</div>
 			</div>
 		</div>
 	</transition>
@@ -91,13 +91,13 @@
 			<div class="containerP1">
 				<div class="grad">
 					<div class="parraf">
-						<p>{{pilar.texto[pg]}}</p>
+						<p>{{game_data.pilar[pg].texto}}</p>
 					</div>
-				</div>		
+				</div>
 				<div class="nextPag">
 					<span v-on:click="activar(pg-1,'page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
 					<span v-on:click="activarPilar()"><i class="icon far fa-caret-square-right"></i></span>
-				</div>		
+				</div>
 			</div>
 		</div>
 	</transition>
@@ -123,11 +123,11 @@
 	</transition>
 
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">		
+	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'indagar'">
-			<div class="blur" :style="'background-image:url('+pilar.indagacion[idx]+')'"></div>	
-			<div class="bgImgInd row card-img">					
-				<img :src="pilar.indagacion[idx]" alt="contenido" class="imgIdx">					
+			<div class="blur" :style="'background-image:url('+pilar.indagacion[idx]+')'"></div>
+			<div class="bgImgInd row card-img">
+				<img :src="pilar.indagacion[idx]" alt="contenido" class="imgIdx">
 				<div class="bgImgMon card-img" :style="'background-image:url('+'IMGS/monitor/PlanM.png'+')'">
 					<div class="row arrows card-img">
 						<div class="row indArrows">
@@ -143,9 +143,9 @@
 						<span class="fill-div as">a</span>
 					</div>
 				</div>
-				
-				
-			</div>	
+
+
+			</div>
 		</div>
 	</transition>
 
@@ -181,10 +181,10 @@
 						<span v-on:click="activar(0,'reset',0)"><i class="icon far fa-caret-square-right"></i></span>
 					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 	</transition>
-	
+
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'reintentar'">
 			<div class="Main" :style="backs">
@@ -206,7 +206,7 @@
 					<div class="BtnReset">
 						<a href="index.html"><h3 id="he2">{{resetBtn}}<h3></a>
 					</div>
-				</div>				
+				</div>
 			</div>
 		</div>
 	</transition>
