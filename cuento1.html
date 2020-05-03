@@ -26,7 +26,7 @@
 					</div>
 				</div>
 				<div class="nextPag">
-					<span v-on:click="activar(pg+1,'intro2',1)"><i class="icon far fa-caret-square-right"></i></span>
+					<span v-on:click="activar('intro2',1)"><i class="icon far fa-caret-square-right"></i></span>
 				</div>
 			</div>
 		</div>
@@ -42,8 +42,8 @@
 						</div>
 					</div>
 					<div class="nextPag">
-						<span v-on:click="activar(pg-1,'intro1',-1)"><i class="icon far fa-caret-square-left"></i></span>
-						<span v-on:click="activar(pg+1,'page1',1)"><i class="icon far fa-caret-square-right"></i></span>
+						<span v-on:click="activar('intro1',-1)"><i class="icon far fa-caret-square-left"></i></span>
+						<span v-on:click="activar('page1',1)"><i class="icon far fa-caret-square-right"></i></span>
 					</div>
 				</div>
 		</div>
@@ -59,8 +59,8 @@
 						</div>
 					</div>
 					<div class="nextPag">
-						<span v-on:click="activar(pg-1,'intro2',-1)"><i class="icon far fa-caret-square-left"></i></span>
-						<span v-on:click="activar(pg+1,'page2',1)"><i class="icon far fa-caret-square-right"></i></span>
+						<span v-on:click="activar('intro2',-1)"><i class="icon far fa-caret-square-left"></i></span>
+						<span v-on:click="activar('page2',1)"><i class="icon far fa-caret-square-right"></i></span>
 					</div>
 				</div>
 			</div>
@@ -78,8 +78,8 @@
 					</div>
 				</div>
 				<div class="nextPag">
-					<span v-on:click="activar(pg-1,'page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
-					<span v-on:click="activar(pg+1,'page3',1)"><i class="icon far fa-caret-square-right"></i></span>
+					<span v-on:click="activar('page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
+					<span v-on:click="activar('page3',1)"><i class="icon far fa-caret-square-right"></i></span>
 				</div>
 			</div>
 		</div>
@@ -95,8 +95,8 @@
 					</div>
 				</div>
 				<div class="nextPag">
-					<span v-on:click="activar(pg-1,'page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
-					<span v-on:click="activarPilar()"><i class="icon far fa-caret-square-right"></i></span>
+					<span v-on:click="activar('page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
+					<span v-on:click="activar('acertijo',0)"><i class="icon far fa-caret-square-right"></i></span>
 				</div>
 			</div>
 		</div>
@@ -104,14 +104,14 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="acertijo" v-if="section == 'acertijo'">
-			<div class="bgImgAcer" :style="pilarStyle">
+			<div class="bgImgAcer" :style="backs">
 				<div class="opcs">
 					<div class="opt">
-						<span v-on:click="activar(0,'indagar',0)">
+						<span v-on:click="activar('indagar',0)">
 						<h3 id="he2">INDAGAR</h3></span>
 					</div>
 					<div class="opt">
-						<a v-on:click="activar(0,'resolver',0)">
+						<a v-on:click="activar('resolver',0)">
 						<h3 id="he2">RESOLVER</h3></a>
 					</div>
 					<div id="vidas">
@@ -125,34 +125,32 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'indagar'">
-			<div class="blur" :style="'background-image:url('+pilar.indagacion[idx]+')'"></div>
+			<div class="blur" :style="backs"></div>
 			<div class="bgImgInd row card-img">
-				<img :src="pilar.indagacion[idx]" alt="contenido" class="imgIdx">
-				<div class="bgImgMon card-img" :style="'background-image:url('+'IMGS/monitor/PlanM.png'+')'">
-					<div class="row arrows card-img">
-						<div class="row indArrows">
-							<div class="col indL" onclick="prevImg()">
-								<span v-if="idx>0" class="fill-div as" >a</span>
-							</div>
-							<div class="col indR" onclick="nextImg()">
-								<span v-if="idx<2" class="fill-div as" >a</span>
-							</div>
+				<img :src="imagenes" alt="contenido" class="imgIdx">
+			<div class="bgImgMon card-img" :style="monitor">
+				<div class="row arrows card-img">
+					<div class="row indArrows">
+						<div class="col indL" onclick="prevImg()">
+							<span v-if="idx>0" class="fill-div as" >a</span>
+						</div>
+						<div class="col indR" onclick="nextImg()">
+							<span v-if="idx<2" class="fill-div as" >a</span>
 						</div>
 					</div>
-					<div class="col inf" onclick="back()">
-						<span class="fill-div as">a</span>
-					</div>
 				</div>
-
-
+				<div class="col inf" onclick="back()">
+					<span class="fill-div as">a</span>
+				</div>
+			</div>
 			</div>
 		</div>
 	</transition>
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'resolver'">
-			<div class="bgImgAcer" :style="torre.torreBg">
-				<div class="bgImgRuna" :style="'background-image:url('+pilar.runa+')'">
+			<div class="bgImgAcer" :style="backs">
+				<div class="bgImgRuna" :style="imagenes">
 					<div id="vidas">
 						<img :src="vida.stat[estado]" alt="contenido">
 					</div>
@@ -161,7 +159,7 @@
 					<div class="input-group input-group2 mb-3">
 						<input v-model="secret" type="text" class="form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
 						<div class="input-group-prepend">
-						  <span class="input-group-text" id="basic-addon1" v-on:click="activar(0,section,0)" onclick="resolver()">Resolver</span>
+						  <span class="input-group-text" id="basic-addon1" v-on:click="activar(section,0)" onclick="resolver()">Resolver</span>
 						</div>
 					</div>
 				</div>
@@ -175,11 +173,11 @@
 			<div class="containerP1">
 				<div class="grad">
 					<div class="parraf">
-						<p>{{final.finalTxt[counterf]}}</p>
+						<p>{{finalT}}</p>
 					</div>
-					<div class="nextPag">
-						<span v-on:click="activar(0,'reset',0)"><i class="icon far fa-caret-square-right"></i></span>
-					</div>
+				</div>
+				<div class="nextPag">
+					<span v-on:click="activar('reset',0)"><i class="icon far fa-caret-square-right"></i></span>
 				</div>
 			</div>
 		</div>

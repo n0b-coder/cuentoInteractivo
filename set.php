@@ -30,7 +30,7 @@ $sql = "SELECT pestana.Id_Pestana, cuento.Cuento_Name , pestana.Seccion, pestana
 FROM pestana 
 INNER JOIN cuento  ON pestana.Id_cuento = cuento.Id_cuento
 INNER JOIN fondos  ON pestana.Id_fondo = fondos.Id_fondo
-LEFT JOIN personajes  ON pestana.Id_personaje = personajes.Id_im_personaje WHERE pestana.Id_cuento = '$id_cuento'";
+LEFT JOIN personajes  ON pestana.Id_personaje = personajes.Id_im_personaje WHERE pestana.Id_cuento = '$id_cuento' ORDER BY pestana.Seccion, pestana.Pagina";
 
 
 $result =  $conn->query($sql);
