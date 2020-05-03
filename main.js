@@ -15,6 +15,8 @@ var game_data = {
 		   }
 		]
 	 ],
+	 "pilares":{
+	 }
 }
 //vue
 var app = new Vue({
@@ -26,12 +28,14 @@ var app = new Vue({
 	pg:0,
 	id:1,
 	vida,
+	nVidas:3,//número de intentos que tiene, podría ser desde la base de datos con el # de vidas
+	intentos:9,
 	alOrDe:"REINTENTAR",
 	resetBtn:"",
 	final:finales,
 	estado:0,
   	idx: 1,
-	section:'intro1',
+	section:'base',
 	counterf:1,
   },
   computed: {
@@ -71,13 +75,20 @@ var app = new Vue({
 	},
 	//Texto final
 	finalT:function (){
-		return this.game_data.finales[this.counterf][0].texto;
+		return this.game_data.finales[this.counterf][this.pg].texto;
 	},
 	pass: function(){
 		return this.secret.toLowerCase();
 	},
 	total: function(){
 		return Object.keys(this.game_data.pilares).length;
+	},
+	paginas: function(){
+		if(this.section=='final'){
+			return Object.keys(this.game_data.finales[this.counterf]).length;
+		} else {
+		return Object.keys(this.game_data.historia[this.pilSect]).length;
+		}
 	}
   },
   methods: {
@@ -85,42 +96,54 @@ var app = new Vue({
     activar: function (seccion, s) {
       this.section = seccion;
 	  this.pg+=s;
+	  if (this.section=='base'){
+		if (this.pg==this.paginas){
+			this.section='acertijo';
+		}
+	}
+	if (this.section=='final'){
+		if (this.pg==this.paginas){
+			this.section='reset';
+		}
+	}
 	},
-	//Página Torresss
+	//Página Torres
     activarPilar: function (seccion) {
       this.section = seccion;
 	},
 	//Resolver acertijo
 	resolver: function (){
 		var validos=this.game_data.pilares[this.id].solucion;
+		this.pg=0;
 		if(this.pass==validos){
 			this.pilSect++;
 			this.estado=0;
 			if(this.pilSect==this.total){
-				if(this.total>=Math.round(this.total*3*0.9)){
+				if(this.intentos>=Math.round(this.total*3*0.9)){
 					this.counterf=1;
 				}
 				else{
 					this.counterf=2;
 				}
-				this.section='final';
 				this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS JS";
+				this.activar('final',0);
 			}else{
 				this.section='reintentar';
 				this.alOrDe="¡ENHORABUENA! JS";
-			}
-			
+			}			
 		}
+		//si se equivoca
 		else if(this.pass!=validos){
 			this.estado++;
 			if(this.estado==3){
 				this.counterf=0;
+				this.pg==0
 				this.section='final';	
 				this.resetBtn="INTENTAR DESDE EL PRINCIPIO JS";
 			}else{
 				this.section='reintentar';
 				this.alOrDe="REINTENTAR JS";
-				this.total--;
+				this.intentos--;
 			}
 		}
 		this.secret='';
@@ -140,7 +163,7 @@ var app = new Vue({
 	again: function (){
 		this.section = 'acertijo';
 		if(this.estado==0){//ganó, pasa al sig pilar
-			this.section='page1';
+			this.section='base';//pagina 1 del siguiente pilar
 			this.id++;
 			this.pg=0;
 			s=0;

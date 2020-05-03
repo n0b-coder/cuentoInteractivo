@@ -51,9 +51,21 @@
   .bgImgMon{
     opacity: 1!important;
   }
-
   #vidas img{
     width:30vh !important;
+  }
+  /*Estas son para el JS, modificar con cuidado de ser necesario*/
+  .personaje{
+    position: absolute;
+    height: 100% !important;
+  }
+  .personaje img{
+    width: 100% !important;
+    height: 100% !important;
+  }
+  /*esta viene de Js*/
+  .clasp{
+    text-align: right !important;
   }
 }
 body{
@@ -413,7 +425,7 @@ a:not([href]):not([tabindex]){
 input[type=text], select {
     display: inline-block;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+    box-sizing: border-box; 
     color: white;
     font-family: 'modern', sans-serif !important; 
 }
@@ -427,7 +439,21 @@ input[type=text], select {
   margin: auto!important;
   cursor: pointer;
 }
-
+/*personaje clases posiciones, tiene mucho que ver con el JS*/
+.personaje{
+  position: absolute;
+  height: 50%;
+  justify-items: flex-end;
+}
+.personaje img{
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+}
+/*esta viene de Js*/
+.clasp{
+  text-align: right;
+}
 /*VENTANA DE LOGIN - admin.php*/
 
 .Maindeadmin {

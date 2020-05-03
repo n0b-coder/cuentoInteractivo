@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    crossorigin="anonymous">
 </head>
 
 <body>
@@ -17,88 +17,23 @@
 <div id="app" class="secciones">
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'intro1'">
-			<div class="bgImg card-img" :style="backs"></div>
-			<div class="containerP1">
-				<div class="grad">
-					<div class="parraf">
-						<p>{{game_data.historia[pilSect][pg].texto}}</p>
-					</div>
-				</div>
-				<div class="nextPag">
-					<span v-on:click="activar('intro2',1)"><i class="icon far fa-caret-square-right"></i></span>
+		<div class="pages" v-if="section == 'base'">
+			<div class="bgImg" :style="backs">
+				<div class="personaje clasp">
+					<img class="clasepj" src="IMG_NEW/personaje/Juko_4.png">
 				</div>
 			</div>
-		</div>
-	</transition>
-
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'intro2'">
-			<div class="bgImg" :style="backs"></div>
 				<div class="containerP1">
 					<div class="grad">
 						<div class="parraf">
-							<p>{{game_data.historia[pilSect][pg].texto}}</p>
+							<p>{{game_data.historia[pilSect][pg].texto}}{{total}}</p>
 						</div>
 					</div>
 					<div class="nextPag">
-						<span v-on:click="activar('intro1',-1)"><i class="icon far fa-caret-square-left"></i></span>
-						<span v-on:click="activar('page1',1)"><i class="icon far fa-caret-square-right"></i></span>
+						<span v-on:click="activar('base',-1)" v-if="pg>0"><i class="icon far fa-caret-square-left"></i></span>
+						<span v-on:click="activar('base',1)"><i class="icon far fa-caret-square-right"></i></span>
 					</div>
 				</div>
-		</div>
-	</transition>
-
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'page1'">
-			<div class="bgImg" :style="backs"></div>
-				<div class="containerP1">
-					<div class="grad">
-						<div class="parraf">
-							<p>{{game_data.historia[pilSect][pg].texto}}</p>
-						</div>
-					</div>
-					<div class="nextPag">
-						<span v-on:click="activar('intro2',-1)"><i class="icon far fa-caret-square-left"></i></span>
-						<span v-on:click="activar('page2',1)"><i class="icon far fa-caret-square-right"></i></span>
-					</div>
-				</div>
-			</div>
-		</section>
-	</transition>
-
-
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'page2'">
-			<div class="bgImg" :style="backs"></div>
-			<div class="containerP1">
-				<div class="grad">
-					<div class="parraf">
-						<p>{{game_data.historia[pilSect][pg].texto}}</p>
-					</div>
-				</div>
-				<div class="nextPag">
-					<span v-on:click="activar('page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
-					<span v-on:click="activar('page3',1)"><i class="icon far fa-caret-square-right"></i></span>
-				</div>
-			</div>
-		</div>
-	</transition>
-
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'page3'">
-			<div class="bgImg" :style="backs"></div>
-			<div class="containerP1">
-				<div class="grad">
-					<div class="parraf">
-						<p>{{game_data.historia[pilSect][pg].texto}}</p>
-					</div>
-				</div>
-				<div class="nextPag">
-					<span v-on:click="activar('page1',-1)"><i class="icon far fa-caret-square-left"></i></span>
-					<span v-on:click="activar('acertijo',0)"><i class="icon far fa-caret-square-right"></i></span>
-				</div>
-			</div>
 		</div>
 	</transition>
 
@@ -107,11 +42,11 @@
 			<div class="bgImgAcer" :style="backs">
 				<div class="opcs">
 					<div class="opt">
-						<span v-on:click="activar('indagar',0)">
+						<span v-on:click="activarPilar('indagar')">
 						<h3 id="he2">INDAGAR</h3></span>
 					</div>
 					<div class="opt">
-						<a v-on:click="activar('resolver',0)">
+						<a v-on:click="activarPilar('resolver')">
 						<h3 id="he2">RESOLVER</h3></a>
 					</div>
 					<div id="vidas">
@@ -121,7 +56,6 @@
 			</div>
 		</div>
 	</transition>
-
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'indagar'">
@@ -157,9 +91,9 @@
 				</div>
 				<div class="resolver containerP">
 					<div class="input-group input-group2 mb-3">
-						<input v-model="secret" v-pass type="texta" class="form-controla" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
+						<input v-model="secret" type="text" class="form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
 						<div class="input-group-prepend">
-						  <span class="input-group-text" id="basic-addon1" v-on:click="activar(section,0), resolver()">Resolver</span>
+						  <span class="input-group-text" id="basic-addon1" v-on:click="resolver(), activar(section,0)">Resolver</span>
 						</div>
 					</div>
 				</div>
@@ -177,7 +111,8 @@
 					</div>
 				</div>
 				<div class="nextPag">
-					<span v-on:click="activar('reset',0)"><i class="icon far fa-caret-square-right"></i></span>
+					<span v-on:click="activar('final',-1)" v-if="pg>0"><i class="icon far fa-caret-square-left"></i></span>
+					<span v-on:click="activar('final',1)"><i class="icon far fa-caret-square-right"></i></span>
 				</div>
 			</div>
 		</div>

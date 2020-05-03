@@ -35,7 +35,14 @@
 			 "imagen_personaje":"IMG_NEW/personaje/Juko_4.png",
 			 "pagina":"5",
 			 "seccion":"1"
-		  }
+		  },
+		  {
+			"texto":"Info 6 json2",
+			"imagen_fondo":"IMG_NEW/historia/S1-H-p1.png",
+			"imagen_personaje":null,
+			"pagina":"1",
+			"seccion":"1"
+		 }
 	   ],
 	   [
 		  {
@@ -163,7 +170,13 @@
 			 "imagen_personaje":"IMG_NEW/personaje/Juko_4.png",
 			 "pagina":"1",
 			 "seccion":"1"
-		  }
+		  },{
+			"texto":"Todos tus intentos fueron fallidos, el mundo fue destruido 2",
+			"imagen_fondo":"IMG_NEW/finales/final 1.png",
+			"imagen_personaje":"IMG_NEW/personaje/Juko_6.png",
+			"pagina":"1",
+			"seccion":"1"
+		 }
 	   ],
 	   [
 		  {
