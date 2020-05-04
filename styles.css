@@ -54,7 +54,10 @@
   #vidas img{
     width:30vh !important;
   }
-  /*Estas son para el JS, modificar con cuidado de ser necesario*/
+  .forImg{
+    opacity: 1 !important;
+  }
+  /*Estas son para el JS, modificar con cuidado*/
   .personaje{
     position: absolute;
     height: 100% !important;
@@ -62,6 +65,7 @@
   .personaje img{
     width: 100% !important;
     height: 100% !important;
+    object-fit: contain !important;
   }
   /*esta viene de Js*/
   .clasp{
@@ -98,12 +102,11 @@ html,body{
 #he2{
 	font-family: 'modern', sans-serif;
   font-weight: bold;
-  background: none;
+  background-color:rgba(0,0,0,0.3);
   color: white;
   border:solid;
   border-color: white;
   padding: 15px 32px;
-  color:white;
 	font-size: 3vw;
   text-shadow: 0 0 0.05em cyan;
   cursor: pointer;
@@ -415,6 +418,9 @@ a:not([href]):not([tabindex]){
 #vidas img{
   width:20vw;
 }
+.forImg{
+  opacity: 0;
+}
 #box{
   z-index: -2;
 }
@@ -422,12 +428,33 @@ a:not([href]):not([tabindex]){
   width: 80vw;
   height: 45vw;
 }
+.resol{
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box; 
+  color: white;
+  font-family: 'modern', sans-serif !important; 
+  width: 100%;
+}
 input[type=text], select {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box; 
     color: white;
     font-family: 'modern', sans-serif !important; 
+}
+.formResol {
+  display: block;
+  width: 8vw !important;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .inf{  
   width: 20%!important;

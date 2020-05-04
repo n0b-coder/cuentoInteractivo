@@ -19,9 +19,7 @@
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'base'">
 			<div class="bgImg" :style="backs">
-				<div class="personaje clasp">
-					<img class="clasepj" src="IMG_NEW/personaje/Juko_4.png">
-				</div>
+				
 			</div>
 				<div class="containerP1">
 					<div class="grad">
@@ -50,7 +48,7 @@
 						<h3 id="he2">RESOLVER</h3></a>
 					</div>
 					<div id="vidas">
-						<img class="forImg" :src="vida.stat[estado]" alt="contenido">
+						<img :src="vida.stat[estado]" alt="contenido">
 					</div>
 				</div>
 			</div>
@@ -85,13 +83,13 @@
 		<div class="pages" v-if="section == 'resolver'">
 			<div class="bgImgAcer" :style="backs">
 				<div class="bgImgRuna" :style="imagenes">
-					<div id="vidas">
+					<div id="vidas" class="forImg">
 						<img :src="vida.stat[estado]" alt="contenido">
 					</div>
 				</div>
 				<div class="resolver containerP">
-					<div class="input-group input-group2 mb-3">
-						<input v-model="secret" type="text" class="form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
+					<div class="input-group mb-3">
+						<input v-model="secret" type="text" class="resol form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
 						<div class="input-group-prepend">
 						  <span class="input-group-text" id="basic-addon1" v-on:click="resolver(), activar(section,0)">Resolver</span>
 						</div>
@@ -124,7 +122,7 @@
 				<div id="again">
 					<img class="img-fluid" :src="vida.stat[estado]" alt="contenido">
 					<div>
-						<a class="BtnHover BtnUser" v-on:click="again()">{{alOrDe}}</a>
+						<a id="he2" v-on:click="again()">{{alOrDe}}</a>
 					</div>
 				</div>
 			</div>

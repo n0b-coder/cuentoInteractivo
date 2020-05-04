@@ -2,9 +2,9 @@
 var finales = {
 	reset:["JS Has fracasado","JS Has descubierto el mejor final posible","JS Has descubierto el final secundario de la historia", ],
 }
-//Vidas desde la antigua carpeta IMGS
+//Vidas desde la carpeta IMG_NEW
 var vida={
-	stat:['IMGS/Vidas/full.png','IMGS/Vidas/bar2.png','IMGS/Vidas/bar1.png','IMGS/Vidas/dead.png']
+	stat:['IMG_NEW/Vidas/full.png','IMG_NEW/Vidas/bar2.png','IMG_NEW/Vidas/bar1.png','IMG_NEW/Vidas/dead.png']
 }
 //
 var game_data = {
@@ -122,8 +122,11 @@ var app = new Vue({
 				if(this.intentos>=Math.round(this.total*3*0.9)){
 					this.counterf=1;
 				}
-				else{
+				else if (this.intentos<Math.round(this.total*3*0.9) && this.intentos>=Math.round(this.total*3*0.6)){
 					this.counterf=2;
+				}
+				else {
+					this.counterf=3; //para el final no tan bueno (final 4)
 				}
 				this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS JS";
 				this.activar('final',0);
