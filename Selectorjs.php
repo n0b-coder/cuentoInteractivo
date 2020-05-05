@@ -60,7 +60,7 @@
                                 $selected = $id_cuento_sel;
                              
                                 ?>
-                                <template>
+                               
                     <div class="ScrollImg row">
                         <div class="cards col"> <button class="NAddBtn"> + NEW </button> </div>  
                             <div class="scrollingWrapper col">                                    
@@ -72,7 +72,7 @@
                                         
                             </div>
                     </div>
-                </template>
+             
                     <div class= Accion>
                         
                         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
