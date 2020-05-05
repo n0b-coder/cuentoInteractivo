@@ -4,6 +4,7 @@
 <?php
 session_start(); //inicia una sesion o reanuda una existente
 $variable_S =  $_SESSION['user'];
+$selected = 1;
 if($variable_S == null || $variable_S == '')
 {
     echo "<p class='error'>- por favor inicie sesion para poder ingresar al panel de administracion </p>";
@@ -45,10 +46,19 @@ if($variable_S == null || $variable_S == '')
     </div>
    
     <div class="slider">
-            <div class="scrollingWrapper">
-                <div class="cards"> <button class="NAddBtn">JUKO</button> </div>
+            <div class="scrollingWrapper">     
+              
+                <div class="cards"> <button class=<?php if($selected == 1 ) echo"ActBtn"; else echo"NAddBtn";?>> JUKO </button> </div>
                 <div class="cards"> <button class="NAddBtn"> + NEW </button> </div>
             </div>
+    </div>
+    <div class= Accion>
+    <button class="BtnUser">
+            Actualizar
+        </button>
+        <button class="BtnUser">
+            Editar
+        </button>
     </div>
 </div>
 
