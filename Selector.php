@@ -1,17 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<?php
-session_start(); //inicia una sesion o reanuda una existente
-$variable_S =  $_SESSION['user'];
-$selected = 1;
-if($variable_S == null || $variable_S == '')
-{
-    echo "<p class='error'>- por favor inicie sesion para poder ingresar al panel de administracion </p>";
-    die();
-}
-?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +7,30 @@ if($variable_S == null || $variable_S == '')
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta content="JUKO">
 </head>
+
+<?php
+    session_start(); //inicia una sesion o reanuda una existente
+    $variable_S =  $_SESSION['user'];
+    $selected = 1;
+    if($variable_S == null || $variable_S == '')
+    {
+        echo "<p class='error'>- por favor inicie sesion para poder ingresar al panel de administracion </p>";
+        die();
+    }
+    require_once("Conexion.php");
+    $sql= "SELECT settings.Id_cuento, cuento.Cuento_Name, settings.Id_personaje
+    FROM `settings` JOIN cuento ON  settings.Id_cuento = cuento.Id_cuento";
+    $result =  $conn->query($sql);
+    if($result->num_rows>0)
+    { 
+            $row=$result->fetch_assoc();
+            $id_cuento_sel = $row['Id_cuento'];
+            $Name_cuento_sel = $row['Cuento_Name'];
+            $id_personaje_sel = $row['Id_personaje'];    
+    }
+
+?>
+
 <body>
 <div class="container-fluid">
 
@@ -38,28 +50,45 @@ if($variable_S == null || $variable_S == '')
 
 <div class="container-2fluid">
     <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button class="input-group-text">
-               Cuento actual seleccionado:
+
+            
+                <input type="text" class="form-control" placeholder="Cuento Actual:" readonly>
+                <input type="text" class="form-control" placeholder="<?php echo $Name_cuento_sel ?> " readonly>
         </div>
-        <input type="text" class="form-control" placeholder="JUKO">
-    </div>
-   
-    <div class="slider">
-            <div class="scrollingWrapper">     
-              
-                <div class="cards"> <button class=<?php if($selected == 1 ) echo"ActBtn"; else echo"NAddBtn";?>> JUKO </button> </div>
-                <div class="cards"> <button class="NAddBtn"> + NEW </button> </div>
+        
+            <div class="slider">
+                    <div class="scrollingWrapper">
+                        <?php
+                        $selected = $id_cuento_sel;
+                          $sql = "SELECT * FROM `cuento`";
+                          $result =  $conn->query($sql);
+                            if($result->num_rows>0)
+                            { 
+                               
+                                while($row=$result->fetch_assoc())
+                                {
+                                    ?>
+                                    <div class="cards"> <input type="image" src="IMG_NEW/portadas/JUKO_P.png" class=<?php if($selected == 1 ) echo"ActBtn"; else echo"NAddBtn";?> v-on:click="selected('$select')">    </div>
+                                    <?php
+                                    
+                                }
+                            }
+                         ?>
+                        <div class="cards"> <button class="NAddBtn"> + NEW </button> </div>
+                    </div>
             </div>
-    </div>
-    <div class= Accion>
-    <button class="BtnUser">
-            Actualizar
-        </button>
-        <button class="BtnUser">
-            Editar
-        </button>
-    </div>
+            <div class= Accion>
+                
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
+                    <input type="hidden" name="cuento_id"   value =  "<?php echo $selected ?>">
+                    <input type="submit" value="Actualizar" class="BtnUser" name= "actualize">
+                </form>
+
+                <form action="paneldeadministrador.php" method="post">
+                    <input type="hidden" name="cuento_id"   value =  "<?php echo $selected ?>">
+                    <input type="submit" value="Editar" class="BtnUser" name= "edit">
+                </form>
+            </div>
 </div>
 
 

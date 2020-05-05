@@ -36,7 +36,7 @@ if($filas>0)
 {
     session_start();
     $_SESSION['user'] = $Email; //inicia sesion con el usuario (email) asignado
-    header("location:paneldeadministrador.php");
+    header("location:Selector.php");
 }
 else 
 echo "<p class='error'>- Contraseña Incorrecta </p>";
