@@ -2,6 +2,7 @@
 	"historia":[
 	   [
 		  {
+			 "id":"1",
 			 "texto":"Info 1 json2",
 			 "imagen_fondo":"IMG_NEW/historia/S1-H-p1.png",
 			 "imagen_personaje":null,
@@ -9,6 +10,7 @@
 			 "seccion":"1"
 		  },
 		  {
+			"id":"2",
 			 "texto":"Info 2",
 			 "imagen_fondo":"IMG_NEW/historia/S1-H-p2.png",
 			 "imagen_personaje":null,
@@ -165,12 +167,14 @@
 	"finales":[
 	   [
 		  {
+			"id":"1",
 			 "texto":"Todos tus intentos fueron fallidos, el mundo fue destruido",
 			 "imagen_fondo":"IMG_NEW/finales/final 1.png",
 			 "imagen_personaje":"IMG_NEW/personaje/Juko_4.png",
 			 "pagina":"1",
 			 "seccion":"1"
 		  },{
+			  
 			"texto":"Todos tus intentos fueron fallidos, el mundo fue destruido 2",
 			"imagen_fondo":"IMG_NEW/finales/final 1.png",
 			"imagen_personaje":"IMG_NEW/personaje/Juko_6.png",
@@ -180,6 +184,7 @@
 	   ],
 	   [
 		  {
+			"id":"2",
 			 "texto":"Ganaste de la mejor forma posible.",
 			 "imagen_fondo":"IMG_NEW/fondos-acertijo/a_fondo_p2.png",
 			 "imagen_personaje":null,
@@ -223,5 +228,67 @@
 		  "torre":"IMG_NEW/torres/Torre3.png",
 		  "imagen_personaje":"IMG_NEW/personaje/Juko_4.png"
 	   }
-	}
+	},
+	"cuentos":[
+		[
+		   {
+			 "id":"1",
+			  "name":"juko",
+			  "imagen_fondo":"IMG_NEW/portadas/Portada.png",
+			  "imagen_personaje":"IMG_NEW/personaje/Juko_4.png",
+			  "pagina":"1",
+			  "seccion":"1"
+		   }
+		],
+		[
+		   {
+			 "id":"2",
+			  "name":"juko 2",
+			  "imagen_fondo":"IMG_NEW/historia/S1-H-p1.png",
+			  "imagen_personaje":null,
+			  "pagina":"1",
+			  "seccion":"2"
+		   }
+		],
+		[
+			{
+			  "id":"3",
+			   "name":"juko 3",
+			   "imagen_fondo":"IMG_NEW/historia/S1-H-p2.png",
+			   "imagen_personaje":null,
+			   "pagina":"1",
+			   "seccion":"2"
+			}
+		 ],
+		 [
+			{
+			  "id":"4",
+			   "name":"juko 4",
+			   "imagen_fondo":"IMG_NEW/historia/S1-H-p3.png",
+			   "imagen_personaje":null,
+			   "pagina":"1",
+			   "seccion":"2"
+			}
+		 ],
+		 [
+			{
+			  "id":"5",
+			   "name":"juko 5",
+			   "imagen_fondo":"IMG_NEW/historia/S1-H-p4.png",
+			   "imagen_personaje":null,
+			   "pagina":"1",
+			   "seccion":"2"
+			}
+		 ],
+		 [
+			{
+			  "id":"6",
+			   "name":"juko 6",
+			   "imagen_fondo":"IMG_NEW/historia/S1-H-p5.png",
+			   "imagen_personaje":null,
+			   "pagina":"1",
+			   "seccion":"2"
+			}
+		 ]
+	]
  }

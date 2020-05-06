@@ -18,7 +18,39 @@ var game_data = {
 	 "pilares":{
 	 }
 }
+
 //vue
+
+var appad=new Vue({
+
+	el: '#appad',
+	data:{
+		admin_data: game_data,
+		targetId:0,
+		items:0,
+		selected: undefined,
+	},
+	computed:{
+		
+	},
+	methods:{
+		getId: function(item){
+			this.targetId = item-1;			
+			fetch('cuentoid.php', {
+				method: 'post',
+				body: JSON.stringify({
+					ides: this.targetId+1,
+					name: this.admin_data.cuentos[this.targetId][0].name
+				})
+			});
+		},
+		placeName:function(){
+			return this.admin_data.cuentos[this.targetId][0].name;
+		},
+	}
+});
+
+//________________________
 var app = new Vue({
   el: '#app',
   data: {
@@ -37,8 +69,13 @@ var app = new Vue({
   	idx: 1,
 	section:'base',
 	counterf:1,
+	//
+	
   },
   computed: {
+	  //
+	
+	  //
     backs: function () {
       	if(this.section=='final'){
 			return 'background-image:url("'+this.game_data.finales[this.counterf][0].imagen_fondo+'")';
@@ -67,7 +104,7 @@ var app = new Vue({
 	},
 	//Imagen monitor
 	monitor:function (){
-		//return 'background-image:url('+game_data algo con monitor+')';
+		return this.game_data.historia[this.pilSect][this.ids].imagen_fondo;
 	},
 	//Pantalla redirección a index
 	reset:function (){
@@ -89,9 +126,11 @@ var app = new Vue({
 		} else {
 		return Object.keys(this.game_data.historia[this.pilSect]).length;
 		}
-	}
+	},
   },
   methods: {
+	  //
+	  
 	  //siguiente página
     activar: function (seccion, s) {
       this.section = seccion;
@@ -173,11 +212,12 @@ var app = new Vue({
 			this.idx=1;
 			this.estado=0;
 		}
-	}	
+	},
+
   }
 });
 
-const request = new Request('set.php');
+const request = new Request('set.json');
 
 fetch(request)
   .then(response => {
@@ -189,8 +229,11 @@ fetch(request)
   })
   .then(response => {
 
-    app.game_data = response;
+	app.game_data = response;
+	appad.admin_data = response;
 
   }).catch(error => {
     console.error(error);
   });
+
+  //:src="item.imagen"
