@@ -33,7 +33,7 @@
 
 <body>
 
-    <div class="container-fluid" id="appad">
+    <div class="container-fluid" id="adminApp">
 
         <div class="card-header">
             <div id="Titulodeadmin">
@@ -61,15 +61,13 @@
                              
                                 ?>
                                
-                    <div class="ScrollImg row">
-                        <div class="cards col"> <button class="NAddBtn"> + NEW </button> </div>  
-                            <div class="scrollingWrapper col">                                    
-                                
+                               <div class="ScrollImg row">
+                            <div class="scrollingWrapper col">
+
                                 <div class="cards" v-for="(item, index) in admin_data.cuentos" :key="index">
-                                <img v-on:click="getId(item[0].id)" :class="{ActBtn:item[0].id == selected}" @click="selected = item[0].id" class="NAddBtn" :src="item[0].imagen_fondo">
-                                    <p>{{ item[0].name }}</p>
+                                <img v-on:click="getId(item[0].id)" :class="{ActBtn:item[0].id == selected , NAddBtn:item[0].id != selected}" @click="selected = item[0].id"  :src="item[0].imagen_fondo">
                                 </div>
-                                        
+                                <div class="cards"> <button class="NAddBtn"> + NEW </button> </div>
                             </div>
                     </div>
              

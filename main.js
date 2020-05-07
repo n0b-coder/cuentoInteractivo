@@ -21,35 +21,6 @@ var game_data = {
 
 //vue
 
-var appad=new Vue({
-
-	el: '#appad',
-	data:{
-		admin_data: game_data,
-		targetId:0,
-		items:0,
-		selected: undefined,
-	},
-	computed:{
-		
-	},
-	methods:{
-		getId: function(item){
-			this.targetId = item-1;			
-			fetch('cuentoid.php', {
-				method: 'post',
-				body: JSON.stringify({
-					ides: this.targetId+1,
-					name: this.admin_data.cuentos[this.targetId][0].name
-				})
-			});
-		},
-		placeName:function(){
-			return this.admin_data.cuentos[this.targetId][0].name;
-		},
-	}
-});
-
 //________________________
 var app = new Vue({
   el: '#app',
@@ -70,7 +41,6 @@ var app = new Vue({
 	section:'base',
 	counterf:1,
 	//
-	
   },
   computed: {
 	  //
@@ -129,7 +99,6 @@ var app = new Vue({
 	},
   },
   methods: {
-	  //
 	  
 	  //siguiente página
     activar: function (seccion, s) {
@@ -230,7 +199,7 @@ fetch(request)
   .then(response => {
 
 	app.game_data = response;
-	appad.admin_data = response;
+	app.admin_data = response;
 
   }).catch(error => {
     console.error(error);
