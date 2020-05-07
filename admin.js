@@ -1,7 +1,19 @@
+var admin_data = {
+	"historia":[
+		[
+		   {
+			  
+		   }
+		]
+	 ],
+	 "pilares":{
+	 }
+}
+
 var app = new Vue({
     el: '#adminApp',
     data: {
-        admin_data: game_data,
+        admin_data: admin_data,
 		targetId:0,
 		items:0,
 		selected: 1
@@ -23,3 +35,21 @@ var app = new Vue({
       }
     }
 });
+
+const request = new Request('set.json');
+
+fetch(request)
+  .then(response => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error('Something went wrong on api server!');
+    }
+  })
+  .then(response => {
+
+	app.admin_data = response;
+
+  }).catch(error => {
+    console.error(error);
+  });
