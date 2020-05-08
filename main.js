@@ -186,7 +186,7 @@ var app = new Vue({
   }
 });
 
-const request = new Request('set.json');
+const request = new Request('set.php');
 
 fetch(request)
   .then(response => {
