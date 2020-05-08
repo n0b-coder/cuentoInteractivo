@@ -62,7 +62,7 @@ var app = new Vue({
     }
 });
 
-const request = new Request('imgs.json');
+const request = new Request('setCimages.php');
 
 fetch(request)
   .then(response => {
