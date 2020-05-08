@@ -13,7 +13,7 @@ var admin_data = {
 var app = new Vue({
     el: '#adminApp',
     data: {
-        admin_data: admin_data,
+    admin_data: admin_data,
 		targetId:0,
 		items:0,
 		selected: 1
@@ -25,18 +25,18 @@ var app = new Vue({
           fetch('cuentoid.php', {
               method: 'post',
               body: JSON.stringify({
-                  ides: this.targetId+1,//
-                  name: this.admin_data.cuentos[this.targetId][0].name
+                  // ides: this.targetId+1,//
+                  // name: this.admin_data.cuentos[0].Cuento_Name
               })
           });
       },
       placeName:function(){
-          return this.admin_data.cuentos[this.selected-1][0].name;
+          return this.admin_data.cuentos[0].Cuento_Name;
       }
     }
 });
 
-const request = new Request('set.json');
+const request = new Request('Selectorset.php');
 
 fetch(request)
   .then(response => {

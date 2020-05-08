@@ -65,7 +65,7 @@
                             <div class="scrollingWrapper col">
 
                                 <div class="cards" v-for="(item, index) in admin_data.cuentos" :key="index">
-                                <img v-on:click="getId(item[0].id)" :class="{ActBtn:item[0].id == selected , NAddBtn:item[0].id != selected}" @click="selected = item[0].id"  :src="item[0].imagen_fondo">
+                                    <img v-on:click="getId(item.id)" :class="{ActBtn:item.id == selected , NAddBtn:item.id != selected}" @click="selected = item.id"  :src="admin_data.cuentos[0].Portada">
                                 </div>
                                 <div class="cards"> <button class="NAddBtn"> + NEW </button> </div>
                             </div>
