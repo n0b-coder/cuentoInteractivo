@@ -9,7 +9,15 @@ if($variable_S == null || $variable_S == '')
     echo "<p class='error'>- por favor inicie sesion para poder ingresar al panel de administracion </p>";
     die();
 }
+
+if(isset($_POST['edit']))
+{
+    $Id_cuento = $_POST['cuento_id'];
+    echo $Id_cuento;
+}
+       
 ?>
+
 
 <head>
     <meta charset="UTF-8">
