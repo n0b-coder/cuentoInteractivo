@@ -28,10 +28,11 @@
             </div>
         </div>
         <div class="ScrollImg row">
-        <div class=""><label for="file-upload" class="AddBtn"></label>
-            <input type="file" style="font-size:1vw!important; cursor:pointer;" @change="onFileChange"/>
-        </div>
-
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <div>
+                <input type="file" name="fileToUpload" id="fileToUpload" style="font-size:1vw!important; cursor:pointer;" @change="onFileChange"/>
+            </div>
+        </form>
         <div class="scrollingWrapper col">
             <!-- preview de la que acaba de subir -->
             <img class="images" :src="image" v-if="image!=''">
