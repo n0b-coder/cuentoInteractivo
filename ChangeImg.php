@@ -9,38 +9,43 @@
     <meta content="JUKO">
 </head>
 <body>
-<div class="Window">
+<div class="Window" id="adminApp">
     <div class="Contenedor">
         <div class="BlockImg">
             <div class="ShowImg">
                 <img class = "PreImg" src="https://gameranx.com/wp-content/uploads/2016/05/DOOM4-2.jpg">
             </div>
             <div class="ShowDat">
-                <input type="text" class="formuControl" placeholder="Nombre">
+                <input type="text" class="formuControl" placeholder="Nombre" v-model="newName">
                 <div class="Datos">
                 <h3 id="clas-Tipo"> Clase </h3>
                 <h3 id="clas-Secc"> Sección </h3>
                 <h3 id="clas-Pag"> Página   </h3>
                 </div>
-                <button class="NBtn">
+                <button class="NBtn" v-on:click="uploadFile()">
                     Cambiar Imagen
                 </button>
             </div>
         </div>
-        <div class="ScrollImg">
-            <h1 id="h1Bib"> Biblioteca de imágenes </h1>
-            <div class="scrollingWrapper">
-                <div class="cards"> <button class="AddBtn">+</button> </div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-
+        <div class="ScrollImg row">
+        <div class=""><label for="file-upload" class="AddBtn"></label>
+            <input type="file" style="font-size:1vw!important; cursor:pointer;" @change="onFileChange"/>
+        </div>
+        <div class="scrollingWrapper col">
+            <img class="images" :src="image" v-if="image!=''">
+            <div class="cards" v-for="(item, index) in images_data.images" :key="index">
+                <img v-on:click="getId(item.imagen_id)" class="images" :class="{ActBtn:item.imagen_id == selected , NAddBtn:item.imagen_id != selected}" @click="selected = item.imagen_id"  :src="item.Imag_link">
             </div>
+        </div>
         </div>
     </div>
 </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="changeimgs.js"></script>
+
 </body>
 </html>
