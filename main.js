@@ -21,6 +21,7 @@ var game_data = {
 
 //vue
 
+
 //________________________
 var app = new Vue({
   el: '#app',
@@ -41,6 +42,7 @@ var app = new Vue({
 	section:'base',
 	counterf:1,
 	//
+	
   },
   computed: {
 	  //
@@ -99,6 +101,7 @@ var app = new Vue({
 	},
   },
   methods: {
+	  //
 	  
 	  //siguiente página
     activar: function (seccion, s) {
@@ -199,7 +202,6 @@ fetch(request)
   .then(response => {
 
 	app.game_data = response;
-	app.admin_data = response;
 
   }).catch(error => {
     console.error(error);
