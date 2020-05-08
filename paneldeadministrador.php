@@ -10,12 +10,39 @@ if($variable_S == null || $variable_S == '')
     die();
 }
 
-if(isset($_POST['edit']))
-{
-    $Id_cuento = $_POST['cuento_id'];
-    echo $Id_cuento;
-}
+    $id_pestana = 2;
+    $sql = "SELECT pestana.Texto , fondos.fondo_img, personajes.image_personaje
+    FROM pestana 
+    INNER JOIN fondos  ON pestana.Id_fondo = fondos.Id_fondo
+    LEFT JOIN personajes  ON pestana.Id_personaje = personajes.Id_im_personaje
+    WHERE Id_Pestana = '$id_pestana'";
+    require_once("Conexion.php");
+    $result =  $conn->query($sql);
+    if($result->num_rows>0)
+    { 
+        $row=$result->fetch_assoc();
+        $Texto = $row['Texto'];
+        $Fondo = $row['fondo_img'];
+        $Personaje = $row['image_personaje'];
        
+
+    }
+    if(isset($_POST['actualizetext']))
+    {
+        $Ntext = $_POST['newtext'];
+        if (strcmp ($Texto , $Ntext )  !==0) 
+        {
+            $sql = "UPDATE `pestana` SET `Texto`= '$Ntext'
+            WHERE Id_Pestana = '$id_pestana'";
+            if ($conn->query($sql) === TRUE) {
+                echo "Record updated successfully";
+              } else {
+                echo "Error updating record: " . $conn->error;
+              }
+              $Texto= $Ntext;
+        }
+    }
+
 ?>
 
 
@@ -60,10 +87,11 @@ if(isset($_POST['edit']))
             <div class="EdRow">
                 
                     <div class= "EdText">
-                        <button class="Btn">
-                            Actualizar Texto
-                        </button>
-                        <textarea placeholder="Texto a editar" class="HisText" ></textarea>
+                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
+                            <input type="submit" value="Actualizar Texto" class="Btn" name= "actualizetext">
+                            <input type="text" class="HisText"   value= "<?php echo $Texto?>" name= "newtext">
+                            <input type="hidden" name="pestana_id"   value =  "<?php echo $id_pestana ?>">
+                        </form>
                     </div>
                     <div class="opcionesCol">
                         <div class= "EdFondo">
