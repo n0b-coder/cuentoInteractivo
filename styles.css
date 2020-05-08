@@ -911,7 +911,7 @@ input[type=text], select {
   font-size: 500% !important;
   font-weight:bolder !important;
   background-color: rgba(26, 35, 44, 0.52)!important;
-  border-color: rgb(16, 197, 31) !important;
+  border-color: rgb(197, 16, 158) !important;
   cursor: pointer;
   height: 10vw;
   width: 15vw;
@@ -931,10 +931,9 @@ input[type=text], select {
   margin-left: 6px;
 }
 .images{
-  height: 10vw;
-
+  height: 10vw !important;
+  width:10vw !important;
 }
-
 .img-thumbnail{
   width: 15vw;
   display: inline-block;
