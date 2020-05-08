@@ -31,8 +31,11 @@
         <div class=""><label for="file-upload" class="AddBtn"></label>
             <input type="file" style="font-size:1vw!important; cursor:pointer;" @change="onFileChange"/>
         </div>
+
         <div class="scrollingWrapper col">
+            <!-- preview de la que acaba de subir -->
             <img class="images" :src="image" v-if="image!=''">
+            <!-- las imgs de la base de datos -->
             <div class="cards" v-for="(item, index) in images_data.images" :key="index">
                 <img v-on:click="getId(item.imagen_id)" class="images" :class="{ActBtn:item.imagen_id == selected , NAddBtn:item.imagen_id != selected}" @click="selected = item.imagen_id"  :src="item.Imag_link">
             </div>
