@@ -41,7 +41,7 @@
                 </div>
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
                             <input type="submit" value="Cambiar Imagen" class="NBtn" name= "sel_gal">
-                            <input type="hidden" name="newimagen_id"   value = "selected">
+                            <input type="hidden" name="newimagen_id"   value =  "selected">
                 </form>
                 </div>
         </div>
