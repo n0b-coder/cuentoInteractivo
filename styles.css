@@ -484,12 +484,17 @@ input[type=text], select {
 /*VENTANA DE LOGIN - admin.php*/
 
 .Maindeadmin {
+  background-image: url("../cuentoInteractivo/IMG_NEW/admin/adm1.png");
+  background-position: center;
   height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 .IntLog{
   padding: 10px!important; 
@@ -547,8 +552,8 @@ input[type=text], select {
 /*VENTANA DE ADMINISTRADOR - paneldeadministrador.php*/
 
 .container-fluid{
-  background-image: url('IMGS/Fondo.png');
-  background-size: cover;
+  background-image: url("../cuentoInteractivo/IMG_NEW/admin/adm_2.png");
+  background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -571,6 +576,7 @@ input[type=text], select {
   font-size: 35%;
 }
 #Titulodeadmin {
+
   color: white;
   font-size: 700%;
   display: flex;

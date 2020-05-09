@@ -23,7 +23,7 @@ if(isset($_POST['log_try']))
     <div class="Maindeadmin">
         <div class="ContAdmin">
             <div id="Titulodeadmin">
-                <h1 id="he1deadmin"> JUKO ADMIN</h1>
+                <h1 id="he1deadmin"> PANEL ADMIN </h1>
             </div>
             <div class="formulario">
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
