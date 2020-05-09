@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-
+<?php
+    session_start(); //inicia una sesion o reanuda una existente
+    $variable_S =  $_SESSION['user'];
+    $selected = 1;
+    $id_pestana = 2;
+    $Type = "historia";
+    $seccion = 1;
+    $pagina =1;
+    $id_antigua = 2;
+    require_once("Conexion.php");
+    if(isset($_POST['sel_gal']))
+    {
+        $id_nueva = $_POST['newimagen_id'];
+        echo $id_nueva;
+       
+    }
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +34,16 @@
             <div class="ShowDat">
                 <input type="text" class="formuControl" placeholder="Nombre" v-model="newName">
                 <div class="Datos">
-                <h3 id="clas-Tipo"> Clase </h3>
-                <h3 id="clas-Secc"> Sección </h3>
-                <h3 id="clas-Pag"> Página   </h3>
+                <h3 id="clas-Tipo"> Clase: <?php echo $Type ?></h3>
+
+                <h3 id="clas-Secc"> Sección <?php echo $seccion ?></h3>
+                <h3 id="clas-Pag"> Página  <?php echo $pagina ?> </h3>
                 </div>
-                <button class="NBtn" v-on:click="uploadFile()">
-                    Cambiar Imagen
-                </button>
-            </div>
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
+                            <input type="submit" value="Cambiar Imagen" class="NBtn" name= "sel_gal">
+                            <input type="hidden" name="newimagen_id"   value =  "selected">
+                </form>
+                </div>
         </div>
         <div class="ScrollImg row">
         <form action="upload.php" method="post" enctype="multipart/form-data">

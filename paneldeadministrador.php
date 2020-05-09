@@ -95,9 +95,9 @@ if($variable_S == null || $variable_S == '')
                     </div>
                     <div class="opcionesCol">
                         <div class= "EdFondo">
-                            <button class="Btn">
-                                Cambiar Fondo
-                            </button>
+                        <form action="ChangeImg.php" method="post">
+                            <input type="submit" value="Cambiar Fondo" class="Btn" name= "lol">
+                        </form>
                             <div class="previewCol">
                             <img class = "Prev" src="https://gameranx.com/wp-content/uploads/2016/05/DOOM4-2.jpg">
                             </div>
