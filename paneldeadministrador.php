@@ -112,10 +112,13 @@ if($variable_S == null || $variable_S == '')
                                         <div class="modal-container py-5 bg-dark">
                                             <div slot="panel">
                                                 <div class="galCont">
+                                                <button class="AddBtn">
+                                                    +
+                                                </button>
                                                     <template v-for="(item, index) in gallery">
                                                         <template class="row" v-for="item in gallery[index]">
                                                             <div class="galCol">
-                                                                <img class="slider-background" :src="item.Imag_link"  @click="newImg(item)">
+                                                                <img :class="{galSelected:item.imagen_id == selected , galThumb:item.imagen_id != selected}" class="slider-background" :src="item.Imag_link"  @click="newImg(item), selected=item.imagen_id">
                                                             </div>                                
                                                         </template>                  
                                                     </template>                       

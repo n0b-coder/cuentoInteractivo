@@ -20,7 +20,13 @@ var app = new Vue({
       panel_data: panel_data,
       //galería
       gallery:gallery,
-      popUp: false
+      popUp: false,
+      selected:1
+    },
+    computed:{
+      keys:function(){
+        return Object.keys(this.panel_data);
+      }
     },
     methods: {
       activar: function (item){
@@ -35,7 +41,12 @@ var app = new Vue({
         console.log(item);
         fetch('cuentoid.php', {
             method: 'POST',
-            body: JSON.stringify(item)
+            body: JSON.stringify({
+              id_pestana: item.id_pestana,
+              texto: item.texto,
+              imagen_id: this.selected,
+             
+            })
         });
       },
     }

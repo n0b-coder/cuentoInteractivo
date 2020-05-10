@@ -753,6 +753,27 @@ input[type=text], select {
   margin: 2%;
 }
 
+.galSelected{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 500% !important;
+  font-weight:bolder !important;
+  background-color: rgba(0, 41, 12, 0.52) !important;
+  border: 3px solid rgb(18, 109, 0);
+  cursor: pointer;
+  object-fit: cover;
+}
+.galThumb{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 500% !important;
+  font-weight:bolder !important;
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  border-color: rgb(255, 255, 255) !important;
+  cursor: pointer;
+  object-fit: cover;
+}
+
 .modal-mask {
   position: fixed;
   z-index: 9998;
