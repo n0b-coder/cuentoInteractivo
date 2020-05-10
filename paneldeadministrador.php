@@ -145,7 +145,7 @@ if($variable_S == null || $variable_S == '')
                             </div>
                         </div>
                         <div class="submit">
-                            <button class="Btn" @click="save(panel_data.current_selection)">Guardar Cambios</button>
+                            <button class="Btn" @click="save(panel_data.current_selection)">Guardar</button>
                         </div>
                     </div>
                 </div>               
