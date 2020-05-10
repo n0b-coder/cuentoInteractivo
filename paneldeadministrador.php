@@ -9,42 +9,7 @@ if($variable_S == null || $variable_S == '')
     echo "<p class='error'>- por favor inicie sesion para poder ingresar al panel de administracion </p>";
     die();
 }
-
-    $id_pestana = 2;
-    $sql = "SELECT pestana.Texto , fondos.fondo_img, personajes.image_personaje
-    FROM pestana 
-    INNER JOIN fondos  ON pestana.Id_fondo = fondos.Id_fondo
-    LEFT JOIN personajes  ON pestana.Id_personaje = personajes.Id_im_personaje
-    WHERE Id_Pestana = '$id_pestana'";
-    require_once("Conexion.php");
-    $result =  $conn->query($sql);
-    if($result->num_rows>0)
-    { 
-        $row=$result->fetch_assoc();
-        $Texto = $row['Texto'];
-        $Fondo = $row['fondo_img'];
-        $Personaje = $row['image_personaje'];
-       
-
-    }
-    if(isset($_POST['actualizetext']))
-    {
-        $Ntext = $_POST['newtext'];
-        if (strcmp ($Texto , $Ntext )  !==0) 
-        {
-            $sql = "UPDATE `pestana` SET `Texto`= '$Ntext'
-            WHERE Id_Pestana = '$id_pestana'";
-            if ($conn->query($sql) === TRUE) {
-                echo "Record updated successfully";
-              } else {
-                echo "Error updating record: " . $conn->error;
-              }
-              $Texto= $Ntext;
-        }
-    }
-
 ?>
-
 
 <head>
     <meta charset="UTF-8">
@@ -53,14 +18,13 @@ if($variable_S == null || $variable_S == '')
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-    <link href="cf-slideshow-style.css" rel="stylesheet" />
-    <script src="CFSlideshow.js"></script>
     <meta content="JUKO">
+    
 </head>
 
 <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="panelApp">
 
         <div class="card-header">
             <div id="Titulodeadmin">
@@ -84,35 +48,9 @@ if($variable_S == null || $variable_S == '')
                 </div>
                 <input type="text" class="form-control" placeholder="JUKO">
             </div>
-            <div class="EdRow">
-                
-                    <div class= "EdText">
-                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
-                            <input type="submit" value="Actualizar Texto" class="Btn" name= "actualizetext">
-                            <input type="text" class="HisText"   value= "<?php echo $Texto?>" name= "newtext">
-                            <input type="hidden" name="pestana_id"   value =  "<?php echo $id_pestana ?>">
-                        </form>
-                    </div>
-                    <div class="opcionesCol">
-                        <div class= "EdFondo">
-                        <form action="ChangeImg.php" method="post">
-                            <input type="submit" value="Cambiar Fondo" class="Btn" name= "lol">
-                        </form>
-                            <div class="previewCol">
-                            <img class = "Prev" src="https://gameranx.com/wp-content/uploads/2016/05/DOOM4-2.jpg">
-                            </div>
-                        </div>
-                        <div class= "EdPersonaje">
-                            <button class="Btn">
-                                Cambiar Personaje
-                            </button>
-                            <div class="previewCol">
-                            <img class = "Prev" src="https://www.hyperhype.es/wp-content/uploads/2020/04/Doom-Eternal-Render-3.png">
-                            </div>
-                        </div>
-                    </div>
-                </div>               
-            </div>
+
+            <!-- selection checkbox -->
+
             <div class="row">
                 <div class="checkboxrow">
                     <label class="col">Historia
@@ -137,20 +75,90 @@ if($variable_S == null || $variable_S == '')
                     </label>
                 </div>
             </div>
+            <!-- selection slider -->
+
             <div class="slider">
-                <div class="scrolling-wrapper">
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
+                    <div class="scrolling-wrapper slider-container">
+                        <div
+                            class="cards slider-item"
+                            v-for="(item, index) in panel_data.historia[0]"
+                            :key="index"                           
+                            :class="item.tipo_pestana"
+                        >
+                            <div class="cards" v-for="item in panel_data.historia[index]">
+                                <img class="slider-background"  @click="activar(item)" :src="item.imagen_fondo">
+                                <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            
+            <!-- edit page -->
+            <div class="EdRow"  v-if="panel_data.current_selection">                
+                    <div class= "EdText">
+                    <button class="Btn">Actualizar Texto</button>
+                    <input type="text" class="HisText" placeholder="Texto a editar" v-model="panel_data.current_selection.texto" name="newtext">
+                    <input type="hidden" name="pestana_id"  value ="panel_data.current_selection.historia.texto">
+                    </div>
+                    <div class="opcionesCol">
+                        <div class= "EdFondo">
+                            <button class="Btn" @click="popUp=true">
+                                Cambiar Fondo
+                            </button>
+                            <!-- gallery -->
+                            <section v-if="popUp">
+                                <div class="modal-mask">
+                                    <div class="modal-wrapper">
+                                        <div class="modal-container py-5 bg-dark">
+                                            <div slot="panel">
+                                                <div class="galCont">
+                                                    <template v-for="(item, index) in gallery">
+                                                        <template class="row" v-for="item in gallery[index]">
+                                                            <div class="galCol">
+                                                                <img class="slider-background" :src="item.Imag_link"  @click="newImg(item)">
+                                                            </div>                                
+                                                        </template>                  
+                                                    </template>                       
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="Btn modal-default-button" v-on:click="popUp=false">
+                                                    Elegir
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--  -->
+                            <div class="previewCol">
+                                <img class = "Prev" :src="panel_data.current_selection.imagen_fondo">
+                            </div>
+                        </div>
+                        <!-- Personaje -->
+                        <div class= "EdPersonaje">
+                            <button class="Btn">
+                            Cambiar personaje:
+                            </button>
+                            <div class="previewCol">
+                            <img class = "Prev" :src="panel_data.current_selection.imagen_personaje">
+                            </div>
+                        </div>
+                        <div class="submit">
+                            <button class="Btn" @click="save(panel_data.current_selection)">Guardar Cambios</button>
+                        </div>
+                    </div>
+                </div>               
             </div>
         </div>
 
-
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="paneljs.js"></script>
+    
 
 </body>
 
