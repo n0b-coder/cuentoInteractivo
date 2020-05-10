@@ -42,7 +42,7 @@ var app = new Vue({
 });
 
 
-const request = new Request('set.json');
+const request = new Request('set.php');
 const imgs = new Request('imgs.json');
 
 fetch(request)
