@@ -71,10 +71,11 @@ var app = new Vue({
         }
         
         console.log(item);
-        fetch('chancla.php', {
+        fetch('savechanges.php', {
             method: 'POST',
             body: JSON.stringify({
-              id_pestana: item.id_pestana,
+              Id_cuento: 1,
+              Id_pestana: item.id_pestana,
               texto: item.texto,
               imagen_id: this.selected,
               tipo: this.panel_data.tipo,
@@ -86,7 +87,7 @@ var app = new Vue({
 });
 
 
-const request = new Request('set.json');
+const request = new Request('set.php');
 const imgs = new Request('setCimages.php');
 //data del cuento
 fetch(request)
