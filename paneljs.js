@@ -14,40 +14,29 @@ var gallery = {
   ]
 }
 
+
+
+
 var app = new Vue({
     el: '#panelApp',
     data: {
       panel_data: panel_data,
-      box:0,
-      kyes:[],
-      kk:'',
+      unique:false,
+      section:'historia',
       //galería
       gallery:gallery,
+      image:'',
       popUp: false,
-      selected:1
+      selected:0
     },
     computed:{
-      seccion:function(){
-        if(this.box==1){
-          return this.panel_data.historia;
-        } else if (this.box==3){
-          return this.panel_data.indagacion;
-        } else if (this.box==5){
-          return this.panel_data.finales;
-        } else{
-          return this.panel_data.historia;
-        }
-      },
-      keyes:function(){
-        return this.kyes=(Object.keys(this.panel_data));
-      }
+      
     },
     methods: {
-      kaka:function(index){
-        return this.panel_data.Object.keys(this.panel_data)[index];
+      seccion:function(actSeccion){        
+        this.section=actSeccion;
       },
       activar: function (item){
-        JSON.parse(this.kyes);
         //console.log(Object.keys(this.panel_data));
         this.panel_data.current_selection = item;
         console.log(item);
@@ -55,7 +44,23 @@ var app = new Vue({
       newImg:function(item){
         this.panel_data.current_selection.imagen_fondo = item.Imag_link;
       },
+      onFileChange(e) {
+        var files = e.target.files || e.dataTransfer.files;
+        if (!files.length)
+          return;
+        this.createImage(files[0]);
+      },
+      createImage(file) {
+        var reader = new FileReader();   
+        reader.onload = (e) => {
+          this.image = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      },
       save: function (item){
+        if(this.selected==0){
+          this.selected=item.imagen_id;
+        }
         console.log(item);
         fetch('cuentoid.php', {
             method: 'POST',
@@ -63,7 +68,7 @@ var app = new Vue({
               id_pestana: item.id_pestana,
               texto: item.texto,
               imagen_id: this.selected,
-              tipo: this.keys[0]
+              tipo: this.panel_data.tipo
             })
         });
       },
@@ -84,12 +89,14 @@ fetch(request)
   })
   .then(response => {
 
-	app.panel_data = response;
+  app.panel_data = response;
+
 
   }).catch(error => {
     console.error(error);
   });
 
+  //Image gallery
   fetch(imgs)
   .then(response => {
     if (response.status === 200) {
@@ -100,7 +107,7 @@ fetch(request)
   })
   .then(response => {
 
-	app.gallery = response;
+  app.gallery = response;
 
   }).catch(error => {
     console.error(error);

@@ -1,23 +1,28 @@
 {
+	"current_selection":null,
+	"tipo":"historia",
 	"historia":[
 	   [
 		  {
-			 "id":"1",
-			 "texto":"Info 1 json2",
-			 "imagen_fondo":"IMG_NEW/historia/S1-H-p1.png",
+			 "id_pestana":"2",
+			 "texto":"las fresas molan",
+			 "imagen_fondo":"IMG_NEW/historia/S2-H-p1.png",
+			 "imagen_id":"2",
 			 "imagen_personaje":null,
 			 "pagina":"1",
 			 "seccion":"1"
 		  },
 		  {
-			"id":"2",
+			 "id_pestana":"3",
 			 "texto":"Info 2",
 			 "imagen_fondo":"IMG_NEW/historia/S1-H-p2.png",
+			 "imagen_id":"3",
 			 "imagen_personaje":null,
 			 "pagina":"2",
 			 "seccion":"1"
 		  },
 		  {
+			 "id_pestana":"4",
 			 "texto":"Info 3",
 			 "imagen_fondo":"IMG_NEW/historia/S1-H-p3.png",
 			 "imagen_personaje":null,
@@ -25,6 +30,7 @@
 			 "seccion":"1"
 		  },
 		  {
+			 "id_pestana":"5",
 			 "texto":"Info 4",
 			 "imagen_fondo":"IMG_NEW/historia/S1-H-p4.png",
 			 "imagen_personaje":null,
@@ -32,22 +38,17 @@
 			 "seccion":"1"
 		  },
 		  {
+			 "id_pestana":"6",
 			 "texto":"info 5",
 			 "imagen_fondo":"IMG_NEW/historia/S1-H-p5.png",
 			 "imagen_personaje":"IMG_NEW/personaje/Juko_4.png",
 			 "pagina":"5",
 			 "seccion":"1"
-		  },
-		  {
-			"texto":"Info 6 json2",
-			"imagen_fondo":"IMG_NEW/historia/S1-H-p1.png",
-			"imagen_personaje":null,
-			"pagina":"1",
-			"seccion":"1"
-		 }
+		  }
 	   ],
 	   [
 		  {
+			 "id_pestana":"11",
 			 "texto":"Info 6",
 			 "imagen_fondo":"IMG_NEW/historia/S2-H-p1.png",
 			 "imagen_personaje":null,
@@ -55,6 +56,7 @@
 			 "seccion":"2"
 		  },
 		  {
+			 "id_pestana":"12",
 			 "texto":"Info 7",
 			 "imagen_fondo":"IMG_NEW/historia/S2-H-p2.png",
 			 "imagen_personaje":null,
@@ -62,6 +64,7 @@
 			 "seccion":"2"
 		  },
 		  {
+			 "id_pestana":"13",
 			 "texto":"Info 8",
 			 "imagen_fondo":"IMG_NEW/historia/S2-H-p3.png",
 			 "imagen_personaje":null,
@@ -71,6 +74,7 @@
 	   ],
 	   [
 		  {
+			 "id_pestana":"17",
 			 "texto":"Info 9",
 			 "imagen_fondo":"IMG_NEW/historia/S3-H-p1.png",
 			 "imagen_personaje":null,
@@ -78,6 +82,7 @@
 			 "seccion":"3"
 		  },
 		  {
+			 "id_pestana":"18",
 			 "texto":"Info 10",
 			 "imagen_fondo":"IMG_NEW/historia/S3-H-p2.png",
 			 "imagen_personaje":null,
@@ -85,6 +90,7 @@
 			 "seccion":"3"
 		  },
 		  {
+			 "id_pestana":"19",
 			 "texto":"Info 11",
 			 "imagen_fondo":"IMG_NEW/historia/S3-H-p3.png",
 			 "imagen_personaje":null,
@@ -96,6 +102,7 @@
 	"indagacion":[
 	   [
 		  {
+			 "id_pestana":"8",
 			 "texto":null,
 			 "imagen_fondo":"IMG_NEW/indagacion/S1-I-p1.png",
 			 "imagen_personaje":null,
@@ -103,6 +110,7 @@
 			 "seccion":"1"
 		  },
 		  {
+			 "id_pestana":"9",
 			 "texto":null,
 			 "imagen_fondo":"IMG_NEW/indagacion/S1-I-p2.png",
 			 "imagen_personaje":null,
@@ -110,6 +118,7 @@
 			 "seccion":"1"
 		  },
 		  {
+			 "id_pestana":"10",
 			 "texto":null,
 			 "imagen_fondo":"IMG_NEW/indagacion/S1-I-p3.png",
 			 "imagen_personaje":null,
@@ -119,6 +128,7 @@
 	   ],
 	   [
 		  {
+			 "id_pestana":"14",
 			 "texto":null,
 			 "imagen_fondo":"IMG_NEW/indagacion/S2-I-p1.png",
 			 "imagen_personaje":null,
@@ -126,6 +136,7 @@
 			 "seccion":"2"
 		  },
 		  {
+			 "id_pestana":"15",
 			 "texto":null,
 			 "imagen_fondo":"IMG_NEW/indagacion/S2-I-p2.png",
 			 "imagen_personaje":null,
@@ -133,6 +144,7 @@
 			 "seccion":"2"
 		  },
 		  {
+			 "id_pestana":"16",
 			 "texto":null,
 			 "imagen_fondo":"IMG_NEW/indagacion/S2-I-p3.png",
 			 "imagen_personaje":null,
@@ -142,6 +154,7 @@
 	   ],
 	   [
 		  {
+			 "id_pestana":"20",
 			 "texto":null,
 			 "imagen_fondo":"IMG_NEW/indagacion/S3-I-p1.png",
 			 "imagen_personaje":null,
@@ -149,6 +162,7 @@
 			 "seccion":"3"
 		  },
 		  {
+			 "id_pestana":"21",
 			 "texto":null,
 			 "imagen_fondo":"IMG_NEW/indagacion/S3-I-p2.png",
 			 "imagen_personaje":null,
@@ -156,6 +170,7 @@
 			 "seccion":"3"
 		  },
 		  {
+			 "id_pestana":"22",
 			 "texto":null,
 			 "imagen_fondo":"IMG_NEW/indagacion/S3-I-p3.png",
 			 "imagen_personaje":null,
@@ -167,24 +182,17 @@
 	"finales":[
 	   [
 		  {
-			"id":"1",
+			 "id_pestana":"7",
 			 "texto":"Todos tus intentos fueron fallidos, el mundo fue destruido",
 			 "imagen_fondo":"IMG_NEW/finales/final 1.png",
 			 "imagen_personaje":"IMG_NEW/personaje/Juko_4.png",
 			 "pagina":"1",
 			 "seccion":"1"
-		  },{
-			  
-			"texto":"Todos tus intentos fueron fallidos, el mundo fue destruido 2",
-			"imagen_fondo":"IMG_NEW/finales/final 1.png",
-			"imagen_personaje":"IMG_NEW/personaje/Juko_6.png",
-			"pagina":"1",
-			"seccion":"1"
-		 }
+		  }
 	   ],
 	   [
 		  {
-			"id":"2",
+			 "id_pestana":"23",
 			 "texto":"Ganaste de la mejor forma posible.",
 			 "imagen_fondo":"IMG_NEW/fondos-acertijo/a_fondo_p2.png",
 			 "imagen_personaje":null,
@@ -194,6 +202,7 @@
 	   ],
 	   [
 		  {
+			 "id_pestana":"24",
 			 "texto":"Ganaste pero pudo ser mejor",
 			 "imagen_fondo":"IMG_NEW/finales/final 3.png",
 			 "imagen_personaje":null,
@@ -203,8 +212,8 @@
 	   ]
 	],
 	"portada":{
-	   "texto":"JUKO json",
-	   "imagen_fondo":"IMG_NEW/portadas/Portada.png"
+	   "texto":"JUKO Alcachofa",
+	   "imagen_fondo":"IMG_NEW/portadas/JUKO_P.png"
 	},
 	"pilares":{
 	   "1":{
@@ -228,67 +237,5 @@
 		  "torre":"IMG_NEW/torres/Torre3.png",
 		  "imagen_personaje":"IMG_NEW/personaje/Juko_4.png"
 	   }
-	},
-	"cuentos":[
-		[
-		   {
-			 "id":"1",
-			  "name":"juko",
-			  "imagen_fondo":"IMG_NEW/portadas/Portada.png",
-			  "imagen_personaje":"IMG_NEW/personaje/Juko_4.png",
-			  "pagina":"1",
-			  "seccion":"1"
-		   }
-		],
-		[
-		   {
-			 "id":"2",
-			  "name":"juko 2",
-			  "imagen_fondo":"IMG_NEW/historia/S1-H-p1.png",
-			  "imagen_personaje":null,
-			  "pagina":"1",
-			  "seccion":"2"
-		   }
-		],
-		[
-			{
-			  "id":"3",
-			   "name":"juko 3",
-			   "imagen_fondo":"IMG_NEW/historia/S1-H-p2.png",
-			   "imagen_personaje":null,
-			   "pagina":"1",
-			   "seccion":"2"
-			}
-		 ],
-		 [
-			{
-			  "id":"4",
-			   "name":"juko 4",
-			   "imagen_fondo":"IMG_NEW/historia/S1-H-p3.png",
-			   "imagen_personaje":null,
-			   "pagina":"1",
-			   "seccion":"2"
-			}
-		 ],
-		 [
-			{
-			  "id":"5",
-			   "name":"juko 5",
-			   "imagen_fondo":"IMG_NEW/historia/S1-H-p4.png",
-			   "imagen_personaje":null,
-			   "pagina":"1",
-			   "seccion":"2"
-			}
-		 ],
-		 [
-			{
-			  "id":"6",
-			   "name":"juko 6",
-			   "imagen_fondo":"IMG_NEW/historia/S1-H-p5.png",
-			   "imagen_personaje":null,
-			   "pagina":"1",
-			   "seccion":"2"
-			}
-		 ]
-	]
+	}
  }

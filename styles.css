@@ -791,15 +791,17 @@ input[type=text], select {
   vertical-align: middle;
 }
 
-.modal-container {
+.popup-container {
   width: 80%;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 .modal-header h3 {
@@ -899,7 +901,6 @@ input[type=text], select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 75%;
   background-color:rgba(0, 0, 0, 0.774);
   padding: 20px;
 }
@@ -944,7 +945,7 @@ input[type=text], select {
   border-style: solid;
   border-color: rgb(255, 255, 255);
   padding: 20px;
-  height: 50%;  
+  height: 55%; 
 }
 .NBtn{
   color: rgba(255, 255, 255) !important;
