@@ -13,21 +13,37 @@ $id_cuento; $id_personaje;
   $data["historia"] = array();
   $data["indagacion"]= array();
   $data["finales"]= array();
+  $data["pilares"]= array();
+  $data["current_selection"]=NULL;
+  $data["tipo"]=NULL;
+
   $sec =1;  $numsec=1;
 
-$sql= "SELECT * FROM settings";
+  if(isset($_POST['edit']))
+{
+  $id_cuento = $_POST['cuento_id'];
+
+}
+else
+{
+  $sql= "SELECT * FROM settings";
 $result =  $conn->query($sql);
 if($result->num_rows>0)
 { 
         $row=$result->fetch_assoc();
-        $id_cuento = $row['Id_cuento'];
-        $id_personaje = $row['Id_personaje'];    
+        $id_cuento = $row['Id_cuento'];  
+}
 }
 
+$data["id_cuento"]=$id_cuento;
 
 
 
-$sql = "SELECT pestana.Id_Pestana, cuento.Cuento_Name , pestana.Seccion, pestana.Pagina , pestana.Name, pestana.Texto, fondos.fondo_img , personajes.image_personaje , pestana.Type
+
+
+
+$sql = "SELECT pestana.Id_Pestana, cuento.Cuento_Name , pestana.Seccion, pestana.Pagina , pestana.Name, pestana.Texto, 
+pestana.Id_fondo, fondos.fondo_img , personajes.image_personaje , pestana.Id_personaje , pestana.Type
 FROM pestana 
 INNER JOIN cuento  ON pestana.Id_cuento = cuento.Id_cuento
 INNER JOIN fondos  ON pestana.Id_fondo = fondos.Id_fondo
@@ -44,6 +60,7 @@ if($result->num_rows>0)
       if($tipo == 'portada')
       {
           $portada = array( );
+          $portada['id_portada'] = $row['Id_Pestana'];
           $portada['texto'] = $row['Texto'];
           $portada['imagen_fondo'] = $row['fondo_img']; 
           $data["portada"] = $portada;  
@@ -94,7 +111,7 @@ JOIN cuento  JOIN acertijo  JOIN fondos JOIN personajes
 ON pilar.Id_cuento = cuento.Id_cuento AND pilar.Id_acertijo = acertijo.Id_acertijo 
 AND pilar.Id_acertijo = acertijo.Id_acertijo
 AND pilar.Id_fondo = fondos.Id_fondo
-AND pilar.Id_personaje = personajes.Id_im_personaje WHERE pilar.Id_cuento = '$id_cuento'";
+AND pilar.Id_personaje = personajes.Id_im_personaje WHERE pilar.Id_cuento = '$id_cuento' ORDER BY Num_pilar";
 
 
 $result =  $conn->query($sql);
@@ -102,8 +119,9 @@ if($result->num_rows>0)
 { 
     while($row=$result->fetch_assoc())
     {
-      $numpil = $row['Num_pilar'];
+     
       $pi = array( );
+      $pi['num_pilar'] = $row['Num_pilar'];
       $pi['imagen_acertijo'] = $row['Image_acertijo'];
       $f = $row['Fondo_acertijo'];
         $sql1 = "SELECT fondo_img FROM fondos WHERE Id_fondo = '$f'";
@@ -116,10 +134,8 @@ if($result->num_rows>0)
       $pi['solucion'] = $row['Solucion'];
       $pi['torre'] = $row['fondo_img'];
       $pi['imagen_personaje'] = $row['image_personaje'];
-
-      $pilar[$numpil] = $pi;
+      array_push($data["pilares"], $pi); 
       } 
-    $data["pilares"]= $pilar;
   }    
 echo json_encode($data,JSON_UNESCAPED_SLASHES);
 
