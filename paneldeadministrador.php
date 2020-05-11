@@ -48,44 +48,45 @@ if($variable_S == null || $variable_S == '')
                 </div>
                 <input type="text" class="form-control" placeholder="JUKO">
             </div>
+            
 
             <!-- selection checkbox -->
 
             <div class="row">
                 <div class="checkboxrow">
                     <label class="col">Historia
-                        <input type="radio" checked="checked" name="radio">
+                        <input type="radio" checked="checked" name="radio" @click="box=1">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Pilares
-                        <input type="radio" checked="checked" name="radio">
+                        <input type="radio" checked="checked" name="radio" @click="box=2">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Indagación
-                        <input type="radio" checked="checked" name="radio">
+                        <input type="radio" checked="checked" name="radio" @click="box=3">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Resolución
-                        <input type="radio" checked="checked" name="radio">
+                        <input type="radio" checked="checked" name="radio" @click="box=4">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Finales
-                        <input type="radio" checked="checked" name="radio">
+                        <input type="radio" checked="checked" name="radio" @click="box=5">
                         <span class="checkmark"></span>
                     </label>
                 </div>
             </div>
-            <!-- selection slider -->
+            <!-- selection slider :class="item.tipo_pestana"-->
 
             <div class="slider">
                     <div class="scrolling-wrapper slider-container">
                         <div
                             class="cards slider-item"
-                            v-for="(item, index) in panel_data.historia[0]"
+                            v-for="(item, index) in panel_data.historia"
                             :key="index"                           
-                            :class="item.tipo_pestana"
+                            
                         >
-                            <div class="cards" v-for="item in panel_data.historia[index]">
+                            <div class="cards" v-for="item in seccion[index]">
                                 <img class="slider-background"  @click="activar(item)" :src="item.imagen_fondo">
                                 <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
                             </div>
@@ -144,7 +145,7 @@ if($variable_S == null || $variable_S == '')
                             Cambiar personaje:
                             </button>
                             <div class="previewCol">
-                            <img class = "Prev" :src="panel_data.current_selection.imagen_personaje">
+                                <img class = "Prev" :src="panel_data.current_selection.imagen_personaje">
                             </div>
                         </div>
                         <div class="submit">
