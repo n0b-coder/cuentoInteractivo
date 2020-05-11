@@ -14,9 +14,6 @@ var gallery = {
   ]
 }
 
-
-
-
 var app = new Vue({
     el: '#panelApp',
     data: {
@@ -28,9 +25,6 @@ var app = new Vue({
       image:'',
       popUp: false,
       selected:0
-    },
-    computed:{
-      
     },
     methods: {
       seccion:function(actSeccion){        
@@ -57,12 +51,13 @@ var app = new Vue({
         };
         reader.readAsDataURL(file);
       },
+      //envía los datos a chancla.php
       save: function (item){
         if(this.selected==0){
           this.selected=item.imagen_id;
         }
         console.log(item);
-        fetch('cuentoid.php', {
+        fetch('chancla.php', {
             method: 'POST',
             body: JSON.stringify({
               id_pestana: item.id_pestana,
@@ -78,7 +73,7 @@ var app = new Vue({
 
 const request = new Request('set.json');
 const imgs = new Request('imgs.json');
-
+//data del cuento
 fetch(request)
   .then(response => {
     if (response.status === 200) {
