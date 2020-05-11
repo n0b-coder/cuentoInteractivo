@@ -37,7 +37,7 @@
     
     if(isset($json->imagen_id))
     {
-        if(isset($json->Id_pestana) &&  $json->imagen_id != $id_personaje_O )
+        if(isset($json->Id_pestana) &&  $json->imagen_id != $id_fondo_O )
         {
             $sql = "UPDATE `pestana` SET `Id_fondo`= '$json->imagen_id'
             WHERE Id_Pestana = '$json->Id_pestana'";
@@ -52,7 +52,7 @@
 
     if(isset($json->personaje_id))
     {
-        if(isset($json->Id_pestana) &&  $json->personaje_id != $id_fondo_O )
+        if(isset($json->Id_pestana) &&  $json->personaje_id !=  $id_personaje_O )
         {
             $sql = "UPDATE `pestana` SET `Id_personaje`= '$json->personaje_id'
             WHERE Id_Pestana = '$json->Id_pestana'";
