@@ -26,14 +26,27 @@ var app = new Vue({
       popUp: false,
       selected:0
     },
+    computed:{
+      tipo:function(){
+        return this.panel_data.current_selection.seccion;
+      },
+      preview:function(){
+        if(this.section=='pilares'){
+          return this.panel_data.current_selection.torre;
+        } else if(this.section=='resolucion'){
+          return this.panel_data.current_selection.fondo_acertijo;
+        } else {
+          return this.panel_data.current_selection.imagen_fondo;
+        }
+      }
+    },
     methods: {
       seccion:function(actSeccion){        
         this.section=actSeccion;
       },
       activar: function (item){
-        //console.log(Object.keys(this.panel_data));
         this.panel_data.current_selection = item;
-        console.log(item);
+        this.selected=item.imagen_id;
       },
       newImg:function(item){
         this.panel_data.current_selection.imagen_fondo = item.Imag_link;
@@ -53,17 +66,20 @@ var app = new Vue({
       },
       //envía los datos a chancla.php
       save: function (item){
-        if(this.selected==0){
+        if(this.selected==item.imagen_id || this.selected==0){
           this.selected=item.imagen_id;
         }
+        
         console.log(item);
-        fetch('chancla.php', {
+        fetch('savechanges.php', {
             method: 'POST',
             body: JSON.stringify({
-              id_pestana: item.id_pestana,
+              Id_cuento: 1,
+              Id_pestana: item.id_pestana,
               texto: item.texto,
               imagen_id: this.selected,
-              tipo: this.panel_data.tipo
+              tipo: this.panel_data.tipo,
+              id_portada:item.id_portada
             })
         });
       },
@@ -71,7 +87,7 @@ var app = new Vue({
 });
 
 
-const request = new Request('set.json');
+const request = new Request('set.php');
 const imgs = new Request('setCimages.php');
 //data del cuento
 fetch(request)

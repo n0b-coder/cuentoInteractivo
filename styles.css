@@ -561,14 +561,17 @@ input[type=text], select {
   height: 150px;
 }
 
-.container-fluid{
+.container-panel{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
   background-image: url("IMG_NEW/admin/adm_2.png");
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  width: 100%;
-  margin:0;
 }
 
 /*SESIÓN ADMINISTRADOR*/
