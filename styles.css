@@ -484,7 +484,7 @@ input[type=text], select {
 /*VENTANA DE LOGIN - admin.php*/
 
 .Maindeadmin {
-  background-image: url("../cuentoInteractivo/IMG_NEW/admin/adm1.png");
+  background-image: url("IMG_NEW/admin/adm_1.png");
   background-position: center;
   height: 100%;
   text-align: center;
@@ -550,9 +550,19 @@ input[type=text], select {
 }
 
 /*VENTANA DE ADMINISTRADOR - paneldeadministrador.php*/
+.slider-item {
+  position: relative;
+  height: 150px;
+}
+.slider-background {
+  height: 150px;
+}
+.slider-img {
+  height: 150px;
+}
 
 .container-fluid{
-  background-image: url("../cuentoInteractivo/IMG_NEW/admin/adm_2.png");
+  background-image: url("IMG_NEW/admin/adm_2.png");
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -732,6 +742,81 @@ input[type=text], select {
   border-color: rgb(255, 255, 255);
 }
 
+/*POPUP GALLERÍA*/
+.galCont{
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center;
+}
+
+.galCol{
+  margin: 2%;
+}
+
+.galSelected{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 500% !important;
+  font-weight:bolder !important;
+  background-color: rgba(0, 41, 12, 0.52) !important;
+  border: 3px solid rgb(18, 109, 0);
+  cursor: pointer;
+  object-fit: cover;
+}
+.galThumb{
+  color: rgba(255, 255, 255) !important;
+  font-family: 'modern', sans-serif !important;
+  font-size: 500% !important;
+  font-weight:bolder !important;
+  background-color: rgba(26, 35, 44, 0.52)!important;
+  border-color: rgb(255, 255, 255) !important;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.popup-container {
+  width: 80%;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
 /*SELECCIÓN DE CUADRO*/
 
 .row{
@@ -743,10 +828,8 @@ input[type=text], select {
   justify-content: center;
 }
 .checkboxrow{
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  padding: 10px;
+  width: 75%;
+  padding: 20px;
 }
 .col{
   display: block;
@@ -787,6 +870,7 @@ input[type=text], select {
 .slider{
   display: flex;
   justify-content: center!important;
+  width:100%;
 }
 .scrolling-wrapper {
   overflow-x: scroll;
@@ -815,7 +899,6 @@ input[type=text], select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 75%;
   background-color:rgba(0, 0, 0, 0.774);
   padding: 20px;
 }
@@ -860,7 +943,7 @@ input[type=text], select {
   border-style: solid;
   border-color: rgb(255, 255, 255);
   padding: 20px;
-  height: 50%;  
+  height: 55%; 
 }
 .NBtn{
   color: rgba(255, 255, 255) !important;

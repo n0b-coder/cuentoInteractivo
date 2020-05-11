@@ -9,42 +9,20 @@ if($variable_S == null || $variable_S == '')
     echo "<p class='error'>- por favor inicie sesion para poder ingresar al panel de administracion </p>";
     die();
 }
-
+    $selected = 1;
     $id_pestana = 2;
-    $sql = "SELECT pestana.Texto , fondos.fondo_img, personajes.image_personaje
-    FROM pestana 
-    INNER JOIN fondos  ON pestana.Id_fondo = fondos.Id_fondo
-    LEFT JOIN personajes  ON pestana.Id_personaje = personajes.Id_im_personaje
-    WHERE Id_Pestana = '$id_pestana'";
+    $Type = "historia";
+    $seccion = 1;
+    $pagina =1;
+    $id_antigua = 2;
     require_once("Conexion.php");
-    $result =  $conn->query($sql);
-    if($result->num_rows>0)
-    { 
-        $row=$result->fetch_assoc();
-        $Texto = $row['Texto'];
-        $Fondo = $row['fondo_img'];
-        $Personaje = $row['image_personaje'];
-       
-
-    }
-    if(isset($_POST['actualizetext']))
+    if(isset($_POST['sel_gal']))
     {
-        $Ntext = $_POST['newtext'];
-        if (strcmp ($Texto , $Ntext )  !==0) 
-        {
-            $sql = "UPDATE `pestana` SET `Texto`= '$Ntext'
-            WHERE Id_Pestana = '$id_pestana'";
-            if ($conn->query($sql) === TRUE) {
-                echo "Record updated successfully";
-              } else {
-                echo "Error updating record: " . $conn->error;
-              }
-              $Texto= $Ntext;
-        }
+        $id_nueva = $_POST['newimagen_id'];
+        echo $id_nueva;
+       
     }
-
 ?>
-
 
 <head>
     <meta charset="UTF-8">
@@ -53,15 +31,61 @@ if($variable_S == null || $variable_S == '')
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-    <link href="cf-slideshow-style.css" rel="stylesheet" />
-    <script src="CFSlideshow.js"></script>
     <meta content="JUKO">
+    
 </head>
 
 <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="panelApp">
+        <!-- gallery -->
+        <section v-if="popUp">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="popup-container">
+                        
+                    
+                        <div class="BlockImg">
+                            <div class="ShowImg">                               
+                                <img class = "PreImg" :src="panel_data.current_selection.imagen_fondo">                            
+                            </div>
+                            <div class="ShowDat">
+                                <input type="text" class="formuControl" placeholder="Nombre">
+                                <div class="Datos">
+                                <h3 id="clas-Tipo"> Clase: <?php echo $Type ?></h3>
 
+                                <h3 id="clas-Secc"> Sección <?php echo $seccion ?></h3>
+                                <h3 id="clas-Pag"> Página  <?php echo $pagina ?> </h3>
+                                </div>
+                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
+                                    <input type="submit" value="Elegir" class="Btn" name= "sel_gal" @click="popUp=false">
+                                    <input type="hidden" name="newimagen_id" :value="selected">
+                                </form>
+                                </div>
+                        </div>
+                        <div class="ScrollImg row">
+                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                            <div>
+                                <input type="file" name="fileToUpload" id="fileToUpload" style="font-size:1vw!important; cursor:pointer;" @change="onFileChange"/>
+                            </div>
+                        </form>
+                       
+                        <!-- preview de la que acaba de subir -->
+                        <img class="images" :src="image" v-if="image!=''">
+                        <!-- las imgs de la base de datos -->
+                        <template class="row" v-for="item in gallery.images">
+                            <div class="galCol">
+                                <img :class="{galSelected:item.imagen_id == selected , galThumb:item.imagen_id != selected}" class="slider-background" :src="item.Imag_link"  @click="newImg(item), selected=item.imagen_id">
+                            </div>                                
+                        </template> 
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- end popUp -->
         <div class="card-header">
             <div id="Titulodeadmin">
                 <h1 id="he1deadminP"> Administrador </h1>
@@ -70,7 +94,7 @@ if($variable_S == null || $variable_S == '')
             <div class="cerrarS">
                 <form action="Cerrar_Sesion.php">
                 <button class="BtnUser">
-                            Cerrar Sesión
+                    Cerrar Sesión
                 </button>
                 </form>
             </div>
@@ -84,73 +108,118 @@ if($variable_S == null || $variable_S == '')
                 </div>
                 <input type="text" class="form-control" placeholder="JUKO">
             </div>
-            <div class="EdRow">
-                
+            
+
+            <!-- selection checkbox -->
+
+            <div class="container row">
+                <div class="checkboxrow row">
+                    <label class="col">Todo
+                        <input type="radio" checked="checked" name="radio" @click="unique=false">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Historia
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('historia')">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Pilares
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('pilares')">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Indagación
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('indagacion')">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Resolución
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('resolucion')">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Finales
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('finales')">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <!-- selection slider :class="item.tipo_pestana"-->
+            
+            <div class="slider">
+                    <div class="scrolling-wrapper slider-container">
+                    <!-- historia -->
+                        <div
+                            class="cards slider-item"
+                            v-for="(item, index) in panel_data.historia"
+                            :key="index"                           
+                            v-if="section=='historia' || unique==false"
+                        >
+                            <div class="cards" v-for="item in panel_data.historia[index]">
+                                <img class="slider-background"  @click="activar(item), panel_data.tipo='historia'" :src="item.imagen_fondo">
+                                <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
+                            </div>
+                        </div>
+                        <!-- indagacion -->
+                        <div
+                            class="cards slider-item"
+                            v-for="(itemi, index) in panel_data.indagacion"                       
+                            v-if="unique == false || section=='indagacion'"
+                        >
+                            <div class="cards" v-for="itemi in panel_data.indagacion[index]">
+                                <img class="slider-background"  @click="activar(itemi), panel_data.tipo='indagacion'" :src="itemi.imagen_fondo">
+                                <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
+                            </div>
+                        </div>
+                        <!-- finales -->
+                        <div
+                            class="cards slider-item" v-for="(itemf, index) in panel_data.finales" v-if="unique == false || section=='finales'"
+                        >
+                            <div class="cards" v-for="itemf in panel_data.finales[index]">
+                                <img class="slider-background" @click="activar(itemf), panel_data.tipo='finales'" :src="itemf.imagen_fondo">
+                                <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <!-- edit page -->
+            <div class="EdRow"  v-if="panel_data.current_selection">                
                     <div class= "EdText">
-                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
-                            <input type="submit" value="Actualizar Texto" class="Btn" name= "actualizetext">
-                            <input type="text" class="HisText"   value= "<?php echo $Texto?>" name= "newtext">
-                            <input type="hidden" name="pestana_id"   value =  "<?php echo $id_pestana ?>">
-                        </form>
+                    <button class="Btn">Actualizar Texto</button>
+                    <input type="text" class="HisText" placeholder="Texto a editar" v-model="panel_data.current_selection.texto" name="newtext">
+                    <input type="hidden" name="pestana_id"  value ="panel_data.current_selection.texto">
                     </div>
                     <div class="opcionesCol">
                         <div class= "EdFondo">
-                        <form action="ChangeImg.php" method="post">
-                            <input type="submit" value="Cambiar Fondo" class="Btn" name= "lol">
-                        </form>
+                            <button class="Btn" @click="popUp=true">
+                                Cambiar Fondo
+                            </button>
+                            
                             <div class="previewCol">
-                            <img class = "Prev" src="https://gameranx.com/wp-content/uploads/2016/05/DOOM4-2.jpg">
+                                <img class = "Prev" :src="panel_data.current_selection.imagen_fondo">
                             </div>
                         </div>
-                        <div class= "EdPersonaje">
+                        <!-- Personaje -->
+                        <div class= "EdPersonaje" v-if="panel_data.current_selection.imagen_personaje">
                             <button class="Btn">
-                                Cambiar Personaje
+                            Cambiar personaje:
                             </button>
                             <div class="previewCol">
-                            <img class = "Prev" src="https://www.hyperhype.es/wp-content/uploads/2020/04/Doom-Eternal-Render-3.png">
+                                <img class = "Prev" :src="panel_data.current_selection.imagen_personaje">
                             </div>
+                        </div>
+                        <div class="submit">
+                            <button class="Btn" @click="save(panel_data.current_selection)">Guardar</button>
                         </div>
                     </div>
                 </div>               
             </div>
-            <div class="row">
-                <div class="checkboxrow">
-                    <label class="col">Historia
-                        <input type="radio" checked="checked" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="col">Pilares
-                        <input type="radio" checked="checked" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="col">Indagación
-                        <input type="radio" checked="checked" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="col">Resolución
-                        <input type="radio" checked="checked" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="col">Finales
-                        <input type="radio" checked="checked" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-            </div>
-            <div class="slider">
-                <div class="scrolling-wrapper">
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                    <div class="cards"> <img class="images" src="https://image.shutterstock.com/image-photo/beautiful-water-drop-on-dandelion-260nw-789676552.jpg"></div>
-                </div>
-            </div>
         </div>
 
-
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="paneljs.js"></script>
+    
 
 </body>
 

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUKO ADMIN PANEL</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <link href="cf-slideshow-style.css" rel="stylesheet" />
+    <script src="CFSlideshow.js"></script>
+    <meta content="JUKO">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app" class="container-fluid">
+
+        <div class="card-header">
+            <div id="Titulodeadmin">
+                <h1 id="he1deadminP"> Administrador </h1>
+                <h2 id="he2deadminP"> <?php echo $_SESSION['user']?> </h2>
+            </div>
+            <div class="cerrarS">
+                <form action="Cerrar_Sesion.php">
+                <button class="BtnUser">
+                            Cerrar Sesión
+                </button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="container-2fluid">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button class="input-group-text">
+                        Actualizar Nombre
+                </div>
+                <input type="text" class="form-control" placeholder="JUKO">
+            </div>
+            <div class="row">
+                <div class="checkboxrow">
+                    <label class="col" @click="setSection('historia')">Historia
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col" @click="setSection('pilares')">Pilares
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Indagación
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Resolución
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Finales
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div
+                v-if="section=='pilares'"
+            >
+                <!---------------------- SLIDER SECTION ------------------------>
+                <div class="slider">
+                    <div class="scrolling-wrapper slider-container">
+                        <div
+                            class="cards slider-item"
+                            v-for="(item, index) in pilares[0]"
+                            :key="index"
+                            @click="activar(item)"
+                            :class="item.tipo_pestana"
+                        >
+                            <img class="slider-background" :src="item.torre">
+                            <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--
+            <div v-if="section=='historia'">
+                <slider data=historia>
+                <div class="historia-edit" v-if="current_selection">
+                    <text-edit path="texto" />
+                    <image-edit path="imagen_fondo" />
+                    <image-edit path="imagen_personaje" />
+                </div>
+            </div>
+
+
+            <div v-if="section=='pilares'">
+                <slider data=pilares>
+                <div class="pilares-edit" v-if="current_selection">
+                    <text-edit path="solucion" />
+                    <image-edit path="torre" />
+                    <image-edit path="imagen_acertijo" />
+                    <image-edit path="fondo_acertijo" />
+                    <image-edit path="imagen_personaje" />
+                </div>
+            </div>
+ -->
+
+            <div
+                v-if="section=='historia'"
+            >
+                <!---------------------- SLIDER SECTION ------------------------>
+                <div class="slider">
+                    <div class="scrolling-wrapper slider-container">
+                        <div
+                            class="cards slider-item"
+                            v-for="(item, index) in historia[0]"
+                            :key="index"
+                            @click="activar(item)"
+                            :class="item.tipo_pestana"
+                        >
+                            <img class="slider-background" :src="item.imagen_fondo">
+                            <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
+                        </div>
+                    </div>
+                </div>
+
+                 <!--
+                    v-for="current_selection in historia[0]"
+                  -->
+
+                <div
+                    class="EdRow"
+                    v-if="current_selection"
+                >
+
+                        <div class= "EdText">
+                            <!-- <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post"> -->
+                                <!-- <input type="submit" value="Actualizar Texto" class="Btn" name= "actualizetext"> -->
+                                <button class="Btn" @click="save(current_selection)">Actualizar Texto</button>
+                                <input type="text" class="HisText" v-model="current_selection.texto" name= "newtext">
+                                <input type="hidden" name="pestana_id"   value =  "<?php echo $id_pestana ?>">
+                            <!-- </form> -->
+                        </div>
+
+                        <image-select :img="current_selection.img_fondo" />
+
+                        <div class="opcionesCol">
+                            <div class= "EdFondo">
+                                <!-- <input type="submit" value="Cambiar Fondo" class="Btn" name= "lol"> -->
+                                <div class="previewCol">
+                                <img class = "Prev" :src="current_selection.imagen_fondo">
+                                </div>
+                            </div>
+                            <div class= "EdPersonaje">
+                                <button class="Btn">
+                                    Cambiar Personaje
+                                </button>
+                                <div class="previewCol">
+                                <img class = "Prev" :src="current_selection.imagen_personaje">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+<style type="text/css">
+    .slider-item {
+        position: relative;
+        height: 150px;
+    }
+    .slider-background {
+        height: 150px;
+    }
+    .slider-img {
+        height: 150px;
+    }
+
+    /* todo esto es un ejemplo *//*
+    .historia_left .slider-item {
+        left: 0;
+    }
+
+    .historia_right .slider-item {
+        left: 0;
+    }
+
+    .indagacion .slider-item {
+        left: 0;
+    }
+    */
+</style>
+
+<script type="text/javascript">
+
+var app_data = {
+    current_selection : null,
+    section: "historia",
+    "historia": [
+        [
+            {
+                "id_pestana": "2",
+                "tipo_pestana": "historia_left",
+                "texto": "las fresas molan",
+                "imagen_fondo": "IMG_NEW/historia/S2-H-p1.png",
+                "imagen_personaje": "IMG_NEW/personaje/Juko_1.png",
+                "pagina": "1",
+                "seccion": "1",
+                "img_fondo": {
+                    "id": 3,
+                    "url": "IMG_NEW/historia/S2-H-p1.png",
+                    "alt": "fondo en ruinas"
+                }
+            },
+            {
+                "id_pestana": "3",
+                "tipo_pestana": "historia_right",
+                "texto": "Info 2",
+                "imagen_fondo": "IMG_NEW/historia/S1-H-p2.png",
+                "imagen_personaje": null,
+                "pagina": "2",
+                "seccion": "1"
+            },
+            {
+                "id_pestana": "4",
+                "texto": "Info 3",
+                "imagen_fondo": "IMG_NEW/historia/S1-H-p3.png",
+                "imagen_personaje": null,
+                "pagina": "3",
+                "seccion": "1"
+            },
+            {
+                "id_pestana": "5",
+                "texto": "Info 4",
+                "imagen_fondo": "IMG_NEW/historia/S1-H-p4.png",
+                "imagen_personaje": null,
+                "pagina": "4",
+                "seccion": "1"
+            },
+            {
+                "id_pestana": "6",
+                "texto": "info 5",
+                "imagen_fondo": "IMG_NEW/historia/S1-H-p5.png",
+                "imagen_personaje": "IMG_NEW/personaje/Juko_4.png",
+                "pagina": "5",
+                "seccion": "1"
+            }
+        ]
+    ]
+}
+
+Vue.component(
+    "image-select",
+    {
+        // data: function () {
+        //     return {
+        //         count: 0
+        //     }
+        // },
+        props: ['img'],
+        template: `<div>
+        aroeifuthnaroifhntoarfhntoyarunstoiu
+            <span>{{img.alt}}</span>
+            <img :src="img.url">
+        </div>
+        `
+    }
+)
+
+
+var app = new Vue({
+  el: '#app',
+  data: app_data,
+  computed: {
+    total: function(){
+        return Object.keys(this.game_data.pilares).length;
+    }
+  },
+  methods: {
+    activar: function (item){
+        console.log(item);
+        app.current_selection = item;
+    },
+    save: function (item){
+        console.log(item);
+        fetch('update_pestana.html', {
+            method: 'POST',
+            body: JSON.stringify(item)
+        });
+    },
+    setSection: function(newSection) {
+        this.section = newSection;
+    }
+  }
+});
+
+</script>
+
+
+</body>
+
+</html>
