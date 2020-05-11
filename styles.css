@@ -484,7 +484,7 @@ input[type=text], select {
 /*VENTANA DE LOGIN - admin.php*/
 
 .Maindeadmin {
-  background-image: url("../cuentoInteractivo/IMG_NEW/admin/adm_1.png");
+  background-image: url("IMG_NEW/admin/adm_1.png");
   background-position: center;
   height: 100%;
   text-align: center;
@@ -562,7 +562,7 @@ input[type=text], select {
 }
 
 .container-fluid{
-  background-image: url("../cuentoInteractivo/IMG_NEW/admin/adm_2.png");
+  background-image: url("IMG_NEW/admin/adm_2.png");
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
