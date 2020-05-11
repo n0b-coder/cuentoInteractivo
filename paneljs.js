@@ -78,8 +78,7 @@ var app = new Vue({
               texto: item.texto,
               imagen_id: this.selected,
               tipo: this.panel_data.tipo,
-              id_portada:item.id_portada,
-              id_cuento:1//aquí está predefinido dentro del Js
+              id_portada:item.id_portada
             })
         });
       },
