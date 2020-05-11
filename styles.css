@@ -563,7 +563,6 @@ input[type=text], select {
 
 .container-panel{
   width: 100%;
-  height: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -573,8 +572,6 @@ input[type=text], select {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  width: 100%;
-  margin:0;
 }
 
 /*SESIÓN ADMINISTRADOR*/

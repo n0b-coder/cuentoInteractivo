@@ -45,9 +45,8 @@ var app = new Vue({
         this.section=actSeccion;
       },
       activar: function (item){
-        //console.log(Object.keys(this.panel_data));
         this.panel_data.current_selection = item;
-        console.log(item);
+        this.selected=item.imagen_id;
       },
       newImg:function(item){
         this.panel_data.current_selection.imagen_fondo = item.Imag_link;
@@ -67,9 +66,10 @@ var app = new Vue({
       },
       //envía los datos a chancla.php
       save: function (item){
-        if(this.selected==0){
+        if(this.selected==item.imagen_id || this.selected==0){
           this.selected=item.imagen_id;
         }
+        
         console.log(item);
         fetch('chancla.php', {
             method: 'POST',
@@ -77,7 +77,9 @@ var app = new Vue({
               id_pestana: item.id_pestana,
               texto: item.texto,
               imagen_id: this.selected,
-              tipo: this.panel_data.tipo
+              tipo: this.panel_data.tipo,
+              id_portada:item.id_portada,
+              id_cuento:1//aquí está predefinido dentro del Js
             })
         });
       },

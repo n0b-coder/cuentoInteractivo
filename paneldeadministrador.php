@@ -115,27 +115,27 @@ if($variable_S == null || $variable_S == '')
             <div class="container row">
                 <div class="checkboxrow row">
                     <label class="col">Todo
-                        <input type="radio" checked="checked" name="radio" @click="unique=false">
+                        <input type="radio" checked="checked" name="radio" @click="unique=false, panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Historia
-                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('historia')">
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('historia'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Pilares
-                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('pilares')">
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('pilares'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Indagación
-                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('indagacion')">
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('indagacion'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Resolución
-                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('resolucion')">
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('resolucion'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Finales
-                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('finales')">
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('finales'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -158,7 +158,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="section=='historia' || unique==false"
                         >
                             <div class="cards" v-for="item in panel_data.historia[index]">
-                                <img class="slider-background"  @click="activar(item), panel_data.tipo='historia'" :src="item.imagen_fondo">
+                                <img class="slider-background"  @click="activar(item), panel_data.tipo='historia', seccion('historia')" :src="item.imagen_fondo">
                             </div>
                         </div>
                         <!-- pilares -->
@@ -167,7 +167,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="section=='pilares' || unique==false"
                         >
                             <div class="cards" v-for="itemPil in panel_data.pilares">
-                                <img class="slider-background"  @click="activar(itemPil), panel_data.tipo='pilares'" :src="itemPil.torre">
+                                <img class="slider-background"  @click="activar(itemPil), panel_data.tipo='pilares', seccion('pilares')" :src="itemPil.torre">
                             </div>
                         </template>
                         <!-- indagacion -->
@@ -177,7 +177,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="unique == false || section=='indagacion'"
                         >
                             <div class="cards" v-for="itemi in panel_data.indagacion[index]">
-                                <img class="slider-background"  @click="activar(itemi), panel_data.tipo='indagacion'" :src="itemi.imagen_fondo">
+                                <img class="slider-background"  @click="activar(itemi), panel_data.tipo='indagacion', seccion('indagacion')" :src="itemi.imagen_fondo">
                             </div>
                         </div>
                         <!-- resolución -->
@@ -186,7 +186,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="section=='resolucion' || unique==false"
                         >
                             <div class="cards" v-for="itemRes in panel_data.pilares">
-                                <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='pilares'" :src="itemRes.fondo_acertijo">
+                                <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='pilares', seccion('pilares')" :src="itemRes.fondo_acertijo">
                             </div>
                         </template>
                         <!-- finales -->
@@ -194,7 +194,7 @@ if($variable_S == null || $variable_S == '')
                             class="cards slider-item" v-for="(itemf, index) in panel_data.finales" v-if="unique == false || section=='finales'"
                         >
                             <div class="cards" v-for="itemf in panel_data.finales[index]">
-                                <img class="slider-background" @click="activar(itemf), panel_data.tipo='finales'" :src="itemf.imagen_fondo">
+                                <img class="slider-background" @click="activar(itemf), panel_data.tipo='finales', seccion('finales')" :src="itemf.imagen_fondo">
                             </div>
                         </div>
                     </div>
