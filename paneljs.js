@@ -26,6 +26,20 @@ var app = new Vue({
       popUp: false,
       selected:0
     },
+    computed:{
+      tipo:function(){
+        return this.panel_data.current_selection.seccion;
+      },
+      preview:function(){
+        if(this.section=='pilares'){
+          return this.panel_data.current_selection.torre;
+        } else if(this.section=='resolucion'){
+          return this.panel_data.current_selection.fondo_acertijo;
+        } else {
+          return this.panel_data.current_selection.imagen_fondo;
+        }
+      }
+    },
     methods: {
       seccion:function(actSeccion){        
         this.section=actSeccion;

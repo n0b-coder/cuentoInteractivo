@@ -37,9 +37,9 @@ if($variable_S == null || $variable_S == '')
 
 <body>
 
-    <div class="container-fluid" id="panelApp">
+    <div class="container-panel" id="panelApp">
         <!-- gallery -->
-        <section v-if="popUp">
+        <div v-if="popUp">
             <div class="modal-mask">
                 <div class="modal-wrapper">
                     <div class="popup-container">
@@ -52,10 +52,10 @@ if($variable_S == null || $variable_S == '')
                             <div class="ShowDat">
                                 <input type="text" class="formuControl" placeholder="Nombre">
                                 <div class="Datos">
-                                <h3 id="clas-Tipo"> Clase: <?php echo $Type ?></h3>
+                                <h3 id="clas-Tipo"> Clase: {{panel_data.tipo}}</h3>
 
-                                <h3 id="clas-Secc"> Sección <?php echo $seccion ?></h3>
-                                <h3 id="clas-Pag"> Página  <?php echo $pagina ?> </h3>
+                                <h3 id="clas-Secc"> Sección {{panel_data.current_selection.seccion}}</h3>
+                                <h3 id="clas-Pag"> Página  {{panel_data.current_selection.pagina}} </h3>
                                 </div>
                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
                                     <input type="submit" value="Elegir" class="Btn" name= "sel_gal" @click="popUp=false">
@@ -83,7 +83,7 @@ if($variable_S == null || $variable_S == '')
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         
         <!-- end popUp -->
         <div class="card-header">
@@ -140,10 +140,16 @@ if($variable_S == null || $variable_S == '')
                     </label>
                 </div>
             </div>
-            <!-- selection slider :class="item.tipo_pestana"-->
+            <!-- Slider -->
             
             <div class="slider">
                     <div class="scrolling-wrapper slider-container">
+                    <!-- portada -->
+                        <div class="cards slider-item" v-if="section=='portada' || unique==false">
+                            <div class="cards">
+                                <img class="slider-background"  @click="activar(panel_data.portada), panel_data.tipo='portada'" :src="panel_data.portada.imagen_fondo">
+                            </div>
+                        </div>
                     <!-- historia -->
                         <div
                             class="cards slider-item"
@@ -153,9 +159,17 @@ if($variable_S == null || $variable_S == '')
                         >
                             <div class="cards" v-for="item in panel_data.historia[index]">
                                 <img class="slider-background"  @click="activar(item), panel_data.tipo='historia'" :src="item.imagen_fondo">
-                                <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
                             </div>
                         </div>
+                        <!-- pilares -->
+                        <template
+                            class="cards slider-item"
+                            v-if="section=='pilares' || unique==false"
+                        >
+                            <div class="cards" v-for="itemPil in panel_data.pilares">
+                                <img class="slider-background"  @click="activar(itemPil), panel_data.tipo='pilares'" :src="itemPil.torre">
+                            </div>
+                        </template>
                         <!-- indagacion -->
                         <div
                             class="cards slider-item"
@@ -164,16 +178,23 @@ if($variable_S == null || $variable_S == '')
                         >
                             <div class="cards" v-for="itemi in panel_data.indagacion[index]">
                                 <img class="slider-background"  @click="activar(itemi), panel_data.tipo='indagacion'" :src="itemi.imagen_fondo">
-                                <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
                             </div>
                         </div>
+                        <!-- resolución -->
+                        <template
+                            class="cards slider-item"
+                            v-if="section=='resolucion' || unique==false"
+                        >
+                            <div class="cards" v-for="itemRes in panel_data.pilares">
+                                <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='pilares'" :src="itemRes.fondo_acertijo">
+                            </div>
+                        </template>
                         <!-- finales -->
                         <div
                             class="cards slider-item" v-for="(itemf, index) in panel_data.finales" v-if="unique == false || section=='finales'"
                         >
                             <div class="cards" v-for="itemf in panel_data.finales[index]">
                                 <img class="slider-background" @click="activar(itemf), panel_data.tipo='finales'" :src="itemf.imagen_fondo">
-                                <!-- <img class="slider-img" :src="item.imagen_personaje"> -->
                             </div>
                         </div>
                     </div>
@@ -190,10 +211,9 @@ if($variable_S == null || $variable_S == '')
                         <div class= "EdFondo">
                             <button class="Btn" @click="popUp=true">
                                 Cambiar Fondo
-                            </button>
-                            
+                            </button>                            
                             <div class="previewCol">
-                                <img class = "Prev" :src="panel_data.current_selection.imagen_fondo">
+                                <img class = "Prev" :src="preview">
                             </div>
                         </div>
                         <!-- Personaje -->
