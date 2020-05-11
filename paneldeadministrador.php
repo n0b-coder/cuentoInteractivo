@@ -113,7 +113,7 @@ if($variable_S == null || $variable_S == '')
             <!-- selection checkbox -->
 
             <div class="container row">
-                <div class="checkboxrow">
+                <div class="checkboxrow row">
                     <label class="col">Todo
                         <input type="radio" checked="checked" name="radio" @click="unique=false">
                         <span class="checkmark"></span>

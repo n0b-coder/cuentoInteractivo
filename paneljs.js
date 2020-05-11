@@ -72,7 +72,7 @@ var app = new Vue({
 
 
 const request = new Request('set.json');
-const imgs = new Request('imgs.json');
+const imgs = new Request('setCimages.php');
 //data del cuento
 fetch(request)
   .then(response => {

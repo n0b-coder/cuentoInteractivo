@@ -484,7 +484,7 @@ input[type=text], select {
 /*VENTANA DE LOGIN - admin.php*/
 
 .Maindeadmin {
-  background-image: url("../cuentoInteractivo/IMG_NEW/admin/adm1.png");
+  background-image: url("../cuentoInteractivo/IMG_NEW/admin/adm_1.png");
   background-position: center;
   height: 100%;
   text-align: center;
@@ -828,10 +828,8 @@ input[type=text], select {
   justify-content: center;
 }
 .checkboxrow{
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  padding: 10px;
+  width: 75%;
+  padding: 20px;
 }
 .col{
   display: block;
