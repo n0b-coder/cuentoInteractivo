@@ -4,8 +4,8 @@
 
     $phpObj=json_decode($json);
 
-    $pestana = $json->Id_pestana;
-    $cuento = $json->Id_cuento;
+    $pestana = $phpObj->Id_pestana;
+    $cuento = $phpObj->Id_cuento;
 
     
     $sql = "SELECT * FROM `pestana` WHERE pestana.Id_Pestana = $pestana";
@@ -20,12 +20,12 @@
 
 
 
-    if(isset($json->texto))
+    if(isset($phpObj->texto))
     {
-        if(isset($json->Id_pestana) && strcmp ($json->texto , $texto_O)  !==0)
+        if(isset($phpObj->Id_pestana) && strcmp ($phpObj->texto , $texto_O)  !==0)
         {
-            $sql = "UPDATE `pestana` SET `Texto`= '$json->texto'
-            WHERE Id_Pestana = '$json->Id_pestana'";
+            $sql = "UPDATE `pestana` SET `Texto`= '$phpObj->texto'
+            WHERE Id_Pestana = ' $phpObj->Id_pestana'";
             if ($conn->query($sql) === TRUE) {
                 echo "Record updated successfully";
               } else {
@@ -35,12 +35,12 @@
     } 
 
     
-    if(isset($json->imagen_id))
+    if(isset( $phpObj->imagen_id))
     {
-        if(isset($json->Id_pestana) &&  $json->imagen_id != $id_fondo_O )
+        if(isset( $phpObj->Id_pestana) &&   $phpObj->imagen_id != $id_fondo_O )
         {
-            $sql = "UPDATE `pestana` SET `Id_fondo`= '$json->imagen_id'
-            WHERE Id_Pestana = '$json->Id_pestana'";
+            $sql = "UPDATE `pestana` SET `Id_fondo`= ' $phpObj->imagen_id'
+            WHERE Id_Pestana = ' $phpObj->Id_pestana'";
             if ($conn->query($sql) === TRUE) {
                 echo "Record updated successfully";
               } else {
@@ -50,12 +50,12 @@
     } 
 
 
-    if(isset($json->personaje_id))
+    if(isset( $phpObj->personaje_id))
     {
-        if(isset($json->Id_pestana) &&  $json->personaje_id !=  $id_personaje_O )
+        if(isset( $phpObj->Id_pestana) &&   $phpObj->personaje_id !=  $id_personaje_O )
         {
-            $sql = "UPDATE `pestana` SET `Id_personaje`= '$json->personaje_id'
-            WHERE Id_Pestana = '$json->Id_pestana'";
+            $sql = "UPDATE `pestana` SET `Id_personaje`= ' $phpObj->personaje_id'
+            WHERE Id_Pestana = ' $phpObj->Id_pestana'";
             if ($conn->query($sql) === TRUE) {
                 echo "Record updated successfully";
               } else {
