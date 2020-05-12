@@ -9,19 +9,6 @@ if($variable_S == null || $variable_S == '')
     echo "<p class='error'>- por favor inicie sesion para poder ingresar al panel de administracion </p>";
     die();
 }
-    $selected = 1;
-    $id_pestana = 2;
-    $Type = "historia";
-    $seccion = 1;
-    $pagina =1;
-    $id_antigua = 2;
-    require_once("Conexion.php");
-    if(isset($_POST['sel_gal']))
-    {
-        $id_nueva = $_POST['newimagen_id'];
-        echo $id_nueva;
-       
-    }
 ?>
 
 <head>
@@ -77,16 +64,14 @@ if($variable_S == null || $variable_S == '')
                                 <h3 id="clas-Secc"> Sección {{panel_data.current_selection.seccion}}</h3>
                                 <h3 id="clas-Pag"> Página  {{panel_data.current_selection.pagina}} </h3>
                                 </div>
-                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
-                                    <input type="submit" value="Elegir" class="Btn" name= "sel_gal" @click="popUp=false">
-                                    <input type="hidden" name="newimagen_id" :value="selected">
-                                </form>
+                                <button class="Btn" @click="popUp=false"> Elegir</button>         
                                 </div>
                         </div>
                         <div class="ScrollImg row">
                         <form action="upload.php" method="post" enctype="multipart/form-data">
                             <div>
-                                <input type="file" name="fileToUpload" id="fileToUpload" style="font-size:1vw!important; cursor:pointer;" @change="onFileChange"/>
+                                <input type="file" name="ImageToUpload" id="ImageToUpload" style="font-size:1vw!important; cursor:pointer;" @change="onFileChange"/>
+                                <input type="hidden" name="tipoimagen" :value="{{panel_data.tipo}}">
                             </div>
                         </form>
                        
