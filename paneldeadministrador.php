@@ -167,7 +167,7 @@ if($variable_S == null || $variable_S == '')
                     <!-- portada -->
                         <div class="cards slider-item" v-if="section=='portada' || unique==false">
                             <div class="cards">
-                                <img class="slider-background"  @click="activar(panel_data.portada), panel_data.tipo='portada'" :src="panel_data.portada.imagen_fondo">
+                                <img class="slider-background"  @click="activar(panel_data.portada), panel_data.tipo='portada', seccion('portada')" :src="panel_data.portada.imagen_fondo">
                             </div>
                         </div>
                     <!-- historia -->

@@ -561,19 +561,14 @@ input[type=text], select {
   height: 150px;
 }
 .container-panel{
-
   background-position: center;
   max-width: 100%;
   background-size: cover;
   background-image: url("IMG_NEW/admin/adm_2.png");
-
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
 }
 .container-3fluid{
   width: 100%;
@@ -581,7 +576,6 @@ input[type=text], select {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  text-align: -webkit-center;
 }
 
 /*SESIÓN ADMINISTRADOR*/
@@ -683,8 +677,7 @@ input[type=text], select {
 .EdRow{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 80%;
+  padding: 5%;
 }
 .opcionesCol{
   display: flex;

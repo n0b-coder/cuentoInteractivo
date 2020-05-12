@@ -69,6 +69,12 @@ var app = new Vue({
       //envía los datos a chancla.php
       save: function (item){
         success=true;
+        var Id_pestana;
+        if(this.section=='portada'){
+          Id_pestana = item.id_portada; 
+        } else {
+          Id_pestana = item.id_pestana;
+        }
         if(this.selected==item.imagen_id || this.selected==0){
           this.selected=item.imagen_id;
         }
@@ -76,12 +82,10 @@ var app = new Vue({
         fetch('savechanges.php', {
             method: 'POST',
             body: JSON.stringify({
-              Id_cuento: 1,
-              Id_pestana: item.id_pestana,
+              Id_pestana,
               texto: item.texto,
               imagen_id: this.selected,
-              tipo: this.panel_data.tipo,
-              id_portada:item.id_portada
+              tipo: this.panel_data.tipo
             })
         });
       },
