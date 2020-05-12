@@ -71,6 +71,7 @@ if($variable_S == null || $variable_S == '')
                         <form action="upload.php" method="post" enctype="multipart/form-data" id="uploadImg">
                             <div>
                                 <input type="file" name="ImageToUpload" id="ImageToUpload" style="font-size:1vw!important; cursor:pointer;"/>
+                                <button class="Btn" type="submit">Subir imagen</button> 
                                 <input type="hidden" name="tipoimagen" :value="panel_data.tipo">                               
                             </div>
                         </form>
