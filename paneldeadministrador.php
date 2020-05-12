@@ -77,17 +77,13 @@ if($variable_S == null || $variable_S == '')
                                 <h3 id="clas-Secc"> Sección {{panel_data.current_selection.seccion}}</h3>
                                 <h3 id="clas-Pag"> Página  {{panel_data.current_selection.pagina}} </h3>
                                 </div>
-                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
-                                    <input type="submit" value="Elegir" class="Btn" name= "sel_gal" @click="popUp=false">
-                                    <input type="hidden" name="newimagen_id" :value="selected">
-                                </form>
+                                <input type="submit" value="Ok" class="Btn" name= "sel_gal" @click="popUp=false">
                                 </div>
                         </div>
                         <div class="ScrollImg row">
-                        <form action="upload.php" method="post" enctype="multipart/form-data">
-                            <div>
-                                <input type="file" name="fileToUpload" id="fileToUpload" style="font-size:1vw!important; cursor:pointer;" @change="onFileChange"/>
-                            </div>
+                        <form id="uploadImg"enctype="multipart/form-data">
+                            1 <input type="file" name="fileToUpload" id="fileToUpload" style="font-size:1vw!important; cursor:pointer;"/>
+                            2 <input type="submit" value="Subir imagen" class="Btn" name= "sel_gal">
                         </form>
                        
                         <!-- preview de la que acaba de subir -->
@@ -206,7 +202,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="section=='resolucion' || unique==false"
                         >
                             <div class="cards" v-for="itemRes in panel_data.pilares">
-                                <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='pilares', seccion('pilares')" :src="itemRes.fondo_acertijo">
+                                <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='pilares', seccion('resolucion')" :src="itemRes.fondo_acertijo">
                             </div>
                         </template>
                         <!-- finales -->
