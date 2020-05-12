@@ -24,7 +24,9 @@ var app = new Vue({
       gallery:gallery,
       image:'',
       popUp: false,
-      selected:0
+      selected:0,
+      //success modal :v
+      success:false
     },
     computed:{
       tipo:function(){
@@ -66,11 +68,11 @@ var app = new Vue({
       },
       //envía los datos a chancla.php
       save: function (item){
+        success=true;
         if(this.selected==item.imagen_id || this.selected==0){
           this.selected=item.imagen_id;
         }
         
-        console.log(item);
         fetch('savechanges.php', {
             method: 'POST',
             body: JSON.stringify({

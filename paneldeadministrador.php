@@ -38,6 +38,26 @@ if($variable_S == null || $variable_S == '')
 <body>
 
     <div class="container-panel" id="panelApp">
+        <!-- success -->
+        <div v-if="success" id="alerts">
+            <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="alert-container">
+                <div class="modal-body">
+                    <slot name="body"> <!-- sirve para futuras alerts -->
+                        Tus cambios han sido guardados con éxito.
+                    </slot>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="Btn" @click="success=false">
+                        Vale
+                    </button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
         <!-- gallery -->
         <div v-if="popUp">
             <div class="modal-mask">
@@ -100,7 +120,7 @@ if($variable_S == null || $variable_S == '')
             </div>
         </div>
 
-        <div class="container-2fluid">
+        <div class="container-3fluid">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <button class="input-group-text">
@@ -112,7 +132,7 @@ if($variable_S == null || $variable_S == '')
 
             <!-- selection checkbox -->
 
-            <div class="container row">
+            <div class="row">
                 <div class="checkboxrow row">
                     <label class="col">Todo
                         <input type="radio" checked="checked" name="radio" @click="unique=false, panel_data.current_selection=null">
@@ -143,7 +163,7 @@ if($variable_S == null || $variable_S == '')
             <!-- Slider -->
             
             <div class="slider">
-                    <div class="scrolling-wrapper slider-container">
+                    <div class="scrolling-wrapper">
                     <!-- portada -->
                         <div class="cards slider-item" v-if="section=='portada' || unique==false">
                             <div class="cards">
@@ -217,16 +237,17 @@ if($variable_S == null || $variable_S == '')
                             </div>
                         </div>
                         <!-- Personaje -->
-                        <div class= "EdPersonaje" v-if="panel_data.current_selection.imagen_personaje">
+                        <div class= "EdPersonaje">
                             <button class="Btn">
                             Cambiar personaje:
                             </button>
                             <div class="previewCol">
-                                <img class = "Prev" :src="panel_data.current_selection.imagen_personaje">
+                                <img v-if="panel_data.current_selection.imagen_personaje" class = "Prev" :src="panel_data.current_selection.imagen_personaje">
+                                <img v-if="panel_data.current_selection.imagen_personaje==null" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
                             </div>
                         </div>
                         <div class="submit">
-                            <button class="Btn" @click="save(panel_data.current_selection)">Guardar</button>
+                            <button class="Btn" @click="save(panel_data.current_selection), panel_data.current_selection=null, success = true">Guardar cambios</button>
                         </div>
                     </div>
                 </div>               
