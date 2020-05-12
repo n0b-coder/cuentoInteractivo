@@ -582,7 +582,7 @@ input[type=text], select {
 #he1deadminP {
   font-family: 'modern', sans-serif;
   font-weight: lighter;
-  font-size: 60%;
+  font-size: 8vw;
   text-shadow: 0 0 0.1em cyan;
   margin: 20px;
 }
@@ -592,9 +592,8 @@ input[type=text], select {
   font-size: 35%;
 }
 #Titulodeadmin {
-
   color: white;
-  font-size: 700%;
+  font-size: 8vw;
   display: flex;
   align-items: center;
   flex-direction: column;
