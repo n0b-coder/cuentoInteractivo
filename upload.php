@@ -1,13 +1,23 @@
 <?php
 
 $IMG_Name = $_FILES['ImageToUpload']['name'];
-$target_dir = $_SERVER['DOCUMENT_ROOT'].'/cuentoInteractivo/IMG_NEW/historia/';
+$target_base_dir = $_SERVER['DOCUMENT_ROOT'].'/cuentoInteractivo/IMG_NEW/';
+if(isset($_POST['tipoimagen']))
+{
+  $Folder = $_POST['tipoimagen'];
+}
+$target_dir = $target_base_dir.$Folder.'/';
 $target_file = $target_dir . basename($_FILES["ImageToUpload"]["name"]);
+
+
+$target_file_4_db = 'IMG_NEW/'.$Folder.'/'. basename($_FILES["ImageToUpload"]["name"]);
+
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
+  echo "pinche kk mala";
     $check = getimagesize($_FILES["ImageToUpload"]["tmp_name"]);
     if($check !== false) {
       echo "File is an image - " . $check["mime"] . ".";
@@ -25,7 +35,7 @@ if (file_exists($target_file)) {
   }
   
   // Check file size
-  if ($_FILES["ImageToUpload"]["size"] > 2000000) {
+  if ($_FILES["ImageToUpload"]["size"] > 3000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
   }
@@ -44,11 +54,23 @@ if ($uploadOk == 0) {
   // if everything is ok, try to upload file
   } else {
     if (move_uploaded_file($_FILES["ImageToUpload"]["tmp_name"], $target_file)) {
-      echo "The file ". basename( $_FILES["ImageToUpload"]["name"]). " has been uploaded.";
+      $nameimg = basename($_FILES["ImageToUpload"]["name"]);
+      $sql= "INSERT INTO fondos (`Id_fondo`, `Name`, `fondo_img`, `Type`) VALUES (NULL,'$nameimg','$target_file_4_db','$Folder');";
+        require_once("Conexion.php");
+        if (mysqli_query($conn, $sql)) {
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        mysqli_close($conn);
+
+
     } else {
       echo "Sorry, there was an error uploading your file.";
     }
   }
+
+  
+
   
 
 ?>
