@@ -13,22 +13,6 @@ var gallery = {
   ]
 }
 //
-
-var uploadImg=document.getElementById('uploadImg');
-
- uploadImg.addEventListener('submit', function(e){
-   e.preventDefault();
-   var img = new FormData(uploadImg);
-   fetch('upload.php',{
-     method:'post',
-     body: img
-   })
-     .then(response =>response.json())
-     .then (img => {
-       console.log(img)
-     })
-// })
-//
 var app = new Vue({
     el: '#panelApp',
     data: {
