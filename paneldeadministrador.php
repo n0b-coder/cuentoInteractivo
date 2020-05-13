@@ -173,7 +173,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="section=='pilares' || unique==false"
                         >
                             <div class="cards" v-for="itemPil in panel_data.pilares">
-                                <img class="slider-background"  @click="activar(itemPil), panel_data.tipo='pilares', seccion('pilares')" :src="itemPil.torre">
+                                <img class="slider-background"  @click="activar(itemPil), panel_data.tipo='torres', seccion('pilares')" :src="itemPil.torre">
                             </div>
                         </template>
                         <!-- indagacion -->
@@ -192,7 +192,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="section=='resolucion' || unique==false"
                         >
                             <div class="cards" v-for="itemRes in panel_data.pilares">
-                                <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='pilares', seccion('resolucion')" :src="itemRes.fondo_acertijo">
+                                <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='fondos-acertijo', seccion('resolucion')" :src="itemRes.fondo_acertijo">
                             </div>
                         </template>
                         <!-- finales -->
