@@ -8,7 +8,7 @@ if(isset($_POST['tipoimagen']))
 }
 $target_dir = $target_base_dir.$Folder.'/';
 $target_file = $target_dir . basename($_FILES["ImageToUpload"]["name"]);
-
+echo $target_file;
 
 $target_file_4_db = 'IMG_NEW/'.$Folder.'/'. basename($_FILES["ImageToUpload"]["name"]);
 
@@ -54,16 +54,8 @@ if ($uploadOk == 0) {
   // if everything is ok, try to upload file
   } else {
     if (move_uploaded_file($_FILES["ImageToUpload"]["tmp_name"], $target_file)) {
+      echo "The file ". basename( $_FILES["ImageToUpload"]["name"]). " has been uploaded.";
       $nameimg = basename($_FILES["ImageToUpload"]["name"]);
-      $sql= "INSERT INTO fondos (`Id_fondo`, `Name`, `fondo_img`, `Type`) VALUES (NULL,'$nameimg','$target_file_4_db','$Folder');";
-        require_once("Conexion.php");
-        if (mysqli_query($conn, $sql)) {
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        mysqli_close($conn);
-
-
     } else {
       echo "Sorry, there was an error uploading your file.";
     }
