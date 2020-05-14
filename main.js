@@ -1,6 +1,6 @@
 //finales definidos dentro del Js
 var finales = {
-	reset:["JS Has fracasado","JS Has descubierto el mejor final posible","JS Has descubierto el final secundario de la historia", ],
+	reset:["JS Has fracasado","JS Has descubierto el mejor final posible","JS Has descubierto el final secundario de la historia"],
 }
 //Vidas desde la carpeta IMG_NEW
 var vida={
@@ -183,11 +183,8 @@ var app = new Vue({
 			if(this.intentos>=Math.round(this.total*3*0.9)){
 				this.counterf=1;
 			}
-			else if (this.intentos<Math.round(this.total*3*0.9) && this.intentos>=Math.round(this.total*3*0.6)){
+			else if (this.intentos<Math.round(this.total*3*0.9)){
 				this.counterf=2;
-			}
-			else {
-				this.counterf=3; //para el final no tan bueno (final 4)
 			}
 			this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS JS";
 			this.activar('final',0);
