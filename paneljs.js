@@ -88,7 +88,7 @@ var app = new Vue({
         if(this.selected==item.imagen_id || this.selected==0){
           this.selected=item.imagen_id;
         }        
-        if (this.section=='pilares'){
+        if (this.section=='pilares'||this.section=='resolucion'){
           fetch('savechanges.php', {
             method: 'POST',
             body: JSON.stringify({
