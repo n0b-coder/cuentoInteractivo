@@ -13,6 +13,8 @@ var gallery = {
   ]
 }
 //
+
+//
 var app = new Vue({
     el: '#panelApp',
     data: {
@@ -41,9 +43,24 @@ var app = new Vue({
         }
       }
     },
-    methods: {
-      //
-      //
+    methods: {      
+      uploadFiles(event) {
+        console.log(event.target.files);
+        fetch('upload.php', {
+          method: 'POST',
+          body:{
+            file: event.target.files,
+            tipo:this.tipo
+          }
+        })
+        
+        .then(result => {
+          console.log('Success:', result);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      },
       seccion:function(actSeccion){        
         this.section=actSeccion;
       },
@@ -60,19 +77,29 @@ var app = new Vue({
       //envía los datos a chancla.php
       save: function (item){
         success=true;
-        var Id_pestana;
+        var Id_pestana, num_pilar;
         if(this.section=='portada'){
           Id_pestana = item.id_portada; 
         } else if(this.section=='pilares'){
-          Id_pestana = item.num_pilar; 
+          Id_pestana = item.num_pilar;
         } else {
           Id_pestana = item.id_pestana;
         }
         if(this.selected==item.imagen_id || this.selected==0){
           this.selected=item.imagen_id;
         }        
-
-        fetch('savechanges.php', {
+        if (this.section=='pilares'){
+          fetch('savechanges.php', {
+            method: 'POST',
+            body: JSON.stringify({
+              num_pilar:item.num_pilar,
+              texto: item.texto,
+              imagen_id: this.selected,
+              tipo: this.tipo
+            })
+        });
+        } else {
+          fetch('savechanges.php', {
             method: 'POST',
             body: JSON.stringify({
               Id_pestana,
@@ -81,6 +108,7 @@ var app = new Vue({
               tipo: this.tipo
             })
         });
+        }
       },
     }
 });
