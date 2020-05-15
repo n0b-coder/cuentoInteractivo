@@ -2,7 +2,6 @@
     require_once("Conexion.php");
     $cuentos =array();
     $cuentos["cuentos"] = array();
-
     $sql= "SELECT settings.Id_cuento, cuento.Cuento_Name
     FROM `settings` JOIN cuento ON  settings.Id_cuento = cuento.Id_cuento";
     $result =  $conn->query($sql);
