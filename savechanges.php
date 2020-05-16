@@ -3,9 +3,10 @@
     $json = file_get_contents("php://input");    
 
     $phpObj=json_decode($json);
-    $pestana = $phpObj->Id_pestana;
 
-    
+    $pestana = $phpObj->Id_pestana;
+    $cuento = $phpObj->Id_cuento;
+
     
     $sql = "SELECT * FROM `pestana` WHERE pestana.Id_Pestana = $pestana";
     $result =  $conn->query($sql);
