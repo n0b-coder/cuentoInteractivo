@@ -46,7 +46,6 @@
   .bgImgRuna{
     background-position: center;
     height: 90% !important;
-    background-size: 100vw !important;
   }
   .bgImgMon{
     opacity: 1!important;
@@ -57,7 +56,7 @@
   .forImg{
     opacity: 1 !important;
   }
-  /*Estas son para el JS, modificar con cuidado*/
+  /Estas son para el JS, modificar con cuidado/
   .personaje{
     position: absolute;
     height: 100% !important;
@@ -67,7 +66,7 @@
     height: 100% !important;
     object-fit: contain !important;
   }
-  /*esta viene de Js*/
+  /esta viene de Js/
   .clasp{
     text-align: right !important;
   }
@@ -177,7 +176,7 @@ a:not([href]):not([tabindex]){
   color: white !important;
 }
 
-/*Páginas*/
+/Páginas/
 .containerP1 {
   width: 100%;
   height: 50%;
@@ -283,10 +282,10 @@ a:not([href]):not([tabindex]){
 .bgImgRuna{
   background-position: center;
   height: 80%;
-  background-size: 150%;
   background-repeat: no-repeat;
   justify-self: center;
   align-self: center;
+  background-size: contain;
 }
 .bgImgAcer{
   background-position: center;
@@ -466,7 +465,7 @@ input[type=text], select {
   margin: auto!important;
   cursor: pointer;
 }
-/*personaje clases posiciones, tiene mucho que ver con el JS*/
+/personaje clases posiciones, tiene mucho que ver con el JS/
 .personaje{
   position: absolute;
   height: 50%;
@@ -477,11 +476,11 @@ input[type=text], select {
   height: 100%;
   object-fit: contain;
 }
-/*esta viene de Js*/
+/esta viene de Js/
 .clasp{
   text-align: right;
 }
-/*VENTANA DE LOGIN - admin.php*/
+/VENTANA DE LOGIN - admin.php/
 
 .Maindeadmin {
   background-image: url("IMG_NEW/admin/adm_1.png");
@@ -500,7 +499,7 @@ input[type=text], select {
   padding: 10px!important; 
 }
 
-/*SELECTOR DE CUENTO Selector.php*/
+/SELECTOR DE CUENTO Selector.php/
 
 #H1Admin{
   color: rgba(255, 255, 255) !important;
@@ -549,7 +548,7 @@ input[type=text], select {
   border: none;
 }
 
-/*VENTANA DE ADMINISTRADOR - paneldeadministrador.php*/
+/VENTANA DE ADMINISTRADOR - paneldeadministrador.php/
 .slider-item {
   position: relative;
   height: 150px;
@@ -561,19 +560,14 @@ input[type=text], select {
   height: 150px;
 }
 .container-panel{
-
   background-position: center;
   max-width: 100%;
   background-size: cover;
   background-image: url("IMG_NEW/admin/adm_2.png");
-
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
 }
 .container-3fluid{
   width: 100%;
@@ -581,10 +575,9 @@ input[type=text], select {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  text-align: -webkit-center;
 }
 
-/*SESIÓN ADMINISTRADOR*/
+/SESIÓN ADMINISTRADOR/
 
 #he1deadminP {
   font-family: 'modern', sans-serif;
@@ -633,7 +626,7 @@ input[type=text], select {
   color: rgb(0, 0, 0) !important;
 }
 
-/*EDICIÓN DE ELEMENTOS*/
+/EDICIÓN DE ELEMENTOS/
 
 .container-2fluid{
   display: flex;
@@ -642,7 +635,7 @@ input[type=text], select {
   margin-bottom: 30px;
 }
 
-/*CAMBIAR NOMBRE PERSONAJE*/
+/CAMBIAR NOMBRE PERSONAJE/
 
 .input-group{
   display: flex;
@@ -678,13 +671,12 @@ input[type=text], select {
   max-height: 40px;
 }
 
-/*CAMBIAR ELEMENTOS DEL CUENTO*/
+/CAMBIAR ELEMENTOS DEL CUENTO/
 
 .EdRow{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 80%;
+  padding: 5%;
 }
 .opcionesCol{
   display: flex;
@@ -712,7 +704,7 @@ input[type=text], select {
   color: rgb(0, 0, 0) !important;
 }
 
-/*EDICIÓN DEL TEXTO*/
+/EDICIÓN DEL TEXTO/
 
 .EdText{
   display: flex;
@@ -737,7 +729,7 @@ input[type=text], select {
   box-sizing: border-box !important;
 }
 
-/*EDICIÓN DEL FONDO Y PERSONAJE*/
+/EDICIÓN DEL FONDO Y PERSONAJE/
 
 .EdFondo{
   width: 50%;
@@ -754,7 +746,7 @@ input[type=text], select {
   border-color: rgb(255, 255, 255);
 }
 
-/*POPUP GALLERÍA*/
+/POPUP GALLERÍA/
 .galCont{
   display: flex !important;
   flex-wrap: wrap !important;
@@ -828,7 +820,7 @@ input[type=text], select {
   float: right;
 }
 
-/*ALERTA RECORD*/
+/ALERTA RECORD/
 .alert-container {
   font-family: 'modern', sans-serif !important;
   font-weight: bolder;
@@ -842,7 +834,7 @@ input[type=text], select {
   transition: all .3s ease;
 }
 
-/*SELECCIÓN DE CUADRO*/
+/SELECCIÓN DE CUADRO/
 
 .row{
   color: rgba(255, 255, 255) !important;
@@ -906,7 +898,7 @@ input[type=text], select {
   width: 90%;
 }
 
-/*ACTUALIZACIÓN DE IMAGEN ChangeImg.php*/
+/ACTUALIZACIÓN DE IMAGEN ChangeImg.php/
 
 .Window{
   background-image: url('https://static.vecteezy.com/system/resources/previews/000/208/955/non_2x/vector-abstract-landscape-illustration.jpg');
@@ -929,7 +921,7 @@ input[type=text], select {
   padding: 20px;
 }
 
-/*INFO DE IMAGEN*/
+/INFO DE IMAGEN/
 
 .BlockImg{
   display: flex;
@@ -992,7 +984,7 @@ input[type=text], select {
   font-size: 130% !important;
   font-weight:bolder !important;
 }
-/*SCROLL DE IMAGENES*/
+/SCROLL DE IMAGENES/
 
 .ScrollImg{
   display: flex;
