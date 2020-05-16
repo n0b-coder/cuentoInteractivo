@@ -1,23 +1,13 @@
 <?php
 
 $IMG_Name = $_FILES['ImageToUpload']['name'];
-$target_base_dir = $_SERVER['DOCUMENT_ROOT'].'/cuentoInteractivo/IMG_NEW/';
-if(isset($_POST['tipoimagen']))
-{
-  $Folder = $_POST['tipoimagen'];
-}
-$target_dir = $target_base_dir.$Folder.'/';
+$target_dir = $_SERVER['DOCUMENT_ROOT'].'/cuentoInteractivo/IMG_NEW/historia/';
 $target_file = $target_dir . basename($_FILES["ImageToUpload"]["name"]);
-echo $target_file;
-
-$target_file_4_db = 'IMG_NEW/'.$Folder.'/'. basename($_FILES["ImageToUpload"]["name"]);
-
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-  echo "recibio el submit";
     $check = getimagesize($_FILES["ImageToUpload"]["tmp_name"]);
     if($check !== false) {
       echo "File is an image - " . $check["mime"] . ".";
@@ -35,7 +25,7 @@ if (file_exists($target_file)) {
   }
   
   // Check file size
-  if ($_FILES["ImageToUpload"]["size"] > 3000000) {
+  if ($_FILES["ImageToUpload"]["size"] > 2000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
   }
@@ -55,14 +45,10 @@ if ($uploadOk == 0) {
   } else {
     if (move_uploaded_file($_FILES["ImageToUpload"]["tmp_name"], $target_file)) {
       echo "The file ". basename( $_FILES["ImageToUpload"]["name"]). " has been uploaded.";
-      $nameimg = basename($_FILES["ImageToUpload"]["name"]);
     } else {
       echo "Sorry, there was an error uploading your file.";
     }
   }
-
-  
-
   
 
 ?>

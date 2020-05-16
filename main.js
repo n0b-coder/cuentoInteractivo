@@ -1,14 +1,10 @@
 //finales definidos dentro del Js
 var finales = {
-	reset:["JS Has fracasado","JS Has descubierto el mejor final posible","JS Has descubierto el final secundario de la historia"],
+	reset:["JS Has fracasado","JS Has descubierto el mejor final posible","JS Has descubierto el final secundario de la historia", ],
 }
 //Vidas desde la carpeta IMG_NEW
 var vida={
 	stat:['IMG_NEW/Vidas/full.png','IMG_NEW/Vidas/bar2.png','IMG_NEW/Vidas/bar1.png','IMG_NEW/Vidas/dead.png']
-}
-//Monitor desde IMG_NEW
-var indagacion={
-	monitor:['IMG_NEW/monitor/mon_1.png','IMG_NEW/monitor/mon_2.png','IMG_NEW/monitor/mon_3.png']
 }
 //
 var game_data = {
@@ -34,15 +30,13 @@ var app = new Vue({
 	game_data: game_data,
 	pilSect:0,
 	pg:0,
-	//temp
-	vida,	
-	final:finales,
-	indagacion:indagacion,
-	//
+	id:1,
+	vida,
 	nVidas:3,//número de intentos que tiene, podría ser desde la base de datos con el # de vidas
 	intentos:9,
 	alOrDe:"REINTENTAR",
 	resetBtn:"",
+	final:finales,
 	estado:0,
   	idx: 1,
 	section:'base',
@@ -61,13 +55,13 @@ var app = new Vue({
 			//fslta pantalla de reset en DB
 			return 'background-image:url("'+this.game_data.finales[this.counterf][0].imagen_fondo+'")';
 		} else if(this.section=='resolver'){
-			return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';
+			return 'background-image:url("'+this.game_data.pilares[this.id].fondo_acertijo+'")';
 		} else if(this.section=='acertijo'){
-			return 'background-image:url("'+this.game_data.pilares[this.pilSect].torre+'")';
+			return 'background-image:url("'+this.game_data.pilares[this.id].torre+'")';
 		} else if(this.section=='indagar'){
-			return 'background-image:url("'+this.game_data.indagacion[this.idx].imagen_fondo+'")';
+			return 'background-image:url("'+this.game_data.indagacion[this.pilSect].imagen_fondo+'")';
 		} else if(this.section=='reintentar'){
-			return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';
+			return 'background-image:url("'+this.game_data.pilares[this.id].fondo_acertijo+'")';
 		}
 		else {			
       		return 'background-image:url("'+this.game_data.historia[this.pilSect][this.pg].imagen_fondo+'")';
@@ -78,11 +72,11 @@ var app = new Vue({
 		if (this.section=='indagar'){
 			return this.game_data.indagacion[this.pilSect][this.idx].imagen_fondo;
 		}
-		return 'background-image:url("'+this.game_data.pilares[this.pilSect].imagen_acertijo+'")';
+		return 'background-image:url("'+this.game_data.pilares[this.id].imagen_acertijo+'")';
 	},
 	//Imagen monitor
 	monitor:function (){
-		return 'background-image:url("'+this.indagacion.monitor[this.pilSect]+'")';
+		return this.game_data.historia[this.pilSect][this.ids].imagen_fondo;
 	},
 	//Pantalla redirección a index
 	reset:function (){
@@ -130,16 +124,27 @@ var app = new Vue({
 	},
 	//Resolver acertijo
 	resolver: function (){
-		var validos=this.game_data.pilares[this.pilSect].solucion;
+		var validos=this.game_data.pilares[this.id].solucion;
 		this.pg=0;
 		if(this.pass==validos){
-			this.estado=0;			
+			this.pilSect++;
+			this.estado=0;
 			if(this.pilSect==this.total){
-				this.again();
-			} else{
+				if(this.intentos>=Math.round(this.total*3*0.9)){
+					this.counterf=1;
+				}
+				else if (this.intentos<Math.round(this.total*3*0.9) && this.intentos>=Math.round(this.total*3*0.6)){
+					this.counterf=2;
+				}
+				else {
+					this.counterf=3; //para el final no tan bueno (final 4)
+				}
+				this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS JS";
+				this.activar('final',0);
+			}else{
 				this.section='reintentar';
 				this.alOrDe="¡ENHORABUENA! JS";
-			}
+			}			
 		}
 		//si se equivoca
 		else if(this.pass!=validos){
@@ -172,22 +177,12 @@ var app = new Vue({
 	again: function (){
 		this.section = 'acertijo';
 		if(this.estado==0){//ganó, pasa al sig pilar
-			this.pilSect++;
 			this.section='base';//pagina 1 del siguiente pilar
+			this.id++;
 			this.pg=0;
 			s=0;
 			this.idx=1;
 			this.estado=0;
-		}
-		if(this.pilSect==this.total){
-			if(this.intentos>=Math.round(this.total*3*0.9)){
-				this.counterf=1;
-			}
-			else if (this.intentos<Math.round(this.total*3*0.9)){
-				this.counterf=2;
-			}
-			this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS JS";
-			this.activar('final',0);
 		}
 	},
 

@@ -9,6 +9,19 @@ if($variable_S == null || $variable_S == '')
     echo "<p class='error'>- por favor inicie sesion para poder ingresar al panel de administracion </p>";
     die();
 }
+    $selected = 1;
+    $id_pestana = 2;
+    $Type = "historia";
+    $seccion = 1;
+    $pagina =1;
+    $id_antigua = 2;
+    require_once("Conexion.php");
+    if(isset($_POST['sel_gal']))
+    {
+        $id_nueva = $_POST['newimagen_id'];
+        echo $id_nueva;
+       
+    }
 ?>
 
 <head>
@@ -64,15 +77,16 @@ if($variable_S == null || $variable_S == '')
                                 <h3 id="clas-Secc"> Sección {{panel_data.current_selection.seccion}}</h3>
                                 <h3 id="clas-Pag"> Página  {{panel_data.current_selection.pagina}} </h3>
                                 </div>
-                                <button class="Btn" @click="popUp=false">Ok</button>         
+                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post">
+                                    <input type="submit" value="Elegir" class="Btn" name= "sel_gal" @click="popUp=false">
+                                    <input type="hidden" name="newimagen_id" :value="selected">
+                                </form>
                                 </div>
                         </div>
                         <div class="ScrollImg row">
-                        <form action="upload.php" method="post" enctype="multipart/form-data" id="uploadImg">
+                        <form action="upload.php" method="post" enctype="multipart/form-data">
                             <div>
-                                <input type="file" name="ImageToUpload" id="ImageToUpload" style="font-size:1vw!important; cursor:pointer;"/>
-                                <button class="Btn" type="submit">Subir imagen</button> 
-                                <input type="hidden" name="tipoimagen" :value="panel_data.tipo">                               
+                                <input type="file" name="fileToUpload" id="fileToUpload" style="font-size:1vw!important; cursor:pointer;" @change="onFileChange"/>
                             </div>
                         </form>
                        
@@ -153,7 +167,7 @@ if($variable_S == null || $variable_S == '')
                     <!-- portada -->
                         <div class="cards slider-item" v-if="section=='portada' || unique==false">
                             <div class="cards">
-                                <img class="slider-background"  @click="activar(panel_data.portada), panel_data.tipo='portada', seccion('portada')" :src="panel_data.portada.imagen_fondo">
+                                <img class="slider-background"  @click="activar(panel_data.portada), panel_data.tipo='portada'" :src="panel_data.portada.imagen_fondo">
                             </div>
                         </div>
                     <!-- historia -->
@@ -173,7 +187,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="section=='pilares' || unique==false"
                         >
                             <div class="cards" v-for="itemPil in panel_data.pilares">
-                                <img class="slider-background"  @click="activar(itemPil), panel_data.tipo='torres', seccion('pilares')" :src="itemPil.torre">
+                                <img class="slider-background"  @click="activar(itemPil), panel_data.tipo='pilares', seccion('pilares')" :src="itemPil.torre">
                             </div>
                         </template>
                         <!-- indagacion -->
@@ -192,7 +206,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="section=='resolucion' || unique==false"
                         >
                             <div class="cards" v-for="itemRes in panel_data.pilares">
-                                <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='fondos-acertijo', seccion('resolucion')" :src="itemRes.fondo_acertijo">
+                                <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='pilares', seccion('pilares')" :src="itemRes.fondo_acertijo">
                             </div>
                         </template>
                         <!-- finales -->
@@ -210,7 +224,7 @@ if($variable_S == null || $variable_S == '')
             <div class="EdRow"  v-if="panel_data.current_selection">                
                     <div class= "EdText">
                     <button class="Btn">Actualizar Texto</button>
-                    <textarea cols="30" rows="5" name="textarea" class="HisText" placeholder="Texto a editar" v-model="panel_data.current_selection.texto" name="newtext"></textarea>
+                    <input type="text" class="HisText" placeholder="Texto a editar" v-model="panel_data.current_selection.texto" name="newtext">
                     <input type="hidden" name="pestana_id"  value ="panel_data.current_selection.texto">
                     </div>
                     <div class="opcionesCol">

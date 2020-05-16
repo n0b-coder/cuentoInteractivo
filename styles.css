@@ -46,6 +46,7 @@
   .bgImgRuna{
     background-position: center;
     height: 90% !important;
+    background-size: 100vw !important;
   }
   .bgImgMon{
     opacity: 1!important;
@@ -282,10 +283,10 @@ a:not([href]):not([tabindex]){
 .bgImgRuna{
   background-position: center;
   height: 80%;
+  background-size: 150%;
   background-repeat: no-repeat;
   justify-self: center;
   align-self: center;
-  background-size: contain;
 }
 .bgImgAcer{
   background-position: center;
@@ -560,14 +561,19 @@ input[type=text], select {
   height: 150px;
 }
 .container-panel{
+
   background-position: center;
   max-width: 100%;
   background-size: cover;
   background-image: url("IMG_NEW/admin/adm_2.png");
+
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+
 }
 .container-3fluid{
   width: 100%;
@@ -575,6 +581,7 @@ input[type=text], select {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  text-align: -webkit-center;
 }
 
 /*SESIÓN ADMINISTRADOR*/
@@ -676,7 +683,8 @@ input[type=text], select {
 .EdRow{
   display: flex;
   flex-direction: column;
-  padding: 5%;
+  justify-content: center;
+  width: 80%;
 }
 .opcionesCol{
   display: flex;
