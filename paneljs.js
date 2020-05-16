@@ -7,13 +7,14 @@ var panel_data = {
 		]
    ]
 }
-
 var gallery = {
   "images":[
 
   ]
 }
+//
 
+//
 var app = new Vue({
     el: '#panelApp',
     data: {
@@ -30,7 +31,7 @@ var app = new Vue({
     },
     computed:{
       tipo:function(){
-        return this.panel_data.current_selection.seccion;
+        return this.panel_data.tipo;
       },
       preview:function(){
         if(this.section=='pilares'){
@@ -42,7 +43,24 @@ var app = new Vue({
         }
       }
     },
-    methods: {
+    methods: {      
+      uploadFiles(event) {
+        console.log(event.target.files);
+        fetch('upload.php', {
+          method: 'POST',
+          body:{
+            file: event.target.files,
+            tipo:this.tipo
+          }
+        })
+        
+        .then(result => {
+          console.log('Success:', result);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      },
       seccion:function(actSeccion){        
         this.section=actSeccion;
       },
@@ -52,38 +70,36 @@ var app = new Vue({
       },
       newImg:function(item){
         this.panel_data.current_selection.imagen_fondo = item.Imag_link;
-      },
-      onFileChange(e) {
-        var files = e.target.files || e.dataTransfer.files;
-        if (!files.length)
-          return;
-        this.createImage(files[0]);
-      },
-      createImage(file) {
-        var reader = new FileReader();   
-        reader.onload = (e) => {
-          this.image = e.target.result;
-        };
-        reader.readAsDataURL(file);
+        if(this.section=='pilares'){
+          this.panel_data.current_selection.torre = item.Imag_link;
+        }
       },
       //envía los datos a chancla.php
       save: function (item){
         success=true;
+        var Id_pestana, num_pilar;
+        if(this.section=='portada'){
+          Id_pestana = item.id_portada; 
+        } else if(this.section=='pilares'){
+          Id_pestana = item.num_pilar;
+        } else {
+          Id_pestana = item.id_pestana;
+        }
         if(this.selected==item.imagen_id || this.selected==0){
           this.selected=item.imagen_id;
         }
-        
-        fetch('savechanges.php', {
+        {
+          fetch('savechanges.php', {
             method: 'POST',
             body: JSON.stringify({
-              Id_cuento: 1,
-              Id_pestana: item.id_pestana,
+              Id_pestana,
+              //imagen2_id:this.personajeseleccionado,
               texto: item.texto,
               imagen_id: this.selected,
-              tipo: this.panel_data.tipo,
-              id_portada:item.id_portada
+              tipo: this.tipo
             })
         });
+        }
       },
     }
 });
