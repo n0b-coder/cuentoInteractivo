@@ -24,7 +24,7 @@
 				<div class="containerP1">
 					<div class="grad">
 						<div class="parraf">
-							<p>{{game_data.historia[pilSect][pg].texto}} #pilares: {{total}}</p>
+							<p>{{game_data.historia[pilSect][pg].texto}}</p>
 						</div>
 					</div>
 					<div class="nextPag">
@@ -60,14 +60,14 @@
 			<div class="blur" :style="backs"></div>
 			<div class="bgImgInd row card-img">
 				<img :src="imagenes" alt="contenido" class="imgIdx">
-			<div class="bgImgMon card-img" :style="">
+			<div class="bgImgMon card-img" :style="monitor">
 				<div class="row arrows card-img">
 					<div class="row indArrows">
 						<div class="col indL" v-on:click="prevImg()">
 							<span v-if="idx>0" class="fill-div as" >a</span>
 						</div>
 						<div class="col indR" v-on:click="nextImg()">
-							<span v-if="idx<2" class="fill-div as" >d</span>
+							<span v-if="idx<2" class="fill-div as" >a</span>
 						</div>
 					</div>
 				</div>
@@ -82,11 +82,7 @@
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'resolver'">
 			<div class="bgImgAcer" :style="backs">
-				<div class="bgImgRuna" :style="imagenes">
-					<div id="vidas" class="forImg">
-						<img :src="vida.stat[estado]" alt="contenido">
-					</div>
-				</div>
+				<div class="bgImgRuna" :style="imagenes"></div>
 				<div class="resolver containerP">
 					<div class="input-group mb-3">
 						<input v-model="secret" type="text" class="resol form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
