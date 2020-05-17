@@ -118,9 +118,9 @@ $result =  $conn->query($sql);
 if($result->num_rows>0)
 { 
     while($row=$result->fetch_assoc())
-    {
-     
+    { 
       $pi = array( );
+      $pi['id_pilar'] = $row['Id_pilar'];
       $pi['num_pilar'] = $row['Num_pilar'];
       $pi['imagen_acertijo'] = $row['Image_acertijo'];
       $f = $row['Fondo_acertijo'];
