@@ -82,7 +82,10 @@ html,body{
   font-family: modern;
   src: url('MODERN SPACE.ttf')
 }
-
+.img-resol {
+  max-width: 50%;
+  height: auto;
+}
 .pages{
   height: 100%;
 }
@@ -634,7 +637,6 @@ input[type=text], select {
 }
 
 
-
 .input-group{
   display: flex;
   justify-content: center;
@@ -979,7 +981,7 @@ input[type=text], select {
   font-size: 130% !important;
   font-weight:bolder !important;
 }
-/SCROLL DE IMAGENES/
+
 
 .ScrollImg{
   display: flex;
