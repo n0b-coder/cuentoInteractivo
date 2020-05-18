@@ -105,7 +105,7 @@ array_push($data["indagacion"], $Indaga);
 array_push($data["finales"], $Finales);
 
 
-$sql = "SELECT pilar.Id_pilar, cuento.Cuento_Name , pilar.Num_pilar, pilar.Name, acertijo.Name_acertijo, acertijo.Image_acertijo, acertijo.Fondo_acertijo , acertijo.Solucion, fondos.fondo_img , personajes.image_personaje 
+$sql = "SELECT pilar.Id_pilar, cuento.Cuento_Name , pilar.Num_pilar, pilar.Id_acertijo, acertijo.Image_acertijo, acertijo.Fondo_acertijo , acertijo.Solucion, fondos.fondo_img , personajes.image_personaje 
 FROM `pilar` 
 JOIN cuento  JOIN acertijo  JOIN fondos JOIN personajes  
 ON pilar.Id_cuento = cuento.Id_cuento AND pilar.Id_acertijo = acertijo.Id_acertijo 
@@ -122,6 +122,7 @@ if($result->num_rows>0)
       $pi = array( );
       $pi['id_pilar'] = $row['Id_pilar'];
       $pi['num_pilar'] = $row['Num_pilar'];
+      $pi['id_acertijo'] = $row['Id_acertijo'];
       $pi['imagen_acertijo'] = $row['Image_acertijo'];
       $f = $row['Fondo_acertijo'];
         $sql1 = "SELECT fondo_img FROM fondos WHERE Id_fondo = '$f'";
