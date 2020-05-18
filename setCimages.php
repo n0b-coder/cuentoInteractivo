@@ -4,7 +4,7 @@
     $Images =array();
     $Images["historia"] = array(); 
     $Images["finales"] = array(); 
-    $Images["p_resol"] = array(); 
+    $Images["post_resol"] = array(); 
     $Images["torre"] = array(); 
     $Images["indagacion"] = array(); 
     $Images["acertijo"] = array();
@@ -34,9 +34,9 @@
             { array_push($Images["indagacion"], $imag);}
             if($type== "facertijo")
             { array_push($Images["facertijo"], $imag);}
-            if($type== "p_resol")
-            { array_push($Images["p_resol"], $imag);}
-            if($type== "final")
+            if($type== "post_resol")
+            { array_push($Images["post_resol"], $imag);}
+            if($type== "finales")
             { array_push($Images["finales"], $imag);}
         }
            
