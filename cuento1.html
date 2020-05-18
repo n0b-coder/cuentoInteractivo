@@ -116,9 +116,9 @@
 		<div class="pages" v-if="section == 'reintentar'">
 			<div class="Main" :style="backs">
 				<div id="again">
-					<img class="img-fluid" :src="vida.stat[estado]" alt="contenido">
+					<img class="img-resol" :src="vida.stat[estado]" alt="contenido">
 					<div>
-						<a id="he2" v-on:click="again()">{{alOrDe}}</a>
+						<i v-on:click="again()" class="icon far fa-caret-square-right"></i>
 					</div>
 				</div>
 			</div>
