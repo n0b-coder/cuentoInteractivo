@@ -128,7 +128,7 @@ var app = new Vue({
             body: JSON.stringify({
               Id_cuento:1,
               Id_pestana,
-              //imagen2_id:this.personajeseleccionado,
+              imagen2_id:item.imagen_acertijo,
               texto: item.texto,
               imagen_id: this.selected,
               tipo: this.tipo
