@@ -32,21 +32,32 @@ var app = new Vue({
       status:{
         texto:'',
         imagen:''
-      }
+      },
+      active:false
     },
     computed:{
       photos:function(){
-       if (this.section=='historia'){ 
-        return this.gallery.historia;
-       } else if (this.section=='pilares'){
-        return this.gallery.torre;
-       } else if (this.section=='indagacion'){
-        return this.gallery.indagacion;
-       } else if (this.section=='finales'){
-        return this.gallery.finales;
-       } else if (this.section=='resolucion'){
-        return this.gallery.facertijo;
-       }
+        if(this.active==true){
+          if (this.section=='resolucion'){ 
+            return this.gallery.acertijo;
+          }
+          else {
+            return this.gallery.personajes;
+          }
+        }
+        else if(this.active==false){
+          if (this.section=='historia'){ 
+            return this.gallery.historia;
+          } else if (this.section=='pilares'){
+            return this.gallery.torre;
+          } else if (this.section=='indagacion'){
+            return this.gallery.indagacion;
+          } else if (this.section=='finales'){
+            return this.gallery.finales;
+          } else if (this.section=='resolucion'){
+            return this.gallery.facertijo;
+          }
+        }
       },
       tipo:function(){
         return this.panel_data.tipo;
@@ -58,6 +69,9 @@ var app = new Vue({
           this.status.texto='Modificar solución';
           this.status.imagen='Cambiar acertijo';
           return this.panel_data.current_selection.fondo_acertijo;
+        } else if(this.section=='portada'){          
+          this.status.texto='Modificar título';
+          return this.panel_data.current_selection.imagen_fondo;
         } else {
           this.status.texto='Modificar texto';
           this.status.imagen='Cambiar personaje';
@@ -100,6 +114,8 @@ var app = new Vue({
           Id_pestana = item.id_portada; 
         } else if(this.section=='pilares'){
           Id_pestana = item.id_pilar;
+        } else if(this.section=='resolucion'){
+          Id_pestana = item.id_pilar;
         } else {
           Id_pestana = item.id_pestana;
         }
@@ -124,7 +140,7 @@ var app = new Vue({
 });
 
 
-const request = new Request('set.json');
+const request = new Request('set.php');
 const imgs = new Request('imgs.json');
 //data del cuento
 fetch(request)

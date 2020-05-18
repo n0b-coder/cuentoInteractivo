@@ -64,7 +64,7 @@ if($variable_S == null || $variable_S == '')
                                 <h3 id="clas-Secc"> Sección {{panel_data.current_selection.seccion}}</h3>
                                 <h3 id="clas-Pag"> Página  {{panel_data.current_selection.pagina}} </h3>
                                 </div>
-                                <i class="icon fas fa-check-circle" @click="popUp=false"></i>      
+                                <i class="icon fas fa-check-circle" @click="popUp=false, active=false"></i>      
                                 </div>
                         </div>
                         <div class="ScrollImg row">
@@ -90,9 +90,9 @@ if($variable_S == null || $variable_S == '')
                     </div>
                 </div>
             </div>
-        </div>
-        
+        </div>        
         <!-- end popUp -->
+
         <div class="card-header">
             <div id="Titulodeadmin">
                 <h1 id="he1deadminP"> Administrador </h1>
@@ -164,8 +164,7 @@ if($variable_S == null || $variable_S == '')
                     <!-- historia -->
                         <div
                             class="cards slider-item"
-                            v-for="(item, index) in panel_data.historia"
-                            :key="index"                           
+                            v-for="(item, index) in panel_data.historia"                       
                             v-if="section=='historia' || unique==false"
                         >
                             <div class="cards" v-for="item in panel_data.historia[index]">
@@ -200,6 +199,16 @@ if($variable_S == null || $variable_S == '')
                                 <img class="slider-background"  @click="activar(itemRes), panel_data.tipo='fondos-acertijo', seccion('resolucion')" :src="itemRes.fondo_acertijo">
                             </div>
                         </template>
+                        <!-- post-resolución -->
+                        <div
+                            class="cards slider-item"
+                            v-for="(itempr, index) in panel_data.post_resol"                      
+                            v-if="section=='postresol' || unique==false"
+                        >
+                            <div class="cards" v-for="itempr in panel_data.post_resol[index]">
+                                <img class="slider-background"  @click="activar(itempr), panel_data.tipo='post_resol', seccion(panel_data.tipo)" :src="itempr.imagen_fondo">
+                            </div>
+                        </div>
                         <!-- finales -->
                         <div
                             class="cards slider-item" v-for="(itemf, index) in panel_data.finales" v-if="unique == false || section=='finales'"
@@ -228,8 +237,8 @@ if($variable_S == null || $variable_S == '')
                             </div>
                         </div>
                         <!-- Personaje -->
-                        <div class= "EdPersonaje" v-if="(section!='pilares') && (section!='indagacion') && (section!='postresol')">
-                            <button class="Btn">
+                        <div class= "EdPersonaje" v-if="(section!='pilares') && (section!='indagacion') && (section!='postresol') && (section!='portada')">
+                            <button class="Btn" @click="active=true, popUp=true">
                             {{status.imagen}}
                             </button>
                             <div class="previewCol">
