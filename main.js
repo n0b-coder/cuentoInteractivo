@@ -67,7 +67,7 @@ var app = new Vue({
 		} else if(this.section=='indagar'){
 			return 'background-image:url("'+this.game_data.indagacion[this.idx].imagen_fondo+'")';
 		} else if(this.section=='reintentar'){
-			return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';
+			return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';//ahora recibe el fondo desde postresolución
 		}
 		else {			
       		return 'background-image:url("'+this.game_data.historia[this.pilSect][this.pg].imagen_fondo+'")';
@@ -183,8 +183,10 @@ var app = new Vue({
 			if(this.intentos>=Math.round(this.total*3*0.9)){
 				this.counterf=1;
 			}
-			else if (this.intentos<Math.round(this.total*3*0.9)){
+			else if (this.intentos<Math.round(this.total*3*0.9) && this.intentos>Math.round(this.total*3*0.8)){
 				this.counterf=2;
+			} else if (this.intentos<=Math.round(this.total*3*0.8)){
+				this.counterf=3;
 			}
 			this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS JS";
 			this.activar('final',0);
@@ -194,7 +196,7 @@ var app = new Vue({
   }
 });
 
-const request = new Request('set.php');
+const request = new Request('set.json');
 
 fetch(request)
   .then(response => {

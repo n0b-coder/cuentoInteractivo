@@ -64,14 +64,15 @@ if($variable_S == null || $variable_S == '')
                                 <h3 id="clas-Secc"> Sección {{panel_data.current_selection.seccion}}</h3>
                                 <h3 id="clas-Pag"> Página  {{panel_data.current_selection.pagina}} </h3>
                                 </div>
-                                <button class="Btn" @click="popUp=false">Ok</button>         
+                                <i class="icon fas fa-check-circle" @click="popUp=false"></i>      
                                 </div>
                         </div>
                         <div class="ScrollImg row">
                         <form action="upload.php" method="post" enctype="multipart/form-data" id="uploadImg">
-                            <div>
-                                <input type="file" name="ImageToUpload" id="ImageToUpload" style="font-size:1vw!important; cursor:pointer;"/>
-                                <button class="Btn" type="submit">Subir imagen</button> 
+                            <div style="position:relative">
+                                <input type="file" name="ImageToUpload" id="ImageToUpload" style="font-size:1vw!important; cursor:pointer; opacity:0; position:absolute" @change="onFileChange"/>
+                                <i class="icon fas fa-upload"></i>
+                                <button class="Btn" type="submit" style="opacity:1;">Subir imagen</button> 
                                 <input type="hidden" name="tipoimagen" :value="panel_data.tipo">                               
                             </div>
                         </form>
@@ -140,7 +141,7 @@ if($variable_S == null || $variable_S == '')
                         <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('resolucion'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
-                    <label class="col">Post-resolución
+                    <label class="col">Post/resolución
                         <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('postresol'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
@@ -212,8 +213,8 @@ if($variable_S == null || $variable_S == '')
             
             <!-- edit page -->
             <div class="EdRow" v-if="panel_data.current_selection">                
-                    <div class= "EdText" v-if="section!='pilares'">
-                        <button class="Btn">Actualizar Texto</button>
+                    <div class= "EdText" v-if="(section!='pilares') && (section!='indagacion')">
+                        <button class="Btn">{{status.texto}}</button>
                         <textarea cols="30" rows="5" name="textarea" class="HisText" placeholder="Texto a editar" v-model="panel_data.current_selection.texto" name="newtext"></textarea>
                         <input type="hidden" name="pestana_id"  value ="panel_data.current_selection.texto">
                     </div>
@@ -227,9 +228,9 @@ if($variable_S == null || $variable_S == '')
                             </div>
                         </div>
                         <!-- Personaje -->
-                        <div class= "EdPersonaje">
+                        <div class= "EdPersonaje" v-if="(section!='pilares') && (section!='indagacion') && (section!='postresol')">
                             <button class="Btn">
-                            Cambiar personaje:
+                            {{status.imagen}}
                             </button>
                             <div class="previewCol">
                                 <img v-if="panel_data.current_selection.imagen_personaje" class = "Prev" :src="panel_data.current_selection.imagen_personaje">
