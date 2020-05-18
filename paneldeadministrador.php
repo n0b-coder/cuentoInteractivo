@@ -93,23 +93,23 @@ if($variable_S == null || $variable_S == '')
         </div>        
         <!-- end popUp -->
 
-        <div class="container card-header">
-            <div id="row Titulodeadmin">
-                <h1 class="row" id="he1deadminP"> Administrador </h1>
-                <h2 class="row" id="he2deadminP"> <?php echo $_SESSION['user']?> </h2>               
+        <div class="card-header">
+            <div id="Titulodeadmin">
+                <h1 id="he1deadminP"> Administrador </h1>
+                <h2 id="he2deadminP"> <?php echo $_SESSION['user']?> </h2>               
             </div>
-            <div class="cerrarS row">
+            <div class="cerrarS">
                 <form action="Cerrar_Sesion.php">
-                <button class="Btn h2">
+                <button class="BtnUser">
                     Cerrar Sesión
                 </button>
                 </form>
             </div>
         </div>
 
-        <div class="container">
+        <div class="container-3fluid">
             <div class="input-group mb-3">
-                <div class="input-group-prepend row">
+                <div class="input-group-prepend">
                   <button class="input-group-text">
                         Actualizar Nombre
                 </div>
@@ -119,7 +119,7 @@ if($variable_S == null || $variable_S == '')
 
             <!-- selection checkbox -->
 
-            <div class="container">
+            <div class="row">
                 <div class="checkboxrow row">
                     <label class="col">Todo
                         <input type="radio" checked="checked" name="radio" @click="unique=false, panel_data.current_selection=null">
@@ -153,7 +153,7 @@ if($variable_S == null || $variable_S == '')
             </div>
             <!-- Slider -->
             
-            <div class="container row slider">
+            <div class="slider">
                     <div class="scrolling-wrapper">
                     <!-- portada -->
                         <div class="cards slider-item" v-if="section=='portada' || unique==false">
@@ -227,8 +227,8 @@ if($variable_S == null || $variable_S == '')
                         <textarea cols="30" rows="5" name="textarea" class="HisText" placeholder="Texto a editar" v-model="panel_data.current_selection.texto" name="newtext"></textarea>
                         <input type="hidden" name="pestana_id"  value ="panel_data.current_selection.texto">
                     </div>
-                    <div class="opcionesCol row">
-                        <div class= "EdFondo col">
+                    <div class="opcionesCol">
+                        <div class= "EdFondo">
                             <button class="Btn" @click="popUp=true">
                                 Cambiar Fondo
                             </button>                            
@@ -237,8 +237,8 @@ if($variable_S == null || $variable_S == '')
                             </div>
                         </div>
                         <!-- Personaje -->
-                        <div class="EdPersonaje col" v-if="(section!='pilares') && (section!='indagacion') && (section!='postresol') && (section!='portada')">
-                            <button class="Btn h3" @click="active=true, popUp=true">
+                        <div class= "EdPersonaje" v-if="(section!='pilares') && (section!='indagacion') && (section!='postresol') && (section!='portada')">
+                            <button class="Btn" @click="active=true, popUp=true">
                             {{status.imagen}}
                             </button>
                             <div class="previewCol">
@@ -246,9 +246,9 @@ if($variable_S == null || $variable_S == '')
                                 <img v-if="panel_data.current_selection.imagen_personaje==null" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
                             </div>
                         </div>
-                    </div>
-                    <div class="submit row">
+                        <div class="submit">
                             <button class="Btn" @click="save(panel_data.current_selection), panel_data.current_selection=null, success = true">Guardar cambios</button>
+                        </div>
                     </div>
                 </div>               
             </div>

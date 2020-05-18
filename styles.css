@@ -56,6 +56,7 @@
   .forImg{
     opacity: 1 !important;
   }
+
   .personaje{
     position: absolute;
     height: 100% !important;
@@ -64,16 +65,10 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
-  } 
+  }
+ 
   .clasp{
     text-align: right !important;
-  }
-  .container-fluid{
-    max-width: 80% !important;
-  }
-  .he1deadmin {
-    font-size: 8vw;
-    text-align: center;
   }
 }
 body{
@@ -82,7 +77,6 @@ body{
 }
 html,body{
  height: 100%;
- width: 100%;
 }
 @font-face{
   font-family: modern;
@@ -237,8 +231,7 @@ a:not([href]):not([tabindex]){
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  cursor: pointer;
-  background: rgba(255, 255, 255,1);
+  background: rgba(255, 255, 255,1); 
 }
 .opt{
   width: 50%;
@@ -506,8 +499,6 @@ input[type=text], select {
 }
 .IntLog{
   padding: 10px!important; 
-  max-width: 100%;
-  font-family: 'modern', sans-serif;
 }
 
 
@@ -571,7 +562,9 @@ input[type=text], select {
 }
 .container-panel{
   background-position: center;
+  max-width: 100%;
   background-size: cover;
+  background-image: url("IMG_NEW/admin/adm_2.png");
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -585,8 +578,10 @@ input[type=text], select {
   margin-left: auto;
 }
 
-.he1deadminP {
-  font-family: 'modern', sans-serif !important;
+
+
+#he1deadminP {
+  font-family: 'modern', sans-serif;
   font-weight: lighter;
   font-size: 60%;
   text-shadow: 0 0 0.1em cyan;
@@ -607,7 +602,7 @@ input[type=text], select {
   text-align: center;
 }
 .cerrarS{
-  padding-bottom: 50px;
+  margin-bottom: 30px;
   margin-top: 20px;
   max-height: 50px;
   display: flex;
@@ -693,6 +688,7 @@ input[type=text], select {
 .Btn{
   color: rgba(255, 255, 255) !important;
   font-family: 'modern', sans-serif !important;
+  font-size: 120% !important;
   font-weight:bolder !important;
   background-color: rgba(26, 35, 44, 0.52)!important;
   border-color: rgb(255, 255, 255) !important;
@@ -950,12 +946,6 @@ input[type=text], select {
   max-width: 35%;
   margin-left: 30px;
 }
-
-.formulario{
-  width: 100%;
-}
-
-
 .formuControl{
   background-color: rgb(236, 236, 236) !important;
   color: rgb(0, 0, 0) !important;
@@ -1091,9 +1081,10 @@ input {
   justify-content: center;
   text-align: center;
 }
-.he1deadmin {
+#he1deadmin {
   font-family: 'modern', sans-serif;
   font-weight: lighter;
+  font-size: 100%;
   text-shadow: 0 0 0.5em cyan;
 }
 
