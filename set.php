@@ -1,4 +1,4 @@
-<?php
+<?php  //laura esta loca
 require_once("Conexion.php");
 $id_cuento; $id_personaje;
   $data =array();
@@ -7,12 +7,14 @@ $id_cuento; $id_personaje;
   $History =array();
   $Finales =array();
   $Indaga = array();
+  $Post_reso = array();
 
 
   $pilar = array();
   $data["historia"] = array();
   $data["indagacion"]= array();
   $data["finales"]= array();
+  $data["post_resol"]= array();
   $data["pilares"]= array();
   $data["current_selection"]=NULL;
   $data["tipo"]=NULL;
@@ -43,7 +45,7 @@ $data["id_cuento"]=$id_cuento;
 
 
 $sql = "SELECT pestana.Id_Pestana, cuento.Cuento_Name , pestana.Seccion, pestana.Pagina , pestana.Name, pestana.Texto, 
-pestana.Id_fondo, fondos.fondo_img , personajes.image_personaje , pestana.Id_personaje , pestana.Type
+pestana.Id_fondo, fondos.fondo_img , personajes.image_personaje ,  pestana.personaje_pos, pestana.Id_personaje , pestana.Type
 FROM pestana 
 INNER JOIN cuento  ON pestana.Id_cuento = cuento.Id_cuento
 INNER JOIN fondos  ON pestana.Id_fondo = fondos.Id_fondo
@@ -65,17 +67,18 @@ if($result->num_rows>0)
           $portada['imagen_fondo'] = $row['fondo_img']; 
           $data["portada"] = $portada;  
       } 
-      if($tipo == 'history' || $tipo == 'indaga' || $tipo == 'final' )
+      if($tipo == 'history' || $tipo == 'indaga' || $tipo == 'final' || $tipo == 'post_resol')
       {
         $p = array( );
         $p['id_pestana'] = $row['Id_Pestana'];
         $p['texto'] = $row['Texto'];
         $p['imagen_fondo'] = $row['fondo_img'];
         $p['imagen_personaje'] = $row['image_personaje'];
+        $p['pos_personaje'] = $row['personaje_pos'];
         $p['pagina'] = $row['Pagina'];
         $p['seccion'] = $row['Seccion'];
         $numsec = $row['Seccion'];
-        if($numsec != $sec )
+        if($numsec != $sec )    
         {
           array_push($data["historia"],$History); 
           unset($History); 
@@ -86,6 +89,9 @@ if($result->num_rows>0)
           array_push($data["finales"], $Finales);
           unset($Finales); 
           $Finales = array();
+          array_push($data["post_resol"], $Post_reso);
+          unset($Post_reso); 
+          $Post_reso = array();
           $sec = $numsec;
         }
           if($tipo == 'history')
@@ -94,7 +100,8 @@ if($result->num_rows>0)
           array_push($Indaga, $p);
           if($tipo == 'final')
           array_push($Finales, $p);
-     
+          if($tipo == 'post_resol')
+          array_push($Post_reso, $p);
       } 
       
     }
@@ -103,7 +110,7 @@ if($result->num_rows>0)
 array_push($data["historia"], $History); 
 array_push($data["indagacion"], $Indaga);
 array_push($data["finales"], $Finales);
-
+array_push($data["post_resol"], $Post_reso);
 
 $sql = "SELECT pilar.Id_pilar, cuento.Cuento_Name , pilar.Num_pilar, pilar.Id_acertijo, acertijo.Image_acertijo, acertijo.Fondo_acertijo , acertijo.Solucion, fondos.fondo_img , personajes.image_personaje 
 FROM `pilar` 
