@@ -30,6 +30,15 @@ var app = new Vue({
       success:false
     },
     computed:{
+      photos:function(){
+       if (this.section=='historia'){
+        return this.gallery.historia;
+       } else if (this.section=='pilares'){
+        return this.gallery.torre;
+       }  else if (this.section=='resolucion'){
+        return this.gallery.facertijo;
+       }
+      },
       tipo:function(){
         return this.panel_data.tipo;
       },
@@ -43,24 +52,7 @@ var app = new Vue({
         }
       }
     },
-    methods: {      
-      uploadFiles(event) {
-        console.log(event.target.files);
-        fetch('upload.php', {
-          method: 'POST',
-          body:{
-            file: event.target.files,
-            tipo:this.tipo
-          }
-        })
-        
-        .then(result => {
-          console.log('Success:', result);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-      },
+    methods: {
       seccion:function(actSeccion){        
         this.section=actSeccion;
       },
@@ -77,11 +69,11 @@ var app = new Vue({
       //envía los datos a chancla.php
       save: function (item){
         success=true;
-        var Id_pestana, num_pilar;
+        var Id_pestana;
         if(this.section=='portada'){
           Id_pestana = item.id_portada; 
         } else if(this.section=='pilares'){
-          Id_pestana = item.num_pilar;
+          Id_pestana = item.id_pilar;
         } else {
           Id_pestana = item.id_pestana;
         }
@@ -92,6 +84,7 @@ var app = new Vue({
           fetch('savechanges.php', {
             method: 'POST',
             body: JSON.stringify({
+              Id_cuento:1,
               Id_pestana,
               //imagen2_id:this.personajeseleccionado,
               texto: item.texto,
@@ -106,7 +99,7 @@ var app = new Vue({
 
 
 const request = new Request('set.php');
-const imgs = new Request('setCimages.php');
+const imgs = new Request('imgs.json');
 //data del cuento
 fetch(request)
   .then(response => {

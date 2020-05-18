@@ -79,7 +79,7 @@ if($variable_S == null || $variable_S == '')
                         <!-- preview de la que acaba de subir -->
                         <img class="images" :src="image" v-if="image!=''">
                         <!-- las imgs de la base de datos -->
-                        <template class="row" v-for="item in gallery.images">
+                        <template class="row" v-for="item in photos">
                             <div class="galCol">
                                 <img :class="{galSelected:item.imagen_id == selected , galThumb:item.imagen_id != selected}" class="slider-background" :src="item.Imag_link"  @click="newImg(item), selected=item.imagen_id">
                             </div>                                
@@ -138,6 +138,10 @@ if($variable_S == null || $variable_S == '')
                     </label>
                     <label class="col">Resolución
                         <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('resolucion'), panel_data.current_selection=null">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="col">Post-resolución
+                        <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('postresol'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
                     <label class="col">Finales
