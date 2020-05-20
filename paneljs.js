@@ -116,6 +116,8 @@ var app = new Vue({
           this.selected=item.imagen_id;
           if(this.section=='pilares'){
             this.panel_data.current_selection.torre = item.Imag_link;
+          } else if(this.section=='resolucion'){
+            this.panel_data.current_selection.fondo_acertijo = item.Imag_link;
           }
         }
       },
