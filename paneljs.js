@@ -33,7 +33,9 @@ var app = new Vue({
         texto:'',
         imagen:''
       },
-      active:false
+      personajeprev:"",
+      active:false,
+      imag2:0
     },
     computed:{
       photos:function(){
@@ -63,19 +65,31 @@ var app = new Vue({
         return this.panel_data.tipo;
       },
       preview:function(){
-        if(this.section=='pilares'){
-          return this.panel_data.current_selection.torre;
-        } else if(this.section=='resolucion'){          
-          this.status.texto='Modificar solución';
-          this.status.imagen='Cambiar acertijo';
-          return this.panel_data.current_selection.fondo_acertijo;
-        } else if(this.section=='portada'){          
-          this.status.texto='Modificar título';
-          return this.panel_data.current_selection.imagen_fondo;
-        } else {
-          this.status.texto='Modificar texto';
-          this.status.imagen='Cambiar personaje';
-          return this.panel_data.current_selection.imagen_fondo;
+        if(this.active==true){
+          if (this.section=='resolucion'){ 
+            return this.panel_data.current_selection.imagen_acertijo;
+          }
+          else {
+            return this.panel_data.current_selection.imagen_personaje;
+          }
+        }
+        else if(this.active==false){
+          if(this.section=='pilares'){
+            return this.panel_data.current_selection.torre;
+          } else if(this.section=='resolucion'){          
+            this.status.texto='Modificar solución';
+            this.status.imagen='Cambiar acertijo';
+            this.personajeprev=this.panel_data.current_selection.imagen_acertijo;
+            return this.panel_data.current_selection.fondo_acertijo;
+          } else if(this.section=='portada'){          
+            this.status.texto='Modificar título';
+            return this.panel_data.current_selection.imagen_fondo;
+          } else {
+            this.status.texto='Modificar texto';
+            this.status.imagen='Cambiar personaje';
+            this.personajeprev=this.panel_data.current_selection.imagen_personaje;
+            return this.panel_data.current_selection.imagen_fondo;
+          }
         }
       }
     },
@@ -88,9 +102,21 @@ var app = new Vue({
         this.selected=item.imagen_id;
       },
       newImg:function(item){
-        this.panel_data.current_selection.imagen_fondo = item.Imag_link;
-        if(this.section=='pilares'){
-          this.panel_data.current_selection.torre = item.Imag_link;
+        if(this.active==true){
+          if (this.section=='resolucion'){            
+            return this.panel_data.current_selection.imagen_acertijo = item.Imag_link;
+          }
+          else {
+            this.imag2=item.imagen_id;
+            return this.panel_data.current_selection.imagen_personaje = item.Imag_link;
+          }
+        }
+        else if(this.active==false){
+          this.panel_data.current_selection.imagen_fondo = item.Imag_link;
+          this.selected=item.imagen_id;
+          if(this.section=='pilares'){
+            this.panel_data.current_selection.torre = item.Imag_link;
+          }
         }
       },
       onFileChange(e) {
@@ -109,30 +135,49 @@ var app = new Vue({
       //envía los datos a chancla.php
       save: function (item){
         success=true;
+        var datoskul;
         var Id_pestana;
+        var imagen2_id;
         if(this.section=='portada'){
           Id_pestana = item.id_portada; 
         } else if(this.section=='pilares'){
           Id_pestana = item.id_pilar;
+          imagen2_id=null;
         } else if(this.section=='resolucion'){
           Id_pestana = item.id_pilar;
+          imagen2_id = item.imagen_acertijo;
         } else {
           Id_pestana = item.id_pestana;
+          imagen2_id = this.imag2;
         }
-        if(this.selected==item.imagen_id || this.selected==0){
-          this.selected=item.imagen_id;
+        if(this.active!=true){
+          if(this.selected==item.imagen_id || this.selected==0){
+            this.selected=item.imagen_id;
+          }
         }
+        if (this.section=='pilares'){
+          datoskul=JSON.stringify({
+            Id_cuento:1,
+            Id_pestana,
+            texto: item.texto,
+            imagen_id: this.selected,
+            tipo: this.tipo
+          })
+        } else {          
+          datoskul=JSON.stringify({
+            Id_cuento:1,
+            Id_pestana,
+            imagen2_id,
+            texto: item.texto,
+            imagen_id: this.selected,
+            tipo: this.tipo
+          })
+          
+          }
         {
           fetch('savechanges.php', {
             method: 'POST',
-            body: JSON.stringify({
-              Id_cuento:1,
-              Id_pestana,
-              imagen2_id:item.imagen_acertijo,
-              texto: item.texto,
-              imagen_id: this.selected,
-              tipo: this.tipo
-            })
+            body: datoskul
         });
         }
       },
