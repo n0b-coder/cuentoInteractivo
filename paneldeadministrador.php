@@ -225,7 +225,7 @@ if($variable_S == null || $variable_S == '')
             <div class="EdRow" v-if="panel_data.current_selection">                
                     <div class= "EdText" v-if="(section!='pilares') && (section!='indagacion')">
                         <button class="Btn">{{status.texto}}</button>
-                        <textarea cols="30" rows="5" name="textarea" class="HisText" placeholder="Texto a editar" v-model="panel_data.current_selection.texto" name="newtext"></textarea>
+                        <textarea cols="30" rows="5" name="textarea" class="HisText" placeholder="Texto a editar" v-model="txt" name="newtext"></textarea>
                         <input type="hidden" name="pestana_id"  value ="panel_data.current_selection.texto">
                     </div>
                     <div class="opcionesCol">

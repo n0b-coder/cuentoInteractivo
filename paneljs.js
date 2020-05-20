@@ -31,8 +31,9 @@ var app = new Vue({
       //Estado de texto y personaje
       status:{
         texto:'',
-        imagen:''
+        imagen:'',
       },
+      txt:'',
       personajeprev:"",
       active:false,
       imag2:0
@@ -100,6 +101,12 @@ var app = new Vue({
       activar: function (item){
         this.panel_data.current_selection = item;
         this.selected=item.imagen_id;
+        if(this.section=='resolucion'){
+          this.txt=item.solucion;
+        }
+        else {
+          this.txt=item.texto;
+        }
       },
       newImg:function(item){
         if(this.active==true){
@@ -161,7 +168,7 @@ var app = new Vue({
           datoskul=JSON.stringify({
             Id_cuento:1,
             Id_pestana,
-            texto: item.texto,
+            texto: this.txt,
             imagen_id: this.selected,
             tipo: this.tipo
           })
@@ -170,7 +177,7 @@ var app = new Vue({
             Id_cuento:1,
             Id_pestana,
             imagen2_id,
-            texto: item.texto,
+            texto: this.txt,
             imagen_id: this.selected,
             tipo: this.tipo
           })

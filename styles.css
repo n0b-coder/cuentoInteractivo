@@ -60,13 +60,12 @@
   .personaje{
     position: absolute;
     height: 100% !important;
+    width: 100%;
   }
   .personaje img{
-    width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
   }
- 
   .clasp{
     text-align: right !important;
   }
@@ -467,18 +466,27 @@ input[type=text], select {
   margin: auto!important;
   cursor: pointer;
 }
-
+/*Personaje*/
 .personaje{
   position: absolute;
   height: 50%;
   justify-items: flex-end;
 }
 .personaje img{
-  width: 50%;
   height: 100%;
   object-fit: contain;
+  width: 50%;
 }
-
+/*Personaje posiciones*/
+.left{
+  text-align: left !important;
+}
+.right{
+  text-align: right !important;
+}
+.center{
+  text-align: center !important;
+}
 .clasp{
   text-align: right;
 }

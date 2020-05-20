@@ -23,8 +23,7 @@ var game_data = {
 	 }
 }
 
-//vue
-
+//Vue components
 
 //________
 var app = new Vue({
@@ -52,13 +51,19 @@ var app = new Vue({
   },
   computed: {
 	  //
-	
+	estilo:function(){
+		if(this.section=='base'){
+			return this.game_data.historia[this.pilSect][this.pg].pos_personaje;
+		} else if (this.seccion=='finales') {
+			this.game_data.finales[this.counterf][0].pos_personaje;
+		}
+	},
 	  //
     backs: function () {
       	if(this.section=='final'){
 			return 'background-image:url("'+this.game_data.finales[this.counterf][0].imagen_fondo+'")';
 		} else if(this.section=='reset'){
-			//fslta pantalla de reset en DB
+			//falta pantalla de reset en DB
 			return 'background-image:url("'+this.game_data.finales[this.counterf][0].imagen_fondo+'")';
 		} else if(this.section=='resolver'){
 			return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';
@@ -70,7 +75,7 @@ var app = new Vue({
 			return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';//ahora recibe el fondo desde postresolución
 		}
 		else {			
-      		return 'background-image:url("'+this.game_data.historia[this.pilSect][this.pg].imagen_fondo+'")';
+			  return 'background-image:url("'+this.game_data.historia[this.pilSect][this.pg].imagen_fondo+'")';
 		}
 	},
 	//imágenes acertijo
@@ -84,6 +89,11 @@ var app = new Vue({
 	monitor:function (){
 		return 'background-image:url("'+this.indagacion.monitor[this.pilSect]+'")';
 	},
+	//Personaje
+	personaje:function (){
+		return this.game_data.historia[this.pilSect][this.pg].imagen_personaje;
+
+	},
 	//Pantalla redirección a index
 	reset:function (){
 		//return this.game_data.finales[this.counterf][0].texto; algo así pero con reset :V
@@ -93,7 +103,8 @@ var app = new Vue({
 		return this.game_data.finales[this.counterf][this.pg].texto;
 	},
 	pass: function(){
-		return this.secret.toLowerCase();
+		var secreto=this.secret.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+		return secreto.toLowerCase();
 	},
 	total: function(){
 		return Object.keys(this.game_data.pilares).length;
@@ -196,7 +207,7 @@ var app = new Vue({
   }
 });
 
-const request = new Request('set.php');
+const request = new Request('set.json');
 
 fetch(request)
   .then(response => {

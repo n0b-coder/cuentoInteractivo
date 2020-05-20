@@ -19,8 +19,10 @@
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'base'">
 			<div class="bgImg" :style="backs">
-				
-			</div>
+				<div class="personaje" :class="estilo">
+					<img v-if="personaje!=null" :src="personaje" alt="contenido">
+				</div>
+			</div>			
 				<div class="containerP1">
 					<div class="grad">
 						<div class="parraf">
