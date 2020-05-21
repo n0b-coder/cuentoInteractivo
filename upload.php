@@ -55,19 +55,23 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
   // if everything is ok, try to upload file
   } else {
+    echo "\n STEP 1 \n";
 
     $s3 = new Aws\S3\S3Client([
         'version'  => 'latest',
         'region'   => 'us-east-1',
     ]);
+    echo "\n STEP 2 \n";
+
     $bucket = getenv('S3_BUCKET');
     // $upload = $s3->upload($bucket, $_FILES['ImageToUpload']['name'], fopen($_FILES['ImageToUpload']['tmp_name'], 'rb'), 'public-read');
 
+    echo "\n STEP 3 \n";
 
     try {
         $upload = $s3->putObject([
             'Bucket' => $bucket,
-            'Key'    => 'my-object',
+            'Key'    => $_FILES['ImageToUpload']['name'],
             'Body'   => fopen($_FILES['ImageToUpload']['tmp_name'], 'rb'),
             'ACL'    => 'public-read',
         ]);
@@ -79,6 +83,7 @@ if ($uploadOk == 0) {
         echo "There was an error uploading the file.\n";
     }
 
+    echo "\n STEP 4 \n";
 
     if (move_uploaded_file($_FILES["ImageToUpload"]["tmp_name"], $target_file)) {
       echo "The file ". basename( $_FILES["ImageToUpload"]["name"]). " has been uploaded.";
