@@ -61,22 +61,24 @@ if ($uploadOk == 0) {
         'region'   => 'us-east-1',
     ]);
     $bucket = getenv('S3_BUCKET');
-    $upload = $s3->upload($bucket, $_FILES['ImageToUpload']['name'], fopen($_FILES['ImageToUpload']['tmp_name'], 'rb'), 'public-read');
+    // $upload = $s3->upload($bucket, $_FILES['ImageToUpload']['name'], fopen($_FILES['ImageToUpload']['tmp_name'], 'rb'), 'public-read');
 
 
-// try {
-//     $s3->putObject([
-//         'Bucket' => 'my-bucket',
-//         'Key'    => 'my-object',
-//         'Body'   => fopen('/path/to/file', 'r'),
-//         'ACL'    => 'public-read',
-//     ]);
-// } catch (Aws\S3\Exception\S3Exception $e) {
-//     echo "There was an error uploading the file.\n";
-// }
+    try {
+        $upload = $s3->putObject([
+            'Bucket' => $bucket,
+            'Key'    => 'my-object',
+            'Body'   => fopen($_FILES['ImageToUpload']['tmp_name'], 'rb'),
+            'ACL'    => 'public-read',
+        ]);
+        echo "\nuploaded file \n";
 
-    $url = $upload->get('ObjectURL');
-    echo "\nuploaded file to URL:$url\n";
+        $url = $upload->get('ObjectURL');
+        echo "\nuploaded file to URL:$url\n";
+    } catch (Aws\S3\Exception\S3Exception $e) {
+        echo "There was an error uploading the file.\n";
+    }
+
 
     if (move_uploaded_file($_FILES["ImageToUpload"]["tmp_name"], $target_file)) {
       echo "The file ". basename( $_FILES["ImageToUpload"]["name"]). " has been uploaded.";
