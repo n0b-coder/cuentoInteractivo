@@ -247,9 +247,9 @@ if($variable_S == null || $variable_S == '')
                                 <img v-if="panel_data.current_selection.imagen_personaje==null" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
                             </div>
                         </div>
-                        <div class="submit">
+                    </div>
+                    <div class="submit row">
                             <button class="Btn" @click="save(panel_data.current_selection), panel_data.current_selection=null, success = true">Guardar cambios</button>
-                        </div>
                     </div>
                 </div>               
             </div>
