@@ -140,7 +140,7 @@ formData.append('submit', 'true');
 formData.append('image_group', 'historia');
 formData.append('ImageToUpload', files[0]);
 
-fetch('//upload2.php', {
+fetch('/upload2.php', {
   method: 'PUT',
   body: formData
 })
