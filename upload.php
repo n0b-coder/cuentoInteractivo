@@ -1,6 +1,6 @@
 <?php
 
-require("aws/aws-autoloader.php");
+require("vendor/autoload.php");
 
 $IMG_Name = $_FILES['ImageToUpload']['name'];
 $target_base_dir = $_SERVER['DOCUMENT_ROOT'].'/cuentoInteractivo/IMG_NEW/';
