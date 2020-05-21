@@ -2,7 +2,7 @@ var panel_data = {
 	"historia":[
 		[
 		   {
-			  
+
 		   }
 		]
    ]
@@ -41,7 +41,7 @@ var app = new Vue({
     computed:{
       photos:function(){
         if(this.active==true){
-          if (this.section=='resolucion'){ 
+          if (this.section=='resolucion'){
             return this.gallery.acertijo;
           }
           else {
@@ -49,7 +49,7 @@ var app = new Vue({
           }
         }
         else if(this.active==false){
-          if (this.section=='historia'){ 
+          if (this.section=='historia'){
             return this.gallery.historia;
           } else if (this.section=='pilares'){
             return this.gallery.torre;
@@ -67,7 +67,7 @@ var app = new Vue({
       },
       preview:function(){
         if(this.active==true){
-          if (this.section=='resolucion'){ 
+          if (this.section=='resolucion'){
             return this.panel_data.current_selection.imagen_acertijo;
           }
           else {
@@ -77,12 +77,12 @@ var app = new Vue({
         else if(this.active==false){
           if(this.section=='pilares'){
             return this.panel_data.current_selection.torre;
-          } else if(this.section=='resolucion'){          
+          } else if(this.section=='resolucion'){
             this.status.texto='Modificar solución';
             this.status.imagen='Cambiar acertijo';
             this.personajeprev=this.panel_data.current_selection.imagen_acertijo;
             return this.panel_data.current_selection.fondo_acertijo;
-          } else if(this.section=='portada'){          
+          } else if(this.section=='portada'){
             this.status.texto='Modificar título';
             return this.panel_data.current_selection.imagen_fondo;
           } else {
@@ -95,7 +95,7 @@ var app = new Vue({
       }
     },
     methods: {
-      seccion:function(actSeccion){        
+      seccion:function(actSeccion){
         this.section=actSeccion;
       },
       activar: function (item){
@@ -110,7 +110,7 @@ var app = new Vue({
       },
       newImg:function(item){
         if(this.active==true){
-          if (this.section=='resolucion'){            
+          if (this.section=='resolucion'){
             return this.panel_data.current_selection.imagen_acertijo = item.Imag_link;
           }
           else {
@@ -133,9 +133,28 @@ var app = new Vue({
           if (!files.length)
             return;
           this.createImage(files[0]);
+
+const formData = new FormData();
+
+formData.append('submit', 'true');
+formData.append('image_group', 'historia');
+formData.append('ImageToUpload', files[0]);
+
+fetch('//upload2.php', {
+  method: 'PUT',
+  body: formData
+})
+// .then(response => response.json())
+.then(result => {
+  console.log('Success:', result);
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+
         },
         createImage(file) {
-          var reader = new FileReader();   
+          var reader = new FileReader();
           reader.onload = (e) => {
             this.image = e.target.result;
           };
@@ -148,7 +167,7 @@ var app = new Vue({
         var Id_pestana;
         var imagen2_id;
         if(this.section=='portada'){
-          Id_pestana = item.id_portada; 
+          Id_pestana = item.id_portada;
         } else if(this.section=='pilares'){
           Id_pestana = item.id_pilar;
           imagen2_id=null;
@@ -172,7 +191,7 @@ var app = new Vue({
             imagen_id: this.selected,
             tipo: this.tipo
           })
-        } else {          
+        } else {
           datoskul=JSON.stringify({
             Id_cuento:1,
             Id_pestana,
@@ -181,7 +200,7 @@ var app = new Vue({
             imagen_id: this.selected,
             tipo: this.tipo
           })
-          
+
           }
         {
           fetch('savechanges.php', {
