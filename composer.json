@@ -1,5 +1,5 @@
 {
-  "require": {
-    "ext-mbstring": "*"
-  }
+    "require": {
+        "aws/aws-sdk-php": "^3.138"
+    }
 }
