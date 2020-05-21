@@ -137,11 +137,11 @@ var app = new Vue({
 const formData = new FormData();
 
 formData.append('submit', 'true');
-formData.append('image_group', 'historia');
+formData.append('tipoimagen', 'historia');
 formData.append('ImageToUpload', files[0]);
 
-fetch('/upload2.php', {
-  method: 'PUT',
+fetch('/upload.php', {
+  method: 'POST',
   body: formData
 })
 // .then(response => response.json())
