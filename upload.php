@@ -81,7 +81,7 @@ if ($uploadOk == 0) {
         $url = $upload->get('ObjectURL');
         echo "\nuploaded file to URL:$url\n";
     } catch (exception $e) {
-        echo "There was an error uploading the file.\n";
+        echo "There was an error uploading the file. $e.message \n";
     }
 
     echo "\n STEP 4 \n";
