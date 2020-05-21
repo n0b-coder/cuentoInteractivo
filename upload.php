@@ -1,5 +1,7 @@
 <?php
 
+require("aws/aws-autoloader.php");
+
 $IMG_Name = $_FILES['ImageToUpload']['name'];
 $target_base_dir = $_SERVER['DOCUMENT_ROOT'].'/cuentoInteractivo/IMG_NEW/';
 if(isset($_POST['tipoimagen']))
@@ -27,19 +29,19 @@ if(isset($_POST["submit"])) {
       $uploadOk = 0;
     }
   }
-  
+
 // Check if file already exists
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
   }
-  
+
   // Check file size
   if ($_FILES["ImageToUpload"]["size"] > 3000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
   }
-  
+
   // Allow certain file formats
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
   && $imageFileType != "gif" ) {
@@ -47,12 +49,35 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
   }
 
-  
+
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
   // if everything is ok, try to upload file
   } else {
+
+    $s3 = new Aws\S3\S3Client([
+        'version'  => 'latest',
+        'region'   => 'us-east-1',
+    ]);
+    $bucket = getenv('S3_BUCKET');
+    $upload = $s3->upload($bucket, $_FILES['ImageToUpload']['name'], fopen($_FILES['ImageToUpload']['tmp_name'], 'rb'), 'public-read');
+
+
+// try {
+//     $s3->putObject([
+//         'Bucket' => 'my-bucket',
+//         'Key'    => 'my-object',
+//         'Body'   => fopen('/path/to/file', 'r'),
+//         'ACL'    => 'public-read',
+//     ]);
+// } catch (Aws\S3\Exception\S3Exception $e) {
+//     echo "There was an error uploading the file.\n";
+// }
+
+    $url = $upload->get('ObjectURL');
+    echo "\nuploaded file to URL:$url\n";
+
     if (move_uploaded_file($_FILES["ImageToUpload"]["tmp_name"], $target_file)) {
       echo "The file ". basename( $_FILES["ImageToUpload"]["name"]). " has been uploaded.";
       $nameimg = basename($_FILES["ImageToUpload"]["name"]);
@@ -61,8 +86,6 @@ if ($uploadOk == 0) {
     }
   }
 
-  
 
-  
 
 ?>
