@@ -82,7 +82,6 @@ if ($uploadOk == 0) {
         echo "\nuploaded file to URL:$url\n";
     } catch (exception $e) {
         echo "There was an error uploading the file.\n";
-        var_dump($e);
     }
 
     echo "\n STEP 4 \n";
