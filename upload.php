@@ -57,6 +57,8 @@ if ($uploadOk == 0) {
   } else {
     echo "\n STEP 1 \n";
 
+    try {
+
     $s3 = new Aws\S3\S3Client([
         'version'  => 'latest',
         'region'   => 'us-east-1',
@@ -68,7 +70,6 @@ if ($uploadOk == 0) {
 
     echo "\n STEP 3 \n";
 
-    try {
         $upload = $s3->putObject([
             'Bucket' => $bucket,
             'Key'    => $_FILES['ImageToUpload']['name'],
@@ -79,8 +80,9 @@ if ($uploadOk == 0) {
 
         $url = $upload->get('ObjectURL');
         echo "\nuploaded file to URL:$url\n";
-    } catch (Aws\S3\Exception\S3Exception $e) {
+    } catch (exception $e) {
         echo "There was an error uploading the file.\n";
+        var_dump($e);
     }
 
     echo "\n STEP 4 \n";
