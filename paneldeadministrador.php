@@ -208,7 +208,7 @@ if($variable_S == null || $variable_S == '')
                             v-if="section=='postresol' || unique==false"
                         >
                             <div class="cards" v-for="itempr in panel_data.post_resol[index]">
-                                <img class="slider-background"  @click="activar(itempr), panel_data.tipo='post_resol', seccion(panel_data.tipo)" :src="itempr.imagen_fondo">
+                                <img class="slider-background"  @click="activar(itempr), panel_data.tipo='post_resol', seccion(panel_data.tipo), section='postresol'" :src="itempr.imagen_fondo">
                             </div>
                         </div>
                         <!-- finales -->
@@ -220,9 +220,9 @@ if($variable_S == null || $variable_S == '')
                             </div>
                         </div>
                         <!-- add -->
-                        <div class="AddBtn">
+                        <div class="AddBtn" v-if="unique==true">
                             <input type="file" name="ImageToUpload" id="ImageToUpload"
-                            @change="onFileChange"/>
+                            @change="onFileChange" @click="action=2"/>
                         +</div>
                     </div>
                 </div>

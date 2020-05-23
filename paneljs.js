@@ -60,6 +60,8 @@ var app = new Vue({
             return this.gallery.finales;
           } else if (this.section=='resolucion'){
             return this.gallery.facertijo;
+          } else if (this.section=='postresol'){
+            return this.gallery.post_resol;
           }
         }
       },
