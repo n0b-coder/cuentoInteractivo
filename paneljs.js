@@ -137,7 +137,7 @@ var app = new Vue({
 const formData = new FormData();
 
 formData.append('submit', 'true');
-formData.append('tipoimagen', this.current_selection.tipo);
+formData.append('tipoimagen', this.panel_data.tipo);
 formData.append('ImageToUpload', files[0]);
 
 fetch('/upload.php', {
