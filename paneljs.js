@@ -157,7 +157,7 @@ fetch('upload.php', {
   body:
   JSON.stringify({
     tipo_imagen:this.panel_data.tipo,
-    id_imagen_fondo:this.current_selection.id_imagen_fondo;
+    id_imagen_fondo:this.current_selection.id_imagen_fondo
   })
 });
 
