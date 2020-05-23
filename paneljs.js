@@ -152,10 +152,13 @@ fetch('/upload.php', {
   console.error('Error:', error);
 });
 
-fetch('savechanges.php', {
+fetch('upload.php', {
   method: 'POST',
   body:
-  JSON.stringify({tipo_imagen:this.panel_data.tipo})
+  JSON.stringify({
+    tipo_imagen:this.panel_data.tipo,
+    id_imagen_fondo:this.current_selection.id_imagen_fondo;
+  })
 });
 
         },
