@@ -236,7 +236,7 @@ if($variable_S == null || $variable_S == '')
                     </div>
                     <div class="opcionesCol">
                         <div class= "EdFondo">
-                            <button class="Btn" @click="popUp=true">
+                            <button class="Btn" @click="popUp=true, action=1">
                                 Cambiar Fondo
                             </button>                            
                             <div class="previewCol">

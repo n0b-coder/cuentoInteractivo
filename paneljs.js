@@ -36,7 +36,8 @@ var app = new Vue({
       txt:'',
       personajeprev:"",
       active:false,
-      imag2:0
+      imag2:0,
+      action:0
     },
     computed:{
       photos:function(){
@@ -144,6 +145,7 @@ formData.append('submit', 'true');
 formData.append('ImageToUpload', files[0]);
 formData.append('tipoimagen', this.panel_data.tipo);
 formData.append('id_imagen', this.panel_data.current_selection.id_imagen_fondo);
+formData.append('accion',this.action);
 
 fetch('/upload.php', {
   method: 'POST',
