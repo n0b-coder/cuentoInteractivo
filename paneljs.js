@@ -66,6 +66,15 @@ var app = new Vue({
       tipo:function(){
         return this.panel_data.tipo;
       },
+      id_img:function(){
+        if (this.panel_data.current_selection.tipo=='torres'){
+          return this.panel_data.current_selection.id_pilar;
+        } else if (this.panel_data.current_selection.tipo=='fondos-acertijo'){
+          return this.panel_data.current_selection.id_fondo_acertijo;
+        } else {
+          return this.panel_data.current_selection.id_imagen_fondo;
+        }
+      },
       preview:function(){
         if(this.active==true){
           if (this.section=='resolucion'){
