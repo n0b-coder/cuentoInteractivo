@@ -88,10 +88,10 @@ if($variable_S == null || $variable_S == '')
                             </div>                                
                         </template>
                         <div class="add">
-                        <div class="AddBtn galCol">
-                            <input type="file" name="ImageToUpload" id="ImageToUpload"
-                            @change="onFileChange" @click="action=2"/>
-                        +</div>
+                            <div class="AddBtn galCol">
+                                <input type="file" name="ImageToUpload" id="ImageToUpload"
+                                @change="onFileChange" @click="action=2"/>
+                            +</div>
                         </div>
                         </div>
                     </div>
@@ -225,6 +225,10 @@ if($variable_S == null || $variable_S == '')
                                 <img class="slider-background" @click="activar(itemf), panel_data.tipo='finales', seccion('finales')" :src="itemf.imagen_fondo">
                             </div>
                         </div>
+                        <!-- add -->
+                         <div class="AddBtn galCol">
+                            
+                        +</div>
                     </div>
                 </div>
             
