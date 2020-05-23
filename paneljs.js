@@ -142,7 +142,10 @@ formData.append('ImageToUpload', files[0]);
 
 fetch('/upload.php', {
   method: 'POST',
-  body: formData
+  body: {
+    formData,
+    tipo_img:this.panel_data.tipo
+  },
 })
 // .then(response => response.json())
 .then(result => {
