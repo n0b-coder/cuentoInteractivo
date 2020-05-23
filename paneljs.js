@@ -67,6 +67,13 @@ var app = new Vue({
         return this.panel_data.tipo;
       },
       id_img:function(){
+        if (this.active==true){
+          if (this.panel_data.tipo=='fondos-acertijo'){
+            return this.panel_data.current_selection.id_acertijo;
+          } else {
+            return this.panel_data.current_selection.id_imagen_personaje;
+          }
+        }
         if (this.panel_data.tipo=='torres'){
           return this.panel_data.current_selection.id_pilar;
         } else if (this.panel_data.tipo=='fondos-acertijo'){
