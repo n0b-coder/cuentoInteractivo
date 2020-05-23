@@ -1031,7 +1031,7 @@ input[type=text], select {
   height: 150px;
   width: 300px;
   position: relative;
-  font-size: 2vw !important;
+  font-size: 5vw !important;
   background-color: rgba(0, 0, 0, 0.774);
   text-align: center;
   white-space: nowrap;
