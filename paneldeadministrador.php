@@ -65,7 +65,7 @@ if($variable_S == null || $variable_S == '')
                                     <h3 id="clas-Secc"> Sección {{panel_data.current_selection.seccion}}</h3>
                                     <h3 id="clas-Pag"> Página  {{panel_data.current_selection.pagina}} </h3>
                                 </div>
-                                <i class="icon fas fa-upload" @click="popUp=false, active=false"></i>      
+                                <i class="icon fas fas-check-circle" @click="popUp=false, active=false"></i>      
                                 
                         </div>
                         <div class="ScrollImg row">
