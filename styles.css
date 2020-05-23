@@ -1031,7 +1031,32 @@ input[type=text], select {
   height: 150px;
   width: 300px;
   position: relative;
-  font-size: 5vw !important;
+  font-size: 2vw !important;
+  background-color: rgba(0, 0, 0, 0.774);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-color: white;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.SubirBtn{
+  cursor: pointer;
+  color: white;
+  display: inline-block;
+  font-weight: 400;
+  height: fit-content;
+  width: 300px;
+  position: relative;
+  font-size: 2vw !important;
   background-color: rgba(0, 0, 0, 0.774);
   text-align: center;
   white-space: nowrap;

@@ -71,10 +71,10 @@ if($variable_S == null || $variable_S == '')
                         <div class="ScrollImg row">
                         <form action="upload.php" method="post" enctype="multipart/form-data" id="uploadImg">
                             <div style="position:relative">
-                            <div class="AddBtn">
+                            <div class="SubirBtn">
                                 <input type="file" name="ImageToUpload" id="ImageToUpload"
                                 @change="onFileChange"/>
-                            +</div>
+                            Subir</div>
                                 <input type="hidden" name="tipoimagen" :value="panel_data.tipo">                               
                             </div>
                         </form>
@@ -86,10 +86,16 @@ if($variable_S == null || $variable_S == '')
                             <div class="galCol">
                                 <img :class="{galSelected:item.imagen_id == selected , galThumb:item.imagen_id != selected}" class="slider-background" :src="item.Imag_link"  @click="newImg(item)">
                             </div>                                
-                        </template> 
-                        
+                        </template>
+                        <div class="add">
+                        <div class="AddBtn galCol">
+                            <input type="file" name="ImageToUpload" id="ImageToUpload"
+                            @change="onFileChange" @click="action=2"/>
+                        +</div>
+                        </div>
                         </div>
                     </div>
+                   
                 </div>
             </div>
         </div>        
@@ -219,11 +225,6 @@ if($variable_S == null || $variable_S == '')
                                 <img class="slider-background" @click="activar(itemf), panel_data.tipo='finales', seccion('finales')" :src="itemf.imagen_fondo">
                             </div>
                         </div>
-                        <!-- add -->
-                        <div class="AddBtn" v-if="unique==true">
-                            <input type="file" name="ImageToUpload" id="ImageToUpload"
-                            @change="onFileChange" @click="action=2"/>
-                        +</div>
                     </div>
                 </div>
             
