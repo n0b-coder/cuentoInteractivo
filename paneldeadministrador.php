@@ -71,9 +71,10 @@ if($variable_S == null || $variable_S == '')
                         <div class="ScrollImg row">
                         <form action="upload.php" method="post" enctype="multipart/form-data" id="uploadImg">
                             <div style="position:relative">
-                                <input type="file" name="ImageToUpload" id="ImageToUpload" style="font-size:1vw!important; cursor:pointer; opacity:0; position:absolute" @change="onFileChange"/>
-                                <i class="icon fas fa-upload"></i>
-                                <button class="Btn" type="submit" style="opacity:1;">Subir imagen</button> 
+                            <div class="AddBtn">
+                                <input type="file" name="ImageToUpload" id="ImageToUpload"
+                                @change="onFileChange"/>
+                            +</div>
                                 <input type="hidden" name="tipoimagen" :value="panel_data.tipo">                               
                             </div>
                         </form>
@@ -218,6 +219,11 @@ if($variable_S == null || $variable_S == '')
                                 <img class="slider-background" @click="activar(itemf), panel_data.tipo='finales', seccion('finales')" :src="itemf.imagen_fondo">
                             </div>
                         </div>
+                        <!-- add -->
+                        <div class="AddBtn">
+                            <input type="file" name="ImageToUpload" id="ImageToUpload"
+                            @change="onFileChange"/>
+                        +</div>
                     </div>
                 </div>
             
