@@ -142,7 +142,7 @@ const formData = new FormData();
 
 formData.append('submit', 'true');
 formData.append('ImageToUpload', files[0]);
-formData.append('tipo_imagen', this.panel_data.tipo);
+formData.append('tipoimagen', this.panel_data.tipo);
 formData.append('id_imagen', this.panel_data.current_selection.id_imagen_fondo);
 
 fetch('/upload.php', {
