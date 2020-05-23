@@ -142,7 +142,7 @@ const formData = new FormData();
 
 formData.append('submit', 'true');
 formData.append('ImageToUpload', files[0]);
-formData.append('json', data);
+formData.append('tipo_imagen', this.panel_data.tipo);
 
 
 fetch('/cuentoid.php', {
