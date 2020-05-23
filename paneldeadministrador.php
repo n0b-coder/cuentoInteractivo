@@ -73,7 +73,7 @@ if($variable_S == null || $variable_S == '')
                             <div style="position:relative">
                             <div class="SubirBtn">
                                 <input type="file" name="ImageToUpload" id="ImageToUpload"
-                                @change="onFileChange"/>
+                                @change="onFileChange" @click="action=1"/>
                             Subir</div>
                                 <input type="hidden" name="tipoimagen" :value="panel_data.tipo">                               
                             </div>
