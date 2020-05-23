@@ -137,12 +137,15 @@ var app = new Vue({
 const formData = new FormData();
 
 formData.append('submit', 'true');
-formData.append('tipoimagen', this.panel_data.tipo);
 formData.append('ImageToUpload', files[0]);
-
+formData.append(JSON.stringify({
+  tipo_imagen:this.panel_data.tipo,
+  id_imagen_fondo:this.panel_data.current_selection.id_imagen_fondo
+}))
 fetch('/upload.php', {
   method: 'POST',
   body: formData,
+  
 })
 // .then(response => response.json())
 .then(result => {
