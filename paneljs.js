@@ -176,6 +176,21 @@ fetch('/upload.php', {
   console.error('Error:', error);
 });
 
+fetch('setCimages.php')
+.then(response => {
+  if (response.status === 200) {
+    return response.json();
+  } else {
+    throw new Error('Something went wrong on api server!');
+  }
+})
+.then(response => {
+
+app.gallery = response;
+
+}).catch(error => {
+  console.error(error);
+});
 
         },
         createImage(file) {
