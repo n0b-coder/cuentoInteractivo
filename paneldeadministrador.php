@@ -58,14 +58,14 @@ if($variable_S == null || $variable_S == '')
                                 <img class = "PreImg" :src="preview">                            
                             </div>
                             <div class="ShowDat">
-                                <input type="text" class="formuControl" placeholder="Nombre">
+                                <input type="text" class="icon fas fa-check-circle formuControl" placeholder="Nombre">
                                 <div class="Datos">
                                 <h3 id="clas-Tipo"> Clase: {{panel_data.tipo}}</h3>
 
                                 <h3 id="clas-Secc"> Sección {{panel_data.current_selection.seccion}}</h3>
                                 <h3 id="clas-Pag"> Página  {{panel_data.current_selection.pagina}} </h3>
                                 </div>
-                                <i class="icon fas fa-check-circle" @click="popUp=false, active=false"></i>      
+                                <i @click="popUp=false, active=false"></i>      
                                 </div>
                         </div>
                         <div class="ScrollImg row">
