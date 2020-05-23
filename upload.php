@@ -3,14 +3,17 @@
 require("vendor/autoload.php");
 
 $IMG_Name = $_FILES['ImageToUpload']['name'];
+
 $target_base_dir = $_SERVER['DOCUMENT_ROOT'].'/cuentoInteractivo/IMG_NEW/';
 if(isset($_POST['tipoimagen']))
 {
   $Folder = $_POST['tipoimagen'];
+  $ides = $_POST['id_imagen'];
 }
 $target_dir = $target_base_dir.$Folder.'/';
 $target_file = $target_dir . basename($_FILES["ImageToUpload"]["name"]);
 echo $target_file;
+
 
 $target_file_4_db = 'IMG_NEW/'.$Folder.'/'. basename($_FILES["ImageToUpload"]["name"]);
 
@@ -83,7 +86,7 @@ if ($uploadOk == 0) {
     } catch (exception $e) {
         echo "There was an error uploading the file. $e.message \n";
     }
-
+    echo $ides;
     echo "\n STEP 4 \n";
 
     if (move_uploaded_file($_FILES["ImageToUpload"]["tmp_name"], $target_file)) {
