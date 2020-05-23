@@ -142,10 +142,7 @@ formData.append('ImageToUpload', files[0]);
 
 fetch('/upload.php', {
   method: 'POST',
-  body: {
-    formData,
-    tipo_img:this.panel_data.tipo
-  },
+  body: formData,
 })
 // .then(response => response.json())
 .then(result => {
@@ -153,6 +150,13 @@ fetch('/upload.php', {
 })
 .catch(error => {
   console.error('Error:', error);
+});
+
+fetch('savechanges.php', {
+  method: 'POST',
+  body: {
+    tipo_imagen:this.panel_data.tipo
+  }
 });
 
         },
