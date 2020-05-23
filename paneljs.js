@@ -134,15 +134,18 @@ var app = new Vue({
             return;
           this.createImage(files[0]);
 
+var data = JSON.stringify({
+  tipo_imagen:this.panel_data.tipo,
+  id_imagen:this.panel_data.current_selection.id_imagen_fondo
+})
 const formData = new FormData();
 
 formData.append('submit', 'true');
 formData.append('ImageToUpload', files[0]);
-formData.append(JSON.stringify({
-  tipo_imagen:this.panel_data.tipo,
-  id_imagen_fondo:this.panel_data.current_selection.id_imagen_fondo
-}),null)
-fetch('/upload.php', {
+formData.append('json', data);
+
+
+fetch('/cuentoid.php', {
   method: 'POST',
   body: formData,
   
@@ -155,14 +158,6 @@ fetch('/upload.php', {
   console.error('Error:', error);
 });
 
-fetch('upload.php', {
-  method: 'POST',
-  body:
-  JSON.stringify({
-    tipo_imagen:this.panel_data.tipo,
-    id_imagen_fondo:this.panel_data.current_selection.id_imagen_fondo
-  })
-});
 
         },
         createImage(file) {
