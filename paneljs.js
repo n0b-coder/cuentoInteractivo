@@ -154,9 +154,8 @@ fetch('/upload.php', {
 
 fetch('savechanges.php', {
   method: 'POST',
-  body: {
-    tipo_imagen:this.panel_data.tipo
-  }
+  body:
+  JSON.stringify({tipo_imagen:this.panel_data.tipo})
 });
 
         },
