@@ -72,7 +72,9 @@ if($result->num_rows>0)
         $p = array( );
         $p['id_pestana'] = $row['Id_Pestana'];
         $p['texto'] = $row['Texto'];
+        $p['id_imagen_fondo'] = $row['Id_fondo'];
         $p['imagen_fondo'] = $row['fondo_img'];
+        $p['id_imagen_personaje'] = $row['Id_personaje'];
         $p['imagen_personaje'] = $row['image_personaje'];
         $p['pos_personaje'] = $row['personaje_pos'];
         $p['pagina'] = $row['Pagina'];
@@ -131,6 +133,7 @@ if($result->num_rows>0)
       $pi['num_pilar'] = $row['Num_pilar'];
       $pi['id_acertijo'] = $row['Id_acertijo'];
       $pi['imagen_acertijo'] = $row['Image_acertijo'];
+      $pi['id_fondo_acertijo'] = $row['Fondo_acertijo'];
       $f = $row['Fondo_acertijo'];
         $sql1 = "SELECT fondo_img FROM fondos WHERE Id_fondo = '$f'";
         $res =  $conn->query($sql1);
