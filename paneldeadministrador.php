@@ -245,7 +245,7 @@ if($variable_S == null || $variable_S == '')
                         </div>
                         <!-- Personaje -->
                         <div class= "EdPersonaje" v-if="(section!='pilares') && (section!='indagacion') && (section!='postresol') && (section!='portada')">
-                            <button class="Btn" @click="active=true, popUp=true">
+                            <button class="Btn" @click="active=true, popUp=true, active=1">
                             {{status.imagen}}
                             </button>
                             <div class="previewCol">
