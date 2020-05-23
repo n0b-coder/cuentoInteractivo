@@ -80,7 +80,9 @@ var app = new Vue({
           return this.panel_data.current_selection.id_pilar;
         } else if (this.panel_data.tipo=='fondos-acertijo'){
           return this.panel_data.current_selection.id_fondo_acertijo;
-        } else {
+        } else if (this.panel_data.tipo=='portada'){
+          return this.panel_data.current_selection.id_portada;
+        } else{
           return this.panel_data.current_selection.id_imagen_fondo;
         }
       },
@@ -153,10 +155,6 @@ var app = new Vue({
             return;
           this.createImage(files[0]);
 
-var data = JSON.stringify({
-  tipo_imagen:this.panel_data.tipo,
-  id_imagen:this.panel_data.current_selection.id_imagen_fondo
-})
 const formData = new FormData();
 
 formData.append('submit', 'true');
@@ -167,8 +165,7 @@ formData.append('accion',this.action);
 
 fetch('/upload.php', {
   method: 'POST',
-  body: formData,
-  
+  body: formData  
 })
 // .then(response => response.json())
 .then(result => {
