@@ -141,7 +141,7 @@ formData.append('ImageToUpload', files[0]);
 formData.append(JSON.stringify({
   tipo_imagen:this.panel_data.tipo,
   id_imagen_fondo:this.panel_data.current_selection.id_imagen_fondo
-}))
+}),null)
 fetch('/upload.php', {
   method: 'POST',
   body: formData,
