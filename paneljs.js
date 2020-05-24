@@ -171,7 +171,7 @@ var app = new Vue({
       formData.append('id_imagen', this.id_img);
       formData.append('accion',this.action);
       updateImg = async => {
-       const uploaded = await fetch('/upload.php', {
+       const uploaded = fetch('/upload.php', {
         method: 'POST',
         body: formData  
       })
@@ -183,7 +183,7 @@ var app = new Vue({
         console.error('Error:', error);
       });
        if(uploaded){
-            await fetch('setCimages.php')
+             fetch('setCimages.php')
             .then(response => {
               if (response.status === 200) {
                 return response.json();
