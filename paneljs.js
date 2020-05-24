@@ -66,6 +66,13 @@ var app = new Vue({
         }
       },
       tipo:function(){
+        if(this.active==true){
+          if(this.section!="pilares" && this.section!="resolucion"){
+            return "personaje";
+          } else {
+            return "acertijo";
+          }
+        }
         return this.panel_data.tipo;
       },
       id_img:function(){
