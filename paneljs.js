@@ -178,12 +178,7 @@ fetch('/upload.php', {
 // .then(response => response.json())
 .then(result => {
   console.log('Success:', result);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
-
-fetch('setCimages.php')
+  fetch('setCimages.php')
 .then(response => {
   if (response.status === 200) {
     return response.json();
@@ -198,6 +193,11 @@ app.gallery = response;
 }).catch(error => {
   console.error(error);
 });
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+
 
         },
         createImage(file) {
