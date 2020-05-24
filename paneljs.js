@@ -72,8 +72,9 @@ var app = new Vue({
           } else {
             return "acertijo";
           }
+        } else{
+          return this.panel_data.tipo;
         }
-        return this.panel_data.tipo;
       },
       id_img:function(){
         if (this.active==true){
