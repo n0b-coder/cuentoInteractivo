@@ -167,7 +167,7 @@ const formData = new FormData();
 
 formData.append('submit', 'true');
 formData.append('ImageToUpload', files[0]);
-formData.append('tipoimagen', this.panel_data.tipo);
+formData.append('tipoimagen', this.tipo);
 formData.append('id_imagen', this.id_img);
 formData.append('accion',this.action);
 
