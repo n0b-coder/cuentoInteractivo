@@ -115,21 +115,25 @@ if(isset($_POST["submit"]))
     {
       if($TypeNumber == 0) 
       {
-        $consulta= "UPDATE `fondos` SET `Name`= '$IMG_Name' ,`fondo_img`= '$url' WHERE  'Id_fondo' = '$Id_IMG'";   
+        echo " tipo fondo  ";
+        $consulta= "UPDATE `fondos` SET `Name`= '$IMG_Name' ,`fondo_img`= '$url' WHERE  Id_fondo = '$Id_IMG'";   
       }
       if($TypeNumber == 1) 
       {
-        $consulta= "UPDATE `personajes` SET `name`= '$IMG_Name' ,`image_personaje`= '$url' WHERE `Id_im_personaje`= '$Id_IMG'";
+        echo " tipo personaje  ";
+        $consulta= "UPDATE `personajes` SET `name`= '$IMG_Name' ,`image_personaje`= '$url' WHERE Id_im_personaje= '$Id_IMG'";
       }
       if($TypeNumber == 2)
       {
-        $consulta= "UPDATE `acertijo` SET `Name_acertijo` = '$IMG_Name',`Image_acertijo`='$url' WHERE `Id_acertijo`= '$Id_IMG'";    
+        echo " tipo acertijo  ";
+        $consulta= "UPDATE `acertijo` SET `Name_acertijo` = '$IMG_Name',`Image_acertijo`='$url' WHERE Id_acertijo= '$Id_IMG'";    
       }
       if ($conn->query($consulta) === TRUE) {
-        echo "Record updated successfully ";
+        echo "Record updated successfully  id:";
+        echo $Id_IMG;
       } 
       else {
-        echo "Error updating Image in: " . $conn->error;
+        echo "Error updating Image in: ".$conn->error;
       } 
     }
 
