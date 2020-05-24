@@ -163,40 +163,43 @@ var app = new Vue({
             return;
           this.createImage(files[0]);
 
-const formData = new FormData();
+      const formData = new FormData();
 
-formData.append('submit', 'true');
-formData.append('ImageToUpload', files[0]);
-formData.append('tipoimagen', this.tipo);
-formData.append('id_imagen', this.id_img);
-formData.append('accion',this.action);
-
-fetch('/upload.php', {
-  method: 'POST',
-  body: formData  
-})
-// .then(response => response.json())
-.then(result => {
-  console.log('Success:', result);
-  fetch('setCimages.php')
-.then(response => {
-  if (response.status === 200) {
-    return response.json();
-  } else {
-    throw new Error('Something went wrong on api server!');
-  }
-})
-.then(response => {
-
-app.gallery = response;
-
-}).catch(error => {
-  console.error(error);
-});
-})
-.catch(error => {
-  console.error('Error:', error);
-});
+      formData.append('submit', 'true');
+      formData.append('ImageToUpload', files[0]);
+      formData.append('tipoimagen', this.tipo);
+      formData.append('id_imagen', this.id_img);
+      formData.append('accion',this.action);
+      updateImg = async => {
+       const uploaded = await fetch('/upload.php', {
+        method: 'POST',
+        body: formData  
+      })
+      // .then(response => response.json())
+      .then(result => {
+        console.log('Success:', result);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+       if(uploaded){
+            await fetch('setCimages.php')
+            .then(response => {
+              if (response.status === 200) {
+                return response.json();
+              } else {
+                throw new Error('Something went wrong on api server!');
+              }
+            })
+            .then(response => {
+          
+            app.gallery = response;
+          
+            }).catch(error => {
+              console.error(error);
+            });
+       }
+  };
 
 
         },
