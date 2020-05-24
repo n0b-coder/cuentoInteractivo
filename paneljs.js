@@ -37,27 +37,7 @@ var app = new Vue({
       personajeprev:"",
       active:false,
       imag2:0,
-      action:0,
-      //load
-      load:''
-    },
-    created(){
-      this.load=  fetch('setCimages.php')
-      .then(response => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          throw new Error('Something went wrong on api server!');
-        }
-      })
-      .then(response => {
-    
-      app.gallery = response;
-    
-      }).catch(error => {
-        console.error(error);
-      });
-    
+      action:0
     },
     computed:{
       photos:function(){
@@ -218,8 +198,8 @@ var app = new Vue({
             }).catch(error => {
               console.error(error);
             });
-       }
-  };
+         }
+        };
 
 
         },
@@ -278,29 +258,44 @@ var app = new Vue({
             body: datoskul
         });
         }
-      },
+      }
+    },
+    created(){
+      const request = new Request('set.php');
+      const imgs = new Request('setCimages.php');
+      //data del cuento
+      fetch(request)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            throw new Error('Something went wrong on api server!');
+          }
+        })
+        .then(response => {
+
+        app.panel_data = response;
+
+
+        }).catch(error => {
+          console.error(error);
+        });
+
+        //Image gallery
+        fetch(imgs)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            throw new Error('Something went wrong on api server!');
+          }
+        })
+        .then(response => {
+
+        app.gallery = response;
+
+        }).catch(error => {
+          console.error(error);
+        });
     }
 });
-
-
-const request = new Request('set.php');
-const imgs = new Request('setCimages.php');
-//data del cuento
-fetch(request)
-  .then(response => {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Something went wrong on api server!');
-    }
-  })
-  .then(response => {
-
-  app.panel_data = response;
-
-
-  }).catch(error => {
-    console.error(error);
-  });
-
-  //Image gallery
