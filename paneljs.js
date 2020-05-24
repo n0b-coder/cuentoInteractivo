@@ -37,7 +37,27 @@ var app = new Vue({
       personajeprev:"",
       active:false,
       imag2:0,
-      action:0
+      action:0,
+      //load
+      load:''
+    },
+    created(){
+      this.load=  fetch('setCimages.php')
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          throw new Error('Something went wrong on api server!');
+        }
+      })
+      .then(response => {
+    
+      app.gallery = response;
+    
+      }).catch(error => {
+        console.error(error);
+      });
+    
     },
     computed:{
       photos:function(){
@@ -284,18 +304,3 @@ fetch(request)
   });
 
   //Image gallery
-  fetch(imgs)
-  .then(response => {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Something went wrong on api server!');
-    }
-  })
-  .then(response => {
-
-  app.gallery = response;
-
-  }).catch(error => {
-    console.error(error);
-  });
