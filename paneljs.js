@@ -171,7 +171,7 @@ var app = new Vue({
       formData.append('id_imagen', this.id_img);
       formData.append('accion',this.action);
       updateImg = async => {
-       const uploaded = await fetch('/upload.php', {
+       const uploaded = fetch('/upload.php', {
         method: 'POST',
         body: formData  
       })
@@ -183,7 +183,7 @@ var app = new Vue({
         console.error('Error:', error);
       });
        if(uploaded){
-            await fetch('setCimages.php')
+             fetch('setCimages.php')
             .then(response => {
               if (response.status === 200) {
                 return response.json();
@@ -198,8 +198,8 @@ var app = new Vue({
             }).catch(error => {
               console.error(error);
             });
-       }
-  };
+         }
+        };
 
 
         },
@@ -258,44 +258,44 @@ var app = new Vue({
             body: datoskul
         });
         }
-      },
+      }
+    },
+    created(){
+      const request = new Request('set.php');
+      const imgs = new Request('setCimages.php');
+      //data del cuento
+      fetch(request)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            throw new Error('Something went wrong on api server!');
+          }
+        })
+        .then(response => {
+
+        app.panel_data = response;
+
+
+        }).catch(error => {
+          console.error(error);
+        });
+
+        //Image gallery
+        fetch(imgs)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            throw new Error('Something went wrong on api server!');
+          }
+        })
+        .then(response => {
+
+        app.gallery = response;
+
+        }).catch(error => {
+          console.error(error);
+        });
     }
 });
-
-
-const request = new Request('set.php');
-const imgs = new Request('setCimages.php');
-//data del cuento
-fetch(request)
-  .then(response => {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Something went wrong on api server!');
-    }
-  })
-  .then(response => {
-
-  app.panel_data = response;
-
-
-  }).catch(error => {
-    console.error(error);
-  });
-
-  //Image gallery
-  fetch(imgs)
-  .then(response => {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Something went wrong on api server!');
-    }
-  })
-  .then(response => {
-
-  app.gallery = response;
-
-  }).catch(error => {
-    console.error(error);
-  });
