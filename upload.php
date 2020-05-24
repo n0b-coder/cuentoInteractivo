@@ -104,7 +104,7 @@ if(isset($_POST["submit"]))
 
         $url = $upload->get('ObjectURL');
         echo "\nuploaded file to URL:$url\n";
-        $uploadOk == 3;
+        $uploadOk = 3;
     } catch (exception $e) {
         echo "There was an error uploading the file. $e.message \n";
     }
