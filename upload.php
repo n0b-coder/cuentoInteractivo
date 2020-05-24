@@ -125,7 +125,7 @@ if(isset($_POST["submit"]))
       {
         $consulta= "UPDATE `acertijo` SET `Name_acertijo` = '$IMG_Name',`Image_acertijo`='$url' WHERE `Id_acertijo`= '$Id_IMG'";    
       }
-      if ($conn->query($sql) === TRUE) {
+      if ($conn->query($consulta) === TRUE) {
         echo "Record updated successfully ";
       } 
       else {
