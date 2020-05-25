@@ -253,12 +253,37 @@ var app = new Vue({
 
           }
         {
-          fetch('savechanges.php', {
-            method: 'POST',
-            body: datoskul
-        });
-        }
-      },
+          updateData = async () => {
+            const saved = fetch('savechanges.php', {
+              method: 'POST',
+              body: datoskul
+            })
+            .then(result => {
+              console.log('Success:', result);
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+            if(saved){
+              await fetch('setCimages.php')
+              .then(response => {
+                if (response.status === 200) {
+                  return response.json();
+                } else {
+                  throw new Error('Something went wrong on api server!');
+                }
+              })
+              .then(response => {
+            
+              app.gallery = response;
+            
+              }).catch(error => {
+                console.error(error);
+              });
+            }
+        };
+      }
+    }
     }
 });
 
