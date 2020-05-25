@@ -265,7 +265,7 @@ var app = new Vue({
               console.error('Error:', error);
             });
             if(saved){
-              await fetch('set.php')
+              await fetch('setCimages.php')
               .then(response => {
                 if (response.status === 200) {
                   return response.json();
@@ -275,7 +275,7 @@ var app = new Vue({
               })
               .then(response => {
             
-              this.panel_data = response;
+              app.gallery = response;
             
               }).catch(error => {
                 console.error(error);
