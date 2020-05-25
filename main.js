@@ -1,6 +1,6 @@
 //finales definidos dentro del Js
 var finales = {
-	reset:["JS Has fracasado","JS Has descubierto el mejor final posible","JS Has descubierto el final secundario de la historia"],
+	reset:["Has fracasado","Has descubierto el mejor final posible","Has descubierto el final secundario de la historia"],
 }
 //Vidas desde la carpeta IMG_NEW
 var vida={
@@ -149,7 +149,7 @@ var app = new Vue({
 				this.again();
 			} else{
 				this.section='reintentar';
-				this.alOrDe="¡ENHORABUENA! JS";
+				this.alOrDe="¡ENHORABUENA!";
 			}
 		}
 		//si se equivoca
@@ -159,10 +159,10 @@ var app = new Vue({
 				this.counterf=0;
 				this.pg==0
 				this.section='final';	
-				this.resetBtn="INTENTAR DESDE EL PRINCIPIO JS";
+				this.resetBtn="INTENTAR DESDE EL PRINCIPIO";
 			}else{
 				this.section='reintentar';
-				this.alOrDe="REINTENTAR JS";
+				this.alOrDe="REINTENTAR";
 				this.intentos--;
 			}
 		}
@@ -199,7 +199,7 @@ var app = new Vue({
 			} else if (this.intentos<=Math.round(this.total*3*0.8)){
 				this.counterf=3;
 			}
-			this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS JS";
+			this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS";
 			this.activar('final',0);
 		}
 	},
