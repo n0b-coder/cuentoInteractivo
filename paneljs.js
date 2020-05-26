@@ -171,42 +171,46 @@ var app = new Vue({
           formData.append('id_imagen', this.id_img);
           formData.append('accion',this.action);
           
-            const uploaded = fetch('/upload.php', {
-              method: 'POST',
-              body: formData  
-            })
-            // .then(response => response.json())
-            .then(result => {
-              console.log('Success:', result);
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
+          updateImg = async () => {
+            let url = `/upload.php`;
+           const uploaded = await fetch('/upload.php', {
+            method: 'POST',
+            body: formData  
+          })
+          // .then(response => response.json())
+          .then(result => {
+            console.log('Success:', result);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+           
+           
             if(uploaded){
-                  fetch('setCimages.php')
-                  .then(response => {
-                    if (response.status === 200) {
-                      return response.json();
-                    } else {
-                      throw new Error('Something went wrong on api server!');
-                    }
-                  })
-                  .then(response => {
-                
-                  app.gallery = response;
-                
-                  }).catch(error => {
-                    console.error(error);
-                  });
-            }
-          
+              await fetch('setCimages.php')
+              .then(response => {
+                if (response.status === 200) {
+                  return response.json();
+                } else {
+                  throw new Error('Something went wrong on api server!');
+                }
+              })
+              .then(response => {
+            
+              app.gallery = response;
+            
+              }).catch(error => {
+                console.error(error);
+              });
+             }
+           };          
         },
-        createImage(file) {
-          var reader = new FileReader();
-          reader.onload = (e) => {
-            this.image = e.target.result;
-          };
-          reader.readAsDataURL(file);
+      createImage(file) {
+        var reader = new FileReader();
+        reader.onload = (e) => {
+          this.image = e.target.result;
+        };
+        reader.readAsDataURL(file);
       },
       //envía los datos a chancla.php
       save: function (item){
