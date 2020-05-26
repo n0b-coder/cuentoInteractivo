@@ -186,7 +186,7 @@ var app = new Vue({
            
            
             if(uploaded){
-              await fetch('setCimages.php')
+            fetch('setCimages.php')
               .then(response => {
                 if (response.status === 200) {
                   return response.json();
