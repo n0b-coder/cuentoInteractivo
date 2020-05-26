@@ -160,8 +160,7 @@ var app = new Vue({
       onFileChange(e) {
           var files = e.target.files || e.dataTransfer.files;
           if (!files.length)
-            return;
-          this.createImage(files[0]);
+            return this.createImage(files[0]);
 
           const formData = new FormData();
 
