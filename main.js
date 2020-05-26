@@ -194,11 +194,11 @@ var app = new Vue({
 			if(this.intentos>=Math.round(this.total*3*0.9)){
 				this.counterf=1;
 			}
-			else if (this.intentos<Math.round(this.total*3*0.9) && this.intentos>Math.round(this.total*3*0.8)){
+			else if (this.intentos<Math.round(this.total*3*0.9)){
 				this.counterf=2;
-			} else if (this.intentos<=Math.round(this.total*3*0.8)){
+			} /*else if (this.intentos<=Math.round(this.total*3*0.8)){
 				this.counterf=3;
-			}
+			}*/
 			this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS";
 			this.activar('final',0);
 		}
