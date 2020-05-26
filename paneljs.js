@@ -183,7 +183,7 @@ var app = new Vue({
               console.error('Error:', error);
             });
             if(uploaded){
-                  await fetch('setCimages.php')
+                  fetch('setCimages.php')
                   .then(response => {
                     if (response.status === 200) {
                       return response.json();
