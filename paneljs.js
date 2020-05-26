@@ -160,7 +160,8 @@ var app = new Vue({
       onFileChange(e) {
           var files = e.target.files || e.dataTransfer.files;
           if (!files.length)
-            return this.createImage(files[0]);
+            return;
+          this.createImage(files[0]);
 
           const formData = new FormData();
 
@@ -169,8 +170,8 @@ var app = new Vue({
           formData.append('tipoimagen', this.tipo);
           formData.append('id_imagen', this.id_img);
           formData.append('accion',this.action);
-          updateImg = async () => {
-            const uploaded = fetch('/upload.php', {
+          updateImg = async => {
+            const uploaded = await fetch('/upload.php', {
               method: 'POST',
               body: formData  
             })
