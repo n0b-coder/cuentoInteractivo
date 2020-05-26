@@ -74,7 +74,7 @@ if($variable_S == null || $variable_S == '')
                             <div class="SubirBtn">
                                 <input type="file" name="ImageToUpload" id="ImageToUpload"
                                 @change="onFileChange" @click="action=1"/>
-                            Reemplazar</div>
+                            Subir</div>
                                 <input type="hidden" name="tipoimagen" :value="panel_data.tipo">                               
                             </div>
                         </form>
