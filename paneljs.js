@@ -170,8 +170,8 @@ var app = new Vue({
       formData.append('tipoimagen', this.tipo);
       formData.append('id_imagen', this.id_img);
       formData.append('accion',this.action);
-      updateImg = async () => {
-       const uploaded = fetch('/upload.php', {
+      updateImg = async => {
+       const uploaded = await fetch('/upload.php', {
         method: 'POST',
         body: formData  
       })
