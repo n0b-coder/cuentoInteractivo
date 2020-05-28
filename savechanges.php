@@ -25,7 +25,10 @@
       {    
         $texto_O = $row['Texto'];
         if($phpObj->tipo != "portadas")
-        {$id_imag_2 = $row['Id_personaje'];}
+        {
+          $id_imag_2 = $row['Id_personaje'];
+          $personaje_pos = $row['personaje_pos'];
+        }
         
       }
       if($phpObj->tipo == "fondos-acertijo") 
@@ -103,8 +106,16 @@
         {
           if( $phpObj->tipo == "historia" ||  $phpObj->tipo == "finales")
           {
-            $sql = "UPDATE `pestana` SET `Id_personaje`= '$phpObj->imagen2_id'
-            WHERE Id_Pestana = ' $phpObj->Id_pestana'";
+
+            if( $phpObj->imagen2_id != "0"){
+              $sql = "UPDATE `pestana` SET `Id_personaje`= '$phpObj->imagen2_id'
+              WHERE Id_Pestana = ' $phpObj->Id_pestana'";
+            }
+            else{
+              $sql = "UPDATE `pestana` SET `Id_personaje`= NULL, 	`personaje_pos`= NULL
+              WHERE Id_Pestana = ' $phpObj->Id_pestana'";
+            }
+            
           }
           if($phpObj->tipo == "fondos-acertijo")
             {
@@ -117,5 +128,18 @@
                 echo "Error updating record Imagen 2 in: " . $conn->error;
               }
         } 
-    } 
+    }
+    
+    if(isset( $phpObj->personaje_pos) && $id_imag_2 != NULL)
+    {
+      if( $phpObj->imagen2_id != "0"){
+        $sql = "UPDATE `pestana` SET 	`personaje_pos`= '$phpObj->personaje_pos'
+        WHERE Id_Pestana = ' $phpObj->Id_pestana'";
+      }
+      if ($conn->query($sql) === TRUE) {
+        echo " Imagen 2 Record updated successfully";
+      } else {
+        echo "Error updating personaje pos in: " . $conn->error;
+      }
+    }
 ?>
