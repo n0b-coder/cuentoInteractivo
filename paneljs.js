@@ -85,6 +85,17 @@ var app = new Vue({
       setImgs();
     },
     computed:{
+      setPos:function(){
+        if (this.pos=='Centro'){
+            this.pos='center';
+        } else if(this.pos=='Derecha'){
+            this.pos='right';
+        } else if(this.pos=='Izquierda'){
+            this.pos='left';
+        } else{
+            this.pos=this.panel_data.current_selection.pos_personaje;
+        }
+      },
       photos:function(){
         if(this.active==true){
           if (this.section=='resolucion'){
@@ -202,18 +213,7 @@ var app = new Vue({
           }
         }
       },
-      setPos:function(){
-        switch(this.pos){
-          case 'Centro':
-            this.pos='center';
-          case 'Derecha':
-            this.pos='right';
-          case 'Izquierda':
-            this.pos='left';
-          case 'Posición':
-            this.pos=this.panel_data.current_selection.pos_personaje;
-        };
-      },
+      
       onFileChange(e) {
           var files = e.target.files || e.dataTransfer.files;
           if (!files.length)
