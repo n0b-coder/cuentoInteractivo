@@ -85,17 +85,6 @@ var app = new Vue({
       setImgs();
     },
     computed:{
-      setPos:function(){
-        if (this.pos=='Centro'){
-            this.pos='center';
-        } else if(this.pos=='Derecha'){
-            this.pos='right';
-        } else if(this.pos=='Izquierda'){
-            this.pos='left';
-        } else{
-            this.pos=this.panel_data.current_selection.pos_personaje;
-        }
-      },
       photos:function(){
         if(this.active==true){
           if (this.section=='resolucion'){
@@ -249,7 +238,16 @@ fetch('upload.php', {
           reader.readAsDataURL(file);
       },
       //envía los datos a chancla.php
-      save: function (item){
+      save: function (item){        
+        if (this.pos=='Centro'){
+            this.pos='center';
+        } else if(this.pos=='Derecha'){
+            this.pos='right';
+        } else if(this.pos=='Izquierda'){
+            this.pos='left';
+        } else{
+            this.pos=this.panel_data.current_selection.pos_personaje;
+        }
         success=true;
         var datoskul;
         var Id_pestana;
