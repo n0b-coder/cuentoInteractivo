@@ -132,12 +132,12 @@
     
     if(isset( $phpObj->personaje_pos) && $id_imag_2 != NULL)
     {
-      if( $phpObj->imagen2_id != "0"){
+      if( $phpObj->personaje_pos != $personaje_pos){
         $sql = "UPDATE `pestana` SET 	`personaje_pos`= '$phpObj->personaje_pos'
         WHERE Id_Pestana = ' $phpObj->Id_pestana'";
       }
       if ($conn->query($sql) === TRUE) {
-        echo " Imagen 2 Record updated successfully";
+        echo " personaje pos  updated successfully";
       } else {
         echo "Error updating personaje pos in: " . $conn->error;
       }
