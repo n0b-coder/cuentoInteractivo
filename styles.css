@@ -71,7 +71,7 @@
   .personaje img{
     height: 100% !important;
     object-fit: contain !important;
-    padding: 0 !important;
+    padding: 12vw 8vw 0 8vw !important;
   }
   .clasp{
     text-align: right !important;
