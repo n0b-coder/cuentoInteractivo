@@ -85,6 +85,18 @@ var app = new Vue({
       setImgs();
     },
     computed:{
+      setPos:function(){
+        switch(this.pos){
+          case 'Centro':
+            return this.pos='center';
+          case 'Derecha':
+          return this.pos='right';
+          case 'Izquierda':
+            return this.pos='left';
+          case 'Posición':
+            return this.panel_data.current_selection.pos_personaje;
+        };
+      },
       photos:function(){
         if(this.active==true){
           if (this.section=='resolucion'){
@@ -242,14 +254,6 @@ fetch('upload.php', {
         var datoskul;
         var Id_pestana;
         var imagen2_id;
-        switch(this.pos){
-          case 'Centro':
-            return this.pos='center';
-          case 'Derecha':
-          return this.pos='right';
-          case 'Izquierda':
-            return this.pos='left';
-        };
         if(this.section=='portada'){
           Id_pestana = item.id_portada;
         } else if(this.section=='pilares'){

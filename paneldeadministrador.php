@@ -259,7 +259,7 @@ if($variable_S == null || $variable_S == '')
                             </button>
                             <div class="dropdown">                          
                                 <select class="dropdown-sel" v-model="pos">
-                                    <option disabled selected value="Posición">Posición</option>
+                                    <option disabled selected value="Posición" @click="setPos">Posición</option>
                                     <option>Centro</option>
                                     <option>Izquierda</option>
                                     <option>Derecha</option>
