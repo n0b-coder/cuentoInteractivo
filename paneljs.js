@@ -285,7 +285,7 @@ fetch('upload.php', {
             texto: this.txt,
             imagen_id: this.selected,
             tipo: this.tipo,
-            pos_personaje:this.pos
+            personaje_pos:this.pos
           })
 
           }
