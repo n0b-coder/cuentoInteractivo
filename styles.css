@@ -1,6 +1,12 @@
-@media only screen and (min-width: 768px){
-  .bgImg, .blur{
+@media screen and (min-height: 641px){
+  .personaje img{    
+    padding: 10vh 0% 0vw 3vw !important;
+  }
+}
+@media only screen and (min-width: 768px), (orientation: landscape){
+  .bgImg{
     height: 100% !important;
+    background-size: cover !important;
   }
   .icon{
     font-size: 5vw !important;
@@ -65,13 +71,14 @@
   .personaje img{
     height: 100% !important;
     object-fit: contain !important;
+    padding: 0 !important;
   }
   .clasp{
     text-align: right !important;
   }
 }
 body{
-  background-color:black !important;
+  background-color: black !important;
   margin:0px;
 }
 html,body{
@@ -248,7 +255,7 @@ a:not([href]):not([tabindex]){
   background-position: center;
   max-width: 100%;
   height: 50%;
-  background-size: cover;
+  background-size: 90vh;
 }
 .bgImgMon{
   background-position: center;
@@ -278,7 +285,7 @@ a:not([href]):not([tabindex]){
 }
 .bgImgInd img{
   position: absolute;
-  width: 70vw;
+  width: 60vw;
 }
 .bgImgRuna{
   background-position: center;
@@ -474,8 +481,7 @@ input[type=text], select {
 }
 .personaje img{
   height: 100%;
-  object-fit: contain;
-  width: 50%;
+  padding: 15vh 13vw 0vw 16vw;
 }
 /*Personaje posiciones*/
 .left{

@@ -70,7 +70,7 @@ var app = new Vue({
 		} else if(this.section=='acertijo'){
 			return 'background-image:url("'+this.game_data.pilares[this.pilSect].torre+'")';
 		} else if(this.section=='indagar'){
-			return 'background-image:url("'+this.game_data.indagacion[this.idx].imagen_fondo+'")';
+			return 'background: radial-gradient(circle, rgba(121,9,54,1) 0%, rgba(49,32,121,1) 30%, rgba(0,0,0,1) 90%);)';
 		} else if(this.section=='reintentar'){
 			return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';//ahora recibe el fondo desde postresolución
 		}
