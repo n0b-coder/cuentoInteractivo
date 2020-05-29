@@ -26,7 +26,7 @@
 				<div class="containerP1">
 					<div class="grad">
 						<div class="parraf">
-							<p>{{game_data.historia[pilSect][pg].texto}}</p>
+							<p class="txt">{{game_data.historia[pilSect][pg].texto}}</p>
 						</div>
 					</div>
 					<div class="nextPag">
@@ -59,7 +59,6 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'indagar'">
-			<div class="blur" :style="backs"></div>
 			<div class="bgImgInd row card-img">
 				<img :src="imagenes" alt="contenido" class="imgIdx">
 			<div class="bgImgMon card-img" :style="monitor">
@@ -84,9 +83,13 @@
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'resolver'">
 			<div class="bgImgAcer" :style="backs">
-				<div class="bgImgRuna" :style="imagenes"></div>
+				<div class="bgImgRuna" :style="imagenes">
+					<div class="atras">
+						<span id="back" v-on:click="activar('acertijo',0)">Volver</span>
+					</div>
+				</div>
 				<div class="resolver containerP">
-					<div class="input-group mb-3">
+					<div class="input-group mb-3">						
 						<input v-model="secret" type="text" class="resol form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
 						<div class="input-group-prepend">
 						  <span class="input-group-text" id="basic-addon1" v-on:click="resolver(), activar(section,0)">Resolver</span>
@@ -99,11 +102,15 @@
 
 	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
 		<div class="pages" v-if="section == 'final'">
-			<div class="bgImg" :style="backs"></div>
+			<div class="bgImg" :style="backs">
+				<div class="personaje" :class="estilo">
+					<img v-if="personaje!=null" :src="personaje" alt="contenido">
+				</div>
+			</div>
 			<div class="containerP1">
 				<div class="grad">
 					<div class="parraf">
-						<p>{{finalT}}</p>
+						<p class="txt">{{finalT}}</p>
 					</div>
 				</div>
 				<div class="nextPag">

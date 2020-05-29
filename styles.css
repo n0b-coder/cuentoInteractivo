@@ -76,6 +76,18 @@
   .clasp{
     text-align: right !important;
   }
+  .atras{
+    padding-top: 10px !important;
+  }
+  #back{
+    font-size: 2.5vw !important;
+  }
+}
+.txt {
+  margin-top: 0.8rem !important;
+  margin-bottom: 1rem !important;
+  margin-right: 0.8rem !important;
+  text-shadow: 1px 1px 2px black;
 }
 body{
   background-color: black !important;
@@ -387,18 +399,13 @@ a:not([href]):not([tabindex]){
   position: absolute;
   z-index: 1;
   width: -webkit-fill-available;
+  width : -moz-available;
   align-items: center;
 }
-.blur{
-  position: absolute;
-  background-position: center;
-  max-width: 100%;
-  height: 100%;
-  background-size: cover;
-  filter: blur(80px);
-  -webkit-filter: blur(8px);
+.atras{
+  text-align: center;
+  padding-top: 50px;
 }
-
 .frame{
   margin:0; padding:0; height:100%;
   width:100%; border:none;
@@ -462,6 +469,18 @@ input[type=text], select {
   border: 1px solid #ced4da;
   border-radius: .25rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#back{
+  font-family: 'modern', sans-serif;
+  font-weight: bold;
+  background-color:rgba(0,0,0,0.5);
+  color: white;
+  border:solid;
+  border-color: white;
+  padding: 5px 5px;
+  font-size: 7vw;
+  text-shadow: 0 0 0.05em cyan;
+  cursor: pointer;
 }
 .inf{  
   width: 20%!important;

@@ -91,7 +91,11 @@ var app = new Vue({
 	},
 	//Personaje
 	personaje:function (){
-		return this.game_data.historia[this.pilSect][this.pg].imagen_personaje;
+		if (this.section=="base"){
+			return this.game_data.historia[this.pilSect][this.pg].imagen_personaje;
+		} else if (this.section=="final"){
+			return this.game_data.finales[this.counterf][0].imagen_personaje;
+		}
 
 	},
 	//Pantalla redirección a index
