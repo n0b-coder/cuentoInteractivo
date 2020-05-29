@@ -291,6 +291,13 @@ fetch('upload.php', {
           fetch('savechanges.php', {
             method: 'POST',
             body: datoskul
+        })
+        .then(result => {
+          console.log('Success:', result);
+          setGen();
+        })
+        .catch(error => {
+          console.error('Error:', error);
         });
         }
       },
