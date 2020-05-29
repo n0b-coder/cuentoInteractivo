@@ -205,13 +205,13 @@ var app = new Vue({
       setPos:function(){
         switch(this.pos){
           case 'Centro':
-            return this.pos='center';
+            this.pos='center';
           case 'Derecha':
-          return this.pos='right';
+            this.pos='right';
           case 'Izquierda':
-            return this.pos='left';
+            this.pos='left';
           case 'Posición':
-            return this.panel_data.current_selection.pos_personaje;
+            this.pos=this.panel_data.current_selection.pos_personaje;
         };
       },
       onFileChange(e) {
