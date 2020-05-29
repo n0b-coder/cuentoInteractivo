@@ -12,8 +12,48 @@ var gallery = {
 
   ]
 }
-//
+//Fetchs
+function setGen(){
+  const request = new Request('set.php');
+ //Story data
+  fetch(request)
+    .then(response => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        throw new Error('Something went wrong on api server!');
+      }
+    })
+    .then(response => {
+  
+    app.panel_data = response;
+  
+  
+    }).catch(error => {
+      console.error(error);
+    });
+}
 
+function setImgs(){
+  const imgs = new Request('setCimages.php');
+   //Image gallery
+   fetch(imgs)
+   .then(response => {
+     if (response.status === 200) {
+       return response.json();
+     } else {
+       throw new Error('Something went wrong on api server!');
+     }
+   })
+   .then(response => {
+ 
+   app.gallery = response;
+ 
+   }).catch(error => {
+     console.error(error);
+   });
+
+}
 //
 var app = new Vue({
     el: '#panelApp',
@@ -37,7 +77,12 @@ var app = new Vue({
       personajeprev:"",
       active:false,
       imag2:0,
-      action:0
+      action:0,
+      pos:''
+    },
+    created(){
+      setGen();
+      setImgs();
     },
     computed:{
       photos:function(){
@@ -171,34 +216,18 @@ formData.append('tipoimagen', this.tipo);
 formData.append('id_imagen', this.id_img);
 formData.append('accion',this.action);
 
-fetch('/upload.php', {
+fetch('upload.php', {
   method: 'POST',
   body: formData  
 })
 // .then(response => response.json())
 .then(result => {
   console.log('Success:', result);
-  fetch('setCimages.php')
-.then(response => {
-  if (response.status === 200) {
-    return response.json();
-  } else {
-    throw new Error('Something went wrong on api server!');
-  }
-})
-.then(response => {
-
-app.gallery = response;
-
-}).catch(error => {
-  console.error(error);
-});
+  setImgs();
 })
 .catch(error => {
   console.error('Error:', error);
 });
-
-
         },
         createImage(file) {
           var reader = new FileReader();
@@ -213,6 +242,14 @@ app.gallery = response;
         var datoskul;
         var Id_pestana;
         var imagen2_id;
+        switch(this.pos){
+          case 'Centro':
+            return this.pos='center';
+          case 'Derecha':
+          return this.pos='right';
+          case 'Izquierda':
+            return this.pos='left';
+        };
         if(this.section=='portada'){
           Id_pestana = item.id_portada;
         } else if(this.section=='pilares'){
@@ -245,7 +282,8 @@ app.gallery = response;
             imagen2_id,
             texto: this.txt,
             imagen_id: this.selected,
-            tipo: this.tipo
+            tipo: this.tipo,
+            pos_personaje:this.pos
           })
 
           }
@@ -258,41 +296,3 @@ app.gallery = response;
       },
     }
 });
-
-
-const request = new Request('set.php');
-const imgs = new Request('setCimages.php');
-//data del cuento
-fetch(request)
-  .then(response => {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Something went wrong on api server!');
-    }
-  })
-  .then(response => {
-
-  app.panel_data = response;
-
-
-  }).catch(error => {
-    console.error(error);
-  });
-
-  //Image gallery
-  fetch(imgs)
-  .then(response => {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Something went wrong on api server!');
-    }
-  })
-  .then(response => {
-
-  app.gallery = response;
-
-  }).catch(error => {
-    console.error(error);
-  });

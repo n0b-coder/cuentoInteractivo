@@ -255,8 +255,16 @@ if($variable_S == null || $variable_S == '')
                         <!-- Personaje -->
                         <div class= "EdPersonaje" v-if="(section!='pilares') && (section!='indagacion') && (section!='postresol') && (section!='portada')">
                             <button class="Btn" @click="active=true, popUp=true, active=1">
-                            {{status.imagen}}
+                                {{status.imagen}}
                             </button>
+                            <div class="dropdown primary">
+                                <select v-model="pos">
+                                    <option disabled value="">Posición</option>
+                                    <option>Centro</option>
+                                    <option>Izquierda</option>
+                                    <option>Derecha</option>
+                                </select>
+                            </div>
                             <div class="previewCol">
                                 <img v-if="panel_data.current_selection.imagen_personaje" class = "Prev" :src="personajeprev">
                                 <img v-if="panel_data.current_selection.imagen_personaje==null" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
