@@ -59,7 +59,7 @@ if($variable_S == null || $variable_S == '')
                                 <img class = "PreImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png" v-if="panel_data.current_selection.imagen_personaje==0">  
                             </div>
                             <div class="ShowDat">
-                                <input type="text" class="formuControl" placeholder="Nombre">
+                                <!-- <input type="text" class="formuControl" placeholder="Nombre"> -->
                                 <div class="Datos">
                                 <h3 id="clas-Tipo"> Clase: {{panel_data.tipo}}</h3>
 
@@ -257,14 +257,14 @@ if($variable_S == null || $variable_S == '')
                             <button class="Btn" @click="active=true, popUp=true, active=1">
                                 {{status.imagen}}
                             </button>
-                            <div class="dropdown primary">
-                                <select v-model="pos">
-                                    <option disabled value="">Posición</option>
+                            <div class="dropdown">                          
+                                <select class="dropdown-sel" v-model="pos">
+                                    <option disabled selected value="Posición">Posición</option>
                                     <option>Centro</option>
                                     <option>Izquierda</option>
                                     <option>Derecha</option>
                                 </select>
-                            </div>
+                            </div> 
                             <div class="previewCol">
                                 <img v-if="panel_data.current_selection.imagen_personaje" class = "Prev" :src="personajeprev">
                                 <img v-if="panel_data.current_selection.imagen_personaje==null" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">

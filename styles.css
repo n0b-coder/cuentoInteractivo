@@ -542,7 +542,16 @@ input[type=text], select {
   font-weight: bolder;
   font-size: 600%;
 }
-
+.dropdown{
+  padding: 5px;
+}
+.dropdown-sel{
+  background-color: black !important;
+  font-size: 120% !important;
+  font-weight: bolder;
+  padding: 8px;
+  cursor: pointer;
+}
 .Conte{
   display:flex;
   flex-direction: column;

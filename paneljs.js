@@ -78,7 +78,7 @@ var app = new Vue({
       active:false,
       imag2:0,
       action:0,
-      pos:''
+      pos:'Posición'
     },
     created(){
       setGen();
