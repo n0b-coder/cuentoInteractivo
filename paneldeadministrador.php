@@ -76,8 +76,8 @@ if($variable_S == null || $variable_S == '')
                                 <input type="file" name="ImageToUpload" id="ImageToUpload"
                                 @change="onFileChange" @click="action=1"/>
                             Reemplazar</div>
-                            <div class="SubirBtn" v-if="active==true && section!='resolucion'" @click="panel_data.current_selection.imagen_personaje=0">
-                            Eliminar
+                            <div class="SubirBtn" v-if="active==true && section!='resolucion'" @click="panel_data.current_selection.imagen_personaje=0, imagen2_id=0">
+                            Remover
                             </div>
                                 <input type="hidden" name="tipoimagen" :value="panel_data.tipo">                               
                             </div>
