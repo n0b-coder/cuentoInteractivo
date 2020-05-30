@@ -267,7 +267,7 @@ if($variable_S == null || $variable_S == '')
                             </div> 
                             <div class="previewCol">
                                 <img v-if="panel_data.current_selection.imagen_personaje" class = "Prev" :src="personajeprev">
-                                <img v-if="panel_data.current_selection.imagen_personaje==null" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
+                                <img v-if="panel_data.current_selection.id_imagen_personaje==null" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
                             </div>
                         </div>
                     </div>
