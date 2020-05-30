@@ -262,7 +262,11 @@ fetch('upload.php', {
           imagen2_id = item.imagen_acertijo;
         } else {
           Id_pestana = item.id_pestana;
-          imagen2_id = this.imag2;
+          if(this.imag2!=0){
+            imagen2_id = this.imag2;
+          } else {
+            imagen2_id=item.id_imagen_personaje;
+          }          
         }
         if(this.active!=true){
           if(this.selected==item.imagen_id || this.selected==0){
