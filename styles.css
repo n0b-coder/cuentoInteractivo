@@ -13,11 +13,6 @@
     padding-left: 0px !important;
   }
 }
-@media screen and (min-height: 641px){
-  .personaje img{    
-    padding: 10vh 0% 0vw 3vw !important;
-  }
-}
 @media only screen and (min-width: 768px), (orientation: landscape){
   .bgImg{
     height: 100% !important;
@@ -87,12 +82,11 @@
   .personaje{
     position: absolute;
     height: 100% !important;
-    width: 100%;
+    width: -webkit-fill-available;
   }
   .personaje img{
     height: 100% !important;
-    object-fit: contain !important;
-    padding: 12vw 8vw 0 8vw !important;
+    max-width: -webkit-fill-available !important;
   }
   .clasp{
     text-align: right !important;
@@ -540,21 +534,25 @@ input[type=text], select {
 .personaje{
   position: absolute;
   height: 50%;
-  justify-items: flex-end;
+  width: -webkit-fill-available;
 }
 .personaje img{
+  object-fit: cover;
   height: 100%;
-  padding: 15vh 13vw 0vw 16vw;
+  max-width: -webkit-fill-available !important;
 }
 /*Personaje posiciones*/
 .left{
   text-align: left !important;
+  padding-top: 15%;
 }
 .right{
   text-align: right !important;
+  padding-top: 15%;
 }
 .center{
-  text-align: center !important;
+  text-align: center !important;  
+  padding-top: 8%;
 }
 .clasp{
   text-align: right;
