@@ -133,31 +133,31 @@ if($variable_S == null || $variable_S == '')
 
             <div class="row">
                 <div class="checkboxrow row">
-                    <label class="col">Todo
+                    <label class="col pad">Todo
                         <input type="radio" checked="checked" name="radio" @click="unique=false, panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
-                    <label class="col">Historia
+                    <label class="col pad">Historia
                         <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('historia'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
-                    <label class="col">Pilares
+                    <label class="col pad">Pilares
                         <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('pilares'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
-                    <label class="col">Indagación
+                    <label class="col pad">Indagación
                         <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('indagacion'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
-                    <label class="col">Resolución
+                    <label class="col pad">Resolución
                         <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('resolucion'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
-                    <label class="col">Post/resolución
+                    <label class="col pad">Post/resolución
                         <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('postresol'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
-                    <label class="col">Finales
+                    <label class="col pad">Finales
                         <input type="radio" checked="checked" name="radio" @click="unique=true, seccion('finales'), panel_data.current_selection=null">
                         <span class="checkmark"></span>
                     </label>
@@ -258,7 +258,7 @@ if($variable_S == null || $variable_S == '')
                                 {{status.imagen}}
                             </button>
                             <div class="dropdown">                          
-                                <select class="dropdown-sel" v-model="pos">
+                                <select class="dropdown-sel" v-model="pos" v-if>
                                     <option disabled selected value="Posición">Posición</option>
                                     <option>Centro</option>
                                     <option>Izquierda</option>

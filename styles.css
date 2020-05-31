@@ -1,3 +1,6 @@
+/*Animations*/
+
+/*Css*/
 @media screen and (min-height: 641px){
   .personaje img{    
     padding: 10vh 0% 0vw 3vw !important;
@@ -11,11 +14,15 @@
   .icon{
     font-size: 5vw !important;
   }
+  .icon-ind{
+    font-size: 10vw !important;
+  }
   .grad{
     background-color: rgba(0,0,0,0) !important;
     background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1)) !important;
     position: absolute !important;
     height: fit-content !important;
+    height: -moz-fit-content !important;
     width:100%;
   }
   .containerP1{
@@ -41,8 +48,10 @@
   .indArrows{
     padding-left: 0% !important;
   }
-  .indR{
-    padding-left:60% !important;
+  .ind-inf{
+    padding-top: 85vh !important;
+    overflow: hidden;
+    height: inherit;
   }
   #again img{
     padding-bottom: 5%;
@@ -270,23 +279,47 @@ a:not([href]):not([tabindex]){
   background-size: 90vh;
 }
 .bgImgMon{
-  background-position: center;
+  display: flex;
+  align-items: center;
   max-width: 100%;
   height: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
   z-index: 10;
   opacity: 1;
+}
+.img-mon{
+  width: -webkit-fill-available !important;
+  width: -moz-available !important;
+  max-height: -moz-available !important;
+  position: fixed !important;
 }
 .arrows{
   position: absolute;
   background-position: center;
-  max-width: 100%;
+  width: 100%;
   height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 5;
+  z-index: 11;
   opacity: 1;
+}
+.ind-left{
+  display: flex !important;
+  align-items: center;
+  padding-left: 6% !important;
+}
+.ind-right{
+  display: flex !important;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 6% !important;
+}
+.ind-inf{
+  position: absolute;
+  height: -webkit-fill-available;
+  padding-top: 26vh;
+  z-index: 11;
+  display: flex;
+  align-items: center;
 }
 .bgImgInd{
   height: 100%;
@@ -326,7 +359,7 @@ a:not([href]):not([tabindex]){
   justify-content: flex-end;
 }
 .as{
-  color: rgba(0,0,0,0) !important;
+  color: rgba(231,0,0,0) !important;
 }
 .barra{
   display: grid;
@@ -342,22 +375,32 @@ a:not([href]):not([tabindex]){
   width:50%;
 }
 .icon{
-  color:rgba(255,255,255,0.9);
+  color:rgba(255,255,255,0.8);
   font-size: 10vw;
   cursor: pointer;
   text-shadow: 0 0 0.05em cyan;
   padding-left: 1vw;
+  animation: 1.5s ease-in-out 0s infinite normal both running heartbeat;
 } 
+.icon:hover{
+  color: white;
+  transform: scale(1.1);
+}
+.icon:active{
+  color:cyan;
+  transform: scale(0.9);
+}
+.icon-ind{
+  font-size: 72px;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
 .nextPag{
   height:20%;  
   align-self: center;
 }
-.iconSc{
-  cursor: pointer;
-  color:green;
-  text-shadow: 0 0 0.05em greenyellow;
-  font-size: 5vw;
-} 
 .volver{  
   text-align: center;
 }
@@ -372,25 +415,6 @@ a:not([href]):not([tabindex]){
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-}
-.indR{
-  display: flex;
-  justify-content: flex-end;
-  padding-left:70% !important;
-  height: 25%;
-  padding-right: 0 !important;
-  cursor: pointer;
-}
-.indL{
-  display: flex;
-  justify-content: start;
-  padding-left:7% !important;
-  height: 25%;
-  padding-right: 0 !important;
-  cursor: pointer;
-}
-.imgIdx{
-  background-size: contain;
 }
 .indArrows{
   display: flex;
@@ -516,6 +540,9 @@ input[type=text], select {
   text-align: right;
 }
 
+.pad{
+  padding-left: 30px!important;
+}
 
 .Maindeadmin {
   background-image: url("IMG_NEW/admin/adm_1.png");
@@ -897,7 +924,7 @@ input[type=text], select {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  padding-left: 30px !important;
+  padding-left: 30px;
 }
 .col input {
   position: absolute;

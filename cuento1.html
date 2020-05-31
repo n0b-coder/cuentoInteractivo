@@ -8,15 +8,16 @@
 	<meta content="SalvandoElMundo">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="icons/css/fontawesome.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
 </head>
 
 <body>
-<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+
 <div id="app" class="secciones">
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+	<transition name="pass-page"></transition>
 		<div class="pages" v-if="section == 'base'">
 			<div class="bgImg" :style="backs">
 				<div class="personaje" :class="estilo">
@@ -61,21 +62,22 @@
 		<div class="pages" v-if="section == 'indagar'">
 			<div class="bgImgInd row card-img">
 				<img :src="imagenes" alt="contenido" class="imgIdx">
-			<div class="bgImgMon card-img" :style="monitor">
-				<div class="row arrows card-img">
-					<div class="row indArrows">
-						<div class="col indL" v-on:click="prevImg()">
-							<span v-if="idx>0" class="fill-div as" >a</span>
-						</div>
-						<div class="col indR" v-on:click="nextImg()">
-							<span v-if="idx<2" class="fill-div as" >a</span>
-						</div>
+			<div class="bgImgMon card-img">
+				<img :src="monitor" alt="monitor futurista" class="img-mon">
+			</div>
+				<div class="row arrows">
+					<div class="col ind-left">
+						<i class="icon-ind fas fa-angle-double-left"><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+
+						</linearGradient></i>
+					</div>
+					<div class="col ind-right">
+						<i class="icon-ind fas fa-angle-double-right"></i>
 					</div>
 				</div>
-				<div class="col inf" v-on:click="back()">
-					<span class="fill-div as">a</span>
+				<div class="ind-inf">
+					<i class="icon-ind fas fa-angle-down"></i>
 				</div>
-			</div>
 			</div>
 		</div>
 	</transition>
@@ -148,10 +150,10 @@
 	</transition>
 
 </div>
-</transition>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="main.js"></script>
+	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
+	
 </body>
 </html>
