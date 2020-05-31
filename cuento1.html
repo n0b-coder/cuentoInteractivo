@@ -17,28 +17,28 @@
 
 <div id="app" class="secciones">
 
-	<transition name="pass-page"></transition>
-		<div class="pages" v-if="section == 'base'">
+	<transition name="pass-page">
+		<div class="pages" v-if="section == 'base', on==true">
 			<div class="bgImg" :style="backs">
 				<div class="personaje" :class="estilo">
 					<img v-if="personaje!=null" :src="personaje" alt="contenido">
 				</div>
-			</div>			
-				<div class="containerP1">
-					<div class="grad">
-						<div class="parraf">
-							<p class="txt">{{game_data.historia[pilSect][pg].texto}}</p>
-						</div>
-					</div>
-					<div class="nextPag">
-						<span v-on:click="activar('base',-1)" v-if="pg>0"><i class="icon far fa-caret-square-left"></i></span>
-						<span v-on:click="activar('base',1)"><i class="icon far fa-caret-square-right"></i></span>
+			</div>					
+			<div class="containerP1">
+				<div class="grad">
+					<div class="parraf">
+						<p class="txt">{{game_data.historia[pilSect][pg].texto}}</p>
 					</div>
 				</div>
+				<div class="nextPag">
+					<span v-on:click="activar('base',-1)" v-if="pg>0"><i class="icon far fa-caret-square-left" @click="on=false"></i></span>
+					<span v-on:click="activar('base',1)"><i class="icon far fa-caret-square-right" @click="on=false"></i></span>
+				</div>
+			</div>
 		</div>
 	</transition>
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+	<transition name="pass-page">
 		<div class="acertijo" v-if="section == 'acertijo'">
 			<div class="bgImgAcer" :style="backs">
 				<div class="opcs">
@@ -80,7 +80,7 @@
 		</div>
 	</transition>
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
+	<transition name="pass-page">
 		<div class="pages" v-if="section == 'resolver'">
 			<div class="bgImgAcer" :style="backs">
 				<div class="bgImgRuna" :style="imagenes">
@@ -100,8 +100,8 @@
 		</div>
 	</transition>
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'final'">
+	<transition name="pass-page">
+		<div class="pages" v-if="section == 'final', onf==true">
 			<div class="bgImg" :style="backs">
 				<div class="personaje" :class="estilo">
 					<img v-if="personaje!=null" :src="personaje" alt="contenido">
@@ -114,8 +114,8 @@
 					</div>
 				</div>
 				<div class="nextPag">
-					<span v-on:click="activar('final',-1)" v-if="pg>0"><i class="icon far fa-caret-square-left"></i></span>
-					<span v-on:click="activar('final',1)"><i class="icon far fa-caret-square-right"></i></span>
+					<span v-on:click="activar('final',-1)" v-if="pg>0"><i class="icon far fa-caret-square-left" @click="onf=false"></i></span>
+					<span v-on:click="activar('final',1)"><i class="icon far fa-caret-square-right" @click="onf=false"></i></span>
 				</div>
 			</div>
 		</div>

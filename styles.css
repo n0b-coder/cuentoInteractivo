@@ -1,10 +1,18 @@
 /*Animations*/
-:root {
-  --left: -10px; 
-  --right: 10px; 
-  --down: -10px;
+.pass-page-enter-active, .pass-page-leave-active {
+  transition: opacity .8s;
+}
+.pass-page-leave-active, .pass-page-enter
+/* .pass-page-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 /*Css*/
+@media only screen and (orientation: portrait){
+  .atras{
+    text-align: center !important;
+    padding-left: 0px !important;
+  }
+}
 @media screen and (min-height: 641px){
   .personaje img{    
     padding: 10vh 0% 0vw 3vw !important;
@@ -118,6 +126,7 @@ html,body{
   height: auto;
 }
 .pages{
+  overflow-y: hidden !important;
   height: 100%;
 }
 .pages i{
@@ -133,6 +142,7 @@ html,body{
   text-shadow: 0 0 0.05em cyan;
 }
 #he2{
+  box-shadow: 0px 0px 10px black;
 	font-family: 'modern', sans-serif;
   font-weight: bold;
   background-color:rgba(0,0,0,0.3);
@@ -435,8 +445,9 @@ a:not([href]):not([tabindex]){
   align-items: center;
 }
 .atras{
-  text-align: center;
+  text-align: left;
   padding-top: 50px;
+  padding-left: 50px;
 }
 .frame{
   margin:0; padding:0; height:100%;
@@ -512,6 +523,7 @@ input[type=text], select {
   padding: 5px 5px;
   font-size: 7vw;
   text-shadow: 0 0 0.05em cyan;
+  box-shadow: 0px 0px 10px black;
   cursor: pointer;
 }
 .inf{  
@@ -704,15 +716,12 @@ input[type=text], select {
   color: rgb(0, 0, 0) !important;
 }
 
-
-
 .container-2fluid{
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-bottom: 30px;
 }
-
 
 .input-group{
   display: flex;

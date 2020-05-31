@@ -29,6 +29,8 @@ var game_data = {
 var app = new Vue({
   el: '#app',
   data: {
+	on:true,
+	onf:false,
 	secret:'',
 	game_data: game_data,
 	pilSect:0,
@@ -49,6 +51,25 @@ var app = new Vue({
 	//
 	
   },
+  created(){
+	const request = new Request('set.php');
+
+	fetch(request)
+	  .then(response => {
+		if (response.status === 200) {
+		  return response.json();
+		} else {
+		  throw new Error('Something went wrong on api server!');
+		}
+	  })
+	  .then(response => {
+	
+		this.game_data = response;
+	
+	  }).catch(error => {
+		console.error(error);
+	  });
+  },
   computed: {
 	  //
 	estilo:function(){
@@ -60,6 +81,7 @@ var app = new Vue({
 	},
 	  //
     backs: function () {
+		this.on==true;
       	if(this.section=='final'){
 			return 'background-image:url("'+this.game_data.finales[this.counterf][0].imagen_fondo+'")';
 		} else if(this.section=='reset'){
@@ -121,18 +143,22 @@ var app = new Vue({
   },
   methods: {
 	  //
-	  
 	  //siguiente página
     activar: function (seccion, s) {
+
       this.section = seccion;
 	  this.pg+=s;
 	  if (this.section=='base'){
+		this.on=true;
 		if (this.pg==this.paginas){
+			this.on=false;
 			this.section='acertijo';
 		}
 	}
 	if (this.section=='final'){
+		this.onf=true;
 		if (this.pg==this.paginas){
+			this.onf=false;
 			this.section='reset';
 		}
 	}
@@ -158,6 +184,7 @@ var app = new Vue({
 		else if(this.pass!=validos){
 			this.estado++;
 			if(this.estado==3){
+				this.onf=true;
 				this.counterf=0;
 				this.pg==0
 				this.section='final';	
@@ -185,6 +212,7 @@ var app = new Vue({
 	again: function (){
 		this.section = 'acertijo';
 		if(this.estado==0){//ganó, pasa al sig pilar
+			this.on=true;
 			this.pilSect++;
 			this.section='base';//pagina 1 del siguiente pilar
 			this.pg=0;
@@ -193,6 +221,8 @@ var app = new Vue({
 			this.estado=0;
 		}
 		if(this.pilSect==this.total){
+			this.on=false;
+			this.onf=true;
 			if(this.intentos>=Math.round(this.total*3*0.9)){
 				this.counterf=3;
 			}
@@ -204,27 +234,8 @@ var app = new Vue({
 			this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS";
 			this.activar('final',0);
 		}
-	},
-
+	}
   }
 });
-
-const request = new Request('set.php');
-
-fetch(request)
-  .then(response => {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Something went wrong on api server!');
-    }
-  })
-  .then(response => {
-
-	app.game_data = response;
-
-  }).catch(error => {
-    console.error(error);
-  });
 
   //:src="item.imagen"
