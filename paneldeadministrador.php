@@ -16,6 +16,7 @@ if($variable_S == null || $variable_S == '')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JUKO ADMIN PANEL</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="icons/css/fontawesome.css">    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
     <meta content="JUKO">
@@ -281,8 +282,9 @@ if($variable_S == null || $variable_S == '')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
-    
+	<script type="text/javascript" src="icons/js/fontawesome.js"></script>
+	<script type="text/javascript" src="icons/js/regular.js"></script>
+	<script type="text/javascript" src="icons/js/solid.js"></script>    
     <script type="text/javascript" src="paneljs.js"></script>
     
 

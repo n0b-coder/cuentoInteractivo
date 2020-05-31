@@ -1,0 +1,50 @@
+/*!
+ * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+readers do not read off random characters that represent icons */
+
+.fa-angle-double-down:before {
+  content: "\f103"; }
+
+.fa-angle-double-left:before {
+  content: "\f100"; }
+
+.fa-angle-double-right:before {
+  content: "\f101"; }
+
+.fa-angle-double-up:before {
+  content: "\f102"; }
+
+.fa-angle-down:before {
+  content: "\f107"; }
+
+.fa-angle-left:before {
+  content: "\f104"; }
+
+.fa-angle-right:before {
+  content: "\f105"; }
+
+.fa-angle-up:before {
+  content: "\f106"; }
+
+.fa-caret-square-down:before {
+  content: "\f150"; }
+
+.fa-caret-square-left:before {
+  content: "\f191"; }
+
+.fa-caret-square-right:before {
+  content: "\f152"; }
+
+.fa-caret-square-up:before {
+  content: "\f151"; }
+
+.fa-check-circle:before {
+  content: "\f058"; }
