@@ -26,29 +26,8 @@ if($variable_S == null || $variable_S == '')
 <body>
 
     <div class="container-panel" id="panelApp">
-        <!-- success -->
-        <div v-if="success" id="alerts">
-            <div class="modal-mask">
-            <div class="modal-wrapper">
-                <div class="alert-container">
-                <div class="modal-body">
-                    <slot name="body"> <!-- sirve para futuras alerts -->
-                        Tus cambios han sido guardados con éxito.
-                    </slot>
-                </div>
-
-                <div class="modal-footer">
-                    <button class="Btn" @click="success=false">
-                        Vale
-                    </button>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <!-- success -->
-        <div v-if="successImg" id="alerts">
+         <!-- success -->
+         <div v-if="successImg" id="alerts">
             <div class="modal-mask">
             <div class="modal-wrapper">
                 <div class="alert-container">
@@ -68,6 +47,27 @@ if($variable_S == null || $variable_S == '')
             </div>
         </div>
         
+        <!-- success -->
+        <div v-if="success" id="alerts">
+            <div class="modal-mask-img">
+            <div class="modal-wrapper">
+                <div class="alert-container">
+                <div class="modal-body">
+                    <slot name="body"> <!-- sirve para futuras alerts -->
+                        Tus cambios han sido guardados con éxito.
+                    </slot>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="Btn" @click="success=false">
+                        Vale
+                    </button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
         <!-- gallery -->
         <div v-if="popUp">
             <div class="modal-mask">
