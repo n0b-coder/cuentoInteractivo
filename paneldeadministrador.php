@@ -78,7 +78,7 @@ if($variable_S == null || $variable_S == '')
                         <div class="BlockImg">
                             <div class="ShowImg">                               
                                 <img class = "PreImg" :src="preview" v-if="panel_data.current_selection.imagen_personaje!=0">                            
-                                <img class = "PreImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png" v-if="panel_data.current_selection.imagen_personaje==0 || preview!=0 && section!='resolucion'">  
+                                <img class = "PreImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png" v-if="preview==null && active==true">  
                             </div>
                             <div class="ShowDat">
                                 <!-- <input type="text" class="formuControl" placeholder="Nombre"> -->
@@ -289,7 +289,7 @@ if($variable_S == null || $variable_S == '')
                             </div> 
                             <div class="previewCol">
                                 <img v-if="panel_data.current_selection.imagen_personaje" class = "Prev" :src="personajeprev">
-                                <img v-if="panel_data.current_selection.id_imagen_personaje==null" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
+                                <img v-if="(preview==null) || (panel_data.current_selection.id_imagen_personaje==null) && (section!='resolucion')" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
                             </div>
                         </div>
                     </div>
