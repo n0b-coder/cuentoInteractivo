@@ -107,7 +107,6 @@ body{
   margin:0px;
 }
 html,body{
-  overflow-y: hidden;
  height: 100%;
 }
 @font-face{
@@ -119,7 +118,7 @@ html,body{
   height: auto;
 }
 .pages{
-  overflow-y: hidden !important;
+  overflow-y: hidden;
   height: 100%;
 }
 .pages i{
@@ -447,6 +446,7 @@ a:not([href]):not([tabindex]){
   width:100%; border:none;
 }
 .secciones{
+  overflow-y: hidden;
   height: 100%;
 }
 #indagar{
