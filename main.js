@@ -47,9 +47,10 @@ var app = new Vue({
   	idx: 1,
 	section:'base',
 	counterf:1,
-	yes:true
+	yes:true,
 	//
-	
+	on:true,
+	interval:null
   },
   created(){
 	const request = new Request('set.php');
@@ -64,7 +65,7 @@ var app = new Vue({
 	  })
 	  .then(response => {
 	
-		this.game_data = response;
+		app.game_data = response;
 	
 	  }).catch(error => {
 		console.error(error);
@@ -146,6 +147,10 @@ var app = new Vue({
   },
   methods: {
 	  //
+	  von:function(){
+		this.on=false;
+		this.interval = setInterval(() => this.on=true, 1000);
+	  },
 	  //siguiente página
     activar: function (seccion, s) {
 	  this.section = seccion;

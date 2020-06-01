@@ -6,7 +6,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta content="SalvandoElMundo">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+ 	 />
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<link rel="stylesheet" href="icons/css/fontawesome.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -17,8 +20,8 @@
 
 <div id="app" class="secciones">
 
-	<transition name="pass-page">
-		<div class="pages" v-if="section == 'base'">
+	<transition v-if="on">
+		<div class="pages animate__animated animate__fadeIn" v-if="section == 'base'">
 			<div class="bgImg" :style="backs">
 				<div class="personaje" :class="estilo">
 					<img v-if="personaje!=null" :src="personaje" alt="contenido">
@@ -31,23 +34,22 @@
 					</div>
 				</div>
 				<div class="nextPag">
-					<span v-on:click="activar('base',-1)" v-if="pg>0"><i class="icon far fa-caret-square-left"></i></span>
-					<span v-on:click="activar('base',1)"><i class="icon far fa-caret-square-right"></i></span>
+					<span v-on:click="activar('base',-1), von()" v-if="pg>0"><i class="icon far fa-caret-square-left"></i></span>
+					<span v-on:click="activar('base',1), von()"><i class="icon far fa-caret-square-right"></i></span>
 				</div>
 			</div>
 		</div>
-	</transition>
+	
 
-	<transition name="pass-page">
-		<div class="acertijo" v-if="section == 'acertijo'">
+		<div class="acertijo animate__animated animate__fadeIn" v-if="section == 'acertijo'">
 			<div class="bgImgAcer" :style="backs">
 				<div class="opcs">
 					<div class="opt">
-						<span v-on:click="activarPilar('indagar')">
+						<span v-on:click="activarPilar('indagar'), von()">
 						<h3 id="he2">INDAGAR</h3></span>
 					</div>
 					<div class="opt">
-						<a v-on:click="activarPilar('resolver')">
+						<a v-on:click="activarPilar('resolver'), von()">
 						<h3 id="he2">RESOLVER</h3></a>
 					</div>
 					<div id="vidas">
@@ -56,10 +58,10 @@
 				</div>
 			</div>
 		</div>
-	</transition>
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'indagar'">
+
+
+		<div class="pages animate__animated animate__fadeIn" v-if="section == 'indagar'">
 			<div class="bgImgInd row card-img">
 				<img :src="imagenes" alt="contenido" class="imgIdx">
 			<div class="bgImgMon card-img">
@@ -74,34 +76,33 @@
 					</div>
 				</div>
 				<div class="ind-inf">
-					<i class="icon-ind fas fa-angle-down" @click="back()"></i>
+					<i class="icon-ind fas fa-angle-down" @click="back(), von()"></i>
 				</div>
 			</div>
 		</div>
-	</transition>
 
-	<transition name="pass-page">
-		<div class="pages" v-if="section == 'resolver'">
+
+
+		<div class="pages animate__animated animate__fadeIn" v-if="section == 'resolver'">
 			<div class="bgImgAcer" :style="backs">
 				<div class="bgImgRuna" :style="imagenes">
 					<div class="atras">
-						<span id="back" v-on:click="activar('acertijo',0)">Volver</span>
+						<span id="back" v-on:click="activar('acertijo',0), von()">Volver</span>
 					</div>
 				</div>
 				<div class="resolver containerP">
 					<div class="input-group mb-3">						
 						<input v-model="secret" type="text" class="resol form-control" placeholder=". . ." aria-label="Username" aria-describedby="basic-addon1">
 						<div class="input-group-prepend">
-						  <span class="input-group-text" id="basic-addon1" v-on:click="resolver(), activar(section,0)">Resolver</span>
+						  <span class="input-group-text" id="basic-addon1" v-on:click="resolver(), activar(section,0), von()">Resolver</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</transition>
 
-	<transition name="pass-page">
-		<div class="pages" v-if="section == 'final'">
+
+		<div class="pages animate__animated animate__fadeIn" v-if="section == 'final'">
 			<div class="bgImg" :style="backs">
 				<div class="personaje" :class="estilo">
 					<img v-if="personaje!=null" :src="personaje" alt="contenido">
@@ -114,28 +115,27 @@
 					</div>
 				</div>
 				<div class="nextPag">
-					<span v-on:click="activar('final',-1)" v-if="pg>0"><i class="icon far fa-caret-square-left"></i></span>
-					<span v-on:click="activar('final',1)"><i class="icon far fa-caret-square-right"></i></span>
+					<span v-on:click="activar('final',-1), von()" v-if="pg>0"><i class="icon far fa-caret-square-left"></i></span>
+					<span v-on:click="activar('final',1), von()"><i class="icon far fa-caret-square-right"></i></span>
 				</div>
 			</div>
 		</div>
-	</transition>
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'reintentar'">
+
+		<div class="pages animate__animated animate__fadeIn" v-if="section == 'reintentar'">
 			<div class="Main" :style="backs">
 				<div id="again">
 					<img class="img-resol" :src="vida.stat[estado]" alt="contenido">
 					<div>
-						<i v-on:click="again()" class="icon far fa-caret-square-right"></i>
+						<i v-on:click="again(), von()" class="icon far fa-caret-square-right"></i>
 					</div>
 				</div>
 			</div>
 		</div>
-	</transition>
 
-	<transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" v-if="section == 'reset'">
+
+
+		<div class="pages animate__animated animate__fadeIn" v-if="section == 'reset'">
 			<div class="Main" :style="backs">
 				<div id="Titulo">
 					<h3 id="he3">{{final.reset[counterf]}}</h3>
@@ -145,8 +145,8 @@
 				</div>
 			</div>
 		</div>
-	</transition>
 
+	</transition>
 </div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
