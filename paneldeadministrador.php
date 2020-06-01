@@ -46,6 +46,27 @@ if($variable_S == null || $variable_S == '')
             </div>
             </div>
         </div>
+
+        <!-- success -->
+        <div v-if="successImg" id="alerts">
+            <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="alert-container">
+                <div class="modal-body">
+                    <slot name="body"> <!-- sirve para futuras alerts -->
+                        Imagen cargada.
+                    </slot>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="Btn" @click="successImg=false">
+                        Vale
+                    </button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
         
         <!-- gallery -->
         <div v-if="popUp">

@@ -29,8 +29,6 @@ var game_data = {
 var app = new Vue({
   el: '#app',
   data: {
-	on:true,
-	onf:false,
 	secret:'',
 	game_data: game_data,
 	pilSect:0,
@@ -45,9 +43,11 @@ var app = new Vue({
 	alOrDe:"REINTENTAR",
 	resetBtn:"",
 	estado:0,
+	try: 1,
   	idx: 1,
 	section:'base',
 	counterf:1,
+	yes:true
 	//
 	
   },
@@ -81,7 +81,6 @@ var app = new Vue({
 	},
 	  //
     backs: function () {
-		this.on==true;
       	if(this.section=='final'){
 			return 'background-image:url("'+this.game_data.finales[this.counterf][0].imagen_fondo+'")';
 		} else if(this.section=='reset'){
@@ -92,7 +91,11 @@ var app = new Vue({
 		} else if(this.section=='acertijo'){
 			return 'background-image:url("'+this.game_data.pilares[this.pilSect].torre+'")';
 		} else if(this.section=='reintentar'){
-			return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';//ahora recibe el fondo desde postresolución
+			if(this.yes==false){
+				return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';
+			} else {
+				return 'background-image:url("'+this.game_data.post_resol[this.pilSect][this.try].imagen_fondo+'")';
+			}
 		}
 		else {			
 			  return 'background-image:url("'+this.game_data.historia[this.pilSect][this.pg].imagen_fondo+'")';
@@ -145,20 +148,19 @@ var app = new Vue({
 	  //
 	  //siguiente página
     activar: function (seccion, s) {
-
-      this.section = seccion;
-	  this.pg+=s;
+	  this.section = seccion;
+	  if(this.pg!=this.paginas){
+		this.pg+=s;
+	  }
 	  if (this.section=='base'){
-		this.on=true;
-		if (this.pg==this.paginas){
-			this.on=false;
+		this.try=0;		
+		if (this.pg==this.paginas){			
 			this.section='acertijo';
 		}
 	}
 	if (this.section=='final'){
-		this.onf=true;
 		if (this.pg==this.paginas){
-			this.onf=false;
+			
 			this.section='reset';
 		}
 	}
@@ -172,7 +174,8 @@ var app = new Vue({
 		var validos=this.game_data.pilares[this.pilSect].solucion;
 		this.pg=0;
 		if(this.pass==validos){
-			this.estado=0;			
+			this.estado=0;
+			this.yes=true;
 			if(this.pilSect==this.total){
 				this.again();
 			} else{
@@ -184,7 +187,6 @@ var app = new Vue({
 		else if(this.pass!=validos){
 			this.estado++;
 			if(this.estado==3){
-				this.onf=true;
 				this.counterf=0;
 				this.pg==0
 				this.section='final';	
@@ -193,6 +195,8 @@ var app = new Vue({
 				this.section='reintentar';
 				this.alOrDe="REINTENTAR";
 				this.intentos--;
+				this.try++;
+				this.yes=false;
 			}
 		}
 		this.secret='';
@@ -212,7 +216,7 @@ var app = new Vue({
 	again: function (){
 		this.section = 'acertijo';
 		if(this.estado==0){//ganó, pasa al sig pilar
-			this.on=true;
+			
 			this.pilSect++;
 			this.section='base';//pagina 1 del siguiente pilar
 			this.pg=0;
@@ -221,8 +225,7 @@ var app = new Vue({
 			this.estado=0;
 		}
 		if(this.pilSect==this.total){
-			this.on=false;
-			this.onf=true;
+			
 			if(this.intentos>=Math.round(this.total*3*0.9)){
 				this.counterf=3;
 			}

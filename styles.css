@@ -1,6 +1,6 @@
 /*Animations*/
 .pass-page-enter-active, .pass-page-leave-active {
-  transition: opacity .8s;
+  transition: opacity .3s;
 }
 .pass-page-leave-active, .pass-page-enter
 /* .pass-page-leave-active below version 2.1.8 */ {

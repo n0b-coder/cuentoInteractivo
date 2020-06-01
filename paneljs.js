@@ -68,6 +68,7 @@ var app = new Vue({
       selected:0,
       //success modal :v
       success:false,
+      successImg:false,
       //Estado de texto y personaje
       status:{
         texto:'',
@@ -209,32 +210,30 @@ var app = new Vue({
             return;
           this.createImage(files[0]);
 
-const formData = new FormData();
+            const formData = new FormData();
 
-formData.append('submit', 'true');
-formData.append('ImageToUpload', files[0]);
-formData.append('tipoimagen', this.tipo);
-formData.append('id_imagen', this.id_img);
-formData.append('accion',this.action);
+            formData.append('submit', 'true');
+            formData.append('ImageToUpload', files[0]);
+            formData.append('tipoimagen', this.tipo);
+            formData.append('id_imagen', this.id_img);
+            formData.append('accion',this.action);
 
-fetch('upload.php', {
-  method: 'POST',
-  body: formData  
-})
-// .then(response => response.json())
-.then(result => {
-  console.log('Success:', result);
-  setImgs();
-})
-.catch(error => {
-  console.error('Error:', error);
-});
+            fetch('upload.php', {
+              method: 'POST',
+              body: formData  
+            })
+            // .then(response => response.json())
+            .then(result => {
+              console.log('Success:', result);
+              setImgs();
+              this.successImg=true;
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
         },
         createImage(file) {
           var reader = new FileReader();
-          reader.onload = (e) => {
-            this.image = e.target.result;
-          };
           reader.readAsDataURL(file);
       },
       //envía los datos a chancla.php
