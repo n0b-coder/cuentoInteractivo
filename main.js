@@ -50,7 +50,9 @@ var app = new Vue({
 	yes:true,
 	//
 	on:true,
-	interval:null
+	interval:null,
+	unableI:false,
+	unableD:false
   },
   created(){
 	const request = new Request('set.php');
@@ -207,12 +209,26 @@ var app = new Vue({
 		this.secret='';
 	},
 	nextImg: function (){
+		if(this.idx<=2&&this.idx>=0){
+			this.unableD=false;
+			this.unableI=false;
+		}
 		this.idx += 1;
-		if (this.idx  > 2) this.idx  = 2;
+		if (this.idx  > 2){
+			this.idx  = 2;
+			this.unableD=true;
+		}
 	},
 	prevImg: function (){
+		if(this.idx<=2&&this.idx>=0){
+			this.unableD=false;
+			this.unableI=false;
+		}
 		this.idx -= 1;
-		if (this.idx < 0) this.idx = 0;
+		if (this.idx < 0){
+			this.idx = 0;
+			this.unableI=true;
+		}
 	},
 	back: function (){
 		this.section = 'acertijo';

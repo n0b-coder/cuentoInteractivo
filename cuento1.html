@@ -69,10 +69,10 @@
 			</div>
 				<div class="row arrows">
 					<div class="col ind-left">
-						<i class="icon-ind fas fa-angle-double-left" @click="prevImg()"></i>
+						<i class="icon-ind fas fa-angle-double-left" @click="prevImg()" :class="{ 'unable':unableI }"></i>
 					</div>
 					<div class="col ind-right">
-						<i class="icon-ind fas fa-angle-double-right" @click="nextImg()"></i>
+						<i class="icon-ind fas fa-angle-double-right" @click="nextImg()" :class="{ 'unable': unableD }"></i>
 					</div>
 				</div>
 				<div class="ind-inf">
