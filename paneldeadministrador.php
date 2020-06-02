@@ -49,7 +49,7 @@ if($variable_S == null || $variable_S == '')
         
         <!-- success -->
         <div v-if="success" id="alerts">
-            <div class="modal-mask">
+            <div class="modal-mask-img">
             <div class="modal-wrapper">
                 <div class="alert-container">
                 <div class="modal-body">
