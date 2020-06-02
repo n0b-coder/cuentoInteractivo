@@ -534,6 +534,7 @@ input[type=text], select {
   position: absolute;
   height: 50%;
   width: -webkit-fill-available;
+  width: -moz-available !important;
 }
 .personaje img{
   object-fit: cover;
