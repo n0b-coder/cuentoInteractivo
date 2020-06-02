@@ -132,7 +132,7 @@ var app = new Vue({
         }
         if (this.panel_data.tipo=='torres'){
           var idPil=this.panel_data.current_selection.id_pilar;
-          return this.gallery.torre[idPil-1].imagen_id; //
+          return this.gallery.torre[idPil-1].imagen_id;
         } else if (this.panel_data.tipo=='fondos-acertijo'){
           return this.panel_data.current_selection.id_fondo_acertijo;
         } else if (this.panel_data.tipo=='portada'){

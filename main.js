@@ -85,7 +85,7 @@ var app = new Vue({
 	  //
     backs: function () {
       	if(this.section=='final'){
-			return 'background-image:url("'+this.game_data.finales[this.counterf][0].imagen_fondo+'")';
+			return 'background-image:url("'+this.game_data.finales[this.counterf][this.pg].imagen_fondo+'")';
 		} else if(this.section=='reset'){
 			//falta pantalla de reset en DB
 			return 'background-image:url("'+this.game_data.finales[this.counterf][0].imagen_fondo+'")';
@@ -166,8 +166,7 @@ var app = new Vue({
 		}
 	}
 	if (this.section=='final'){
-		if (this.pg==this.paginas){
-			
+		if (this.pg==this.paginas){			
 			this.section='reset';
 		}
 	}
@@ -247,10 +246,10 @@ var app = new Vue({
 		}
 		if(this.pilSect==this.total){
 			
-			if(this.intentos>=Math.round(this.total*3*0.9)){
+			if(this.intentos>=Math.round(this.total*3)){
 				this.counterf=3;
 			}
-			else if (this.intentos<Math.round(this.total*3*0.9) && this.intentos>=Math.round(this.total*3*0.7)){
+			else if (this.intentos<Math.round(this.total*3) && this.intentos>=Math.round(this.total*3*0.7)){
 				this.counterf=2;
 			} else if (this.intentos<Math.round(this.total*3*0.7)){
 				this.counterf=1;
