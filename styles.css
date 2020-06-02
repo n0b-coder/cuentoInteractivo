@@ -543,10 +543,9 @@ input[type=text], select {
   position: absolute;
   height: 50%;
   width: -webkit-fill-available;
-  width: -moz-available !important;
+  width: -moz-available;
 }
 .personaje img{
-  object-fit: cover;
   height: 100%;
   max-width: -webkit-fill-available !important;
 }
@@ -554,15 +553,31 @@ input[type=text], select {
 .left{
   text-align: left !important;
   padding-top: 15%;
+  max-width: 50%;
 }
+.left img{
+  object-fit: contain;
+  max-width: 100%;
+}
+
 .right{
   text-align: right !important;
   padding-top: 15%;
+  max-width: 50%;
 }
+.right img{
+  object-fit: contain;
+  max-width: 100%;
+}
+
 .center{
   text-align: center !important;  
   padding-top: 8%;
 }
+.center img{
+  object-fit: cover;
+}
+
 .clasp{
   text-align: right;
 }
@@ -1115,7 +1130,6 @@ input[type=text], select {
   font-size:10px!important;
   cursor:pointer; opacity:0;
   position:absolute;
-  padding-top:50%;
 }
 
 .AddBtn{
