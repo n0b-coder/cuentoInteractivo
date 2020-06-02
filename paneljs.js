@@ -226,6 +226,7 @@ var app = new Vue({
             .then(result => {
               console.log('Success:', result);
               setImgs();
+              setGen();
               this.successImg=true;
             })
             .catch(error => {
