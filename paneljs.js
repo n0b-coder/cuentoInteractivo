@@ -120,6 +120,11 @@ var app = new Vue({
         }
       },
       tipo:function(){
+        if(this.popUp==true){
+          if(this.section=='resolucion'){
+            return "facertijo";
+          } 
+        }
         if(this.active==true){
           if(this.section!="pilares" && this.section!="resolucion"){
             return "personaje";
@@ -129,9 +134,7 @@ var app = new Vue({
         } else {
           if(this.section=='pilares'){
             return "torre";
-          } else if(this.section=='resolucion'){
-            return "facertijo";
-          } else{
+          }else{
             return this.panel_data.tipo;
           }
         }
