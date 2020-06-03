@@ -121,6 +121,8 @@ var app = new Vue({
         } else {
           if(this.section=='pilares'){
             return "torre";
+          } else if(this.section=='resolucion'){
+            return "facertijo";
           } else{
             return this.panel_data.tipo;
           }
