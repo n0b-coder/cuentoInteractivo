@@ -667,6 +667,7 @@ input[type=text], select {
 }
 .slider-background {
   height: 150px;
+  cursor: pointer;
 }
 .slider-img {
   height: 150px;
