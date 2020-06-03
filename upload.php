@@ -30,7 +30,7 @@ if(isset($_POST["submit"]))
     }
 
     // Check if file already exists
-    if($Type == "finales" || $Type == "facertijo" || $Type == "portada" || $Type == "historia" || $Type == "indagacion" || $Type == "post_resol" || $Type == "torres") 
+    if($Type == "finales" || $Type == "facertijo" || $Type == "portada" || $Type == "historia" || $Type == "indagacion" || $Type == "post_resol" || $Type == "torre") 
     {
       $TypeNumber = 0;
       $consulta= "SELECT * FROM `fondos` WHERE `Name` LIKE '$IMG_Name2'";
