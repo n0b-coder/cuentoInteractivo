@@ -43,7 +43,7 @@ var app = new Vue({
 	alOrDe:"REINTENTAR",
 	resetBtn:"",
 	estado:0,
-	try: 1,
+	tries: 1,
   	idx: 1,
 	section:'base',
 	counterf:1,
@@ -102,7 +102,7 @@ var app = new Vue({
 			if(this.yes==false){
 				return 'background-image:url("'+this.game_data.pilares[this.pilSect].fondo_acertijo+'")';
 			} else {
-				return 'background-image:url("'+this.game_data.post_resol[this.pilSect][this.try].imagen_fondo+'")';
+				return 'background-image:url("'+this.game_data.post_resol[this.pilSect][this.tries].imagen_fondo+'")';
 			}
 		}
 		else {			
