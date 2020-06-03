@@ -77,8 +77,8 @@ if($variable_S == null || $variable_S == '')
                     
                         <div class="BlockImg">
                             <div class="ShowImg">                               
-                                <img class = "PreImg" :src="preview" v-if="panel_data.current_selection.imagen_personaje!=0">                            
-                                <img class = "PreImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png" v-if="preview==null && active==true">  
+                                <img class = "PreImg" :src="preview" v-if="panel_data.current_selection.id_imagen_personaje!=0">                            
+                                <img class = "PreImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png" v-if="preview==null && active==true || (panel_data.current_selection.id_imagen_personaje==0)">  
                             </div>
                             <div class="ShowDat">
                                 <!-- <input type="text" class="formuControl" placeholder="Nombre"> -->
@@ -280,7 +280,7 @@ if($variable_S == null || $variable_S == '')
                                 {{status.imagen}}
                             </button>
                             <div class="dropdown">                          
-                                <select class="dropdown-sel" v-model="pos" v-if>
+                                <select class="dropdown-sel" v-model="pos">
                                     <option disabled selected value="Posición">Posición</option>
                                     <option>Centro</option>
                                     <option>Izquierda</option>
@@ -288,8 +288,8 @@ if($variable_S == null || $variable_S == '')
                                 </select>
                             </div> 
                             <div class="previewCol">
-                                <img v-if="panel_data.current_selection.imagen_personaje" class = "Prev" :src="personajeprev">
-                                <img v-if="(preview==null) || (personajeprev==null) && (section!='resolucion')" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
+                                <img v-if="panel_data.current_selection.id_imagen_personaje || panel_data.current_selection.imagen_acertijo" class = "Prev" :src="personajeprev">
+                                <img v-if="(preview==null) || (personajeprev==null) && (section!='resolucion') || (panel_data.current_selection.id_imagen_personaje==0)" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
                             </div>
                         </div>
                     </div>

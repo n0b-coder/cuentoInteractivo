@@ -118,8 +118,12 @@ var app = new Vue({
           } else {
             return "acertijo";
           }
-        } else{
-          return this.panel_data.tipo;
+        } else {
+          if(this.section=='pilares'){
+            return "torre";
+          } else{
+            return this.panel_data.tipo;
+          }
         }
       },
       id_img:function(){

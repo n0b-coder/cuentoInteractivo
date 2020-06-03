@@ -24,7 +24,7 @@
   }
   .grad{
     background-color: rgba(0,0,0,0) !important;
-    background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1)) !important;
+    background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.7)20%) !important;
     position: absolute !important;
     height: fit-content !important;
     height: -moz-fit-content !important;
@@ -84,7 +84,6 @@
   }
   .personaje img{
     height: 100% !important;
-    max-width: -webkit-fill-available !important;
   }
   .clasp{
     text-align: right !important;
@@ -547,27 +546,28 @@ input[type=text], select {
 }
 .personaje img{
   height: 100%;
-  max-width: -webkit-fill-available !important;
+  max-width: -webkit-fill-available;
+  max-width: -moz-available;
 }
 /*Personaje posiciones*/
 .left{
   text-align: left !important;
   padding-top: 15%;
-  max-width: 50%;
+  max-width: 100%;
 }
 .left img{
-  object-fit: contain;
-  max-width: 100%;
+  object-fit: cover;
+  max-width: 50%;
 }
 
 .right{
   text-align: right !important;
   padding-top: 15%;
-  max-width: 50%;
+  max-width: 100%;
 }
 .right img{
-  object-fit: contain;
-  max-width: 100%;
+  object-fit: cover;
+  max-width: 50%;
 }
 
 .center{

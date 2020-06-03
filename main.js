@@ -78,8 +78,8 @@ var app = new Vue({
 	estilo:function(){
 		if(this.section=='base'){
 			return this.game_data.historia[this.pilSect][this.pg].pos_personaje;
-		} else if (this.seccion=='finales') {
-			this.game_data.finales[this.counterf][0].pos_personaje;
+		} else if (this.section=='final') {
+			return this.game_data.finales[this.counterf][this.pg].pos_personaje;
 		}
 	},
 	  //
@@ -120,7 +120,7 @@ var app = new Vue({
 		if (this.section=="base"){
 			return this.game_data.historia[this.pilSect][this.pg].imagen_personaje;
 		} else if (this.section=="final"){
-			return this.game_data.finales[this.counterf][0].imagen_personaje;
+			return this.game_data.finales[this.counterf][this.pg].imagen_personaje;
 		}
 
 	},
@@ -244,14 +244,18 @@ var app = new Vue({
 			this.idx=1;
 			this.estado=0;
 		}
+		//Condiciones de los finales
 		if(this.pilSect==this.total){
-			
+			//Final pro
 			if(this.intentos>=Math.round(this.total*3)){
 				this.counterf=3;
 			}
+			//Regular-Pro
 			else if (this.intentos<Math.round(this.total*3) && this.intentos>=Math.round(this.total*3*0.7)){
 				this.counterf=2;
-			} else if (this.intentos<Math.round(this.total*3*0.7)){
+			} 
+			//Regular-malo
+			else if (this.intentos<Math.round(this.total*3*0.7)){
 				this.counterf=1;
 			}
 			this.resetBtn="JUGAR DE NUEVO Y DESCUBRIR MÁS";
@@ -260,5 +264,3 @@ var app = new Vue({
 	}
   }
 });
-
-  //:src="item.imagen"
