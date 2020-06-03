@@ -26,6 +26,11 @@ if($variable_S == null || $variable_S == '')
 <body>
 
     <div class="container-panel" id="panelApp">
+    <transition name="pass-page" v-if="loading">
+		<div class="preloader">
+			<div class="loader"></div>
+		</div>
+	</transition>
          <!-- success -->
          <div v-if="successImg" id="alerts">
             <div class="modal-mask-img">
@@ -85,8 +90,8 @@ if($variable_S == null || $variable_S == '')
                                 <div class="Datos">
                                 <h3 id="clas-Tipo"> Clase: {{panel_data.tipo}}</h3>
 
-                                <h3 id="clas-Secc"> Sección {{panel_data.current_selection.seccion}}</h3>
-                                <h3 id="clas-Pag"> Página  {{panel_data.current_selection.pagina}} </h3>
+                                <h3 id="clas-Tipo"> Sección {{panel_data.current_selection.seccion}}</h3>
+                                <h3 id="clas-Tipo"> Página  {{panel_data.current_selection.pagina}} </h3>
                                 </div>
                                 <i class="icon fas fa-check-circle" style="z-index:900" @click="popUp=false, active=false"></i>      
                                 </div>
@@ -114,7 +119,7 @@ if($variable_S == null || $variable_S == '')
                             </div>                                
                         </template>
                         <div class="add">
-                            <div class="AddBtn galCol">
+                            <div class="AddBtn galCol" v-if="(section!=='resolucion' && active==true || active==false)">
                                 <input type="file" name="ImageToUpload" id="ImageToUpload"
                                 @change="onFileChange" @click="action=2"/>
                             +</div>
@@ -288,7 +293,7 @@ if($variable_S == null || $variable_S == '')
                                 </select>
                             </div> 
                             <div class="previewCol">
-                                <img v-if="panel_data.current_selection.id_imagen_personaje || panel_data.current_selection.imagen_acertijo" class = "Prev" :src="personajeprev">
+                                <img v-if="imag2!==0 || panel_data.current_selection.id_imagen_personaje || panel_data.current_selection.imagen_acertijo" class = "Prev" :src="personajeprev">
                                 <img v-if="(preview==null) || (personajeprev==null) && (section!='resolucion') || (panel_data.current_selection.id_imagen_personaje==0)" class = "Prev" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png">
                             </div>
                         </div>
@@ -302,7 +307,6 @@ if($variable_S == null || $variable_S == '')
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="icons/js/fontawesome.js"></script>
 	<script type="text/javascript" src="icons/js/regular.js"></script>
 	<script type="text/javascript" src="icons/js/solid.js"></script>    

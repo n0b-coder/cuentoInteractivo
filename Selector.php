@@ -89,12 +89,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-infinite-loading@^2/dist/vue-infinite-loading.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
-
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="admin.js"></script>
 
 </body>

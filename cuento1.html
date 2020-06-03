@@ -20,6 +20,11 @@
 
 <div id="app" class="secciones">
 
+	<transition name="pass-page" v-if="loading">
+		<div class="preloader">
+			<div class="loader"></div>
+		</div>
+	</transition>
 	<transition v-if="on">
 		<div class="pages animate__animated animate__fadeIn" v-if="section == 'base'">
 			<div class="bgImg" :style="backs">
@@ -137,8 +142,8 @@
 
 		<div class="pages animate__animated animate__fadeIn" v-if="section == 'reset'">
 			<div class="Main" :style="backs">
-				<div id="Titulo">
-					<h3 id="he3">{{final.reset[counterf]}}</h3>
+				<div id="reseTitle">
+					<h3 id="he3" class="reset-font">{{final.reset[counterf]}}</h3>
 					<div class="BtnReset">
 						<a href="index.html"><h3 id="he2">{{resetBtn}}<h3></a>
 					</div>
@@ -147,6 +152,7 @@
 		</div>
 
 	</transition>
+
 </div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

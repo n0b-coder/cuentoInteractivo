@@ -5,7 +5,10 @@ var panel_data = {
 
 		   }
 		]
-   ]
+   ],
+   "portada":{
+     
+   }
 }
 var gallery = {
   "images":[
@@ -79,11 +82,16 @@ var app = new Vue({
       active:false,
       imag2:0,
       action:0,
-      pos:'Posición'
+      pos:'Posición',
+      //loading
+      loading:true
     },
     created(){
       setGen();
       setImgs();
+    },
+    updated(){
+      this.loading=false;
     },
     computed:{
       photos:function(){

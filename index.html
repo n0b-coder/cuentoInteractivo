@@ -10,21 +10,24 @@
 </head>
 
 <body>
-    <transition enter-active-class="animated fadeIn" leave-active-class="fadeOut">
-		<div class="pages" id="app">
-			<div class="Main" :style="'background-image:url('+game_data.portada.imagen_fondo+')'">
-				<div id="Titulo">
-                    <h1 id="he1">{{game_data.portada.texto}}</h1>
-					<div class="BtnReset">
-						<a href="cuento1.html"><h3 id="he2">Empezar Cuento</h3></a>
-					</div>
-				</div>				
+    
+	<div class="pages" id="app">
+		<transition name="pass-page" v-if="loading">
+			<div class="preloader">
+				<div class="loader"></div>
 			</div>
+		</transition>
+		<div class="Main" :style="'background-image:url('+game_data.portada.imagen_fondo+')'">
+			<div id="Titulo">
+				<h1 id="he1">{{game_data.portada.texto}}</h1>
+				<div class="BtnReset">
+					<a href="cuento1.html"><h3 id="he2">Empezar Cuento</h3></a>
+				</div>
+			</div>				
 		</div>
-	</transition>
+	</div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://kit.fontawesome.com/0d8e639741.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="main.js"></script>
 </body>
 

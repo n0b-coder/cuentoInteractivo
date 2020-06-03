@@ -19,7 +19,7 @@ var game_data = {
 		   }
 		]
 	 ],
-	 "pilares":{
+	 "portada":{
 	 }
 }
 
@@ -52,9 +52,11 @@ var app = new Vue({
 	on:true,
 	interval:null,
 	unableI:false,
-	unableD:false
+	unableD:false,
+	//loading
+	loading:true
   },
-  created(){
+  beforeCreate(){
 	const request = new Request('set.php');
 
 	fetch(request)
@@ -72,6 +74,9 @@ var app = new Vue({
 	  }).catch(error => {
 		console.error(error);
 	  });
+  },
+  updated(){
+	this.loading=false;
   },
   computed: {
 	  //
@@ -232,6 +237,8 @@ var app = new Vue({
 	back: function (){
 		this.section = 'acertijo';
 		this.idx=1;
+		this.unableD=false;
+		this.unableI=false;
 	},
 	again: function (){
 		this.section = 'acertijo';
